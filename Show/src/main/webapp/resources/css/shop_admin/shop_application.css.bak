@@ -1,0 +1,84 @@
+body,html{
+	font-family:"gulim";
+	font-size:12px;
+}
+.shop_application{
+	width:1200px;
+}
+.application{
+	width:600px;
+	background:ededed;
+	height:350px;
+}
+.application_text{
+	width:600px;
+	height:50px;
+	border-bottom:3px solid #3d3d3d;
+	box-sizing:border-box;
+	line-height:50px;
+	font-size:1.5em;
+	font-weight:bold;
+}
+.application_name{
+	overflow:hidden;
+	margin-top:10px;
+}
+.application_left{
+	float:left;
+}
+.left_size{
+	width:100px;
+	height:30px;
+	text-align:center;
+	line-height:30px;
+}
+.name_input{
+	height:30px;
+	width:400px;
+}
+.application_phone {
+	margin-top:5px;
+	overflow:hidden;
+}
+.phone_input{
+	height:30px;
+	width:400px;
+}
+.application_shop_name {
+	margin-top:5px;
+	overflow:hidden;
+}
+.shop_name_input{
+	height:30px;
+	width:400px;
+}
+.application_addr {
+	margin-top:5px;
+	overflow:hidden;
+}
+.addr_input{
+	height:30px;
+	width:400px;
+}
+.application_school {
+	margin-top:5px;
+	overflow:hidden;
+}
+.school_input{
+	height:30px;
+	width:130px;
+	margin-left:5px;
+}
+.application_school>input:nth-child(2){
+	margin:0;
+}
+.application_btn{
+	width:100px;
+	height:30px;
+	text-align:center;
+	line-height:30px;
+	background:#ffa500;
+	color:#fff;
+	margin-top:10px;
+	cursor:pointer;
+}

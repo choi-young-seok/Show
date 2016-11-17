@@ -1,0 +1,87 @@
+
+/*---------------------------------------------------*/
+html,body{
+	font-family:"gulim";
+	font-size:12px;
+}
+.menu_write_box{
+	width:500px;
+	background-color: rgba(250,250,250,10.0);
+}
+.big_text{
+	width:500px;
+	height:50px;
+	line-height:50px;
+	font-size:1.5em;
+	font-weight:bold;
+	border-bottom:3px solid #3d3d3d;
+	box-sizing:border-box;
+}
+.menu_boonryu{
+	overflow:hidden;
+	width:500px;
+	height:30px;
+	border-bottom:1px solid #3d3d3d;
+	box-sizing:border-box;
+}
+.left_cl{
+	float:left;
+}
+.text-size{
+	width:100px;
+	text-align:center;
+	line-height:30px;
+}
+.box-size{
+	width:400px;
+}
+.menu_boonryu > div > select {
+	width:200px;
+	height:20px;
+	margin-top:5px;
+}
+.menu_name{
+	overflow:hidden;
+	width:500px;
+	height:30px;
+	border-bottom:1px solid #3d3d3d;
+	box-sizing:border-box;
+}
+.menu_name > div > input {
+	width:400px;
+	height:20px;
+	margin-top:5px;
+}
+.menu_pay{
+	overflow:hidden;
+	width:500px;
+	height:30px;
+	border-bottom:1px solid #3d3d3d;
+	box-sizing:border-box;
+}
+.menu_pay > div > input {
+	width:400px;
+	height:20px;
+	margin-top:5px;
+}
+.menu_write_btn_a{
+	overflow:hidden;
+	width:500px;
+}
+.menu_write_btn_a > div{
+	float:left;
+	width:100px;
+	height:30px;
+	text-align:center;
+	line-height:30px;
+	background:#3d3d3d;
+	color:#fff;
+	margin-top:10px;
+	cursor:pointer;
+}
+.close_btn{
+	margin-left:10px;
+}
+.menu_keep_btn{
+	margin-left:290px;
+}

@@ -1,0 +1,118 @@
+body,html{
+	font-family:"gulim";
+}
+header{
+	width:1200px;
+}
+.header_logo{
+	width:1200px;
+	height:50px;
+	line-height:50px;
+	overflow:hidden;
+	background-image:url('../image/top_bg.jpg');
+}
+.logo_left{
+	float:left;
+}
+.header_logo > p{
+	font-size:2em;
+	font-weight:bold;
+	margin-top:10px;
+	color:#FFA07A;
+	margin-left:5px;
+}
+.header_logo > img{
+	margin-top:3px;
+	margin-left:10px;
+}
+.header_box{
+	width:1200px;
+	height:50px;
+	border-bottom:3px solid #ffa500;
+	box-sizing:border-box;
+	overflow:hidden;
+}
+.header_box > div{
+	float:left;
+	width:300px;
+	height:47px;
+	text-align:center;
+	line-height:47px;
+	font-weight:bold;
+	font-size:12px;
+	background:#696969;
+	color:#fff;
+	border-right:1px solid #fff;
+	box-sizing:border-box;
+	cursor:pointer;
+}
+.header_box > div:nth-child(4){
+	border:0;
+}
+.main{
+	width:1200px;
+	height:500px;
+	position:relative;
+}
+.login_box{
+	width:500px;
+	height:300px;
+	border:1px solid #ffa500;
+	position:absolute;
+	top:100px;
+	left:350px;
+}
+.login_box > p{
+	font-size:1.5em;
+	font-weight:bold;
+	font-family:"arial";
+	color:#ffa500;
+	margin-top:5px;
+	margin-lefT:5px;
+}
+.login_table{
+	width:400px;
+	height:80px;
+	margin-top:30px;
+	overflow:hidden;
+	margin-top:80px;
+}
+.login_text_box,login_btn{
+	float:left;
+}
+.login_text_box{
+	 width:300px;
+	 margin-left:7px;
+}
+.id_box{
+	width:300px;
+	height:35px;
+	border:solid 1px #808080;
+	box-sizing:border-box;
+	color:#696969;
+	font-size:12px;
+	font-family:"dotum";
+}
+.password_box{
+	width:300px;
+	height:35px;
+	margin-top:10px;
+	border:solid 1px #808080;
+	box-sizing:border-box;
+	color:#696969;
+	font-size:12px;
+	font-family:"dotum";
+}
+.login_btn{
+	width:85px;
+	height:80px;
+	background:#ffa500;
+	color:#fff;
+	font-family:"dotum";
+	font-size:1em;
+	font-weight:bold;
+	text-align:center;
+	line-height:80px;
+	cursor:pointer;
+	margin-left:310px;
+}

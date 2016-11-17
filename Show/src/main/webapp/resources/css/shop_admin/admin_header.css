@@ -1,0 +1,51 @@
+body,html{
+	font-family:"gulim";
+}
+header{
+	width:1200px;
+}
+.header_logo{
+	width:1200px;
+	height:50px;
+	line-height:50px;
+	overflow:hidden;
+	background-image:url('../image/top_bg.jpg');
+}
+.logo_left{
+	float:left;
+}
+.header_logo > p{
+	font-size:2em;
+	font-weight:bold;
+	margin-top:10px;
+	color:#FFA07A;
+	margin-left:5px;
+}
+.header_logo > img{
+	margin-top:3px;
+	margin-left:10px;
+}
+.header_box{
+	width:1200px;
+	height:50px;
+	border-bottom:3px solid #ffa500;
+	box-sizing:border-box;
+	overflow:hidden;
+}
+.header_box > div{
+	float:left;
+	width:300px;
+	height:47px;
+	text-align:center;
+	line-height:47px;
+	font-weight:bold;
+	font-size:12px;
+	background:#696969;
+	color:#fff;
+	border-right:1px solid #fff;
+	box-sizing:border-box;
+	cursor:pointer;
+}
+.header_box > div:nth-child(4){
+	border:0;
+}

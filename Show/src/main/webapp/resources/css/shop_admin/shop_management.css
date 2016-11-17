@@ -1,0 +1,136 @@
+html,body{
+	font-family:"gulim";
+	font-size:12px;
+}
+.management{
+	width:1200px;
+}
+.shop_management_text{
+	width:1200px;
+	height:30px;
+	line-height:30px;
+	border-top:1px solid #696969;
+	border-bottom:1px solid #696969;
+	box-sizing:border-box;
+}
+.shop_management_text > ul{
+	overflow:hidden;
+}
+.shop_management_text > ul > li{
+	float:left;
+	text-align:center;
+	border-right:1px solid #ededed;
+	box-sizing:border-box;
+}
+.shop_management_text > ul > li:nth-child(1){
+	width:50px;
+}
+.shop_management_text > ul > li:nth-child(2){
+	width:300px;
+}
+.shop_management_text > ul > li:nth-child(3){
+	width:100px;
+}
+.shop_management_text > ul > li:nth-child(4){
+	width:350px;
+}
+.shop_management_text > ul > li:nth-child(5){
+	width:200px;
+}
+.shop_management_text > ul > li:nth-child(6){
+	width:100px;
+}
+.shop_management_text > ul > li:nth-child(7){
+	width:100px;
+	border:0;
+}
+/*shop정보*/
+.shop_management_show{
+	width:1200px;
+	overflow:hidden;
+	border-bottom:1px solid #696969;
+	box-sizing:border-box;
+	height:100px;
+}
+.management_show{
+	float:left;
+	border-right:1px solid #ededed;
+	box-sizing:border-box;
+	height:100px;
+}
+.choice{
+	width:50px;
+}
+.image{
+	width:300px;
+}
+.shop_name{
+	width:100px;
+	text-align:center;
+	line-height:100px;
+}
+.shop_addr{
+	width:350px;
+	text-align:center;
+	line-height:100px;
+}
+.shop_num{
+	width:200px;
+	text-align:center;
+	line-height:100px;
+}
+.shop_yes{
+	width:100px;
+	text-align:center;
+	line-height:100px;
+}
+.shop_show{
+	width:100px;
+	border:0;
+}
+.choice > input{
+	margin-top:40px;
+	margin-left:17px;
+}
+.image > img{
+	width:150px;
+	height:90px;
+	margin-left:75px;
+	margin-top:5px;
+}
+.shop_show > input{
+	width:80px;
+	height:20px;
+	font-size:12px;
+	margin-top:40px;
+	margin-left:10px;
+}
+.management_btn{
+	width:1200px;
+	overflow:hidden;
+}
+.management_btn > div{
+	float:left;
+}
+.shop_addition_btn{
+	width:100px;
+	height:30px;
+	text-align:center;
+	line-height:30px;
+	cursor:pointer;
+	background:#3d3d3d;
+	color:#fff;
+	margin-left:990px;
+	margin-top:10px;
+}
+.shop_delete_btn{
+	width:100px;
+	height:30px;
+	text-align:center;
+	line-height:30px;
+	cursor:pointer;
+	background:#3d3d3d;
+	color:#fff;
+	margin-left:10px;
+	margin-top:10px;
+}
