@@ -1,0 +1,43 @@
+header{
+	width:1024px;
+	height:80px;
+	border-bottom:3px solid orange;
+	box-sizing:border-box;
+	overflow:hidden;
+	line-height:80px;
+	background-image:url('../image/top_bg.jpg');
+}
+.main_logo{
+	width:300px;
+	height:70px;
+	margin-left:30px;
+}
+.main_logo > a > img{
+	width:200px;
+	margin-top:25px;
+}
+.main_logo , nav{
+	float:left;
+}
+
+.nav_menu {
+	overflow:hidden;
+}
+.nav_menu > li{
+	float:left;
+	font-size:12px;
+	margin-left:10px;
+}
+.nav_menu > li:nth-child(1){
+	margin-left:420px;
+}
+.nav_menu > li > a{
+	color:#000;
+	font-family:'dotum';
+}
+.nav_menu > li:nth-child(3) > a{
+	color:gray;
+}
+.nav_menu > li:nth-child(4) > a{
+	color:gray;
+}

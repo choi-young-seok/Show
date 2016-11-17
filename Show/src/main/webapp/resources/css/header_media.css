@@ -1,0 +1,23 @@
+@media screen and (max-width:400px){
+	#wrap{
+		width:400px;
+	}
+	header{
+		width:400px;
+		height:160px;
+	}
+	.main_logo,nav{
+		float:none;
+	}
+	.main_logo{
+		width:400px;
+		text-align:center;
+		margin:0;
+	}
+	.nav_menu > li > a {
+		font-weight:bold;
+	}
+	.nav_menu > li:nth-child(1){
+		margin-left:80px;
+	}
+}

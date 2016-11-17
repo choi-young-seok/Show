@@ -1,0 +1,37 @@
+@media screen and (max-width:600px){
+	#wrap{
+		width:400px;
+	}
+	.main_center{
+		width:400px;
+	}
+	.center_text{
+		display:none;
+	}
+	.search{
+		width:400px;
+		margin-top:10px;
+	}
+	.search_text{
+		margin-left:25px;
+	}
+	.search_text , .search_btn , .detaile_search_btn{
+		float:left;
+		margin-top:0px;
+	}
+	.detaile_search_btn{
+		margin-left:25px;
+		width:330px;
+		margin-top:5px;
+	}
+	.detaile_search_view{
+		margin-left:0px;
+		width:330px;
+		overflow:hidden;
+		left:25px;
+		top:240px;
+	}
+	.map_text{
+		margin-left:10px;
+	}
+}

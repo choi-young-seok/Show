@@ -1,0 +1,115 @@
+.main_center{
+	width:1024px;
+	position:relative;
+}
+.cneter_text{
+	width:1024px;
+	overflow:hidden;
+}
+.center_text > p{
+	font-size:2.5em;
+	float:left;
+	margin-top:50px;
+	font-family:'dotum' serif;
+	text-shadow:3px 3px 3px rgba(0,0,0,0.5);
+}
+.center_text > p:nth-child(1){
+	margin-left:220px;
+}
+.center_text > p:nth-child(2){
+	margin-left:10px;
+	color:red;
+}
+.center_text > p:nth-child(4){
+	margin-left:10px;
+	color:orange;
+}
+.search{
+	width:1024px;
+	overflow:hidden;
+}
+.search_text{
+	width:250px;
+	height:30px;
+	border:1px solid gray;
+	box-sizing:border-box;
+	margin-left:297px;
+}
+.search_btn{
+	width:80px;
+	height:30px;
+	display:block;
+	color:#fff;
+	background:gray;
+	text-align:center;
+	line-height:30px;
+	cursor:pointer;
+	font-family:'dotum';
+}
+.detaile_search_btn{
+	width:100px;
+	height:30px;
+	display:block;
+	color:#fff;
+	background:orange;
+	text-align:center;
+	line-height:30px;
+	cursor:pointer;
+	font-family:'dotum';
+}
+.search_text , .search_btn , .detaile_search_btn{
+	float:left;
+	margin-top:20px;
+	font-size:12px;
+}
+
+/*상세검색*/
+.detaile_search_view{
+	width:430px;
+	margin-left:297px;
+	position:absolute;
+	/*left:297px;*/
+	top:230px;
+	height:50px;
+	border:1px solid gray;
+	box-sizing:border-box;
+	overflow:hidden;
+	line-height:50px;
+	font-size:15px;
+	display:none;
+}
+.detaile{
+	float:left;
+}
+.choice{
+	margin-top:15px;
+	width:100px;
+	height:20px;
+}
+.choice > option{
+	font-family:'dotum';
+	font-size:12px;
+}
+.map_text{
+	margin-left:30px;
+	font-family:'dotum';
+	font-size:12px;
+}
+.university_text{
+	margin-left:30px;
+	font-family:'dotum';
+	font-size:12px;
+}
+.detaile_btn{
+	display:block;
+	margin-top:15px;
+	margin-left:10px;
+	width:50px;
+	height:20px;
+	font-size:12px;
+	color:#fff;
+	text-align:center;
+	line-height:20px;
+	background:orange;
+	cursor:pointer;
+}
