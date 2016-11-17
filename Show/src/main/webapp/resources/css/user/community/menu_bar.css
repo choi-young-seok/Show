@@ -1,0 +1,86 @@
+.community_bar{
+	width:800px;
+	overflow:hidden;
+}
+.menu_bar{
+	float:left;
+	width:200px;
+}
+.menu_bar > div {
+	width:200px
+	border-left:1px solid #ededed;
+	border-right:1px solid #ededed;
+	box-sizing:border-box;
+}
+.service{
+	width:198px;
+	height:50px;
+	text-align:center;
+	line-height:50px;
+	background:#696969;
+	font-family:"dotum";
+	font-size:1em;
+	font-weight:bold;
+	color:#fff;
+	cursor:pointer;
+}
+.event{
+	width:198px;
+	height:50px;
+	text-align:center;
+	line-height:50px;
+	background:#ededed;
+	font-family:"dotum";
+	font-size:1em;
+	font-weight:bold;
+	color:#000;
+	cursor:pointer;
+}
+.qna{
+	width:198px;
+	height:50px;
+	text-align:center;
+	line-height:50px;
+	background:#ededed;
+	font-family:"dotum";
+	font-size:1em;
+	font-weight:bold;
+	color:#000;
+	cursor:pointer;
+}
+.call{
+	width:198px;
+	height:50px;
+	text-align:center;
+	line-height:50px;
+	background:#ededed;
+	font-family:"dotum";
+	font-size:1em;
+	font-weight:bold;
+	color:#000;
+	cursor:pointer;
+}
+.menu_bottom1{
+	width:198px;
+	height:5px;
+	background:#000;
+	margin-top:1px;
+}
+.menu_bottom2{
+	width:198px;
+	height:5px;
+	background:#fff;
+	margin-top:1px;
+}
+.menu_bottom3{
+	width:198px;
+	height:5px;
+	background:#fff;
+	margin-top:1px;
+}
+.menu_bottom4{
+	width:198px;
+	height:5px;
+	background:#fff;
+	margin-top:1px;
+}

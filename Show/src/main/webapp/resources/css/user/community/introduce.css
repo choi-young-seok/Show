@@ -1,0 +1,144 @@
+body,html{
+	font-family:"dotum";
+}
+.introduce{
+	width:800px;
+}
+.intro_text{
+	width:800px;
+	height:40px;
+	border-bottom:2px solid #696969;
+	box-sizing:border-box;
+	font-size:1.5em;
+	font-weight:bold;
+	line-height:40px;
+}
+.onshow_box{
+	overflow:hidden;
+	margin-top:50px;
+	box-shadow:5px 5px 5px rgba(0,0,0,0.5);
+	border:1px solid #ededed;
+	box-sizing:border-box;
+}
+.onshow{
+	float:left;
+}
+.onshow_img{
+	width:300px;
+	height:150px;
+	text-align:center;
+}
+.onshow_img > img{
+	margin-top:50px;
+	margin-left:10px;
+}
+.onshow_text{
+	width:400px;
+	height:150px;
+	font-size:15px;
+	font-weight:bold;
+}
+.onshow_text > p:first-child{
+	margin-top:55px;
+	margin-bottom:5px;
+}
+.onshow_text > p{
+	margin-left:50px;
+	color:#696969;
+}
+/*=============================================*/
+.shop_box{
+	overflow:hidden;
+	margin-top:30px;
+	box-shadow:5px 5px 5px rgba(0,0,0,0.5);
+	border:1px solid #ededed;
+	box-sizing:border-box;
+}
+.shop{
+	float:left;
+}
+.shop_img{
+	width:300px;
+	height:150px;
+	text-align:center;
+}
+.shop_img > img{
+	width:130px;
+	margin-left:10px;
+	margin-top:10px;
+}
+.shop_text{
+	width:400px;
+	height:150px;
+	font-size:15px;
+	font-weight:bold;
+}
+.shop_text > p{
+	margin-left:50px;
+	color:#696969;
+	margin-top:65px;
+}
+/*==============================================*/
+.pay_box{
+	overflow:hidden;
+	margin-top:30px;
+	box-shadow:5px 5px 5px rgba(0,0,0,0.5);
+	border:1px solid #ededed;
+	box-sizing:border-box;
+}
+.pay{
+	float:left;
+}
+.pay_img{
+	width:300px;
+	height:150px;
+	text-align:center;
+}
+.pay_img > img{
+	width:130px;
+	margin-left:10px;
+	margin-top:10px;
+}
+.pay_text{
+	width:400px;
+	height:150px;
+	font-size:15px;
+	font-weight:bold;
+}
+.pay_text > p{
+	margin-left:50px;
+	color:#696969;
+	margin-top:65px;
+}
+/*==================================================*/
+.give_box{
+	overflow:hidden;
+	margin-top:30px;
+	box-shadow:5px 5px 5px rgba(0,0,0,0.5);
+	border:1px solid #ededed;
+	box-sizing:border-box;
+}
+.give{
+	float:left;
+}
+.give_img{
+	width:300px;
+	height:150px;
+	text-align:center;
+}
+.give_img > img{
+	width:130px;
+	margin-left:10px;
+	margin-top:10px;
+}
+.give_text{
+	width:400px;
+	height:150px;
+	font-size:15px;
+	font-weight:bold;
+}
+.give_text > p{
+	margin-left:50px;
+	color:#696969;
+	margin-top:65px;
+}

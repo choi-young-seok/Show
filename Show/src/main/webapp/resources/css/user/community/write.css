@@ -1,0 +1,233 @@
+.write_box{
+	width:800px;
+}
+.name{
+	overflow:hidden;
+	width:700px;
+	height:40px;
+	box-sizing:border-box;
+	line-height:40px;
+	margin-bottom:5px;
+}
+.name > div,input{
+	float:left;
+}
+.name_text{
+	width:100px;
+	font-size:15px;
+	font-family:"dotum";
+	font-weight:bold;
+}
+.name_box{
+	width:600px;
+	height:40px;
+	border:1px solid #ededed;
+	box-sizing:border-box;
+	font-size:15px;
+	font-family:"dotum";
+}
+.phone{
+	overflow:hidden;
+	width:700px;
+	height:40px;
+	box-sizing:border-box;
+	line-height:40px;
+	margin-bottom:5px;
+}
+.phone > div,input{
+	float:left;
+}
+.phone_text{
+	width:100px;
+	font-size:15px;
+	font-family:"dotum";
+	font-weight:bold;
+}
+.phone_box{
+	width:600px;
+	height:40px;
+	border:1px solid #ededed;
+	box-sizing:border-box;
+	font-size:15px;
+	font-family:"dotum";
+}
+
+.qna_type{
+	overflow:hidden;
+	width:700px;
+	height:40px;
+	box-sizing:border-box;
+	line-height:40px;
+	margin-bottom:5px;
+}
+.qna_type > div,select{
+	float:left;
+}
+.qna_type_text{
+	width:100px;
+	font-size:15px;
+	font-family:"dotum";
+	font-weight:bold;
+}
+.qna_type_box{
+	width:600px;
+	height:40px;
+	border:1px solid #ededed;
+	box-sizing:border-box;
+	font-size:15px;
+	font-family:"dotum";
+}
+
+.title{
+	overflow:hidden;
+	width:700px;
+	height:40px;
+	box-sizing:border-box;
+	line-height:40px;
+	margin-bottom:5px;
+}
+.title > div,input{
+	float:left;
+}
+.title_text{
+	width:100px;
+	font-size:15px;
+	font-family:"dotum";
+	font-weight:bold;
+}
+.title_box{
+	width:600px;
+	height:40px;
+	border:1px solid #ededed;
+	box-sizing:border-box;
+	font-size:15px;
+	font-family:"dotum";
+}
+
+.contents{
+	overflow:hidden;
+	width:700px;
+	height:100px;
+	box-sizing:border-box;
+	line-height:40px;
+	margin-bottom:5px;
+}
+.contents > div,input{
+	float:left;
+}
+.contents_text{
+	width:100px;
+	font-size:15px;
+	font-family:"dotum";
+	font-weight:bold;
+}
+.contents_box{
+	width:600px;
+	height:100px;
+	border:1px solid #ededed;
+	box-sizing:border-box;
+	font-size:15px;
+	font-family:"dotum";
+}
+
+.file_on{
+	overflow:hidden;
+	width:700px;
+	height:40px;
+	box-sizing:border-box;
+	line-height:40px;
+	margin-bottom:5px;
+}
+.file_on > div,input{
+	float:left;
+}
+.file_on_text{
+	width:100px;
+	font-size:15px;
+	font-family:"dotum";
+	font-weight:bold;
+}
+.file_on_box{
+	width:600px;
+	height:40px;
+	border:1px solid #ededed;
+	box-sizing:border-box;
+	font-size:15px;
+	font-family:"dotum";
+	background:#fff;
+}
+.file_text{
+	font-size:12px;
+	font-family:"dotum";
+	color:#a9a9a9;
+	margin-left:150px;
+	margin-bottom:5px;
+}
+
+.password{
+	overflow:hidden;
+	width:700px;
+	height:40px;
+	box-sizing:border-box;
+	line-height:40px;
+	margin-bottom:5px;
+}
+.password > div,input{
+	float:left;
+}
+.password_text{
+	width:100px;
+	font-size:15px;
+	font-family:"dotum";
+	font-weight:bold;
+}
+.password_box{
+	width:600px;
+	height:40px;
+	border:1px solid #ededed;
+	box-sizing:border-box;
+	font-size:15px;
+	font-family:"dotum";
+}
+
+.check{
+	overflow:hidden;
+	width:700px;
+	height:40px;
+	box-sizing:border-box;
+	line-height:40px;
+	margin-bottom:5px;
+}
+.check > div,input{
+	float:left;
+}
+.check_text{
+	width:100px;
+	font-size:15px;
+	font-family:"dotum";
+	font-weight:bold;
+}
+.check_label{
+	height:40px;
+	line-height:40px;
+	font-size:15px;
+	font-family:"dotum";
+	font-weight:bold;
+	color:#696969;
+}
+.check_label > input{
+	margin-top:13.5px;
+	margin-right:10px;
+}
+.write_btn{
+	width:700px;
+	height:40px;
+	background:#696969;
+	color:#fff;
+	font-size:1em;
+	font-family:"dotum";
+	font-weight:bold;
+	text-align:center;
+	line-height:40px;
+	cursor:pointer;
+}
