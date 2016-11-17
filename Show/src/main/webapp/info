@@ -27,10 +27,14 @@ Development Environment
   - cos.jar
   
  7. Sub Development tools
- - eXERD : DB
- - JUnit : 4.12
- - Maven : 1.2.1
+ - eXERD : ER-diagram
+ - DB develop : oracle sql developer
+ - JUnit : 4.12 / Testing
+ - Maven : 1.2.1 / 
  
  8. Run Enviroment
  - Chrome
  - IE9 ~
+ 
+ 9.Collaboration Tool
+  - GitHub
