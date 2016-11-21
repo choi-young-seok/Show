@@ -1,0 +1,45 @@
+@media screen and (max-width:400px){
+	#wrap{
+		width:400px;
+	}
+	.join_bg{
+		width:400px;
+	}
+	#membership_box{
+		width:380px;
+		height:900px;
+	}
+	#membership{
+		width:370px;
+		margin-left:5px;
+	}
+	#membership > div:nth-child(1){
+		width:370px;
+	}
+	.size1{
+		width:270px;
+	}
+	.size2{
+		width:370px;
+	}
+	.size3{
+		width:270px;
+	}
+	.check_box{
+		margin-left:0;
+		font-size:12px;
+		width:100px;
+	}
+	.member_box{
+		width:380px;
+	}
+	.join_btn{
+		width:370px;
+	}
+	.check{
+		float:none;
+	}
+	.sms_check{
+		margin-top:100px;
+	}
+}

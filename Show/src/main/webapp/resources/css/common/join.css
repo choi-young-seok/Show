@@ -1,0 +1,153 @@
+body,html{
+	font-family:"dotum";
+	background:#ededed;
+}
+.join_bg{
+	width:1024px;
+	height:100%;
+}
+.none_box{
+	height:50px;
+}
+#membership_box{
+	width:900px;
+	height:840px; 
+	background:#fff;
+	border:2px solid #ffa500;
+	box-sizing:border-box;
+}
+#membership {
+	width:800px; 
+	margin-left:50px;
+}
+#membership > div:nth-child(1) {
+	width:900px; 
+	height:50px; 
+	font-size:1.5em; 
+	font-weight:900; 
+	text-align:left;
+	line-height:50px;	
+}
+#membership > hr {
+	border:1px solid #000;
+}
+#hp_box_1{
+	 width:120px;
+	 height:35px;
+}
+#hp_box_2{
+	width:120px; 
+	height:35px;
+}
+#hp_box_3{
+	width:120px; 
+	height:35px; 
+}
+#id_box_1{
+	width:240px; 
+	height:35px; 
+}
+#id_box_2{
+	width:240px; 
+	height:35px; 
+}
+label {
+	font-weight:bold;
+}
+.size1 {
+	width:660px; 
+	height:35px; 
+	float:left;
+}
+.size2 {
+	width:800px; 
+	height:35px; 
+}
+.size3 {
+	width:660px; 
+	height:35px;
+	float:left;
+}
+.size4 {
+	margin-top:10px;
+}
+
+.check_box {
+	width:230px; 
+	height:35px; 
+	border:1px solid gray;
+	box-sizing:border-box;
+	background-color:gray;
+	text-align:center;
+	line-height:35px;
+	cursor:pointer;
+	font-size:13px;
+	font-weight:bold;
+	color:#fff;
+	float:right;
+	margin-left:10px;
+}
+.member_box {
+	width:800px; 
+	height:70px;
+	clear:both;
+}
+.size_box {
+	height:115px;
+}
+.check {
+	float:left;
+	margin-left:25px;
+	margin-top:10px;
+}
+.check > label > a {
+	font-size:11px; 
+	color:silver;
+}
+.join_btn {
+	width:800px; height:60px; 
+	background-color:#333333; 
+	margin-top:40px; margin-bottom:40px;
+	text-align:center;
+	line-height:60px;
+	font-size:21px;
+	font-weight:bold;
+	color:#fff;
+	cursor:pointer;
+}
+.box_text{
+	font-size:12px;
+	color:#696969;
+}
+.big_text{
+	font-size:0.9em;
+	color:#696969;
+}
+.check_text{
+	font-size:13px;
+	color:#696969;
+}
+.sms_check{
+	overflow:hidden;
+}
+.check2 {
+	float:left;
+	margin-left:25px;
+	margin-top:10px;
+}
+.check_text2{
+	font-size:13px;
+	color:#696969;
+}
+.year{
+	 width:100px;
+	 height:35px;
+}
+.month{
+	 width:100px;
+	 height:35px;
+}
+.day{
+	 width:100px;
+	 height:35px;
+}
