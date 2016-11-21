@@ -1,0 +1,108 @@
+body{
+	background:#ededed;
+}
+.login_logo{
+	width:390px;
+	margin-top:15px;
+}
+
+.login_box{
+	width:390px;
+	overflow:hidden;
+	margin-top:20px;
+}
+
+.login_text_box , .login_btn{
+	float:left;
+}
+
+.login_text_box{
+	 width:300px;
+	 height:80px;
+}
+.login_btn{
+	width:85px;
+	height:80px;
+	background:#696969;
+	color:#fff;
+	font-family:"dotum";
+	font-size:1em;
+	font-weight:bold;
+	text-align:center;
+	line-height:80px;
+	cursor:pointer;
+	margin-left:5px;
+}
+.id_box{
+	width:300px;
+	height:35px;
+	border:solid 1px #ededed;
+	box-sizing:border-box;
+	color:#696969;
+	font-size:12px;
+	font-family:"dotum";
+}
+.password_box{
+	width:300px;
+	height:35px;
+	margin-top:10px;
+	border:solid 1px #ededed;
+	box-sizing:border-box;
+	color:#696969;
+	font-size:12px;
+	font-family:"dotum";
+}
+/*check_box ¿µ¿ª*/
+.login_checkbox{
+	width:390px;
+	overflow:hidden;
+}
+.login_checkbox > input , p{
+	float:left;
+	margin-top:5px;
+}
+.login_checkbox >p{	
+	font-size:12px;
+	font-family:"dotum";
+	font-weight:bold;
+}
+.login_checkbox > p:nth-child(2){
+	margin-left:5px;
+	margin-top:6px;
+	border-right:2px solid #696969;
+	box-sizing:border-box;
+	width:90px;
+}
+.login_checkbox > p:nth-child(3){
+	margin-left:20px;
+	color:#696969;
+	cursor:pointer;
+	margin-top:6px;
+}
+.join_btn{
+	width:390px;
+	height:40px;
+	background:#696969;
+	color:#fff;
+	font-size:0.9em;
+	font-family:"dotum";
+	font-weight:bold;
+	text-align:center;
+	line-height:40px;
+	cursor:pointer;
+	margin-top:10px;
+}
+.none_box{
+	height:100px;
+}
+.login_big_box{
+	border:2px solid #ffa500;
+	box-sizing:border-box;
+	width:420px;
+	height:250px;
+	background:#fff;
+}
+.login_page{
+	width:1024px;
+	height:600px;
+}

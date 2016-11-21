@@ -1,0 +1,8 @@
+footer{
+	width:1024px;
+	height:100px;
+	border-top:3px solid #ffa500;
+	box-sizing:border-box;
+	text-align:center;
+	line-height:100px;
+}

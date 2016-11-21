@@ -1,114 +1,132 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
 
-<HEAD>
+<!DOCTYPE HTML>
+<HTML LANG="KO">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<link href="css/style.css" rel="stylesheet" type="text/css" />
-<link href="css/admin_header.css" rel="stylesheet" type="text/css" />
-<link href="css/admin_footer.css" rel="stylesheet" type="text/css" />
-<link href="css/admin_login.css" rel="stylesheet" type="text/css" />
-<!--JQUERY 영역-->
-<script src="js/jquery-3.0.0.js"></script>
+<HEAD>
+<!--css 링크 영역-->
+<link href="resources/css/style.css" rel="stylesheet" type="text/css" />
+<link href="resources/css/header.css" rel="stylesheet" type="text/css" />
+<link href="resources/css/header_media.css" rel="stylesheet" type="text/css" />
+<link href="resources/css/search.css" rel="stylesheet" type="text/css" />
+<link href="resources/css/search_media.css" rel="stylesheet" type="text/css" />
+<link href="resources/css/section.css" rel="stylesheet" type="text/css" />
+<link href="resources/css/section_media.css" rel="stylesheet" type="text/css" />
+<link href="resources/css/footer.css" rel="stylesheet" type="text/css" />
+<link href="resources/css/footer_media.css" rel="stylesheet" type="text/css" />
+<!-- <link href="buy/css/buy_search_test.css" rel="stylesheet" type="text/css" /> -->
+<!--css 링크 영역-->
+
+<!--스크립트 영역-->
+<!--<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>-->
+<script src="resources/js/common/jquery-3.0.0.js"></script>
 <script>
 	$(document).ready(function(){
-		$(".qna").click(function(){
-			$(".qna").css({"background":"#ffa500"});
-			$(".gong").css({"background":"#696969"});
-			$(".member").css({"background":"#696969"});
-			$(".shop").css({"background":"#696969"});
+		$(".detaile_search_view").hide();
+		$(".detaile_search_btn").click(function(){
+			$(".detaile_search_view").fadeToggle();
 		});
-		$(".gong").click(function(){
-			$(".gong").css({"background":"#ffa500"});
-			$(".qna").css({"background":"#696969"});
-			$(".member").css({"background":"#696969"});
-			$(".shop").css({"background":"#696969"});
-		});
-		$(".member").click(function(){
-			$(".member").css({"background":"#ffa500"});
-			$(".gong").css({"background":"#696969"});
-			$(".qna").css({"background":"#696969"});
-			$(".shop").css({"background":"#696969"});
-		});
-		$(".shop").click(function(){
-			$(".shop").css({"background":"#ffa500"});
-			$(".gong").css({"background":"#696969"});
-			$(".member").css({"background":"#696969"});
-			$(".qna").css({"background":"#696969"});
+		//alert 창 if문으로 검색값 넣어줘
+		$(".search_btn").click(function(){
+			alert("대학교 이름을 입력해 주세요");
 		});
 	});
-function Login(){
-	
-   //var frm  = document.getElementById("Account_form");
-   var email   = $(".id_box").val();
-	var password   = $(".password_box").val();
-
-if(!email){
-	alert("이메일을 입력해주세요.");
-   return;
-}else if(!password){
-	alert("비밀번호를 입력해주세요.");
-   return;
-}
-
-      Login_AX(email,password);   
-
-}
-function Login_AX(email,password){
-
-		
-	//var barth = year+"-"+month+"-"+day;
-
-		$.ajax({
-                    url:'admin_login_process.php',	
-                    type:'POST',
-                    data:{"email" : email, "password" : password},
-                    success:function(result){
-          					if(result == "OK"){
-								alert('로그인되었습니다..');
-							location.replace('index.php');
-								}else if(result != "OK"){
-								alert(result);
-									
-							return;
-								}
-
-                   			 }
-                });
-
-
-}
-
 </script>
-<TITLE> ON SHOW 관리자 페이지 </TITLE>
+<!--스크립트 영역-->
+<TITLE> ON SHOW </TITLE>
 </HEAD>
 <BODY>
 	<div id="wrap">
 		<header>
-			<div class="header_logo">
-				<img src="image/logo.png" class="logo_left"/>
-				<p class="logo_left">관리자 페이지</p>
+			<div class="main_logo">
+				<a href="/show">
+					<img src="resources/image/logo.png"/>
+				</a>
 			</div>
-			<div class="header_box">
-				<div class="qna">문의관리</div>
-				<div class="gong">공지사항</div>
-				<div class="member">회원관리</div>
-				<div class="shop">매장관리</div>
-			</div>
+			<nav>
+				<ul class="nav_menu">
+					<li><a href="community/introduce.html">서비스안내</a></li>
+					<li><a href="community/qna_board.html">고객센터</a></li>
+					<% if(session.getAttribute("email")==null){ %>
+					<li><a href="sign/login">로그인</a></li>
+					<% } else { %>
+					<li><a href="sign/logout">로그아웃</a></li>
+					<% } %>
+					<li><a href="sign/up">회원가입</a></li>
+				</ul>
+			</nav>
 		</header>
-		<div class="main">
-			<div class="login_box">
-				<p>LOGIN</p>
-				<div class="login_table">
-					<div class="login_text_box">
-						<input type="text" placeholder="&nbsp;&nbsp;아이디를 입력해 주세요." class="id_box"/>
-						<input type="password" class="password_box" placeholder="&nbsp;&nbsp;비밀번호"/>
-					</div>
-					<div class="login_btn" onclick="Login();">로그인</div>
-				</div>
+		<div class="mian_center">
+			<div class="center_text">
+				<p>"테이크아웃</p>
+				<p>예약</p>
+				<p>하고</p>
+				<p>시간</p>
+				<p>벌자"</p>
 			</div>
+		<!--search 영역-->
+			<div class="search">
+				<input class="search_text" type="text" name="search_text"/>
+				<span class="search_btn" name="search_btn">검색</span>
+				<span class="detaile_search_btn" name="detaile_search_btn">상세검색</span>
+			</div>
+			<!--상세검색-->
+			<div class="detaile_search_view">
+				<p class="detaile map_text">지역&nbsp;&nbsp;</p>
+				<select name="map" class="map detaile choice">
+					<option>선택</option>
+					<option>서울</option><!--for문으로 지역 db값-->			
+				</select>
+				<p class="detaile university_text">대학교&nbsp;&nbsp;</p>
+				<select name="university" class="university detaile choice">
+					<option>선택</option>
+					<option>호서대</option><!--for문으로 학교 db값-->
+				</select>
+				<span class="detaile detaile_btn">검색</span>
+			</div>
+			<!--상세검색-->
+		<!--search 영역-->
 		</div>
+		<section>
+			<div class="info_img">
+				<div class="info_text">
+					<p>ON SHOW 사용법</p>
+				</div>
+				<article>
+					<div class="chapter_1 img_box">
+						<img src="resources/image/school_search.png"/>
+						<p>학교 검색 하기</p>
+					</div>
+					<div class="chapter_2 img_box">
+						<img src="resources/image/buy_order.png"/>
+						<p>메뉴 선택 및 예약</p>
+					</div>
+					<div class="chapter_3 img_box">
+						<img src="resources/image/give.png"/>
+						<p>바로 받기</p>
+					</div>
+				</article>
+				<aside>
+					<div class="event_board main_board">
+						<span>&nbsp;&nbsp;공지사항</span>
+						<!--밑에 list 테크 디비로 불러와줘-->
+						<ul>
+							<li>text text text</li>
+						</ul>
+					</div>
+					<div class="onshow_info main_board">
+						<span>&nbsp;&nbsp;ON SHOW 소개</span>
+						<div class="onshow_info_img"></div>
+						<div class="onshow_info_text">
+							<ul>
+								<li>text text text</li>
+							</ul>
+						</div>
+					</div>
+				</aside>
+			</div>
+		</section>
 		<footer>
 			<div class="footer_text1">
 				<p><a href="">법적고지</a></p>
@@ -127,6 +145,7 @@ function Login_AX(email,password){
 		<div class="copyright">
 				<p>Copyright ⓒ 2016 BRKOREA Company. All Rights Reserved.</p>
 		</div>
+
 	</div>
 </BODY>
-</html>
+</HTML>
