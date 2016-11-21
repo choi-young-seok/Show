@@ -8,7 +8,7 @@ public class AdminController {
 	
 	@RequestMapping("/member")
 	public String admin_member(){
-		return "/admin/member";
+		return "/admin/member";  
 	}
 	
 	@RequestMapping("/admin_member_refly")
