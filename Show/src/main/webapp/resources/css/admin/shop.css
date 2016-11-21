@@ -1,0 +1,152 @@
+body,html{
+	font-family:"gulim";
+	font-size:12px;
+}
+.shop_top{
+	width:1200px;
+	overflow:hidden;
+	height:30px;
+}
+.top_left{
+	float:left;
+	height:25px;
+	line-height:25px;
+	margin-top:2.5px;
+}
+.top_text{
+	width:50px;
+	text-align:center;
+}
+.select_shop > select{
+	width:100px;
+}
+.select_shop > input{
+	width:200px;
+}
+.search_btn{
+	width:50px;
+	height:25px;
+	background:#ffa500;
+	color:#fff;
+	text-align:center;
+	line-height:25px;
+	cursor:pointer;
+}
+.yes_btn{
+	width:100px;
+	height:25px;
+	background:#696969;
+	color:#fff;
+	text-align:center;
+	line-height:25px;
+	cursor:pointer;
+	margin-left:20px;
+}
+.no_btn{
+	width:100px;
+	height:25px;
+	background:#696969;
+	color:#fff;
+	text-align:center;
+	line-height:25px;
+	cursor:pointer;
+	margin-left:20px;
+}
+.all_btn{
+	width:100px;
+	height:25px;
+	background:#696969;
+	color:#fff;
+	text-align:center;
+	line-height:25px;
+	cursor:pointer;
+	margin-left:20px;
+}
+.shop{
+	width:1200px;
+	height:500px;
+}
+.shop_text > ul{
+	overflow:hidden;
+	width:1200px;
+	height:30px;
+	border:1px solid #696969;
+	box-sizing:border-box;
+}
+.shop_text > ul > li{
+	float:left;
+	height:30px;
+	line-height:30px;
+	width:100px;
+	text-align:center;
+	border-right:1px solid #ededed;
+	box-sizing:border-box;
+}
+.shop_text > ul > li:nth-child(2){
+	width:150px;	
+}
+.shop_text > ul > li:nth-child(4){
+	width:248px;
+}
+.shop_text > ul > li:nth-child(5){
+	width:150px;
+}
+.shop_text > ul > li:nth-child(6){
+	width:150px;
+}
+.shop_text > ul > li:last-child{
+	border:0;
+}
+
+.shop_show > ul{
+	overflow:hidden;
+	width:1200px;
+	height:30px;
+	border-bottom:1px solid #696969;
+	border-left:1px solid #696969;
+	border-right:1px solid #696969;
+	box-sizing:border-box;
+}
+.shop_show > ul > li{
+	float:left;
+	height:30px;
+	line-height:30px;
+	width:100px;
+	text-align:center;
+	border-right:1px solid #ededed;
+	box-sizing:border-box;
+}
+.shop_show > ul > li:nth-child(2){
+	width:150px;	
+}
+.shop_show > ul > li:nth-child(4){
+	width:248px;
+}
+.shop_show > ul > li:nth-child(5){
+	width:150px;
+}
+.shop_show > ul > li:nth-child(6){
+	width:150px;
+}
+.shop_show > ul > li:last-child{
+	border:0;
+}
+
+.shop_show > ul > li:nth-child(6)>input{
+	width:148px;
+	height:28px;
+}
+.shop_show > ul > li:nth-child(7)> select{
+	width:98px;
+	height:28px;
+}
+.shop_show > ul > li:nth-child(8){
+	background:#ffa500;
+	color:#fff;
+	cursor:pointer;
+}
+.shop_show > ul > li:nth-child(9){
+	background:#3d3d3d;
+	color:#fff;
+	cursor:pointer;
+}
