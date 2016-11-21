@@ -42,9 +42,9 @@
 </HEAD>
 <BODY>
 	<div id="wrap">
-		<header>
+		<%-- <header>
 			<%@include file="../shop_admin/header.jsp"%>
-		</header>
+		</header> --%>
 		<div class="order_shop_choice">
 			<p class="choice_left">매장선택</p>
 			<select class="choice_left">
@@ -83,8 +83,6 @@
 				<p>주문자연락처</p>
 			</div>
 			<div class="order_left order_menu">
-				<p>신청메뉴 여러개일수도 있으니까 for문</p>
-				<p>이건 마진값만 넣어놓음</p>
 			</div>
 			<div class="order_left order_pay">
 				<p>메뉴당 금액 for</p>
@@ -165,7 +163,7 @@
 				<p>이것도 마진만</p>
 			</div>
 			<div class="order_left order_all_pay">
-				<p>총 걀제 금액 합친거</p>
+				<p>총 결제 금액 합친거</p>
 			</div>
 			<div class="order_left order_check">
 				<div>
@@ -179,9 +177,9 @@
 				</div>
 			</div>
 		</div>
-		<footer>
+		<%-- <footer>
 			<%@include file="../shop_admin/footer.jsp"%>
-		</footer>
+		</footer> --%>
 	</div>
 </BODY>
 </HTML>

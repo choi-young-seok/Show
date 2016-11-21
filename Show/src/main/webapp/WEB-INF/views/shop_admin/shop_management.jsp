@@ -12,9 +12,9 @@
 </HEAD>
 <BODY>
 	<div id="wrap">
-		<header>
+		<%-- <header>
 			<%@include file="../shop_admin/header.jsp"%>
-		</header>
+		</header> --%>
 		<div class="management">
 			<div class="shop_management_text">
 				<ul>
@@ -59,9 +59,9 @@
 				</div>
 			</div>
 		</div>
-		<footer>
+		<%-- <footer>
 			<%@include file="../shop_admin/footer.jsp"%>
-		</footer>
+		</footer> --%>
 	</div>
 </BODY>
 </HTML>

@@ -5,7 +5,6 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link href="resources/css/shop_admin/style.css" rel="stylesheet" type="text/css" />
-<link href="resources/css/shop_admin/shop_application.css" rel="stylesheet" type="text/css" />
 <!--JQUERY 영역-->
 <script src="resources/js/common/jquery-3.0.0.js"></script>
 <script>
@@ -39,8 +38,7 @@
 			$.ajax({    		  
 				url:'/show/application',
 				success: function(data){
-					$('.shop_application').empty;
-					$('.shop_application').html(data); 
+					$('.adminMain').html(data); 
 				}
 			});
 		});
@@ -49,8 +47,7 @@
 			$.ajax({    		  
 				url:'/show/management',
 				success: function(data){
-					$('.shop_application').empty;
-					$('.shop_application').html(data);
+					$('.adminMain').html(data); 
 				}
 			});
 		});
@@ -59,8 +56,7 @@
 			$.ajax({    		  
 				url:'/show/orderCheck',
 				success: function(data){
-					$('.shop_application').empty;
-					$('.shop_application').html(data);
+					$('.adminMain').html(data); 
 				}
 			});
 		});
@@ -69,49 +65,23 @@
 			$.ajax({    		  
 				url:'/show/stats',
 				success: function(data){
-					$('.shop_application').empty;
-					$('.shop_application').html(data);
+					$('.adminMain').html(data); 
 				}
 			});
 		});
 	});
 </script>
-<TITLE> 업소 신청 </TITLE>
-</HEAD>
-<BODY>
+<title>사장님 페이지</title>
+</head>
+<body>
 	<div id="wrap">
-		<%-- <header>
+		<header>
 			<%@include file="../shop_admin/header.jsp"%>
-		</header> --%>
-		<div class="shop_application">
-			<div class="application">
-				<p class="application_text">&nbsp;&nbsp;업소 신청서</p>
-				<div class="application_name">
-					<p class="application_left name left_size">신청자명</p>
-					<input type="text" class="application_left name_input"/>
-				</div>
-				<div class="application_phone">
-					<p class="application_left phone left_size">연락처</p>
-					<input type="text" class="application_left phone_input" placeholder="&nbsp;&nbsp;-빼고 입력하세요"/>
-				</div>
-				<div class="application_shop_name">
-					<p class="application_left shop_name left_size">매장명</p>
-					<input type="text" class="application_left shop_name_input" />
-				</div>
-				<div class="application_addr">
-					<p class="application_left addr left_size">매장주소</p>
-					<input type="text" class="application_left addr_input" placeholder="&nbsp;&nbsp;동까지만 입력하세요"/>
-				</div>
-				<div class="application_school">
-					<p class="application_left addr left_size">인근대학</p>
-					<input type="text" class="application_left school_input" />
-				</div>
-				<div class="application_btn">신청하기</div>
-			</div>
-		</div>
-		<%-- <footer>
+		</header>
+		<div class="adminMain"></div>
+		<footer>
 			<%@include file="../shop_admin/footer.jsp"%>
-		</footer> --%>
+		</footer>
 	</div>
-</BODY>
-</HTML>
+</body>
+</html>
