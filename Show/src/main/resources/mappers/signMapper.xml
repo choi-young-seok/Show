@@ -5,4 +5,9 @@
 	insert into member
 	values (member_seq.nextval, #{email}, #{name}, #{nickName}, #{password}, #{phone}, #{birthday}, #{allCheck}, #{emailCheck}, #{smsCheck}, #{position})
 </insert>
+<select id="login" resultType="String">
+	select password
+	from member
+	where email = #{email}
+</select>
 </mapper>

@@ -1,0 +1,55 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="css/style.css" rel="stylesheet" type="text/css" />
+<link href="css/admin_header.css" rel="stylesheet" type="text/css" />
+<!--JQUERY 영역-->
+<script src="js/jquery-3.0.0.js"></script>
+<script>
+	$(document).ready(function(){
+		$(".qna").click(function(){
+			$(".qna").css({"background":"#ffa500"});
+			$(".gong").css({"background":"#696969"});
+			$(".member").css({"background":"#696969"});
+			$(".shop").css({"background":"#696969"});
+		});
+		$(".gong").click(function(){
+			$(".gong").css({"background":"#ffa500"});
+			$(".qna").css({"background":"#696969"});
+			$(".member").css({"background":"#696969"});
+			$(".shop").css({"background":"#696969"});
+		});
+		$(".member").click(function(){
+			$(".member").css({"background":"#ffa500"});
+			$(".gong").css({"background":"#696969"});
+			$(".qna").css({"background":"#696969"});
+			$(".shop").css({"background":"#696969"});
+		});
+		$(".shop").click(function(){
+			$(".shop").css({"background":"#ffa500"});
+			$(".gong").css({"background":"#696969"});
+			$(".member").css({"background":"#696969"});
+			$(".qna").css({"background":"#696969"});
+		});
+	});
+</script>
+<TITLE></TITLE>
+</HEAD>
+<BODY>
+	<div id="wrap">
+		<header>
+			<div class="header_logo">
+				<img src="image/logo.png" class="logo_left"/>
+				<p class="logo_left">관리자 페이지</p>
+			</div>
+			<div class="header_box">
+				<div class="qna">문의관리</div>
+				<div class="gong">공지사항</div>
+				<div class="member">회원관리</div>
+				<div class="shop">매장관리</div>
+			</div>
+		</header>
+	</div>
+</BODY>
+</HTML>
