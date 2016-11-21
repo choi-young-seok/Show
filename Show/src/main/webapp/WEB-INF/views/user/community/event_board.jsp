@@ -3,10 +3,12 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<link href="../css/style.css" rel="stylesheet" type="text/css" />
-<link href="css/event_list.css" rel="stylesheet" type="text/css" />
+
+<link href="../resources/css/style.css" rel="stylesheet" type="text/css" />
+<link href="../resources/css/user/community/event_list.css" rel="stylesheet" type="text/css" />
 <!--JQUERY 영역-->
-<script src="../js/jquery-3.0.0.js"></script>
+<script src="../resources/js/common/jquery-3.0.0.js">
+</script>
 <script>
 	$(document).ready(function(){
 		$(".event_view").click(function(){
@@ -19,11 +21,11 @@
 <TITLE> ON SHOW 이벤트  </TITLE>
 
 	<div id="wrap">
-		<header>
-			<!--include-->
-		</header>
+	<header>
+		<%@ include file="../community/include/header.jsp" %>
+	</header>
+			<div><%@ include file="include/community_menu.jsp" %></div>
 		<div class="event_list">
-			<div><!--menu_bar 인클루드--></div>
 			<div class="list_name">
 				<ul>
 					<li>번호</li>

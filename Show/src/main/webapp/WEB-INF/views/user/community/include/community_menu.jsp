@@ -3,8 +3,8 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<link href="../../css/style.css" rel="stylesheet" type="text/css" />
-<link href="../css/menu_bar.css" rel="stylesheet" type="text/css" />
+<link href=../resources/css/style.css rel="stylesheet" type="text/css" />
+<link href="../resources/css/user/community/menu_bar.css" rel="stylesheet" type="text/css" />
 <!--JQUERY 영역-->
 <script src="../../js/jquery-3.0.0.js"></script>
 <script>
@@ -51,19 +51,19 @@
 		});
 		//hover 영역
 		$(".service").click(function(){
-			var service = "../intro.html";
+			var service = "intro";
 			$(location).attr('href',service);
 		});
 		$(".event").click(function(){
-			var event = "../event_board.html";
+			var event = "list";
 			$(location).attr('href',event);
 		});
 		$(".qna").click(function(){
-			var qna = "../qna_board.html";
+			var qna = "qnalist";
 			$(location).attr('href',qna);
 		});
 		$(".call").click(function(){
-			var call = "../write.html";
+			var call = "create";
 			$(location).attr('href',call);
 		});
 	});
