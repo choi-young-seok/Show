@@ -4,11 +4,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-public class AdminController {
+public class AdminController {  
 	
 	@RequestMapping("/member")
 	public String admin_member(){
 		return "/admin/member";  
+	
 	}
 	
 	@RequestMapping("/admin_member_refly")
@@ -20,4 +21,18 @@ public class AdminController {
 	public String admin_shop(){
 		return"/admin/shop";
 	}
+	@RequestMapping("/test")
+	public String test(){
+		return "/admin/test";
+	}
+	
+	@RequestMapping("/qna")
+	public String qna(){
+		return "/admin/qna";
+	}
+	@RequestMapping("/event")
+	public String event(){
+		return "/admin/event";
+	}
+	
 }

@@ -1,0 +1,139 @@
+body,html{
+	font-family:"gulim";
+}
+.main{
+	width:1200px;
+	height:500px;
+}
+.event_menu{
+	width:1200px;
+}
+.event_menu > ul{
+	overflow:hidden;
+}
+.event_menu > ul > li{
+	float:left;
+	width:600px;
+	height:30px;
+	text-align:center;
+	line-height:30px;
+	font-size:12px;
+	font-weight:bold;
+	cursor:pointer;
+}
+.event_menu > ul > li:nth-child(1){
+	background:#ffa500;
+	color:#fff;
+}
+.event_menu > ul > li:nth-child(2){
+	background:#696969;
+	color:#fff;
+}
+.gong_form{
+	width:1200px;
+}
+.gong_main > ul{
+	overflow:hidden;
+	width:1200px;
+	background:#ededed;
+}
+.gong_main > ul > li{
+	float:left;
+	font-size:12px;
+	font-weight:bold;
+	height:30px;
+	line-height:30px;
+	width:100px;
+	text-align:center;
+}
+.gong_main > ul > li:nth-child(1){
+	margin-left:200px;
+}
+.gong_main > ul > li:nth-child(2){
+	width:500px;
+}
+.gong_text{
+	width:1200px;
+	background:#adadad;
+	color:#fff;
+	overflow:hidden;
+	border-bottom:dashed 1px #ededed;
+	box-sizing:border-box;
+}
+.gong_text > div {
+	float:left;
+	font-size:12px;
+	font-weight:bold;
+	height:30px;
+	line-height:30px;
+	width:100px;
+	text-align:center;
+	cursor:pointer;
+}
+.gong_text > div:nth-child(1){
+	margin-left:200px;
+}
+.gong_text > div:nth-child(2){
+	width:500px;
+}
+
+.event_form{
+	width:1200px;
+}
+.event_main > ul{
+	overflow:hidden;
+	width:1200px;
+	background:#ededed;
+}
+.event_main > ul > li{
+	float:left;
+	font-size:12px;
+	font-weight:bold;
+	height:30px;
+	line-height:30px;
+	width:100px;
+	text-align:center;
+}
+.event_main > ul > li:nth-child(1){
+	margin-left:200px;
+}
+.event_main > ul > li:nth-child(2){
+	width:500px;
+}
+.event_text{
+	width:1200px;
+	background:#adadad;
+	color:#fff;
+	overflow:hidden;
+	border-bottom:dashed 1px #ededed;
+	box-sizing:border-box;
+}
+.event_text > div {
+	float:left;
+	font-size:12px;
+	font-weight:bold;
+	height:30px;
+	line-height:30px;
+	width:100px;
+	text-align:center;
+	cursor:pointer;
+}
+.event_text > div:nth-child(1){
+	margin-left:200px;
+}
+.event_text > div:nth-child(2){
+	width:500px;
+}
+
+.write_btn{
+	width:100px;
+	height:30px;
+	line-height:30px;
+	text-align:center;
+	background:#ffa500;
+	color:#fff;
+	cursor:pointer;
+	font-size:12px;
+	font-weight:bold;
+	margin-left:1100px;
+}
