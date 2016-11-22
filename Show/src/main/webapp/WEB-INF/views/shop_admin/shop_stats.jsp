@@ -110,24 +110,21 @@
 				<select class="year">
 					<option class="year_text">년도
 					</option>
-						<script>
-							for (i=2016; i < 2100 ;i++ )
-							document.write('<option value="'+i+'">'+i+'</option>');
-						</script>
+						<%for (int i=2016; i < 2100 ;i++ ){%>
+							<option value="<%=i%>">+i+</option>);
+						<%} %>
 				</select>
 				<select class="month">
 					<option class="month_text">월</option>
-						<script>
-							for (i=1;i < 13 ;i++ )
-							document.write('<option value="'+i+'">'+i+'</option>');
-						</script>
+						<%for (int i=1; i < 13 ;i++ ){%>
+							<option value="<%=i%>">+i+</option>);
+						<%} %>
 				</select>
 				<select class="day">
 					<option class="day_text">일</option>
-						<script>
-							for (i=1;i < 32 ;i++ )
-							document.write('<option value="'+i+'">'+i+'</option>');
-						</script>
+						<%for (int i=1; i < 32 ;i++ ){%>
+							<option value="<%=i%>">+i+</option>);
+						<%} %>
 				</select>
 				<p class="show_btn">검색</p>
 			</div>
@@ -139,17 +136,15 @@
 				<select class="year">
 					<option class="year_text">년도
 					</option>
-						<script>
-							for (i=2016; i < 2100 ;i++ )
-							document.write('<option value="'+i+'">'+i+'</option>');
-						</script>
+						<%for (int i=2016; i < 2100 ;i++ ){%>
+							<option value="<%=i%>">+i+</option>);
+						<%} %>
 				</select>
 				<select class="month">
 					<option class="month_text">월</option>
-						<script>
-							for (i=1;i < 13 ;i++ )
-							document.write('<option value="'+i+'">'+i+'</option>');
-						</script>
+						<%for (int i=1; i < 13 ;i++ ){%>
+							<option value="<%=i%>">+i+</option>);
+						<%} %>
 				</select>
 				<p class="show_btn">검색</p>
 			</div>

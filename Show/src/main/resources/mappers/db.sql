@@ -23,3 +23,7 @@ nocache;
 
 insert into member
 values (member_seq.nextval, 'aa@naver.com', '고길동', '둘리', 'asdf123','010-1234-1234', sysdate, 'T', 'T', 'T', '10');
+
+
+
+select * from show_group;

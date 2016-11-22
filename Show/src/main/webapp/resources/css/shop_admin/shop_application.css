@@ -3,12 +3,12 @@ body,html{
 	font-size:12px;
 }
 .shop_application{
-	width:1200px;
+	width:1500px;
 }
 .application{
 	width:600px;
 	background:ededed;
-	height:350px;
+	height:500px;
 }
 .application_text{
 	width:600px;
@@ -71,6 +71,22 @@ body,html{
 }
 .application_school>input:nth-child(2){
 	margin:0;
+}
+.application_start_time {
+	margin-top:10px;
+	overflow:hidden;
+}
+#start{
+	height:30px;
+	width:200px;
+}
+.application_end_time {
+	margin-top:5px;
+	overflow:hidden;
+}
+#end{
+	height:30px;
+	width:200px;
 }
 .application_btn{
 	width:100px;

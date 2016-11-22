@@ -65,10 +65,11 @@
 			$.ajax({    		  
 				url:'/show/stats',
 				success: function(data){
-					$('.adminMain').html(data); 
+					$('.adminMain').html(data);
 				}
 			});
 		});
+		
 	});
 </script>
 <title>사장님 페이지</title>
