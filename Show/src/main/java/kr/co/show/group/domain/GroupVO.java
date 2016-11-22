@@ -7,7 +7,7 @@ public class GroupVO {
 	private String group_phone;
 	private String group_name;
 	private String group_address;
-	private String group_catagory;
+	private String group_category;
 	private Date group_start;
 	private Date group_end;
 	
@@ -38,12 +38,12 @@ public class GroupVO {
 		this.group_address = group_address;
 	}
 
-	public String getGroup_catagory() {
-		return group_catagory;
+	public String getGroup_category() {
+		return group_category;
 	}
 
-	public void setGroup_catagory(String group_category) {
-		this.group_catagory = group_catagory;
+	public void setGroup_category(String group_category) {
+		this.group_category = group_category;
 	}
 
 	public Date getGroup_start() {

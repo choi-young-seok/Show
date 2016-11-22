@@ -84,8 +84,8 @@
 			var groupName = $("#groupName").val();
 			var groupAddr = $("#groupAddr").val();
 			var groupCategory = $("#groupCategory").val();
-			var start = $("#startHour").val() + $("#startMinute").val();
-			var end = $("#endHour").val() + $("#endMinute").val();
+			var start = $("#startHour").val() + ":" + $("#startMinute").val();
+			var end = $("#endHour").val() + ":" + $("#endMinute").val();
 			alert(end);
 			$.ajax({
 				url : '/show/application',
@@ -94,7 +94,7 @@
 				alert("1:"+result)
 				console.log("aa")
 				alert("신청이 완료되었습니다.");
-			}	
+			}
 				}
 			});
 		});

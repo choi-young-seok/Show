@@ -2,8 +2,8 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="group">
 	<insert id="insert">
-		insert into showgroup (group_phone,group_name,group_address,group_catagory,group_start,group_end)
-		values (#{group_phone},#{group_name},#{group_address},#{group_catagory},
-					#{to_date(group_start,'hh24:mi')},#{to_date(group_end,'hh24:mi')})
+		insert into show_group (group_phone,group_name,group_address,group_catagory,group_start,group_end)
+		values (#{group_phone},#{group_name},#{group_address},#{group_category},
+					to_date(#{group_start},'hh24:mi'),to_date(#{group_end},'hh24:mi'))
 	</insert>
 </mapper>
