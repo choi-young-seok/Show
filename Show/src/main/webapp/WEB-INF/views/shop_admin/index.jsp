@@ -5,12 +5,12 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<link href="resources/css/shop_admin/style.css" rel="stylesheet" type="text/css" />
-<link href="resources/css/shop_admin/admin_header.css" rel="stylesheet" type="text/css" />
-<link href="resources/css/shop_admin/admin_footer.css" rel="stylesheet" type="text/css" />
-<link href="resources/css/shop_admin/admin_login.css" rel="stylesheet" type="text/css" />
+<link href="../resources/css/shop_admin/style.css" rel="stylesheet" type="text/css" />
+<link href="../resources/css/shop_admin/admin_header.css" rel="stylesheet" type="text/css" />
+<link href="../resources/css/shop_admin/admin_footer.css" rel="stylesheet" type="text/css" />
+<link href="../resources/css/shop_admin/admin_login.css" rel="stylesheet" type="text/css" />
 <!--JQUERY 영역-->
-<script src="resources/js/common/jquery-3.0.0.js"></script>
+<script src="../resources/js/common/jquery-3.0.0.js"></script>
 <script>
 	$(document).ready(function(){
 		$(".qna").click(function(){
@@ -38,9 +38,9 @@
 			$(".qna").css({"background":"#696969"});
 		});
 
-		var join = "join/shop_join.html";
+		var join = "/show/sign/sell_up";
 		$(".join").click(function(){
-			$(location).attr('href',join);
+			location.href = "/show/sign/sell_up";
 		});
 		$(".find_pass").click(function(){
 			$(location).attr('href',"password.html");
@@ -97,7 +97,7 @@ function Login_AX(email,password){
 	<div id="wrap">
 		<header>
 			<div class="header_logo">
-				<img src="resources/image/logo.png" class="logo_left"/>
+				<img src="../resources/image/logo.png" class="logo_left"/>
 				<p class="logo_left">사장님 페이지</p>
 			</div>
 			<div class="header_box">
