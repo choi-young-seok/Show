@@ -22,7 +22,9 @@
 	</beans:bean>
 	
 	<context:component-scan base-package="kr.co.show" />
-	<context:component-scan base-package="kr.co.community.controller" />
+	<context:component-scan base-package="kr.co.show.group.controller" />
+	
+	<context:component-scan base-package="kr.co.show.community.controller" />
 	
 	
 	
