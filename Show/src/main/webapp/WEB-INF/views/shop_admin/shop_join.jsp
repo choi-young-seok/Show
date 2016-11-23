@@ -153,7 +153,7 @@
 								</label>
 							</div>
 						</div>
-						<div class="join_btn" onclick="Account();">
+						<div class="join_btn" onclick="sell_Account()">
 							완료
 						</div>				
 					</div>			

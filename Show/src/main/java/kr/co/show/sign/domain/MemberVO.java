@@ -1,82 +1,91 @@
 package kr.co.show.sign.domain;
 
 public class MemberVO {
-	private int id;
-	private String email;
-	private String name;
-	private String nickName;
-	private String password;
-	private String phone;
-	private String birthday;
-	private String allCheck = "F";
-	private String emailCheck = "F";
-	private String smsCheck = "F";
-	private int position = 10;
-	public int getId() {
-		return id;
+	private int member_no;
+	private String member_email;
+	private String member_name;
+	private String member_nickName;
+	private String member_pass;
+	private String member_phone;
+	private String member_birth;
+	private String member_allcheck = "F";
+	private String member_smsck = "F";
+	private String member_emailck = "F";
+	private String member_position = "10";
+	public int getMember_no() {
+		return member_no;
 	}
-	public void setId(int id) {
-		this.id = id;
+	public void setMember_no(int member_no) {
+		this.member_no = member_no;
 	}
-	public String getEmail() {
-		return email;
+	public String getMember_email() {
+		return member_email;
 	}
-	public void setEmail(String email) {
-		this.email = email;
+	public void setMember_email(String member_email) {
+		this.member_email = member_email;
 	}
-	public String getName() {
-		return name;
+	public String getMember_name() {
+		return member_name;
 	}
-	public void setName(String name) {
-		this.name = name;
+	public void setMember_name(String member_name) {
+		this.member_name = member_name;
 	}
-	public String getNickName() {
-		return nickName;
+	public String getMember_nickName() {
+		return member_nickName;
 	}
-	public void setNickName(String nickName) {
-		this.nickName = nickName;
+	public void setMember_nickName(String member_nickName) {
+		this.member_nickName = member_nickName;
 	}
-	public String getPassword() {
-		return password;
+	public String getMember_pass() {
+		return member_pass;
 	}
-	public void setPassword(String password) {
-		this.password = password;
+	public void setMember_pass(String member_pass) {
+		this.member_pass = member_pass;
 	}
-	public String getPhone() {
-		return phone;
+	public String getMember_phone() {
+		return member_phone;
 	}
-	public void setPhone(String phone) {
-		this.phone = phone;
+	public void setMember_phone(String member_phone) {
+		this.member_phone = member_phone;
 	}
-	public String getBirthday() {
-		return birthday;
+	public String getMember_birth() {
+		return member_birth;
 	}
-	public void setBirthday(String birthday) {
-		this.birthday = birthday;
+	public void setMember_birth(String member_birth) {
+		this.member_birth = member_birth;
 	}
-	public int getPosition() {
-		return position;
+	public String getMember_allcheck() {
+		return member_allcheck;
 	}
-	public void setPosition(int position) {
-		this.position = position;
+	public void setMember_allcheck(String member_allcheck) {
+		this.member_allcheck = member_allcheck;
 	}
-	public String getAllCheck() {
-		return allCheck;
+	public String getMember_smsck() {
+		return member_smsck;
 	}
-	public void setAllCheck(String allCheck) {
-		this.allCheck = allCheck;
+	public void setMember_smsck(String member_smsck) {
+		this.member_smsck = member_smsck;
 	}
-	public String getEmailCheck() {
-		return emailCheck;
+	public String getMember_emailck() {
+		return member_emailck;
 	}
-	public void setEmailCheck(String emailCheck) {
-		this.emailCheck = emailCheck;
+	public void setMember_emailck(String member_emailck) {
+		this.member_emailck = member_emailck;
 	}
-	public String getSmsCheck() {
-		return smsCheck;
+	public String getMember_position() {
+		return member_position;
 	}
-	public void setSmsCheck(String smsCheck) {
-		this.smsCheck = smsCheck;
+	public void setMember_position(String member_position) {
+		this.member_position = member_position;
 	}
+	@Override
+	public String toString() {
+		return "MemberVO [member_no=" + member_no + ", member_email=" + member_email + ", member_name=" + member_name
+				+ ", member_nickName=" + member_nickName + ", member_pass=" + member_pass + ", member_phone="
+				+ member_phone + ", member_birth=" + member_birth + ", member_allcheck=" + member_allcheck
+				+ ", member_smsck=" + member_smsck + ", member_emailck=" + member_emailck + ", member_position="
+				+ member_position + "]";
+	}
+	
 	
 }

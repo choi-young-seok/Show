@@ -64,6 +64,70 @@ function Account() {
 	Account_AX(email, password, name, nickName, phone, birthday, allCheck, emailCheck, smsCheck);
 
 }
+function sell_Account() {
+	
+	// var frm = document.getElementById("Account_form");
+	var email_1 = $("#id_box_1").val();
+	var email_2 = $("#id_box_2").val();
+	//이메일
+	var email = email_1 + "@" + email_2;	
+	//비밀번호
+	var password = $("#pw_box1").val();
+	//이름
+	var name = $("#name_box").val();
+	//별명
+	var nickName = $("#nickName_box").val();
+	//핸드폰
+	var phone_1 = $("#hp_box_1").val();
+	var phone_2 = $("#hp_box_2").val();
+	var phone_3 = $("#hp_box_3").val();
+	var phone = phone_1 + "-" + phone_2 + "-" + phone_3;
+	//생년 월 일
+	var year = $(".year").val();
+	var month = $(".month").val();
+	var day = $(".day").val();
+	
+	var birthday = year + "-" + month + "-" + day;
+	
+	//이용약관 동의
+	var check1 = $("#aa2").is(":checked"); //이용약관 동의
+	var check2 = $("#bb2").is(":checked"); //전자금융거래 동의
+	var check3 = $("#cc2").is(":checked"); //개인정보 수집 이용 동의
+	
+	/*if (!email_1 || email_2 === "선택하세요") {
+		alert("이메일을 입력해주세요.");
+		return;
+	} else if (!password) {
+		alert("비밀번호를 입력해주세요.");
+		return;
+	} else if (!name) {
+		alert("이름을 입력해주세요.");
+		return;
+	} else if (!nickName) {
+		alert("닉네임을 입력해주세요.");
+		return;
+	} else if (!phone_1 || !phone_2 || !phone_3) {
+		alert("핸드폰을 입력해주세요.");
+		return;
+	} else if (year ==="년도" || month==="월" || day==="일" ) {
+		alert("생년월일을 입력해주세요.");
+		return;
+	} else if (!pwd_check_vl) {
+		alert("비밀번호 일치 여부를 해주세요.");
+		return;
+	} else if (!email_check_vl) {
+		alert("이메일 중복 확인을 해주세요.");
+		return;
+	} else if (check1 == false || check2 == false || check3 == false) {
+		alert("약관동의를 해주세요.");
+		
+		return;
+	}*/
+	allCheck = true;
+	
+	sell_Account_AX(email, password, name, nickName, phone, birthday, allCheck);
+	
+}
 function idCheck(){
 	
 }
@@ -93,6 +157,35 @@ function Account_AX(email, password, name, nickName, phone, birthday, allCheck, 
 				return;
 			}
 
+		}
+	});
+}
+function sell_Account_AX(email, password, name, nickName, phone, birthday, allCheck) {
+	
+	$.ajax({
+		url : '/show/sign/sell_sign_AX', //주소
+		type : 'POST',
+		data : {
+			"email" : email,
+			"password" : password,
+			"name" : name,
+			"nickName" : nickName,
+			"phone" : phone,
+			"birthday" : birthday,
+			"allCheck" : allCheck,
+			"emailCheck" : false,
+			"smsCheck" : false
+		},
+		success : function(result) {
+			if (result == "OK") {
+				alert('가입되었습니다.');
+				location.href('/show');
+			} else if (result != "OK") {
+				alert(result);
+				
+				return;
+			}
+			
 		}
 	});
 }

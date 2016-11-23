@@ -19,7 +19,7 @@
 		});
 		var join = "../join/join.html";
 		$(".join_btn").click(function(){
-			$(location).attr('href',join);
+			location.href='/show/sign/up';
 		});
 		$(".password_find").click(function(){
 			$(location).attr('href',"../password.html");
