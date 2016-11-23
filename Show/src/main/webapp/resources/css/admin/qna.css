@@ -1,0 +1,193 @@
+html,body{
+	font-family:"gulim";
+}
+.main{
+	width:1200px;
+	height:500px;
+}
+.qna_list{
+	width:1200px;
+	margin-top:20px;
+}
+.qna_menu{
+	width:1200px;
+	height:40px;
+}
+.qna_menu > ul{
+	overflow:hidden;
+}
+.menu_list{
+	float:left;
+	height:40px;
+	width:150px;
+	line-height:40px;
+	text-align:center;
+	cursor:pointer;
+	font-size:12px;
+	font-weight:200;
+	border-top:1px solid #696969;
+	border-right:1px solid #696969;
+	border-bottom:2px solid #000;
+	box-sizing:border-box;
+}
+.qna_menu > ul > li:first-child{
+	border-top:1px solid #696969;
+	border-left:1px solid #696969;
+	border-right:1px solid #696969;
+	border-bottom:2px solid #000;
+	box-sizing:border-box;
+	background:#696969;
+	color:#fff;
+}
+/*view*/
+.qna_view{
+	width:1200px;
+	position:relative;
+}
+.qna_text{
+	width:1200px;
+	height:40px;
+	border-bottom:2px solid #D3D3D3;
+	box-sizing:border-box;
+}
+.qna_text > ul{
+	overflow:hidden;
+}
+.qna_text > ul > li{
+	float:left;
+	height:38px;
+	line-height:38px;
+	font-size:12px;
+	font-weight:bold;
+}
+.qna_text > ul > li:nth-child(1){
+	width:150px;
+	text-align:center;
+}
+/*전체보기*/
+.all_box_text{
+	width:1200px;
+	height:40px;
+	background:#fff;
+	border-bottom:1px solid #D3D3D3;
+	box-sizing:border-box;
+}
+.all_box_text > ul{
+	overflow:hidden;
+}
+.all_box_text > ul > li{
+	float:left;
+	height:39px;
+	line-height:39px;
+	font-size:12px;
+	cursor:pointer;
+}
+.all_box_text > ul > li:nth-child(1){
+	width:150px;
+	text-align:center;
+}
+.qna_position{
+	position:absolute;
+	top:40px;
+	left:0;
+}
+
+/*전체보기*/
+
+
+/*문의내용*/
+.all_box_box{
+	width:1200px;
+	background:#FAFAD2;
+	border-bottom:1px solid #D3D3D3;
+	box-sizing:border-box;
+}
+.name > ul{
+	overflow:hidden;
+	border-bottom:1px solid #d3d3d3;
+	box-sizing:border-box;
+}
+.name > ul > li{
+	float:left;
+	font-size:12px;
+	height:30px;
+	line-height:30px;
+
+}
+.name > ul > li:nth-child(1){
+	width:150px;
+	text-align:center;
+}
+
+.phone > ul{
+	overflow:hidden;
+	border-bottom:1px solid #d3d3d3;
+	box-sizing:border-box;
+}
+.phone > ul > li{
+	float:left;
+	font-size:12px;
+	height:30px;
+	line-height:30px;
+
+}
+.phone > ul > li:nth-child(1){
+	width:150px;
+	text-align:center;
+}
+.text > ul{
+	overflow:hidden;
+	border-bottom:1px solid #d3d3d3;
+	box-sizing:border-box;
+}
+.text > ul > li{
+	float:left;
+	font-size:12px;
+	height:30px;
+	line-height:30px;
+
+}
+.text > ul > li:nth-child(1){
+	width:150px;
+	text-align:center;
+}
+.file > ul{
+	overflow:hidden;
+	border-bottom:1px solid #d3d3d3;
+	box-sizing:border-box;
+}
+.file > ul > li{
+	float:left;
+	font-size:12px;
+	height:30px;
+	line-height:30px;
+
+}
+.file > ul > li:nth-child(1){
+	width:150px;
+	text-align:center;
+}
+.btn_box > ul{
+	overflow:hidden;
+	border-bottom:1px solid #d3d3d3;
+	box-sizing:border-box;
+}
+.btn_box > ul > li{
+	float:left;
+	font-size:12px;
+	height:30px;
+	line-height:30px;
+	width:100px;
+	height:30px;
+	background:#696969;
+	color:#fff;
+	cursor:pointer;
+	text-align:center;
+
+}
+.btn_box > ul > li:nth-child(1){
+	text-align:center;
+	margin-left:500px;
+	margin-right:20px;
+}
+/*문의내용*/

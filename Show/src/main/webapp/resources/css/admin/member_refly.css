@@ -1,0 +1,96 @@
+body,html{
+	font-family:"gulim";
+	font-size:12px;
+}
+.member_refly{
+	width:700px;
+}
+.email{
+	width:600px;
+	border:1px solid #696969;
+	background:#fff;
+	height:30px;
+	box-sizing:border-box;
+	overflow:hidden;
+}
+.text_size{
+	width:100px;
+	text-align:center;
+	height:30px;
+	line-height:30px;
+	border-right:1px solid #ededed;
+	box-sizing:border-box;
+}
+.text_op{
+	float:left;
+}
+.text_show_size{
+	width:498px;
+	height:30px;
+	line-height:30px;
+}
+.name{
+	width:600px;
+	border-left:1px solid #696969;
+	border-right:1px solid #696969;
+	border-bottom:1px solid #696969;
+	background:#fff;
+	height:30px;
+	box-sizing:border-box;
+	overflow:hidden;
+}
+.password{
+	width:600px;
+	border-left:1px solid #696969;
+	border-right:1px solid #696969;
+	border-bottom:1px solid #696969;
+	background:#fff;
+	height:30px;
+	box-sizing:border-box;
+	overflow:hidden;
+}
+.phone{
+	width:600px;
+	border-left:1px solid #696969;
+	border-right:1px solid #696969;
+	border-bottom:1px solid #696969;
+	background:#fff;
+	height:30px;
+	box-sizing:border-box;
+	overflow:hidden;
+}
+.birth{
+	width:600px;
+	border-left:1px solid #696969;
+	border-right:1px solid #696969;
+	border-bottom:1px solid #696969;
+	background:#fff;
+	height:30px;
+	box-sizing:border-box;
+	overflow:hidden;
+}
+.member_btn{
+	width:600px;
+	border-left:1px solid #696969;
+	border-right:1px solid #696969;
+	border-bottom:1px solid #696969;
+	background:#fff;
+	height:30px;
+	box-sizing:border-box;
+	overflow:hidden;
+}
+.member_btn > div {
+	float:left;
+	width:100px;
+	text-align:center;
+	height:20px;
+	line-height:20px;
+	background:#696969;
+	color:#fff;
+	margin-top:5px;
+	cursor:pointer;
+	margin-left:10px;
+}
+.member_btn > div:nth-child(1){
+	margin-left:150px;
+}

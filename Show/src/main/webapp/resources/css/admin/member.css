@@ -1,0 +1,121 @@
+html,body{
+	font-family:"gulim";
+}
+.member{
+	width:1200xp;
+	height:500px;
+	overflow:scroll;
+}
+.member_top{
+	width:1200px;
+}
+.member_top > ul{
+	overflow:hidden;
+	width:1200px;
+	height:30px;
+	border:1px solid #696969;
+	box-sizing:border-box;
+}
+.member_top > ul > li{
+	float:left;
+	font-size:12px;
+	height:30px;
+	line-height:30px;
+}
+.member_top > ul > li:nth-child(1){
+	width:50px;
+	text-align:center;
+	border-right:1px solid #ededed;
+	border-left:1px solid #ededed;
+	box-sizign:border-box;
+	margin-left:175px;
+}
+.member_top > ul > li:nth-child(2){
+	width:200px;
+	text-align:center;
+	border-right:1px solid #ededed;
+	box-sizign:border-box;
+}
+.member_top > ul > li:nth-child(3){
+	width:200px;
+	text-align:center;
+	border-right:1px solid #ededed;
+	box-sizign:border-box;
+}
+.member_top > ul > li:nth-child(4){
+	width:200px;
+	text-align:center;
+	border-right:1px solid #ededed;
+	box-sizign:border-box;
+}
+.member_top > ul > li:nth-child(5){
+	width:200px;
+	text-align:center;
+	border-right:1px solid #ededed;
+}
+.member_choice{
+	width:1200px;
+	height:30px;
+	overflow:hidden;
+	border-right:1px solid #696969;
+	border-left:1px solid #696969;
+	border-bottom:1px solid #696969;
+	box-sizing:border-box;
+}
+.member_choice > div {
+	float:left;
+	font-size:12px;
+	height:30px;
+	line-height:30px;
+}
+.member_choice > div:nth-child(1){
+	width:50px;
+	text-align:center;
+	border-right:1px solid #ededed;
+	border-left:1px solid #ededed;
+	box-sizign:border-box;
+	margin-left:175px;
+}
+.member_choice > div:nth-child(1)>input{
+	margin-top:7px;
+}
+.member_choice > div:nth-child(2){
+	width:200px;
+	text-align:center;
+	border-right:1px solid #ededed;
+	box-sizign:border-box;
+}
+.member_choice >div:nth-child(3){
+	width:200px;
+	text-align:center;
+	border-right:1px solid #ededed;
+	box-sizign:border-box;
+}
+.member_choice > div:nth-child(4){
+	width:200px;
+	text-align:center;
+	border-right:1px solid #ededed;
+	box-sizign:border-box;
+}
+.member_choice > div:nth-child(5){
+	width:200px;
+	text-align:center;
+	border-right:1px solid #ededed;
+	cursor:pointer;
+	background:#3d3d3d;
+	color:#fff;
+}
+.member_btn{
+	width:1200px;
+}
+.member_btn > p{
+	font-size:12px;
+	width:100px;
+	height:30px;
+	background:#696969;
+	color:#fff;
+	text-align:center;
+	line-height:30px;
+	cursor:pointer;
+	margin-top:10px;
+}
