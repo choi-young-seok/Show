@@ -6,7 +6,7 @@
 	values (show_member_seq.nextval, #{email}, #{name}, #{nickName}, #{password}, #{phone}, #{birthday}, #{allCheck}, #{emailCheck}, #{smsCheck}, #{position})
 </insert>
 <insert id="create_sell">
-	insert into show_member (id, email, name, nickName, password, phone, birthday, allCheck, position)
+	insert into show_member (member_no, member_email, member_name, member_nickName, member_pass, member_phone, member_birth, member_allCheck, member_position)
 	values (show_member_seq.nextval, #{email}, #{name}, #{nickName}, #{password}, #{phone}, #{birthday}, #{allCheck}, #{position})
 </insert>
 <select id="login" resultType="kr.co.show.sign.domain.MemberVO">
