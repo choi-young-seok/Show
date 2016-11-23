@@ -14,8 +14,12 @@ public class JoinController {
 	public String buyer_view(){
 		return "common/join";
 	}
-	@RequestMapping("/sell_up")
+	@RequestMapping("/sell")
 	public String seller_view(){
+		return "shop_admin/index";
+	}
+	@RequestMapping("/sell_up")
+	public String seller_sign_up(){
 		return "shop_admin/shop_join";
 	}
 	@RequestMapping("/login")
@@ -25,6 +29,7 @@ public class JoinController {
 	@RequestMapping(value = "/logout", method=RequestMethod.GET)
 	public String logout(HttpSession session){
 		session.setAttribute("email", null);
+		session.setAttribute("id", null);
 		
 		return "redirect:/";
 	}
