@@ -17,11 +17,6 @@ public class JoinServiceImpl implements JoinService{
 	public void create(MemberVO vo) throws Exception {
 		dao.create(vo);
 	}
-
-	@Override
-	public void create_sell(MemberVO vo) throws Exception {
-		dao.create_sell(vo);
-	}
 	
 	@Override
 	public MemberVO login(String email) throws Exception {

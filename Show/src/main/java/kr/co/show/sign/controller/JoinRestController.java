@@ -1,4 +1,4 @@
-package kr.co.show.sign;
+package kr.co.show.sign.controller;
 
 import javax.inject.Inject;
 import javax.servlet.http.HttpSession;
@@ -33,20 +33,7 @@ public class JoinRestController {
 		
 		return "OK";
 	}
-	@RequestMapping("/sell_sign_AX")
-	public @ResponseBody String sell_sign_AX(MemberVO vo, boolean allCheck) throws Exception{
-		vo.setMember_nickName(null);
-		if(allCheck)
-			vo.setMember_allcheck("T");
-		
-		vo.setMember_position("20");
-		
-		System.out.println("여기는 와?");
-		System.out.println(vo.toString());
-		service.create_sell(vo);
-		
-		return "OK";
-	}
+
 	@RequestMapping("/login_AX")
 	public @ResponseBody String login_AX(String email, String password, HttpSession session) throws Exception{
 		System.out.println("로그인 여긴 들어오니?");

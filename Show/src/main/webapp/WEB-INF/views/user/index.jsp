@@ -50,7 +50,7 @@
 					<li><a href="community/qna_board.html">고객센터</a></li>
 					<% if(session.getAttribute("email")==null){ %>
 					<li><a href="sign/login">로그인</a></li>
-					<% } else { %>
+					<% } else if (session.getAttribute("email")!=null && session.getAttribute("id")!=null) { %>
 					<li><a href="sign/logout">로그아웃</a></li>
 					<% } %>
 					<li><a href="sign/up">회원가입</a></li>

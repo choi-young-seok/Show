@@ -18,10 +18,6 @@ public class JoinDAOImpl implements JoinDAO{
 		sqlSession.insert("sign.create", vo);
 	}
 	@Override
-	public void create_sell(MemberVO vo) throws Exception {
-		sqlSession.insert("sign.create_sell", vo);
-	}
-	@Override
 	public MemberVO login(String email) throws Exception {
 		return sqlSession.selectOne("sign.login", email);
 	}

@@ -161,7 +161,24 @@
 			<version>4.12</version>
 			<scope>test</scope>
 		</dependency>
+		
+		<!-- 자바 메일 설정 -->
+	<dependency>
+		<groupId>javax.mail</groupId>
+		<artifactId>mail</artifactId>
+		<version>1.4.7</version>
+	</dependency>
+	
+	<dependency>
+		<groupId>org.springframework.integration</groupId>
+		<artifactId>spring-integration-mail</artifactId>
+		<version>4.3.5.RELEASE</version>
+	</dependency>
+		
+		
 	</dependencies>
+	
+	
 	<build>
 		<plugins>
 			<plugin>

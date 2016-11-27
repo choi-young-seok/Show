@@ -1,4 +1,4 @@
-package kr.co.show.sign;
+package kr.co.show.sign.controller;
 
 import javax.servlet.http.HttpSession;
 
@@ -14,14 +14,6 @@ public class JoinController {
 	public String buyer_view(){
 		return "common/join";
 	}
-	@RequestMapping("/sell")
-	public String seller_view(){
-		return "shop_admin/index";
-	}
-	@RequestMapping("/sell_up")
-	public String seller_sign_up(){
-		return "shop_admin/shop_join";
-	}
 	@RequestMapping("/login")
 	public String login(){
 		return "user/login";
@@ -34,7 +26,9 @@ public class JoinController {
 		return "redirect:/";
 	}
 	
-		
-		
+	@RequestMapping("/find")
+	public String findIdPass(){
+		return "common/findIdPass";
+	}
 	
 }
