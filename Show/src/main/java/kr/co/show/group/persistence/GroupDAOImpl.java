@@ -13,9 +13,15 @@ public class GroupDAOImpl implements GroupDAO{
 	@Inject
 	private SqlSession session;
 	
-	@Override
+	/*@Override
 	public void create(GroupVO group) throws Exception {
 		session.insert("group.insert", group);
+	}*/
+
+	@Override
+	public void insert(GroupVO group) throws Exception {
+		session.insert("group.insert", group);
+		
 	}
 
 }
