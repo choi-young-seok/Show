@@ -21,17 +21,9 @@ increment by 1
 nocycle
 nocache;
 
-insert into show_member
-values (show_member_seq.nextval, 'aa@naver.com', '고길동', '둘리', 'asdf123','010-1234-1234', sysdate, 'T', 'T', 'T', '10');
+insert into member
+values (member_seq.nextval, 'aa@naver.com', '고길동', '둘리', 'asdf123','010-1234-1234', sysdate, 'T', 'T', 'T', '10');
 
-select * from show_member;
 
-update show_member
-		set member_pass = 'asdf123@'
-		where member_email= 'ee@naver.com';
 
 select * from show_group;
-
-insert into show_member
-values (show_member_seq.nextval, 'rocjf1682@naver.com', '윤철', '아돌', 'asdf123','010-1234-1234', sysdate, 'T', 'T', 'T', '10');
-
