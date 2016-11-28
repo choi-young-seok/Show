@@ -4,7 +4,7 @@
 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
-<link href="../resources/css/style.css" rel="stylesheet" type="text/css" />
+ <link href="../resources/css/style.css" rel="stylesheet" type="text/css" />
 <link href="../resources/css/user/community/event_list.css" rel="stylesheet" type="text/css" />
 <!--JQUERY 영역-->
 <script src="../resources/js/common/jquery-3.0.0.js">
@@ -16,15 +16,12 @@
 			$(location).attr('href',view);
 		});
 		$(".list_board").after("<div></div>");
-	});
+	}); 
 </script>
 <TITLE> ON SHOW 이벤트  </TITLE>
 
 	<div id="wrap">
-	<header>
-		<%@ include file="../community/include/header.jsp" %>
-	</header>
-			<div><%@ include file="include/community_menu.jsp" %></div>
+	
 		<div class="event_list">
 			<div class="list_name">
 				<ul>
