@@ -28,6 +28,26 @@
 			}
 		});
 	});
+
+	$(document).on("click", ".number_check_btn", function() {
+		var number = $("#number_text").val();
+		
+			$.ajax({
+				url : '/show/email/success',
+				type : 'POST',
+				data : {
+					"number" : number
+				},
+				success : function(result) {
+					if (result == "OK") {
+						alert("해당 이메일로 임시 비밀번호가 전송되었습니다.");
+					} else {
+						alert("인증번호가 잘못되었습니다.");
+					}
+				}
+			})
+		
+	})
 </script>
 <TITLE>비밀번호 찾기</TITLE>
 </HEAD>
@@ -38,11 +58,11 @@
 			<div class="id_check">
 				<p>회원가입한 이메일 계정을 입력하세요.</p>
 				<p>비밀번호 재설정 링크를 이메일로 보내드립니다.</p>
-				<label class="big_text">이메일 주소</label> <input id="pass_text"
-					type="text" size="10" placeholder="&nbsp;&nbsp;이메일을 입력 하세요" />
+				<label class="big_text">이메일 주소</label>
+				<input id="pass_text" type="text" size="10" placeholder="&nbsp;&nbsp;이메일을 입력 하세요" />
 				<p class="pass_check_btn">전송</p>
-				<label class="big_text">인증번호</label>&nbsp;&nbsp;&nbsp; <input
-					id="number_text" type="text" placeholder="&nbsp;&nbsp;인증번호를 입력 하세요" />
+				<label class="big_text">인증번호</label>&nbsp;&nbsp;&nbsp;
+				<input id="number_text" type="text" maxlength="6" placeholder="&nbsp;&nbsp;인증번호를 입력 하세요" />
 				<p class="number_check_btn">인증</p>
 			</div>
 		</div>

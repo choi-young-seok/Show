@@ -21,4 +21,8 @@ public class JoinDAOImpl implements JoinDAO{
 	public MemberVO login(String email) throws Exception {
 		return sqlSession.selectOne("sign.login", email);
 	}
+	@Override
+	public void changePassword(MemberVO vo) throws Exception {
+		sqlSession.update("sign.change", vo);
+	}
 }

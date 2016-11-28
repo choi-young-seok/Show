@@ -23,5 +23,10 @@ public class JoinServiceImpl implements JoinService{
 		return dao.login(email);
 	}
 
+	@Override
+	public void changePassword(MemberVO vo) throws Exception {
+		dao.changePassword(vo);
+	}
+
 	
 }

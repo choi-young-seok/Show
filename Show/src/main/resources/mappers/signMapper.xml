@@ -11,4 +11,11 @@
 	from show_member
 	where member_email = #{email}
 </select>
+
+<update id="change">
+		update show_member
+		set member_pass = #{member_pass}
+		where member_email=#{member_email}
+	</update>
+
 </mapper>
