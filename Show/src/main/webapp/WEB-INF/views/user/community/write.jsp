@@ -7,10 +7,20 @@
 <link href="../resources/css/style.css" rel="stylesheet" type="text/css" />
 <link href="../resources/css/user/community/write.css" rel="stylesheet" type="text/css" />
 <!--JQUERY 영역-->
+
+<!DOCTYPE meta PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <script src="../resources/js/common/jquery-3.0.0.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+	
 
-
-
+$(".write_btn").on("click",function(){
+	alert("문의글이 등록되었습니다.");
+	var form = $("form[role='form']");
+	form.submit();
+	});
+});
+</script>
 <TITLE> ON SHOW 문의하기 </TITLE>
 
 	<div id="wrap">
@@ -18,18 +28,20 @@
 		<%@ include file="../community/include/header.jsp" %>
 	</header>
 		<%@ include file="include/community_menu.jsp" %>
+<form role="form" method="post">
+
 		<div class="write_box">
 			<div class="name">
 				<div class="name_text">이름</div>
-				<input class="name_box" type="text"/>
+				<input class="name_box" name="qna_name" type="text"/>
 			</div>
 			<div class="phone">
 				<div class="phone_text">휴대폰</div>
-				<input class="phone_box" type="text" placeholder="&nbsp;&nbsp;-를 빼고 입력해주세요."/>
+				<input class="phone_box" type="text" name="qna_phone" placeholder="&nbsp;&nbsp;-를 빼고 입력해주세요."/>
 			</div>
 			<div class="qna_type">
 				<div class="qna_type_text">상담분류</div>
-				<select class="qna_type_box">
+				<select class="qna_type_box" name="qna_category">
 					<option>상담분류</option>
 					<option>오류문의</option>
 					<option>회원정보문의</option>
@@ -42,22 +54,17 @@
 			</div>
 			<div class="title">
 				<div class="title_text">제목</div>
-				<input class="title_box" type="text"/>
+				<input class="title_box" type="text" name="qna_title"/>
 			</div>
 			<div class="contents">
 				<div class="contents_text">문의내용</div>
-				<textarea class="contents_box"/></textarea>
+				<textarea class="contents_box" name="qna_text"/></textarea>
 			</div>
 			
-			<div class="check">
-				<div class="check_text">이용동의</div>
-				<label class="check_label">
-					<input type="checkbox"/>
-					개인정보 수집및 이용에 동의 합니다.
-				</label>	
-			</div>
-			<div class="write_btn	">문의하기</div>
+			
+			<button class="write_btn" type="button">문의하기</button>
 		</div>
+</form>
 		<footer>
 			<!--include-->
 		</footer>
