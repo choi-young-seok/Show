@@ -5,17 +5,13 @@
 	insert into show_member
 	values (show_member_seq.nextval, #{email}, #{name}, #{nickName}, #{password}, #{phone}, #{birthday}, #{allCheck}, #{emailCheck}, #{smsCheck}, #{position})
 </insert>
-
+<insert id="create_sell">
+	insert into show_member (member_no, member_email, member_name, member_nickName, member_pass, member_phone, member_birth, member_allCheck, member_position)
+	values (show_member_seq.nextval, #{email}, #{name}, #{nickName}, #{password}, #{phone}, #{birthday}, #{allCheck}, #{position})
+</insert>
 <select id="login" resultType="kr.co.show.sign.domain.MemberVO">
 	select member_no, member_pass, member_position
 	from show_member
 	where member_email = #{email}
 </select>
-
-<update id="change">
-		update show_member
-		set member_pass = #{member_pass}
-		where member_email=#{member_email}
-	</update>
-
 </mapper>

@@ -22,7 +22,7 @@
 			location.href='/show/sign/up';
 		});
 		$(".password_find").click(function(){
-			$(location).attr('href',"/show/sign/find");
+			$(location).attr('href',"../password.html");
 		});
 	});
 </script>
@@ -49,7 +49,7 @@
 				<div class="login_checkbox">
 					<input type="checkbox"/>
 					<p class="id_input">아이디 저장</p>
-					<p class="password_find">아이디/비밀번호 찾기</p>
+					<p class="password_find">비밀번호 찾기</p>
 				</div>
 				<div class="join_btn">회원가입</div>
 			</div>
