@@ -53,7 +53,13 @@
 
 									<% } else if (session.getAttribute("email")!=null && session.getAttribute("id")!=null) { %>
 
+
+
+									<% } else if (session.getAttribute("email")!=null && session.getAttribute("id")!=null) { %>
+
+
 					<% } else if (session.getAttribute("email")!=null && session.getAttribute("id")!=null) { %>
+
 
 					<li><a href="sign/logout">로그아웃</a></li>
 					<% } %>
