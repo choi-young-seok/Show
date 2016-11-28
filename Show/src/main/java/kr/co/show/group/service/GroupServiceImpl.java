@@ -15,6 +15,7 @@ public class GroupServiceImpl implements GroupService{
 
 	@Override
 	public void regist(GroupVO group) throws Exception {
-		dao.create(group);
+//		dao.create(group);
+		dao.insert(group);
 	}
 }
