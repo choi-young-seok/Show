@@ -29,7 +29,7 @@ function Login_AX(email, password) {
 		success : function(result) {
 			if (result == "OK") {
 				alert('로그인되었습니다.');
-				location.href('/show');
+				location.href='/show';
 			} else if (result != "OK") {
 				alert('아이디 또는 비밀번호를 정확히 입력해주시길 바랍니다.');
 
