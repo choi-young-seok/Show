@@ -62,9 +62,7 @@ $(".write_btn").on("click",function(){
 			<button class="write_btn" type="button">문의하기</button>
 		</div>
 </form>
-		<footer>
-			<!--include-->
-		</footer>
+		
 	</div>
 
     

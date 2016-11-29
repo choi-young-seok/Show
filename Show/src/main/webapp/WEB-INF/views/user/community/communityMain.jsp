@@ -4,11 +4,12 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link href="resources/css/shop_admin/style.css" rel="stylesheet" type="text/css" />
+<link href="resources/css/style.css" rel="stylesheet" type="text/css" />
 <!--JQUERY 영역-->
-<script src="resources/js/common/jquery-3.0.0.js"></script>
-<script>
+<script src="../resources/js/common/jquery-3.0.0.js"></script>
+<script type="text/javascript">	
 	$(document).ready(function(){
+		
 		$(".service").hover(function(){
 			$(".menu_bottom1").css({"background":"#000"});
 			$(".menu_bottom2").css({"background":"#fff"});
@@ -19,6 +20,7 @@
 			$(".qna").css({"background":"#ededed","color":"#000"});
 			$(".call").css({"background":"#ededed","color":"#000"});
 		});
+		
 		$(".event").hover(function(){
 			$(".menu_bottom1").css({"background":"#fff"});
 			$(".menu_bottom2").css({"background":"#000"});
@@ -29,6 +31,7 @@
 			$(".qna").css({"background":"#ededed","color":"#000"});
 			$(".call").css({"background":"#ededed","color":"#000"});
 		});
+		
 		$(".qna").hover(function(){
 			$(".menu_bottom1").css({"background":"#fff"});
 			$(".menu_bottom2").css({"background":"#fff"});
@@ -39,6 +42,7 @@
 			$(".service").css({"background":"#ededed","color":"#000"});
 			$(".call").css({"background":"#ededed","color":"#000"});
 		});
+		
 		$(".call").hover(function(){
 			$(".menu_bottom1").css({"background":"#fff"});
 			$(".menu_bottom2").css({"background":"#fff"});
@@ -49,52 +53,49 @@
 			$(".qna").css({"background":"#ededed","color":"#000"});
 			$(".service").css({"background":"#ededed","color":"#000"});
 		});
+		
 		//hover 영역
 		  $('.service').click(function(){//서비스 소개
          $.ajax({            
-            url:'community/intro',
+            url:'intro',
             success: function(data){
                $('.CommunityMain').html(data); 
             }
          });
       });
+		
 		  $('.event').click(function(){//공지사항 게시판
          $.ajax({            
-            url:'community/list',
+            url:'list',
             success: function(data){
                $('.CommunityMain').html(data); 
             }
          });
       });
+		  
 		  $('.qna').click(function(){//자주 묻는 질문 게시판
          $.ajax({            
-            url:'community/qnalist',
+            url:'qnalist',
             success: function(data){
                $('.CommunityMain').html(data); 
             }
          });
       });
+		  
 		  $('.call').click(function(){//문의 글 쓰기 폼
          $.ajax({            
-            url:'community/create',
+            url:'create',
             success: function(data){
                $('.CommunityMain').html(data); 
             }
          });
          });
+		  
 	   });
    
-		
-		
-		
-		
-	
 </script>
 <TITLE> ON SHOW 이벤트 </TITLE>
 
-	
-
-<title>사장님 페이지</title>
 </head>
 <body>
    <div id="wrap">
@@ -103,9 +104,7 @@
       </header>
       	 <%@include file="../community/include/community_menu.jsp"%>
       <div class="CommunityMain"></div>
-      <footer>
          <%@include file="../community/include/footer.jsp"%>
-      </footer>
    </div>
 </body>
 </html>

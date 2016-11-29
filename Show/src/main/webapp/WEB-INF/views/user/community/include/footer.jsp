@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<link href="resources/css/shop_admin/style.css" rel="stylesheet" type="text/css" />
-<link href="resources/css/shop_admin/admin_footer.css" rel="stylesheet" type="text/css" />
+<link href="resources/css/style.css" rel="stylesheet" type="text/css" />
+<link href="../resources/css/footer.css" rel="stylesheet" type="text/css" />
 <!--JQUERY 영역-->
-<script src="resources/js/common/jquery-3.0.0.js"></script>
+<script src="../resources/js/common/jquery-3.0.0.js"></script>
 </HEAD>
 <BODY>
 	<div id="wrap">

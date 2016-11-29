@@ -51,8 +51,6 @@
 			<!--introbox-->
 			</div>
 		</div>
-		<footer>
-			<!--include-->
-		</footer>
+		
 	</div>
 

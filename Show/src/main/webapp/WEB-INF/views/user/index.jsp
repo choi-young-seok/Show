@@ -46,7 +46,7 @@
 			</div>
 			<nav>
 				<ul class="nav_menu">
-					<li><a href="community/intro">서비스안내</a></li>
+					<li><a href="community/communityMain">서비스안내</a></li>
 					<li><a href="community/qnalist">고객센터</a></li>
 					<% if(session.getAttribute("email")==null){ %>
 					<li><a href="sign/login">로그인</a></li>

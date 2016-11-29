@@ -18,11 +18,7 @@
 <TITLE> ON SHOW 이벤트 페이지 </TITLE>
 
 	<div id="wrap">
-	<header>
-		<%@ include file="../include/header.jsp" %>
-	</header>
-		
-		<div><%@ include file="../include/community_menu.jsp" %></div>
+	
 		<div class="view_box">
 			<div class="view_top">
 				<ul>
@@ -39,8 +35,6 @@
 				<span>목록</span>
 			</div>
 		</div>
-		<footer>
-			<!--include-->
-		</footer>
+	
 	</div>
 

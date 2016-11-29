@@ -33,7 +33,7 @@ public class QnaController {
 	@RequestMapping("/qnalist")
 	public String qnalist(){
 		
-		return "user/community/a_qna";
+		return "user/community/qna_board";
 	}
 	
 	@RequestMapping("/eventview")
@@ -52,5 +52,10 @@ public class QnaController {
 	public String intro(){
 		
 		return "user/community/introduce";
+	}
+	@RequestMapping("/communityMain")
+	public String CommunityMain(){
+		
+		return "user/community/communityMain";
 	}
 }

@@ -326,10 +326,6 @@
 			</div>
 			<!--기타-->
 		</div>
-		
-		<footer>
-			<!--include-->
-		</footer>
 	</div>
 
     

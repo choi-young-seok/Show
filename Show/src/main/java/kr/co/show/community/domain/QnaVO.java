@@ -9,7 +9,7 @@ public class QnaVO {
 	private String qna_text;
 	private String qna_category;
 	
-	public QnaVO() {
+	/*public QnaVO() {
 		// TODO Auto-generated constructor stub
 	}
 	
@@ -24,7 +24,7 @@ public class QnaVO {
 		this.qna_text = qna_text;
 		this.qna_category = qna_category;
 	}
-
+*/
 	public int getQna_no() {
 		return qna_no;
 	}
