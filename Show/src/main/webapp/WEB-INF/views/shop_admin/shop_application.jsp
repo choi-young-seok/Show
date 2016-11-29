@@ -69,65 +69,44 @@
 			});
 		});
 
-		$('.qna').click(function() {
-			$.ajax({
-				url : '/show/application',
-				success : function(data) {
-					$('.shop_application').empty;
-					$('.shop_application').html(data);
-				}
-			});
-		});
+		
 		
 		$('.application_btn').click(function() {	
-			var phone = $("#phone").val();
-			var groupName = $("#groupName").val();
-			var groupAddr = $("#groupAddr").val();
-			var groupCategory = $("#groupCategory").val();
-			var start = $("#startHour").val() + ":" + $("#startMinute").val();
-			var end = $("#endHour").val() + ":" + $("#endMinute").val();
-			alert(end);
+			var group_phone = $("#phone").val();
+			var group_name = $("#groupName").val();
+			var group_address = $("#groupAddr").val();
+			var group_category = $("#groupCategory").val();
+			var group_start = $("select[name=start_hour]").val() + $("select[name=start_minute]").val();
+			var group_end = $("select[name=end_hour]").val() + $("select[name=end_minute").val();
+			var group_files = $("#groupFiles").val();
+			var image_split = group_files.split("\\");
+			var id = $("#id").val;
 			$.ajax({
-				url : '/show/application',
-				success : function(result) {
-			if(result == 'OK'){
-				alert("1:"+result)
-				console.log("aa")
-				alert("신청이 완료되었습니다.");
-			}
-				}
-			});
-		});
-
-		$('.gong').click(function() {
-			$.ajax({
-				url : '/show/management',
+				url : '/show/applicationInsert',
+				type:'post',
+				//headers:{"Content-Type":"application/json"},
+				data:{"group_phone":group_phone,"group_name":group_name,"group_address":group_address,"group_category":group_category,
+						"group_start":group_start,"group_end":group_end,"group_files":image_split[2],"id":id},
 				success : function(data) {
-					$('.shop_application').empty;
-					$('.shop_application').html(data);
+					if(data == 'OK'){
+						alert("신청이 완료되었습니다.");
+						application();
+					}//if
+				}//success
+				,error: function(xhr,status){
+					alert(status+":"+xhr.statusText);
+				}
+			});//ajax
+		});//click
+		
+		function application(){
+			$.ajax({    		  
+				url:'/show/application',
+				success: function(data){
+					$('.adminMain').html(data); 
 				}
 			});
-		});
-
-		$('.member').click(function() {
-			$.ajax({
-				url : '/show/orderCheck',
-				success : function(data) {
-					$('.shop_application').empty;
-					$('.shop_application').html(data);
-				}
-			});
-		});
-
-		$('.shop').click(function() {
-			$.ajax({
-				url : '/show/stats',
-				success : function(data) {
-					$('.shop_application').empty;
-					$('.shop_application').html(data);
-				}
-			});
-		});
+		}
 	});
 </script>
 <TITLE>업소 신청</TITLE>
@@ -137,6 +116,7 @@
 		<%-- <header>
 			<%@include file="../shop_admin/header.jsp"%>
 		</header> --%>
+		<input type="hidden" value="${id }" id="id">
 		<div class="shop_application">
 			<div class="application">
 				<p class="application_text">&nbsp;&nbsp;업소 신청서</p>
@@ -165,9 +145,9 @@
 				<div class="application_start_time">
 					<p class="application_left addr left_size">시작시간</p>
 					<select name="start_hour" id="startHour">
-						<option>00시</option>
+						<option>시</option>
 						<%
-							for (int i = 1; i < 25; i++) {
+							for (int i = 0; i < 25; i++) {
 								if (i < 10)
 									out.println("<option value=0" + i + ">0" + i + "</option>");
 							else
@@ -176,9 +156,9 @@
 						%>
 					</select>
 					<select name="start_minute" id="startMinute">
-						<option>00분</option>
+						<option>분</option>
 						<%
-							for (int i = 1; i < 61; i++) {
+							for (int i = 0; i < 61; i++) {
 								if (i < 10)
 									out.println("<option value=0" + i + ">0" + i + "</option>");
 							else
@@ -190,9 +170,9 @@
 				<div class="application_end_time">
 					<p class="application_left addr left_size">종료시간</p>
 					<select name="end_hour" id="endHour">
-						<option>00시</option>
+						<option>시</option>
 						<%
-							for (int i = 1; i < 25; i++) {
+							for (int i = 0; i < 25; i++) {
 								if (i < 10)
 									out.println("<option value=0" + i + ">0" + i + "</option>");
 							else
@@ -201,9 +181,9 @@
 						%>
 					</select>
 					<select name="end_minute" id="endMinute">
-						<option>00분</option>
+						<option>분</option>
 						<%
-							for (int i = 1; i < 61; i++) {
+							for (int i = 0; i < 61; i++) {
 								if (i < 10)
 									out.println("<option value=0" + i + ">0" + i + "</option>");
 							else
@@ -212,6 +192,12 @@
 						%>
 					</select>
 				</div>
+				<form id='form' action="upload" method="post" enctype="multipart/form-data" target="zeroFrame">
+				<div class="application_shop_image">
+					<p class="application_left shop_image left_size">매장로고</p>
+					<input type="file" class="application_left shop_image_input" id="groupFiles"/>
+				</div>
+				</form>
 				<div class="application_btn">신청하기</div>
 			</div>
 		</div>

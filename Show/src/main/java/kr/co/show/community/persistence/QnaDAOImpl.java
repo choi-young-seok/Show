@@ -5,19 +5,16 @@ import javax.inject.Inject;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
-import kr.co.show.domain.CommunityVO;
-
-
+import kr.co.show.community.domain.QnaVO;
 @Repository
-public class CommunityDAOImpl implements CommunityDAO {
-	
+public class QnaDAOImpl implements QnaDAO {
 	@Inject
 	private SqlSession sqlSession;
-	
 	@Override
-	public void create(CommunityVO cvo) throws Exception {
-		sqlSession.insert("community.create",cvo);
+	public void create(QnaVO vo) throws Exception {
+		sqlSession.insert("qna.create",vo);
 
 	}
+
 
 }

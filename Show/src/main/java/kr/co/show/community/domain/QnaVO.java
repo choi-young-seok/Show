@@ -1,33 +1,35 @@
-package kr.co.show.domain;
+package kr.co.show.community.domain;
 
-public class CommunityVO {
-	private int faq_no;
+public class QnaVO {
+	private int qna_no;
 	private String qna_name;
-	private String qna_emil;
+	private String qna_phone;
 	private String qna_ch;
 	private String qna_title;
 	private String qna_text;
 	private String qna_category;
 	
-	public CommunityVO() {
+	/*public QnaVO() {
 		// TODO Auto-generated constructor stub
 	}
-	public CommunityVO(int faq_no, String qna_name, String qna_emil, String qna_ch, String qna_title, String qna_text,
+	
+	public QnaVO(int qna_no, String qna_name, String qna_phone, String qna_ch, String qna_title, String qna_text,
 			String qna_category) {
 		super();
-		this.faq_no = faq_no;
+		this.qna_no = qna_no;
 		this.qna_name = qna_name;
-		this.qna_emil = qna_emil;
+		this.qna_phone = qna_phone;
 		this.qna_ch = qna_ch;
 		this.qna_title = qna_title;
 		this.qna_text = qna_text;
 		this.qna_category = qna_category;
 	}
-	public int getFaq_no() {
-		return faq_no;
+*/
+	public int getQna_no() {
+		return qna_no;
 	}
-	public void setFaq_no(int faq_no) {
-		this.faq_no = faq_no;
+	public void setQna_no(int qna_no) {
+		this.qna_no = qna_no;
 	}
 	public String getQna_name() {
 		return qna_name;
@@ -35,11 +37,11 @@ public class CommunityVO {
 	public void setQna_name(String qna_name) {
 		this.qna_name = qna_name;
 	}
-	public String getQna_emil() {
-		return qna_emil;
+	public String getQna_phone() {
+		return qna_phone;
 	}
-	public void setQna_emil(String qna_emil) {
-		this.qna_emil = qna_emil;
+	public void setQna_phone(String qna_phone) {
+		this.qna_phone = qna_phone;
 	}
 	public String getQna_ch() {
 		return qna_ch;
@@ -65,6 +67,5 @@ public class CommunityVO {
 	public void setQna_category(String qna_category) {
 		this.qna_category = qna_category;
 	}
-	
 	
 }

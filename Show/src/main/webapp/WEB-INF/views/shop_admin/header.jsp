@@ -35,7 +35,9 @@
 			$(".member").css({"background":"#696969"});
 			$(".qna").css({"background":"#696969"});
 		});
+		
 	});
+	
 </script>
 <TITLE></TITLE>
 </HEAD>

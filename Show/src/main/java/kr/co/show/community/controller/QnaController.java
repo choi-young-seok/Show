@@ -5,38 +5,30 @@ import javax.inject.Inject;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import kr.co.show.community.service.CommunityService;
-import kr.co.show.domain.CommunityVO;
 
+import kr.co.show.community.domain.QnaVO;
+import kr.co.show.community.service.QnaService;
 
 @Controller
 @RequestMapping("/community")
-public class CommunityController {
+public class QnaController {
 	@Inject
-	private CommunityService service;
+	private QnaService service;
 	
 	@RequestMapping(value="/create",method=RequestMethod.GET)
-	public String createGet(){ //문의글 입력폼 요청
-		
+	public String createQnaGet(){
 		return "user/community/write";
 	}
-	
 	@RequestMapping(value="/create",method=RequestMethod.POST)//DB 입력 요청
-	public String createPost(CommunityVO cvo,RedirectAttributes attr)throws Exception{
-		service.create(cvo);
-		attr.addFlashAttribute("msg", "SUCCESS");
+	public String createQnaPost(QnaVO vo)throws Exception{
+	
+		service.create(vo);
 		
 		return "redirect:community/write";
 	}
 	
-	@RequestMapping("/list")
-	public String list(){
-		
-		return "user/community/event_board";
-	}
 	
 	@RequestMapping("/qnalist")
 	public String qnalist(){
@@ -61,5 +53,9 @@ public class CommunityController {
 		
 		return "user/community/introduce";
 	}
-	
+	@RequestMapping("/communityMain")
+	public String CommunityMain(){
+		
+		return "user/community/communityMain";
+	}
 }

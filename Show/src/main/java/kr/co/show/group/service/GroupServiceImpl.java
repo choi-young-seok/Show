@@ -1,8 +1,10 @@
 package kr.co.show.group.service;
 
-import javax.inject.Inject;
+import java.util.List;
 
+import javax.inject.Inject;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import kr.co.show.group.domain.GroupVO;
 import kr.co.show.group.persistence.GroupDAO;
@@ -13,8 +15,15 @@ public class GroupServiceImpl implements GroupService{
 	@Inject
 	private GroupDAO dao;
 
+	@Transactional
 	@Override
-	public void regist(GroupVO group) throws Exception {
+	public void insert(GroupVO group, int no) throws Exception {
 		dao.insert(group);
+		dao.update(no);
+	}
+
+	@Override
+	public List<GroupVO> listAll(int no) throws Exception {
+		return null;
 	}
 }
