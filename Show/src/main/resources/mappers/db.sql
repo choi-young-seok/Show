@@ -24,6 +24,8 @@ nocache;
 insert into member
 values (member_seq.nextval, 'aa@naver.com', '고길동', '둘리', 'asdf123','010-1234-1234', sysdate, 'T', 'T', 'T', '10');
 
+select member_email
+	from show_member
+	where member_name = '고길동' and member_phone = '010-1234-1234';
 
-
-select * from show_group;
+select * from show_member;
