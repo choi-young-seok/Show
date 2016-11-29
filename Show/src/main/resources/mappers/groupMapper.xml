@@ -14,8 +14,8 @@
 		where member_no=#{member_no}
 	</update>
 	
-	<select id="listAll">
-		select group_files, group_name, group_address, group_no, group_ch
+	<select id="listAll" resultType="kr.co.show.group.domain.GroupVO">
+		select member_no,group_files, group_name, group_address, group_no, group_ch
 		from show_group
 		where member_no=#{member_no}
 	</select>

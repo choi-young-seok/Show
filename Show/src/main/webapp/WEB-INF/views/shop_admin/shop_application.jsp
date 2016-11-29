@@ -80,7 +80,7 @@
 			var group_end = $("select[name=end_hour]").val() + $("select[name=end_minute").val();
 			var group_files = $("#groupFiles").val();
 			var image_split = group_files.split("\\");
-			var id = $("#id").val;
+			var id = $("#id").val();
 			$.ajax({
 				url : '/show/applicationInsert',
 				type:'post',

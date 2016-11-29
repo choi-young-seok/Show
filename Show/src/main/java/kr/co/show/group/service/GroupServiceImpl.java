@@ -23,7 +23,7 @@ public class GroupServiceImpl implements GroupService{
 	}
 
 	@Override
-	public List<GroupVO> listAll(int no) throws Exception {
-		return null;
+	public List<GroupVO> listAll(int member_no) throws Exception {
+		return dao.listAll(member_no);
 	}
 }

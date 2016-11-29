@@ -6,5 +6,5 @@ import kr.co.show.group.domain.GroupVO;
 
 public interface GroupService {
 	public void insert(GroupVO group, int no) throws Exception;
-	public List<GroupVO> listAll(int no) throws Exception;
+	public List<GroupVO> listAll(int member_no) throws Exception;
 }

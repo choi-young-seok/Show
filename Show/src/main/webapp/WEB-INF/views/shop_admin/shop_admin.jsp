@@ -35,7 +35,7 @@
 		});
 		
 		$('.qna').click(function(){
-			$.ajax({    		  
+			$.ajax({
 				url:'/show/application',
 				success: function(data){
 					$('.adminMain').html(data); 
@@ -44,8 +44,10 @@
 		});
 
 		$('.gong').click(function(){
-			$.ajax({    		  
+			var id = $("#id").val();
+			$.ajax({
 				url:'/show/management',
+				data:{"member_no":1},
 				success: function(data){
 					$('.adminMain').html(data); 
 				}
@@ -53,7 +55,7 @@
 		});
 
 		$('.member').click(function(){
-			$.ajax({    		  
+			$.ajax({
 				url:'/show/orderCheck',
 				success: function(data){
 					$('.adminMain').html(data); 
@@ -75,6 +77,7 @@
 </head>
 <body>
 	<div id="wrap">
+	<input type="hidden" value="${id }" id="id">
 		<header>
 			<%@include file="../shop_admin/header.jsp"%>
 		</header>
