@@ -58,7 +58,7 @@
 						<% if(session.getAttribute("position").equals("10")) { %>
 						<li><a href="application">업체추가</a></li>
 						<% } else if(session.getAttribute("position").equals("20")) { %>
-						<li><a href="management">업체 관리페이지</a></li>
+						<li><a href="adminMain">업체 관리페이지</a></li>
 					<% } %><% } %>
 				</ul>
 			</nav>
