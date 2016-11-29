@@ -33,6 +33,19 @@ body{
 	cursor:pointer;
 	margin-left:5px;
 }
+.logout_btn{
+	width:85px;
+	height:80px;
+	background:#696969;
+	color:#fff;
+	font-family:"dotum";
+	font-size:1em;
+	font-weight:bold;
+	text-align:center;
+	line-height:80px;
+	cursor:pointer;
+	margin-left:5px;
+}
 .id_box{
 	width:300px;
 	height:35px;
