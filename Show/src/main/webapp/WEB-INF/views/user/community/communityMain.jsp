@@ -75,7 +75,7 @@
 		  
 		  $('.qna').click(function(){//자주 묻는 질문 게시판
          $.ajax({            
-            url:'qnalist',
+            url:'faqList',
             success: function(data){
                $('.CommunityMain').html(data); 
             }
@@ -104,7 +104,10 @@
       </header>
       	 <%@include file="../community/include/community_menu.jsp"%>
       <div class="CommunityMain"></div>
+  
+  <%--  <footer>
          <%@include file="../community/include/footer.jsp"%>
-   </div>
+   </footer> --%>
+    </div>
 </body>
 </html>

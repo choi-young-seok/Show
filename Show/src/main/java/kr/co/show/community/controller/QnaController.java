@@ -3,6 +3,7 @@ package kr.co.show.community.controller;
 import javax.inject.Inject;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
@@ -12,13 +13,19 @@ import kr.co.show.community.domain.QnaVO;
 import kr.co.show.community.service.QnaService;
 
 @Controller
-@RequestMapping("/community")
+@RequestMapping("/user")
 public class QnaController {
 	@Inject
 	private QnaService service;
 	
+	@RequestMapping("/community") //헤더 푸터 있는 것
+	public String CommunityMain(){
+		
+		return "user/community/communityMain";
+	}
+	
 	@RequestMapping(value="/create",method=RequestMethod.GET)
-	public String createQnaGet(){
+	public String createQnaGet(){//문의글 작성 폼
 		return "user/community/write";
 	}
 	@RequestMapping(value="/create",method=RequestMethod.POST)//DB 입력 요청
@@ -30,32 +37,25 @@ public class QnaController {
 	}
 	
 	
-	@RequestMapping("/qnalist")
-	public String qnalist(){
+	@RequestMapping("/list")
+	public String list(Model model) throws Exception {//공지사항 목록
 		
-		return "user/community/qna_board";
+		return "user/community/event_board";
 	}
 	
-	@RequestMapping("/eventview")
+	@RequestMapping("/intro")
+	public String intro(){//서비스 소개
+		
+		return "user/community/introduce";
+	}
+	
+	
+	
+	@RequestMapping("/eventview") //공지사항 글 한건 조회 
 	public String eventview(){
 		
 		return "user/community/event_view/view";
 	}
 	
-	@RequestMapping("/qnaview")
-	public String qnaview(){
-		
-		return "user/community/qna_board/view";
-	}
 	
-	@RequestMapping("/intro")
-	public String intro(){
-		
-		return "user/community/introduce";
-	}
-	@RequestMapping("/communityMain")
-	public String CommunityMain(){
-		
-		return "user/community/communityMain";
-	}
 }

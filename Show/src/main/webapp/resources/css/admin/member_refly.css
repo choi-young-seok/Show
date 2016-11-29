@@ -5,6 +5,11 @@ body,html{
 .member_refly{
 	width:700px;
 }
+#show{
+	width:495px;
+	height:30px;
+	color: #000;
+}
 .email{
 	width:600px;
 	border:1px solid #696969;
@@ -12,6 +17,7 @@ body,html{
 	height:30px;
 	box-sizing:border-box;
 	overflow:hidden;
+	color: #000;
 }
 .text_size{
 	width:100px;

@@ -64,13 +64,25 @@
 						<li>날짜</li>
 					</ul>
 				</div>
-				<div class="event_text">
+				 <div class="event_text">
 					<div>순번db</div>
 					<div>제목db</div>
 					<div>등록날짜db</div>
-				</div>
+				</div> 
+				
 			</div>
-			<div class="write_btn">글쓰기</div>
+			<script type="text/javascript">
+
+			function popupOpen(){
+				var popUrl = "test.html";	//팝업창에 출력될 페이지 URL
+				var popOption = "width=500, height=800, resizable=no, scrollbars=no, status=no;";    //팝업창 옵션(optoin)
+					window.open(popUrl,"",popOption);
+				}
+			
+			</script>
+			<button class="write_btn"><a href="javascript:popupOpen();">글쓰기</a></button>
+
+
 		</div>
 		<footer>
 			<!--include-->

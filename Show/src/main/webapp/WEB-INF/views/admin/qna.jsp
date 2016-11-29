@@ -5,9 +5,7 @@
 <HEAD>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <link href="resources/css/style.css" rel="stylesheet" type="text/css" />
-<link href="resources/css/admin/admin_header.css" rel="stylesheet" type="text/css" />
-<link href="resources/css/admin/admin_footer.css" rel="stylesheet" type="text/css" />
-<link href="resources/css/admin/qna.css" rel="stylesheet" type="text/css" />
+<link href="../resources/css/admin/qna.css" rel="stylesheet" type="text/css" />
 <!--JQUERY 영역-->
 <script src="resources/js/common/jquery-3.0.0.js"></script>
 <script>
@@ -753,7 +751,7 @@
 			</div>
 		</div>
 
-		<footer> <!--include--> </footer>
+		
 	</div>
 </BODY>
 </HTML>
