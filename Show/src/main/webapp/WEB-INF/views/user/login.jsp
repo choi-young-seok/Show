@@ -17,9 +17,6 @@
 		$(".login_btn").click(function(){
 			Login();
 		});
-		$(".logout_btn").click(function(){
-			location.href='/show/sign/logout';
-		});
 		var join = "../join/join.html";
 		$(".join_btn").click(function(){
 			location.href='/show/sign/up';
@@ -47,11 +44,7 @@
 						<input type="text" placeholder="&nbsp;&nbsp;이메일을 입력해 주세요." class="id_box"/>
 						<input type="password" class="password_box" placeholder="&nbsp;&nbsp;비밀번호"/>
 					</div>
-					<% if(session.getAttribute("id") == null && session.getAttribute("email") == null) {%>
 					<div class="login_btn">로그인</div>
-					<% } else { %>
-					<div class="logout_btn">로그아웃</div>
-					<% } %>
 				</div>
 				<div class="login_checkbox">
 					<input type="checkbox"/>

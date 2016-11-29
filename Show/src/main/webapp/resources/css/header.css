@@ -26,10 +26,10 @@ header{
 .nav_menu > li{
 	float:left;
 	font-size:12px;
-	margin-left:10px;
+	margin-left:20px;
 }
 .nav_menu > li:nth-child(1){
-	margin-left:420px;
+	margin-left:300px;
 }
 .nav_menu > li > a{
 	color:#000;
@@ -39,5 +39,8 @@ header{
 	color:gray;
 }
 .nav_menu > li:nth-child(4) > a{
+	color:gray;
+}
+.nav_menu > li:nth-child(5) > a{
 	color:gray;
 }

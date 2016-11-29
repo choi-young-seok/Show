@@ -48,12 +48,18 @@
 				<ul class="nav_menu">
 					<li><a href="community/communityMain">서비스안내</a></li>
 					<li><a href="community/qnalist">고객센터</a></li>
-					<% if(session.getAttribute("email")==null){ %>
+					<% if(session.getAttribute("id") == null && session.getAttribute("email") == null && session.getAttribute("position") == null) {%>
 					<li><a href="sign/login">로그인</a></li>
 					<% } else { %>
 					<li><a href="sign/logout">로그아웃</a></li>
 					<% } %>
-					<li><a href="sign/up">회원가입</a></li>
+					<li><a href="sign/up">회원가입</a></li>					
+					<% if(session.getAttribute("id")!=null){ %>
+						<% if(session.getAttribute("position").equals("10")) { %>
+						<li><a href="application">업체추가</a></li>
+						<% } else if(session.getAttribute("position").equals("20")) { %>
+						<li><a href="management">업체 관리페이지</a></li>
+					<% } %><% } %>
 				</ul>
 			</nav>
 		</header>
