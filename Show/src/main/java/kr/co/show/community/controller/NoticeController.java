@@ -12,11 +12,17 @@ import kr.co.show.community.service.NoticeService;
 
 
 @Controller
-@RequestMapping("/community")
+@RequestMapping("/admin")
 public class NoticeController {
 	
 	@Inject
 	private NoticeService service;
+	
+	/*@RequestMapping("/main2")
+	public String CommunityMain(){ //헤더, 푸터 들어있는 곳
+		
+		return "admin/adminMain2";
+	}*/
 	
 	@RequestMapping("/noticeList")
 	public String listNotice()throws Exception {//관리자가 보는 화면의 공지사항 목록
@@ -24,11 +30,11 @@ public class NoticeController {
 		return "admin/event";
 	}
 	
-	@RequestMapping("/list")
+	/*@RequestMapping("/list")
 	public void listNoticeUser(Model model) throws Exception {//유저가 보는 화면의 공지사항 목록
 		model.addAttribute("list", service.listNotice());
 		//return "user/community/event_board";
-	}
+	}*/
 	
 	@RequestMapping("/listCri")// 요청:listCri  뷰: listCri.jsp
     public void listAll(Criteria cri, Model model)throws Exception{

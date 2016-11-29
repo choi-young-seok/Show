@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>    
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
@@ -182,7 +183,7 @@
 		/*게시글*/
 		$(".all_box_box").hide();
 		$(".all_box_text").click(function(){
-			$(".all_box_box").slideToggle();
+			$(this).next().slideToggle();
 		});
 
 
@@ -216,116 +217,151 @@
 			</div>
 			<!--전체보기-->
 			<div class="qna_all_view qna_position all_box">
+			<c:forEach items="${list}" var="faqVO"  >
+		
 				<div class="all_box_text">
 					<ul>
-						<li>문의부분 db</li>
-						<li>제목db</li>
+						<li>${faqVO.faq_category }</li>
+						<li>${faqVO.faq_title }</li>
 					</ul>
 				</div>
 				<div class="all_box_box">
-					<p>여기에 들어갈 글 작성db</p>
+					 <p>${faqVO.faq_text }</p>
 				</div>
+			</c:forEach>
 			</div>
 			<!--전체보기-->
 
 			<!--회원가입-->
 			<div class="qna_join_view qna_position all_box">
+			<c:forEach items="${list}" var="faqVO"  >
+				<c:if test="${faqVO.faq_category eq '회원가입'}">
 				<div class="all_box_text">
 					<ul>
 						<li>회원가입</li>
-						<li>제목db</li>
+						<li>${faqVO.faq_title }</li>
 					</ul>
 				</div>
 				<div class="all_box_box">
-					<p>여기에 들어갈 글 작성db</p>
+					<p>${faqVO.faq_text }</p>
 				</div>
+				</c:if>
+				</c:forEach>
 			</div>
 			<!--회원가입-->
 
 			<!--바로결제-->
 			<div class="qna_pay_view qna_position all_box">
+				<c:forEach items="${list}" var="faqVO"  >
+				<c:if test="${faqVO.faq_category eq '바로결제'}">
 				<div class="all_box_text ">
 					<ul>
 						<li>바로결제</li>
-						<li>제목db</li>
+						<li>${faqVO.faq_title }</li>
 					</ul>
 				</div>
 				<div class="all_box_box">
-					<p>여기에 들어갈 글 작성db</p>
+					<p>${faqVO.faq_text }</p>
 				</div>
+				</c:if>
+				</c:forEach>
 			</div>
 			<!--바로결제-->
 
 			<!--리뷰관리-->
 			<div class="qna_rivew_view qna_position all_box">
+				<c:forEach items="${list}" var="faqVO"  >
+				<c:if test="${faqVO.faq_category eq '리뷰관리'}">
 				<div class="all_box_text">
 					<ul>
 						<li>리뷰관리</li>
-						<li>제목db</li>
+						<li>${faqVO.faq_title }</li>
 					</ul>
 				</div>
 				<div class="all_box_box">
-					<p>여기에 들어갈 글 작성db</p>
+					<p>${faqVO.faq_text }</p>
 				</div>
+				</c:if>
+				</c:forEach>
 			</div>
 			<!--리뷰관리-->
 
 			<!--이용문의-->
 			<div class="qna_use_view qna_position all_box">
+				<c:forEach items="${list}" var="faqVO"  >
+				<c:if test="${faqVO.faq_category eq '이용문의'}">
 				<div class="all_box_text">
 					<ul>
 						<li>이용문의</li>
-						<li>제목db</li>
+						<li>${faqVO.faq_title }</li>
 					</ul>
 				</div>
 				<div class="all_box_box">
-					<p>여기에 들어갈 글 작성db</p>
+					<p>${faqVO.faq_text }</p>
 				</div>
+				</c:if>
+				</c:forEach>
 			</div>
 			<!--이용문의-->
 
 			<!--광고문의-->
 			<div class="qna_ad_view qna_position all_box">
+				<c:forEach items="${list}" var="faqVO"  >
+				<c:if test="${faqVO.faq_category eq '이용문의'}">
 				<div class="all_box_text">
 					<ul>
 						<li>광고문의</li>
-						<li>제목db</li>
+						<li>${faqVO.faq_title }</li>
 					</ul>
 				</div>
 				<div class="all_box_box">
-					<p>여기에 들어갈 글 작성db</p>
+					<p>${faqVO.faq_text }</p>
 				</div>
+				</c:if>
+				</c:forEach>
 			</div>
 			<!--광고문의-->
 
 			<!--불편문의-->
 			<div class="qna_discontent_view qna_position all_box">
+				<c:forEach items="${list}" var="faqVO"  >
+				<c:if test="${faqVO.faq_category eq '이용문의'}">
 				<div class="all_box_text">
 					<ul>
 						<li>불편문의</li>
-						<li>제목db</li>
+						<li>${faqVO.faq_title }</li>
 					</ul>
 				</div>
 				<div class="all_box_box">
-					<p>여기에 들어갈 글 작성db</p>
+					<p>${faqVO.faq_text }</p>
 				</div>
+				</c:if>
+				</c:forEach>
 			</div>
 			<!--불편문의-->
 
 			<!--기타-->
 			<div class="qna_other_view qna_position all_box">
+				<c:forEach items="${list}" var="faqVO"  >
+				<c:if test="${faqVO.faq_category eq '이용문의'}">
 				<div class="all_box_text">
 					<ul>
 						<li>기타</li>
-						<li>제목db</li>
+						<li>${faqVO.faq_title }</li>
 					</ul>
 				</div>
 				<div class="all_box_box">
-					<p>여기에 들어갈 글 작성db</p>
+					<p>${faqVO.faq_text }</p>
 				</div>
+				</c:if>
+				</c:forEach>
 			</div>
 			<!--기타-->
 		</div>
+		
+		<footer>
+			<!--include-->
+		</footer>
 	</div>
 
     

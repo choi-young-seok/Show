@@ -3,6 +3,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+<link href="../resources/css/admin/admin_header.css" rel="stylesheet" type="text/css" />
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <script>
@@ -38,7 +39,7 @@
 <div id="wrap">
 		<header>
 			<div class="header_logo">
-				<img src="resources/image/logo.png" class="logo_left"/>
+				<img src="../resources/image/logo.png" class="logo_left"/>
 				<p class="logo_left">관리자 페이지</p>
 			</div>
 			<div class="header_box">
