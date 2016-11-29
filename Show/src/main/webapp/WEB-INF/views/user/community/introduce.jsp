@@ -10,10 +10,7 @@
 <TITLE> ON SHOW 소개페이지 </TITLE>
 
 	<div id="wrap">
-	<header>
-		<%@ include file="../community/include/header.jsp" %>
-	</header>
-		<%@ include file="include/community_menu.jsp" %>
+	
 		<div class="introduce">
 			<p class="intro_text">서비스 소개</p>
 			<div class="intro_box">
@@ -54,8 +51,6 @@
 			<!--introbox-->
 			</div>
 		</div>
-		<footer>
-			<!--include-->
-		</footer>
+		
 	</div>
 

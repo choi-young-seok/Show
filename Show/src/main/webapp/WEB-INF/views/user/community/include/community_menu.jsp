@@ -8,65 +8,25 @@
 <!--JQUERY 영역-->
 <script src="../../js/jquery-3.0.0.js"></script>
 <script>
-	$(document).ready(function(){
-		$(".service").hover(function(){
-			$(".menu_bottom1").css({"background":"#000"});
-			$(".menu_bottom2").css({"background":"#fff"});
-			$(".menu_bottom3").css({"background":"#fff"});
-			$(".menu_bottom4").css({"background":"#fff"});
-			$(".service").css({"background":"#696969","color":"#fff"});
-			$(".event").css({"background":"#ededed","color":"#000"});
-			$(".qna").css({"background":"#ededed","color":"#000"});
-			$(".call").css({"background":"#ededed","color":"#000"});
-		});
-		$(".event").hover(function(){
-			$(".menu_bottom1").css({"background":"#fff"});
-			$(".menu_bottom2").css({"background":"#000"});
-			$(".menu_bottom3").css({"background":"#fff"});
-			$(".menu_bottom4").css({"background":"#fff"});
-			$(".event").css({"background":"#696969","color":"#fff"});
-			$(".service").css({"background":"#ededed","color":"#000"});
-			$(".qna").css({"background":"#ededed","color":"#000"});
-			$(".call").css({"background":"#ededed","color":"#000"});
-		});
-		$(".qna").hover(function(){
-			$(".menu_bottom1").css({"background":"#fff"});
-			$(".menu_bottom2").css({"background":"#fff"});
-			$(".menu_bottom3").css({"background":"#000"});
-			$(".menu_bottom4").css({"background":"#fff"});
-			$(".qna").css({"background":"#696969","color":"#fff"});
-			$(".event").css({"background":"#ededed","color":"#000"});
-			$(".service").css({"background":"#ededed","color":"#000"});
-			$(".call").css({"background":"#ededed","color":"#000"});
-		});
-		$(".call").hover(function(){
-			$(".menu_bottom1").css({"background":"#fff"});
-			$(".menu_bottom2").css({"background":"#fff"});
-			$(".menu_bottom3").css({"background":"#fff"});
-			$(".menu_bottom4").css({"background":"#000"});
-			$(".call").css({"background":"#696969","color":"#fff"});
-			$(".event").css({"background":"#ededed","color":"#000"});
-			$(".qna").css({"background":"#ededed","color":"#000"});
-			$(".service").css({"background":"#ededed","color":"#000"});
-		});
+
 		//hover 영역
-		$(".service").click(function(){
+		$(".service").click(function(){ //서비스 소개
 			var service = "intro";
 			$(location).attr('href',service);
 		});
-		$(".event").click(function(){
+		$(".event").click(function(){ //공지사항 게시판
 			var event = "list";
 			$(location).attr('href',event);
 		});
-		$(".qna").click(function(){
+		$(".qna").click(function(){ // 자주 묻는 질문
 			var qna = "qnalist";
 			$(location).attr('href',qna);
 		});
-		$(".call").click(function(){
+		$(".call").click(function(){ // 문의글 작성 폼
 			var call = "create";
 			$(location).attr('href',call);
 		});
-	});
+
 </script>
 <TITLE> ON SHOW 이벤트 </TITLE>
 

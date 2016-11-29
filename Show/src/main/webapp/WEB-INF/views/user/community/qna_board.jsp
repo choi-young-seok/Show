@@ -191,10 +191,7 @@
 <TITLE> ON SHOW 게시판  </TITLE>
 
 	<div id="wrap">
-	<header>
-		<%@ include file="../community/include/header.jsp" %>
-	</header>
-		<%@ include file="include/community_menu.jsp" %>
+	
 		<div class="qna_list">
 			<div class="qna_menu">
 				<ul>
@@ -329,10 +326,6 @@
 			</div>
 			<!--기타-->
 		</div>
-		
-		<footer>
-			<!--include-->
-		</footer>
 	</div>
 
     
