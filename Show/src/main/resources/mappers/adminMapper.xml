@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC " -//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="member">
+
+	<select id="list" resultType="kr.co.show.sign.domain.MemberVO">
+		select member_no, member_email,member_name,
+		member_nickName, 
+	    member_position
+		from show_member
+	</select>
+	
+	<select id="detail" resultType="kr.co.show.sign.domain.MemberVO">
+		select member_no, member_email,
+		member_nickName, member_pass,
+	    member_phone, member_birth
+		from show_member
+		where member_no = #{member_no}
+	</select>
+
+
+</mapper>

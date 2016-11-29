@@ -1,16 +1,30 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <HTML>
 <HEAD>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <link href="resources/css/style.css" rel="stylesheet" type="text/css" />
-<link href="resources/css/admin/admin_header.css" rel="stylesheet" type="text/css" />
-<link href="resources/css/admin/admin_footer.css" rel="stylesheet" type="text/css" />
-<link href="resources/css/admin/member.css" rel="stylesheet" type="text/css" />
+<link href="resources/css/admin/admin_header.css" rel="stylesheet"
+	type="text/css" />
+<link href="resources/css/admin/admin_footer.css" rel="stylesheet"
+	type="text/css" />
+<link href="resources/css/admin/member.css" rel="stylesheet"
+	type="text/css" />
 <!--JQUERY 영역-->
 <script src="resources/js/common/jquery-3.0.0.js"></script>
-<TITLE> 회원관리 </TITLE>
+<TITLE>회원관리</TITLE>
+
+
+<script type="text/javascript">
+	function m(no){
+		window.open('admin_member_refly?member_no='+no,'width=300,height=300,top=50,left=70,right=50');
+	}
+
+</script>
+
+
 </HEAD>
 <BODY>
 
@@ -19,23 +33,41 @@
 			<div class="member_top">
 				<ul>
 					<li>선택</li>
-					<li>아이디</li>
+					<li>회원번호</li>
+					<li>이메일</li>
 					<li>이름</li>
-					<li>생년월일</li>
-					<li>구별</li>
+					<li>포지션</li>
 					<li>상세보기</li>
 				</ul>
 			</div>
-			<div class="member_choice">
-				<div>
-					<input type="checkbox"/>
+	     <% request.setCharacterEncoding("UTF-8"); %>
+			<c:forEach items="${list }" var="member">
+				<div class="member_choice">
+					<div>
+						<input type="checkbox" />
+					</div>
+
+					<div id="no">${member.member_no }</div>
+					<div>${member.member_email }</div>
+					<div>${member.member_name }</div>
+							 
+					<c:if test="${member.member_position == '10'}">
+							<div> 사용자</div>
+					</c:if>
+					<c:if test="${member.member_position == '20'}">
+							<div> 사장님</div>
+					</c:if>
+					<c:if test="${member.member_position == '30'}">
+							<div> 관리자</div>
+					</c:if>
+						
+					<div>
+						<p class="detail" onclick="m(${member.member_no })">상세보기</p>
+					</div>
 				</div>
-				<div>아이디db</div>
-				<div>이름db</div>
-				<div>가입날짜db</div>
-				<div class="read">상세보기</div>
-			</div>
-				
+			</c:forEach>
+
+
 			<div class="member_btn">
 				<p>선택삭제</p>
 			</div>
