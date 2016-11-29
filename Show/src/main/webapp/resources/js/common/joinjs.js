@@ -137,12 +137,12 @@ function Account_AX(email, password, name, nickName, phone, birthday, allCheck, 
 		url : '/show/sign/sign_AX', //주소
 		type : 'POST',
 		data : {
-			"email" : email,
-			"password" : password,
-			"name" : name,
-			"nickName" : nickName,
-			"phone" : phone,
-			"birthday" : birthday,
+			"member_email" : email,
+			"member_pass" : password,
+			"member_name" : name,
+			"member_nickName" : nickName,
+			"member_phone" : phone,
+			"member_birth" : birthday,
 			"allCheck" : allCheck,
 			"emailCheck" : emailCheck,
 			"smsCheck" : smsCheck

@@ -29,10 +29,8 @@ public class JoinRestController {
 			vo.setMember_smsck("T");
 		if(allCheck)
 			vo.setMember_allcheck("T");
-		
-		
+		System.out.println(vo.toString());
 		service.create(vo);
-		
 		return "OK";
 	}
 
