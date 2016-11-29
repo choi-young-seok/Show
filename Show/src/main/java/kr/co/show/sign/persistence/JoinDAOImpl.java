@@ -1,5 +1,7 @@
 package kr.co.show.sign.persistence;
 
+import java.util.Map;
+
 import javax.inject.Inject;
 
 import org.apache.ibatis.session.SqlSession;
@@ -24,5 +26,9 @@ public class JoinDAOImpl implements JoinDAO{
 	@Override
 	public void changePassword(MemberVO vo) throws Exception {
 		sqlSession.update("sign.change", vo);
+	}
+	@Override
+	public String findId(Map map) throws Exception {
+		return sqlSession.selectOne("sign.find", map);
 	}
 }

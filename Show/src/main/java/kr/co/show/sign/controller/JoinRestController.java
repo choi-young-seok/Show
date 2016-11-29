@@ -1,10 +1,12 @@
 package kr.co.show.sign.controller;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import javax.inject.Inject;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -51,7 +53,21 @@ public class JoinRestController {
 			System.out.println("로그인 실패");
 			return null;
 		}
-		
 		return "OK";
+	}
+	
+	@RequestMapping("/findId")
+	public @ResponseBody String find_AX(String name, String phone) throws Exception{
+		System.out.println("이메일 찾기?");
+		
+		Map<String, String> map = new HashMap<String, String>();
+		map.put("name", name);
+		map.put("phone", phone);
+		System.out.println(map.get("name"));
+		System.out.println(map.get("phone"));
+		String email = service.findId(map);
+		System.out.println(email);
+	
+		return email;
 	}
 }

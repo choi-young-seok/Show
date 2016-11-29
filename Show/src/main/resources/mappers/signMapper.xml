@@ -12,10 +12,16 @@
 	where member_email = #{email}
 </select>
 
+<select id="find" resultType="string">
+	select member_email
+	from show_member
+	where member_name = #{name} and member_phone = #{phone}
+</select>
+
 <update id="change">
-		update show_member
-		set member_pass = #{member_pass}
-		where member_email=#{member_email}
-	</update>
+	update show_member
+	set member_pass = #{member_pass}
+	where member_email=#{member_email}
+</update>
 
 </mapper>

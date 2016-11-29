@@ -46,7 +46,27 @@
 					}
 				}
 			})
+	})
+	
+	$(document).on("click", ".name_check_btn", function() {
+		var name = $("#name_text").val();
+		var phone = $("#phone_text").val();
 		
+			$.ajax({
+				url : '/show/sign/findId',
+				type : 'POST',
+				data : {
+					"name" : name,
+					"phone" : phone
+				},
+				success : function(result) {
+					if (result != "") {
+						alert("귀하의 이메일은 "+result+" 입니다.");
+					} else {
+						alert("가입되지 않은 회원입니다.");
+					}
+				}
+			})
 	})
 </script>
 <TITLE>비밀번호 찾기</TITLE>
@@ -54,6 +74,18 @@
 <BODY>
 	<div id="wrap">
 		<header> <!--include--> </header>
+		<div class="email_box">
+			<div class="id_check">
+				<p>이름과 핸드폰 번호를 입력하세요</p>
+				<label class="big_text">이름</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<input id="name_text" type="text" size="10" placeholder="&nbsp;&nbsp;이름을 입력 하세요" /><br>
+				<label class="big_text">핸드폰 번호</label>&nbsp;&nbsp;&nbsp;
+				<input id="phone_text" type="text" maxlength="13" placeholder="&nbsp;&nbsp;핸드폰 번호를 입력 하세요 (ex. 010-1234-1234)" />
+				<p class="name_check_btn">확인</p>
+			</div>
+		</div>
+	</div>
+	<div id="wrap">
 		<div class="password_box">
 			<div class="id_check">
 				<p>회원가입한 이메일 계정을 입력하세요.</p>
