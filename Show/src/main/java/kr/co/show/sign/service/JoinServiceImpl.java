@@ -1,5 +1,7 @@
 package kr.co.show.sign.service;
 
+import java.util.Map;
+
 import javax.inject.Inject;
 
 import org.springframework.stereotype.Service;
@@ -28,5 +30,8 @@ public class JoinServiceImpl implements JoinService{
 		dao.changePassword(vo);
 	}
 
-	
+	@Override
+	public String findId(Map map) throws Exception {
+		return dao.findId(map);
+	}
 }
