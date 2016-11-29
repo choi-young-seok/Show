@@ -17,6 +17,7 @@ public class JoinDAOImpl implements JoinDAO{
 	SqlSession sqlSession;
 	@Override
 	public void create(MemberVO vo) throws Exception {
+		System.out.println(vo.toString());
 		sqlSession.insert("sign.create", vo);
 	}
 	@Override

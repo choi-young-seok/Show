@@ -2,8 +2,8 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="sign">
 <insert id="create">
-	insert into show_member
-	values (show_member_seq.nextval, #{email}, #{name}, #{nickName}, #{password}, #{phone}, #{birthday}, #{allCheck}, #{emailCheck}, #{smsCheck}, #{position})
+	insert into show_member (member_no, member_email, member_name, member_nickName, member_pass, member_phone, member_birth, member_allcheck, member_smsck, member_emailck, member_position)
+	values (show_member_seq.nextval, #{member_email}, #{member_name}, #{member_nickName}, #{member_pass}, #{member_phone}, #{member_birth}, #{member_allcheck}, #{member_smsck}, #{member_emailck}, #{member_position})
 </insert>
 
 <select id="login" resultType="kr.co.show.sign.domain.MemberVO">
