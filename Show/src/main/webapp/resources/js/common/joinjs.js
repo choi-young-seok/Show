@@ -150,7 +150,7 @@ function Account_AX(email, password, name, nickName, phone, birthday, allCheck, 
 		success : function(result) {
 			if (result == "OK") {
 				alert('가입되었습니다.');
-				location.href('/show');
+				location.href='/show';
 			} else if (result != "OK") {
 				alert(result);
 				
