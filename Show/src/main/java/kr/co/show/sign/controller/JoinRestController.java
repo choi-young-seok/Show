@@ -33,6 +33,18 @@ public class JoinRestController {
 		service.create(vo);
 		return "OK";
 	}
+	
+	@RequestMapping("/modi_AX")
+	public String modi_AX(MemberVO vo, String email, String password, String phone) throws Exception{
+		MemberVO sample = service.modify(email); //이게 수정 전의 정보
+		sample.setMember_pass(password);
+		sample.setMember_phone(phone);
+		
+		service.change(sample);
+		service.changePassword(sample);
+		
+		return "OK";
+	}
 
 	@RequestMapping("/login_AX")
 	public @ResponseBody String login_AX(String email, String password, HttpSession session) throws Exception{
