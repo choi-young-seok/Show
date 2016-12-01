@@ -2,28 +2,40 @@
     pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link href="resources/css/shop_admin/style.css" rel="stylesheet" type="text/css" />
 <link href="resources/css/shop_admin/shop_management.css" rel="stylesheet" type="text/css" />
 <!--JQUERY 영역-->
 <script src="resources/js/common/jquery-3.0.0.js"></script>
 <script type="text/javascript">
-	$('.gong').click(function(){
-		var id = $("#id").val();
+$(document).ready(function() {
+	$('.detail_view').click(function(){
+		var group_no = $(this).parent().prev().prev().children().first().text();
 		$.ajax({
-			url:'/show/management',
-			data:{"member_no":1},
+			url:'/show/detailView',
+			data:{"group_no":group_no},
 			success: function(data){
-				$('.adminMain').html(data); 
+				$('.management').empty(); 
+				$('.management').append(data);
 			}
 		});
 	});
+	$('.shop_addition_btn').click(function(){
+		$.ajax({    		  
+			url:'/show/application',
+			success: function(data){
+				$('.adminMain').html(data);
+					$(".qna").css({"background":"#ffa500"});
+					$(".gong").css({"background":"#696969"});
+					$(".member").css({"background":"#696969"});
+					$(".shop").css({"background":"#696969"});
+			}
+		});
+	});
+});	
 </script>
 <TITLE> 내업소 관리 </TITLE>
-</HEAD>
-<BODY>
+
 	<div id="wrap">
 	<input type="hidden" value="${id }" id="id">
 		<%-- <header>
@@ -56,14 +68,26 @@
 					<p>${i.group_address }</p>
 				</div>
 				<div class="management_show shop_num">
-					<p>${i.group_no }</p>
+					<p class="group_no">${i.group_no }</p>
 				</div>
+				<c:choose>
+				<c:when test="${i.group_ch  eq 'T'}" >
 				<div class="management_show shop_yes">
-					<p>${i.group_ch }</p>
+					<p>승인</p>
 				</div>
-				<div class="management_show shop_show">
-					<input type="button" value="상세보기" class=""/>
+					<div class="management_show shop_show">
+					<input type="button" value="상세보기" class="detail_view"/>
+					</div>
+				</c:when>
+				<c:otherwise>
+				<div class="management_show shop_yes">
+					<p>비승인</p>
+					<div class="management_show shop_show">
+					</div>
 				</div>
+				</c:otherwise>
+				</c:choose>
+				
 			</div>
 			</c:forEach>
 			<div class="management_btn">
@@ -79,5 +103,4 @@
 			<%@include file="../shop_admin/footer.jsp"%>
 		</footer> --%>
 	</div>
-</BODY>
-</HTML>
+

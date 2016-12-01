@@ -38,7 +38,8 @@
 			$.ajax({
 				url:'/show/application',
 				success: function(data){
-					$('.adminMain').html(data); 
+					$('.adminMain').empty();
+					$('.adminMain').append(data);					
 				}
 			});
 		});
@@ -49,7 +50,8 @@
 				url:'/show/management',
 				data:{"member_no":1},
 				success: function(data){
-					$('.adminMain').html(data); 
+					$('.adminMain').empty();
+					$('.adminMain').append(data);
 				}
 			});
 		});
@@ -58,7 +60,8 @@
 			$.ajax({
 				url:'/show/orderCheck',
 				success: function(data){
-					$('.adminMain').html(data); 
+					$('.adminMain').empty();
+					$('.adminMain').append(data);
 				}
 			});
 		});
@@ -67,10 +70,24 @@
 			$.ajax({
 				url:'/show/stats',
 				success: function(data){
-					$('.adminMain').html(data);
+					$('.adminMain').empty();
+					$('.adminMain').append(data);
 				}
 			});
 		}); 
+		
+		function application(){
+			$.ajax({    		  
+				url:'/show/application',
+				success: function(data){
+					$('.adminMain').html(data);
+						$(".qna").css({"background":"#ffa500"});
+						$(".gong").css({"background":"#696969"});
+						$(".member").css({"background":"#696969"});
+						$(".shop").css({"background":"#696969"});
+				}
+			});
+		}
 	});
 </script>
 <title>사장님 페이지</title>
@@ -82,6 +99,8 @@
 			<%@include file="../shop_admin/header.jsp"%>
 		</header>
 		<div class="adminMain"></div>
+		<div class="menu_pop" style="display:none; position: fixed; top: 0; left: 0; width: 1640px; height: 1200px; background-color: rgba(0,0,0,0.7); z-index: 1001; margin-left : 0px">
+		</div>
 		<footer>
 			<%@include file="../shop_admin/footer.jsp"%>
 		</footer>

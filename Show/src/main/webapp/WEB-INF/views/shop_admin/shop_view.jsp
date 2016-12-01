@@ -1,11 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link href="resources/css/shop_admin/style.css" rel="stylesheet" type="text/css" />
 <link href="resources/css/shop_admin/shop_view.css" rel="stylesheet" type="text/css" />
+<link href="resources/css/shop_admin/menu_wirte2.css" rel="stylesheet" type="text/css" />
 <!--JQUERY 영역-->
 <script src="resources/js/common/jquery-3.0.0.js"></script>
 <script>
@@ -23,15 +25,50 @@
 			$(".menu_view").hide();
 			$(".review_box").show();
 		});
+		
+		$('.menu_delete_btn').click(function(){
+			var menu_no = $(this).parent().children(":eq(0)").val();
+			$.ajax({
+				url:'/show/menuDelete?menu_no='+menu_no,
+				type:'DELETE',
+				success: function(result){
+					if(result == 'OK'){
+						var group_no = $('#group_no').val();
+						alert("삭제가 완료되었습니다.");
+						$.ajax({    		  
+							url:'/show/detailView',
+							data:{"group_no":group_no},
+							success: function(data){
+								$('.shop_view_box').empty(); 
+								$('.shop_view_box').append(data);
+							}
+						});
+					}
+				}
+			});
+		});
+		
+		$('.menu_write_btn').click(function(){
+			var group_no = $('#group_no').val();
+			$.ajax({
+				url:'/show/menu_write',
+				data:{"group_no":group_no},
+				success: function(result){
+					$('.menu_pop').append(result);
+					$('.menu_pop').fadeIn(0);
+				}
+			});
+		});
+		
 	});
+	
+	
 </script>
 <TITLE> 매장 상세보기 </TITLE>
 </HEAD>
 <BODY>
 	<div id="wrap">
-		<header>
-			<!--include-->
-		</header>
+	
 		<div class="shop_view_box">
 			<div class="shop_info">
 				<ul>
@@ -39,42 +76,40 @@
 					<li>매장명</li>
 					<li>매장주소</li>
 					<li>매장번호</li>
-					<li>인근대학</li>
 				</ul>
 			</div>
 			<div class="shop_view">
 				<div class="img_box">
 					<img src=""/>
-					<input type="file"/>
+					<input type="file" value="${detailView.group_files }"/>
 				</div>
 				<div class="name_box">
-					<p>매장이름db</p>
+					<p>${detailView.group_name }</p>
 					<div class="refly_box">
-						<input type="text" class="left_box"/>
+						<input type="text" class="left_box" value="${detailView.group_name }"/>
 					</div>
 				</div>
 				<div class="addr_box">
-					<p>주소db</p>
+					<p>${detailView.group_address }</p>
 					<div class="refly_box2">
-						<input type="text" class="left_box"/>
+						<input type="text" class="left_box" value="${detailView.group_address }"/>
 					</div>
 				</div>
 				<div class="number_box">
-					<p>매장번호db</p>
+					<p>${detailView.group_no }</p>
 					<div class="refly_box3">
-						<input type="text" class="left_box"/>
-					</div>
-				</div>
-				<div class="school_box">
-					<p>인근대학db</p>
-					<div class="refly_box4">
-						<input type="text" class="left_box"/>
+						<input type="text" class="left_box" id="group_no" value="${detailView.group_no }"/>
 					</div>
 				</div>
 			</div>
+			
 			<div class="shop_info_btn">
-					<p>수정 내용 저장</p>
-				</div>
+					<ul>
+					<li>업소탈퇴</li>
+					<li>수정</li>
+					</ul>
+			</div>
+			<!-- <div class="shop_info_btn1"><p>업소탈퇴</p></div> -->
 			<div class="shop_menu_bar">
 				<div class="menu_management">메뉴관리</div>
 				<div class="review_management">리뷰관리</div>
@@ -90,15 +125,16 @@
 						<li>삭제</li>
 					</ul>
 				</div>
+				<c:forEach items="${menuList }" var="m">
+				
 				<div class="menu_list">
+				<input type="hidden" id="menu_no" value="${m.menu_no }">
 					<div class="menu_choice">
 						<input type="checkbox"/>
 					</div>
-					<div class="menu_image">
-						메뉴분류db
-					</div>
-					<div class="menu_name">메뉴이름db</div>
-					<div class="menu_pay">가격db</div>
+					<div class="menu_image">${m.menu_category }</div>
+					<div class="menu_name">${m.menu_name }</div>
+					<div class="menu_pay">${m.menu_price }</div>
 					<div class="menu_refly_btn">
 						<p>수정</p>
 					</div>
@@ -106,10 +142,11 @@
 						<p>삭제</p>
 					</div>
 				</div>
+				</c:forEach>
 				<div class="refly_btn">
 					<div class="menu_write_btn">메뉴추가</div>
 					<div class="choice_delete_btn">선택삭제</div>
-					<div class="refly_keep_btn">수정내용 저장</div>
+					<div class="refly_keep_btn">돌아가기</div>
 				</div>
 			</div>
 			<div class="review_box">
@@ -122,31 +159,30 @@
 						<li>삭제</li>
 					</ul>
 				</div>
+				<c:forEach items="${reviewList }" var="r">
 				<div class="review_list">
 					<div class="review_choice">
 						<input type="checkbox"/>
 					</div>
 					<div class="review_score">
-						<p>평점db</p>
+						<p>${r.review_score }</p>
 					</div>
 					<div class="review_user_name">
-						<p>유저닉네임db</p>
+						<p>${r.nickname }</p>
 					</div>
 					<div class="review_text">
-						<p>리뷰내용db</p>
+						<p>${r.review_text }</p>
 					</div>
 					<div class="review_delete_btn">
 						<p>삭제</p>
 					</div>
 				</div>
+				</c:forEach>
 				<div class="review_choice_delete">
 					<p>선택삭제</p>
 				</div>
 			</div>
 		</div>
-		<footer>
-			<!--include-->
-		</footer>
 	</div>
 </BODY>
 </HTML>
