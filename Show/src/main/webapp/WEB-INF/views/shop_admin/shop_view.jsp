@@ -60,6 +60,18 @@
 			});
 		});
 		
+		$('.menu_refly_btn').click(function(){
+			var menu_no = $(this).parent().children(":eq(0)").val();
+			$.ajax({
+				url:'/show/menu_update',
+				data:{"menu_no":menu_no},
+				type:'GET',
+				success: function(result){
+					$('.menu_pop').append(result);
+					$('.menu_pop').fadeIn(0);
+				}
+			});
+		});
 	});
 	
 	
@@ -117,7 +129,6 @@
 			<div class="menu_view">
 				<div class="menu_top_text">
 					<ul>
-						<li>선택</li>
 						<li>메뉴분류</li>
 						<li>메뉴이름</li>
 						<li>가격</li>
@@ -129,12 +140,9 @@
 				
 				<div class="menu_list">
 				<input type="hidden" id="menu_no" value="${m.menu_no }">
-					<div class="menu_choice">
-						<input type="checkbox"/>
-					</div>
 					<div class="menu_image">${m.menu_category }</div>
-					<div class="menu_name">${m.menu_name }</div>
-					<div class="menu_pay">${m.menu_price }</div>
+					<div class="menu_name1">${m.menu_name }</div>
+					<div class="menu_pay1">${m.menu_price }</div>
 					<div class="menu_refly_btn">
 						<p>수정</p>
 					</div>
@@ -152,7 +160,6 @@
 			<div class="review_box">
 				<div class="review_top_text">
 					<ul>
-						<li>선택</li>
 						<li>평점</li>
 						<li>닉네임</li>
 						<li>내용</li>
@@ -161,9 +168,6 @@
 				</div>
 				<c:forEach items="${reviewList }" var="r">
 				<div class="review_list">
-					<div class="review_choice">
-						<input type="checkbox"/>
-					</div>
 					<div class="review_score">
 						<p>${r.review_score }</p>
 					</div>

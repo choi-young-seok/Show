@@ -25,17 +25,30 @@ $(document).ready(function(){
 		var menu_name = $("#menu_name").val();
 		var menu_price = $("#menu_price").val();
 		var group_no = $("#group_no").val();
-		alert("g"+group_no);
-		
-		alert("m"+id);
 		$.ajax({
 			url:'/show/menuAdd',
-			data:{"member_no":id,"group_no":group_no},
+			data:{"member_no":id,"group_no":group_no,"menu_category":menu_category,"menu_name":menu_name,"menu_price":menu_price},
 			success: function(data){
-				$('.menu_pop').html(data);
+				if(data == 'OK')
+					alert('메뉴가 추가되었습니다.');
+				$('.menu_pop').fadeOut(0);
+				$('.menu_pop').empty();
+				list();
 			}
 		});
 	});
+	
+	function list(){
+		var group_no1 = $("#group_no").val();
+		$.ajax({
+			url:'/show/detailView',
+			data:{"group_no":group_no1},
+			success: function(data){
+				$('.shop_view_box').empty(); 
+				$('.shop_view_box').append(data);
+			}
+		});
+	}
 });
 
 

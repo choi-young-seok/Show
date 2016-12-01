@@ -8,6 +8,7 @@ import javax.inject.Inject;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import kr.co.show.group.domain.MenuManageVO;
 import kr.co.show.group.service.GroupService;
@@ -51,6 +52,12 @@ public class GroupController {
 	public String menuWrite(int group_no, Model model){
 		model.addAttribute("group_no",group_no);
 		return "shop_admin/menu_write";
+	}
+
+	@RequestMapping(value="/menu_update", method=RequestMethod.GET)
+	public String menuUpdateGet(int menu_no, Model model) throws Exception{
+		model.addAttribute("menu_no", service.menuUpdateGet(menu_no));
+		return "shop_admin/menu_refly";
 	}
 	
 	@RequestMapping("/orderCheck")

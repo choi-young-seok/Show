@@ -44,7 +44,6 @@ $(document).ready(function() {
 		<div class="management">
 			<div class="shop_management_text">
 				<ul>
-					<li>선택</li>
 					<li>이미지</li>
 					<li>매장명</li>
 					<li>매장주소</li>
@@ -55,9 +54,6 @@ $(document).ready(function() {
 			</div>
 			<c:forEach items="${listAll}" var="i">
 			<div class="shop_management_show">
-				<div class="management_show choice">
-					<input type="checkbox" name="shop"/>
-				</div>
 				<div class="management_show image">
 					<img src=""/>
 				</div>

@@ -14,4 +14,5 @@ public interface GroupService {
 	public List<ReviewManageVO> reviewList(int group_no) throws Exception;
 	public void menuDelete(int menu_no) throws Exception;
 	public void menuAdd(MenuManageVO menu) throws Exception;
+	public MenuManageVO menuUpdateGet(int menu_no) throws Exception;
 }

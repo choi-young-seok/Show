@@ -45,6 +45,12 @@
 	
 	<insert id="menuAdd">
 		insert into show_menu (menu_no,member_no,group_no,menu_name,menu_price,menu_category)
-		values (member_seq.nextval,#{member_no},#{group_no},#{menu_name},#{menu_price},#{menu_category})
+		values (show_member_seq.nextval,#{member_no},#{group_no},#{menu_name},#{menu_price},#{menu_category})
 	</insert>
+	
+	<select id="menuUpdateGet" resultType="kr.co.show.group.domain.MenuManageVO">
+		select menu_no, menu_name, menu_price, menu_category
+		from show_menu
+		where menu_no=#{menu_no}
+	</select>
 </mapper>

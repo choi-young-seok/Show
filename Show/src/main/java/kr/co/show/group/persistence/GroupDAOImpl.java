@@ -58,4 +58,9 @@ public class GroupDAOImpl implements GroupDAO{
 		sqlSession.insert("group.menuAdd", menu);
 	}
 
+	@Override
+	public MenuManageVO menuUpdateGet(int menu_no) throws Exception {
+		return sqlSession.selectOne("group.menuUpdateGet", menu_no);
+	}
+
 }

@@ -36,11 +36,19 @@ html,body{
 .box-size{
 	width:400px;
 }
-.menu_boonryu > div > select {
-	width:200px;
+.menu_boonryu{
+	overflow:hidden;
+	width:500px;
+	height:30px;
+	border-bottom:1px solid #3d3d3d;
+	box-sizing:border-box;
+}
+.menu_boonryu > div >input {
+	width:400px;
 	height:20px;
 	margin-top:5px;
 }
+
 .menu_name{
 	overflow:hidden;
 	width:500px;
