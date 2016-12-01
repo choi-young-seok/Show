@@ -34,9 +34,16 @@ public class GroupRestController {
 	}
 	
 	@RequestMapping("/menuAdd")
-	public void menuAdd(MenuManageVO menu) throws Exception{
+	public String menuAdd(MenuManageVO menu) throws Exception{
 		service.menuAdd(menu);
+		
+		String result = "OK";
+		return result;
 	}
-
+	
+	@RequestMapping(value="/menuUpdate", method=RequestMethod.PUT)
+	public void menuUpdatePost(MenuManageVO menu) throws Exception{
+		
+	}
 
 }

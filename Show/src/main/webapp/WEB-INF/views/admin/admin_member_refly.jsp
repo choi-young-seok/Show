@@ -16,11 +16,48 @@
 <style>
 
 </style>
+<script type="text/javascript">
+$('.next').click(function(){
+	var member_no = ${detail.member_no}+1;
+	alert(member_no);
+	$.ajax({
+		url:'/show/admin_member_refly',
+		data:{"member_no":member_no},
+		success: function(result){
+			$('.admin_member_refly').empty();
+			$('.admin_member_refly').append(result);
+			$('.admin_member_refly').fadeIn(0);
+		}
+	}); 
+});
+$('.prev').click(function(){
+	var member_no = ${detail.member_no}-1;
+	alert(member_no);
+	$.ajax({
+		url:'/show/admin_member_refly',
+		data:{"member_no":member_no},
+		success: function(result){
+			$('.admin_member_refly').empty();
+			$('.admin_member_refly').append(result);
+			$('.admin_member_refly').fadeIn(0);
+		}
+	}); 
+});
+$('#btn_cancle').click(function(){
+	$('.admin_member_refly').empty();
+	$('.admin_member_refly').fadeOut(0);
+});
+
+</script>
 <BODY>
 	<div id="wrap">
 		<header>
 			<!--include-->
 		</header>
+				<div class="btn_box">
+        	<a href="#" class="prev"><img src="resources/image/prev.png"></a> 
+        	<a href="#" class="next"><img src="resources/image/next.png"></a>
+        </div>	
 		<div class="member_refly">
 			<div class="email">
 				<p class="email_text text_op text_size">이메일</p>
@@ -48,7 +85,7 @@
 			<div class="member_btn">
 				<div>수정확인</div>
 				<div>회원삭제</div>
-				<div>닫기</div>
+				<div id="btn_cancle">닫기</div>
 			</div>
 		</div>
 		

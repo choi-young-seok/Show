@@ -53,4 +53,9 @@ public class GroupServiceImpl implements GroupService{
 	public void menuAdd(MenuManageVO menu) throws Exception {
 		dao.menuAdd(menu);
 	}
+
+	@Override
+	public MenuManageVO menuUpdateGet(int menu_no) throws Exception {
+		return dao.menuUpdateGet(menu_no);
+	}
 }
