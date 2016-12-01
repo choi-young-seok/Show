@@ -45,14 +45,7 @@ public class AdminController {
 		return "/admin/test";
 	}
 	
-	@RequestMapping("/qna")
-	public String qna(){
-		return "/admin/qna";
-	}
-	@RequestMapping("/event")
-	public String event(){
-		return "/admin/event";
-	}
+	
 	
 	@RequestMapping("/delete")
 	public String delete(int member_no, RedirectAttributes attr)throws Exception{

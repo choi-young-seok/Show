@@ -15,7 +15,38 @@
 <!--JQUERY 영역-->
 <script src="resources/js/common/jquery-3.0.0.js"></script>
 <TITLE>회원관리</TITLE>
+<style>
+.btn_box {
+   position: relative;
+   width: 100%;
+   height: 100%;
+   z-index: 10;
+}
 
+.btn_box a {
+   display: block;
+   position: absolute;
+   width: 35px;
+   height: 35px;
+   top: 50%;
+}
+
+.btn_box a.prev {
+   left: 0px;
+   top:230px;
+}
+
+
+.btn_box a.next {
+   right: 10px;
+	   top:230px;
+}
+
+a{
+  text-decoration: none;
+  color: #333;
+}
+</style>
 <script>
 $('.detail').click(function(){
 			var member_no = $(this).parent().parent().children().eq(1).text();
