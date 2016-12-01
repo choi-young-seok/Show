@@ -24,7 +24,7 @@
 		<div class="member_refly">
 			<div class="email">
 				<p class="email_text text_op text_size">이메일</p>
-				<input type="text" id="show" value="&nbsp;&nbsp;${detail.member_email }">
+				<input type="text" id="show" disabled="disabled" value="&nbsp;&nbsp;${detail.member_email }">
 			</div>
 			<div class="name">
 				<p class="name_text text_op text_size">닉네임</p>
@@ -51,9 +51,7 @@
 				<div>닫기</div>
 			</div>
 		</div>
-		<footer>
-			<!--include-->
-		</footer>
+		
 	</div>
 </BODY>
 </HTML>

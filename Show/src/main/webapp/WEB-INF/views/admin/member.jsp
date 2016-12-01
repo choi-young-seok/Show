@@ -16,14 +16,20 @@
 <script src="resources/js/common/jquery-3.0.0.js"></script>
 <TITLE>회원관리</TITLE>
 
-
-<script type="text/javascript">
-	function m(no){
-		window.open('admin_member_refly?member_no='+no,'target_name','resizable=yes','width=450,height=100,left=50,top=50');
-	}
-
+<script>
+$('.detail').click(function(){
+			var member_no = $(this).parent().parent().children().eq(1).text();
+			alert(member_no);
+			$.ajax({
+				url:'/show/admin_member_refly',
+				data:{"member_no":member_no},
+				success: function(result){
+					$('.admin_member_refly').append(result);
+					$('.admin_member_refly').fadeIn(0);
+				}
+			}); 
+		});
 </script>
-
 
 </HEAD>
 <BODY>
@@ -49,7 +55,7 @@
 						<input type="checkbox" />
 					</div>
 
-					<div id="no">${member.member_no }</div>
+					<div>${member.member_no }</div>
 					<div>${member.member_email }</div>
 					<div>${member.member_name }</div>
 
@@ -64,11 +70,12 @@
 					</c:if>
 
 					<div>
-						<p class="detail" onclick="m(${member.member_no })">상세보기</p>
+						<p class="detail" >상세보기</p>
 					</div>
 				</div>
 			</c:forEach>
-
+			
+			
 
 			<div class="member_btn">
 				<p>선택삭제</p>
