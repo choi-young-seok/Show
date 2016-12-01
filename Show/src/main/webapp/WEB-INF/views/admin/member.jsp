@@ -19,7 +19,7 @@
 
 <script type="text/javascript">
 	function m(no){
-		window.open('admin_member_refly?member_no='+no,'width=300,height=300,top=50,left=70,right=50');
+		window.open('admin_member_refly?member_no='+no,'target_name','resizable=yes','width=450,height=100,left=50,top=50');
 	}
 
 </script>
@@ -40,7 +40,9 @@
 					<li>상세보기</li>
 				</ul>
 			</div>
-	     <% request.setCharacterEncoding("UTF-8"); %>
+			<%
+				request.setCharacterEncoding("UTF-8");
+			%>
 			<c:forEach items="${list }" var="member">
 				<div class="member_choice">
 					<div>
@@ -50,17 +52,17 @@
 					<div id="no">${member.member_no }</div>
 					<div>${member.member_email }</div>
 					<div>${member.member_name }</div>
-							 
+
 					<c:if test="${member.member_position == '10'}">
-							<div> 사용자</div>
+						<div>사용자</div>
 					</c:if>
 					<c:if test="${member.member_position == '20'}">
-							<div> 사장님</div>
+						<div>사장님</div>
 					</c:if>
 					<c:if test="${member.member_position == '30'}">
-							<div> 관리자</div>
+						<div>관리자</div>
 					</c:if>
-						
+
 					<div>
 						<p class="detail" onclick="m(${member.member_no })">상세보기</p>
 					</div>

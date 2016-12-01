@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <HTML>
 <HEAD>
@@ -23,23 +24,26 @@
 		<div class="member_refly">
 			<div class="email">
 				<p class="email_text text_op text_size">이메일</p>
-				<input type="text" id="show" value="">
+				<input type="text" id="show" value="&nbsp;&nbsp;${detail.member_email }">
 			</div>
 			<div class="name">
 				<p class="name_text text_op text_size">닉네임</p>
-				<input type="text" id="show" value="&nbsp;&nbsp;닉네임db값"></div>
+				<input type="text" id="show" value="&nbsp;&nbsp;${detail.member_nickName }"></div>
 			</div>
 			<div class="password">
 				<p class="password_text text_op text_size">비밀번호</p>
-				<input type="text" id="show" value="&nbsp;&nbsp;비밀번호db값">
+				<input type="text" id="show" value="&nbsp;&nbsp;${detail.member_pass }">
 			</div>
 			<div class="phone">
 				<p class="phone_text text_op text_size">휴대폰</p>
-				<input type="text" id="show" value="&nbsp;&nbsp;휴대폰번호db값">
+				<input type="text" id="show" value="&nbsp;&nbsp;${detail.member_phone }">
 			</div>
 			<div class="birth">
 				<p class="birth_text text_op text_size">생년월일</p>
-				<input type="text" id="show" value="&nbsp;&nbsp;생년월일db값">
+				<input type="text" id="show" value="${detail.member_birth }">  
+                              
+				
+				
 			</div>
 			<div class="member_btn">
 				<div>수정확인</div>
