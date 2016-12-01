@@ -1,4 +1,3 @@
-
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
@@ -69,9 +68,11 @@ $('.gong').click(function() {
 	</header>
 	<div class="body">
 	</div>
+	
+	<div class="admin_member_refly" style="display:none; position: fixed; top: 0; left: 0; width: 1380px; height: 1200px; background-color: rgba(0,0,0,0.7); z-index: 1001; margin-left : 0px">
+		   </div>
 
-
-</body>
+</body>`
 <footer> <%@ include file="../admin/footer.jsp"%>
 </footer>
 </html>
