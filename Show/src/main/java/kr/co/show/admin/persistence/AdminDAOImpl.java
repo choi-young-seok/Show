@@ -29,6 +29,12 @@ public class AdminDAOImpl implements AdminDAO {
 		return sqlsession.selectOne("member.detail", member_no);
 	}
 
+	@Override
+	public void delete(int member_no) throws Exception {
+		sqlsession.delete("member.delete",member_no);
+		
+	}
+
 
 
 }
