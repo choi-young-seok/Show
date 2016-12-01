@@ -7,48 +7,62 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import kr.co.show.community.domain.Criteria;
+import kr.co.show.community.domain.NoticeVO;
 import kr.co.show.community.domain.PageMaker;
 import kr.co.show.community.service.NoticeService;
 
-
 @Controller
-@RequestMapping("/admin")
 public class NoticeController {
-	
+
 	@Inject
 	private NoticeService service;
 	
-	/*@RequestMapping("/main2")
-	public String CommunityMain(){ //헤더, 푸터 들어있는 곳
-		
-		return "admin/adminMain2";
-	}*/
+	//공지사항 글쓰기 폼
+	@RequestMapping("/createNotice")
+	public String create()throws Exception {
+		return "admin/event_write";
+	}
+
 	
-	@RequestMapping("/noticeList")
-	public String listNotice()throws Exception {//관리자가 보는 화면의 공지사항 목록
+	//관리자 페이지 공지사항 목록
+	@RequestMapping("/event")
+	public String listNotice(Model model)throws Exception {
+		
+		model.addAttribute("listNotice", service.listNotice());
 		
 		return "admin/event";
 	}
+	//community 게시판 공지사항 목록
+	@RequestMapping("/user/list")
+	public String list(Model model) throws Exception {
+		
+		model.addAttribute("listNotice2", service.listNotice());
+
+		return "user/community/event_board";
+	}
+	//community 게시판 공지사항 글 한건 조회 
+	@RequestMapping("/user/eventview") 
+	public String eventview(int notice_no,Model model)throws Exception{
 	
-	/*@RequestMapping("/list")
-	public void listNoticeUser(Model model) throws Exception {//유저가 보는 화면의 공지사항 목록
-		model.addAttribute("list", service.listNotice());
-		//return "user/community/event_board";
-	}*/
+		model.addAttribute(service.selectNotice(notice_no));
+		
+		return "user/community/event_view/view";
+	}
 	
-	@RequestMapping("/listCri")// 요청:listCri  뷰: listCri.jsp
+	//admin 게시판 공지사항 글 한건 조회
+	@RequestMapping("/adminEventView") 
+	public String adminEventView(int notice_no,Model model)throws Exception{
+		model.addAttribute(service.selectNotice(notice_no));
+		
+		return "admin/event_refly";
+	}
+	
+	
+ 
+
+	/*@RequestMapping("/listCri")// 요청:listCri  뷰: listCri.jsp
     public void listAll(Criteria cri, Model model)throws Exception{
     	model.addAttribute("list",service.listCriteria(cri));
-    }
+    }*/
     
-    @RequestMapping("/listPage")// 요청:listPage  뷰: listPage.jsp
-    public void listPage(Criteria cri, Model model)throws Exception{    	
-    	model.addAttribute("list",service.listCriteria(cri));
-    	PageMaker maker = new PageMaker();
-    	   maker.setCri(cri);//현재페이지와 보여질 행의수를 전달
-    	   maker.setTotalCount(service.listCount());//전체 레코드수를 전달
-    	   //maker.calcData();//startPage,endPage,prev,next 초기화
-    	
-    	model.addAttribute("pageMaker", maker);
-    }
 }
