@@ -26,12 +26,22 @@ public class JoinServiceImpl implements JoinService{
 	}
 
 	@Override
-	public void changePassword(MemberVO vo) throws Exception {
-		dao.changePassword(vo);
+	public String findId(Map map) throws Exception {
+		return dao.findId(map);
 	}
 
 	@Override
-	public String findId(Map map) throws Exception {
-		return dao.findId(map);
+	public MemberVO modify(String email) throws Exception {
+		return dao.modify(email);
+	}
+
+	@Override
+	public void change(MemberVO vo) throws Exception {
+		dao.change(vo);
+	}
+
+	@Override
+	public void changePassword(MemberVO vo) throws Exception {
+		dao.changePassword(vo);
 	}
 }

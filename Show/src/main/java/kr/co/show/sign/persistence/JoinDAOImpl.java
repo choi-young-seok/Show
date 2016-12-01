@@ -24,12 +24,21 @@ public class JoinDAOImpl implements JoinDAO{
 	public MemberVO login(String email) throws Exception {
 		return sqlSession.selectOne("sign.login", email);
 	}
-	@Override
-	public void changePassword(MemberVO vo) throws Exception {
-		sqlSession.update("sign.change", vo);
-	}
+	
 	@Override
 	public String findId(Map map) throws Exception {
 		return sqlSession.selectOne("sign.find", map);
+	}
+	@Override
+	public MemberVO modify(String email) throws Exception {
+		return sqlSession.selectOne("sign.modify", email);
+	}
+	@Override
+	public void change(MemberVO vo) throws Exception {
+		sqlSession.update("sign.changePhone", vo);
+	}
+	@Override
+	public void changePassword(MemberVO vo) throws Exception {
+		sqlSession.update("sign.changePass", vo);
 	}
 }
