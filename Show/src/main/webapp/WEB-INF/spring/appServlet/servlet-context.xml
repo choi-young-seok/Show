@@ -33,6 +33,8 @@
 	<context:component-scan base-package="kr.co.show.group.controller" />
 	<context:component-scan base-package="kr.co.show.sign.controller" />
 	<context:component-scan base-package="kr.co.show.community.controller" />
+	
+	
 
 
 </beans:beans>
