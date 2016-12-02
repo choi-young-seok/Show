@@ -41,4 +41,22 @@ public class JoinDAOImpl implements JoinDAO{
 	public void changePassword(MemberVO vo) throws Exception {
 		sqlSession.update("sign.changePass", vo);
 	}
+	@Override
+	public void delete(String member_email) throws Exception {
+		sqlSession.insert("sign.delete", sqlSession.selectOne("sign.deleteFind", member_email));
+		sqlSession.update("sign.updateDelete", member_email);
+	}
+	@Override
+	public String drawConfirm(String member_email) throws Exception {
+		
+		return sqlSession.selectOne("sign.drawConfirm", member_email);
+	}
+	@Override
+	public int cancel(Map map) throws Exception {
+		return sqlSession.selectOne("sign.cancel", map);
+	}
+	@Override
+	public int updateCancel(int no) throws Exception {
+		return sqlSession.update("sign.updateCancel", no);
+	}
 }

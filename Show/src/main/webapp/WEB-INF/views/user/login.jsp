@@ -41,7 +41,7 @@
 				</div>
 				<div class="login_box">
 					<div class="login_text_box">
-						<input type="text" placeholder="&nbsp;&nbsp;이메일을 입력해 주세요." class="id_box"/>
+						<input id="email" type="text" placeholder="&nbsp;&nbsp;이메일을 입력해 주세요." class="id_box"/>
 						<input type="password" class="password_box" placeholder="&nbsp;&nbsp;비밀번호"/>
 					</div>
 					<div class="login_btn">로그인</div>
@@ -54,9 +54,8 @@
 				<div class="join_btn">회원가입</div>
 			</div>
 		</div>
-		<footer>
-			<!--include-->
-		</footer>
 	</div>
+	<div class="menu_pop" style="display:none; position: fixed; top: 0; left: 0; width: 1400px; height: 1200px; background-color: rgba(0,0,0,0.7); z-index: 1001; margin-left : 0px">
+		</div>
 </BODY>
 </HTML>

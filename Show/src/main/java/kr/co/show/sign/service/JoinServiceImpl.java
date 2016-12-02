@@ -44,4 +44,24 @@ public class JoinServiceImpl implements JoinService{
 	public void changePassword(MemberVO vo) throws Exception {
 		dao.changePassword(vo);
 	}
+
+	@Override
+	public void delete(String member_email) throws Exception {
+		dao.delete(member_email);
+	}
+
+	@Override
+	public String drawConfirm(String member_email) throws Exception {
+		return dao.drawConfirm(member_email);
+	}
+
+	@Override
+	public int cancel(Map map) throws Exception {
+		return dao.cancel(map);
+	}
+
+	@Override
+	public int updateCancel(int no) throws Exception {
+		return dao.updateCancel(no);
+	}
 }

@@ -65,6 +65,14 @@ public class JoinRestController {
 		}
 		return "OK";
 	}
+	@RequestMapping("/leave_AX")
+	public @ResponseBody String leave_AX(String member_email) throws Exception{
+		System.out.println("Å»Åð½ÅÃ» ajax");
+		
+		service.delete(member_email);
+		
+		return "OK";
+	}
 	
 	@RequestMapping("/findId")
 	public @ResponseBody String find_AX(String name, String phone) throws Exception{
@@ -79,5 +87,22 @@ public class JoinRestController {
 		System.out.println(email);
 	
 		return email;
+	}
+	@RequestMapping("/cancel_AX")
+	public @ResponseBody String cancel_AX(String member_email, String member_pass) throws Exception{
+		System.out.println("Å»Åð Ãë¼Ò");
+		
+		Map<String, String> map = new HashMap<String, String>();
+		map.put("member_email", member_email);
+		map.put("member_pass", member_pass);
+		System.out.println(map.get("name"));
+		System.out.println(map.get("phone"));
+		int pk = service.cancel(map);
+		
+		System.out.println(pk);
+		
+		service.updateCancel(pk);
+		
+		return "OK";
 	}
 }

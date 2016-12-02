@@ -64,5 +64,9 @@ public class JoinController {
 		
 		return "common/modify";
 	}
+	@RequestMapping("/login_popup")
+	public String login_popup(){
+		return "common/login_popup";
+	}
 	
 }

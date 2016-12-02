@@ -29,3 +29,15 @@ select member_email
 	where member_name = '°í±æµ¿' and member_phone = '010-1234-1234';
 
 select * from show_member;
+
+
+select *
+from show_withdraw;
+
+select member_withdraw
+	from show_member
+	where member_email = 'bb@naver.com';
+	
+select member_no
+from show_member
+where member_email = 'bb@naver.com' and member_pass = 'asdf123';

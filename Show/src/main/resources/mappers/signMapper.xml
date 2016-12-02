@@ -36,4 +36,39 @@
 	where member_email=#{member_email}
 </update>
 
+<insert id="delete">
+	insert into show_withdraw (withdraw_no, member_no)
+	values (show_withdraw_seq.nextval, #{member_no})
+</insert>
+
+<select id="deleteFind" resultType="int">
+	select member_no
+	from show_member
+	where member_email = #{member_email}
+</select>
+
+<update id="updateDelete">
+	update show_member
+	set member_withdraw = 'T'
+	where member_email=#{member_email}
+</update>
+
+<select id="drawConfirm" resultType="string">
+	select member_withdraw
+	from show_member
+	where member_email = #{member_email}
+</select>
+
+<select id="cancel" resultType="int">
+	select member_no
+	from show_member
+	where member_email = #{member_email} and member_pass = #{member_pass}
+</select>
+
+<update id="updateCancel">
+	update show_member
+	set member_withdraw = 'F'
+	where member_no=#{member_no}
+</update>
+
 </mapper>

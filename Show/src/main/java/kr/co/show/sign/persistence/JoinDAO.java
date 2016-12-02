@@ -11,4 +11,8 @@ public interface JoinDAO {
 	public void changePassword(MemberVO vo) throws Exception;
 	public String findId(Map map) throws Exception;
 	public MemberVO modify(String email) throws Exception;
+	public void delete(String member_email) throws Exception;
+	public String drawConfirm(String member_email) throws Exception;
+	public int cancel(Map map) throws Exception;
+	public int updateCancel(int no) throws Exception;
 }
