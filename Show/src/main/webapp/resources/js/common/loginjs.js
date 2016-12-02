@@ -30,12 +30,15 @@ function Login_AX(email, password) {
 			if (result == "OK") {
 				alert('로그인되었습니다.');
 				location.href='/show';
-			} else if (result != "OK") {
+			} else if (result == "NO") {
+				$('.menu_pop').append(result);
+				$('.menu_pop').fadeIn(0);
 				login_pop();
-			}
-
+			} else{
+				alert('아이디 또는 비밀번호를 확인해주시길 바랍니다.');				
 		}
-	});
+	}
+});
 	function login_pop(){
 		$.ajax({
 			url : '/show/sign/login_popup',
