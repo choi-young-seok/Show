@@ -1,11 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%@ taglib prefix="d" uri="http://java.sun.com/jstl/core_rt" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <HTML>
 <HEAD>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <link href="resources/css/style.css" rel="stylesheet" type="text/css" />
-<link href="../resources/css/admin/qna.css" rel="stylesheet" type="text/css" />
+<link href="resources/css/admin/qna.css" rel="stylesheet" type="text/css" />
 <!--JQUERY 영역-->
 <script src="resources/js/common/jquery-3.0.0.js"></script>
 <script>
@@ -371,7 +372,7 @@
 		/*게시글*/
 		$(".all_box_box").hide();
 		$(".all_box_text").click(function() {
-			$(".all_box_box").slideToggle();
+			$(this).next().slideToggle();
 		});
 
 
@@ -407,80 +408,74 @@
 				</div>
 				<!--전체보기-->
 				<div class="qna_all_view qna_position all_box">
+				<d:forEach items="${lista }" var="qnaVO"> 
 					<div class="all_box_text">
 						<ul>
-							<li>문의부분 db</li>
-							<li>제목db</li>
+							<li>${qnaVO.qna_category }</li>
+							<li>${qnaVO.qna_title }</li>
 						</ul>
 					</div>
 					<div class="all_box_box">
 						<div class="name">
 							<ul>
 								<li>문의자명</li>
-								<li>이름db에서</li>
+								<li>${qnaVO.qna_name }</li>
 							</ul>
 						</div>
-						<div class="phone">
+						<div class="email">
 							<ul>
-								<li>연락처</li>
-								<li>연락처db값</li>
+								<li>이메일</li>
+								<li><a href="mailto:${email }"></a></li>
 							</ul>
 						</div>
 						<div class="text">
 							<ul>
 								<li>문의내용</li>
-								<li>문의내용db값</li>
+								<li>${qnaVO.qna_text }</li>
 							</ul>
 						</div>
-						<div class="file">
-							<ul>
-								<li>첨부파일</li>
-								<li>첨부파일db값</li>
-							</ul>
-						</div>
+					
 						<div class="btn_box">
 							<ul>
-								<li>답글쓰기</li>
 								<li>글삭제</li>
 							</ul>
 						</div>
+						
 					</div>
+					</d:forEach>
 				</div>
 				<!--전체보기-->
 
 				<!--오류문의-->
 				<div class="qna_join_view qna_position all_box">
+				<d:forEach items="${lista}" var="qnaVO"  >
+				<d:if test="${qnaVO.qna_category eq '오류문의'}">
 					<div class="all_box_text">
 						<ul>
 							<li>오류문의</li>
-							<li>제목db</li>
+							<li>${qnaVO.qna_title }</li>
 						</ul>
 					</div>
 					<div class="all_box_box">
 						<div class="name">
 							<ul>
 								<li>문의자명</li>
-								<li>이름db에서</li>
+								<li>${qnaVO.qna_name }</li>
 							</ul>
 						</div>
-						<div class="phone">
+						<div class="email">
 							<ul>
-								<li>연락처</li>
-								<li>연락처db값</li>
+								<li>이메일</li>
+								<li>${qnaVO.qna_email }</li>
 							</ul>
 						</div>
 						<div class="text">
 							<ul>
 								<li>문의내용</li>
-								<li>문의내용db값</li>
+								<li>${qnaVO.qna_text }</li>
 							</ul>
 						</div>
-						<div class="file">
-							<ul>
-								<li>첨부파일</li>
-								<li>첨부파일db값</li>
-							</ul>
-						</div>
+						
 						<div class="btn_box">
 							<ul>
 								<li>답글쓰기</li>
@@ -488,40 +483,38 @@
 							</ul>
 						</div>
 					</div>
+					</d:if>
+					</d:forEach>
 				</div>
 				<!--회원가입-->
 
 				<!--회원정보문의-->
 				<div class="qna_pay_view qna_position all_box">
+				<d:forEach items="${lista}" var="qnaVO"  >
+				<d:if test="${qnaVO.qna_category eq '회원정보문의'}">
 					<div class="all_box_text ">
 						<ul>
 							<li>회원정보문의</li>
-							<li>제목db</li>
+							<li>${qnaVO.qna_title }</li>
 						</ul>
 					</div>
 					<div class="all_box_box">
 						<div class="name">
 							<ul>
 								<li>문의자명</li>
-								<li>이름db에서</li>
+								<li>${qnaVO.qna_name }</li>
 							</ul>
 						</div>
-						<div class="phone">
+						<div class="email">
 							<ul>
-								<li>연락처</li>
-								<li>연락처db값</li>
+								<li>이메일</li>
+								<li>${qnaVO.qna_email }</li>
 							</ul>
 						</div>
 						<div class="text">
 							<ul>
 								<li>문의내용</li>
-								<li>문의내용db값</li>
-							</ul>
-						</div>
-						<div class="file">
-							<ul>
-								<li>첨부파일</li>
-								<li>첨부파일db값</li>
+								<li>${qnaVO.qna_text }</li>
 							</ul>
 						</div>
 						<div class="btn_box">
@@ -531,40 +524,38 @@
 							</ul>
 						</div>
 					</div>
+					</d:if>
+					</d:forEach>
 				</div>
 				<!--바로결제-->
 
 				<!--리뷰문의-->
 				<div class="qna_rivew_view qna_position all_box">
+				<d:forEach items="${lista}" var="qnaVO"  >
+				<d:if test="${qnaVO.qna_category eq '리뷰문의'}">
 					<div class="all_box_text">
 						<ul>
 							<li>리뷰문의</li>
-							<li>제목db</li>
+							<li>${qnaVO.qna_title }</li>
 						</ul>
 					</div>
 					<div class="all_box_box">
 						<div class="name">
 							<ul>
 								<li>문의자명</li>
-								<li>이름db에서</li>
+								<li>${qnaVO.qna_name }</li>
 							</ul>
 						</div>
-						<div class="phone">
+						<div class="email">
 							<ul>
-								<li>연락처</li>
-								<li>연락처db값</li>
+								<li>이메일</li>
+								<li>${qnaVO.qna_email }</li>
 							</ul>
 						</div>
 						<div class="text">
 							<ul>
 								<li>문의내용</li>
-								<li>문의내용db값</li>
-							</ul>
-						</div>
-						<div class="file">
-							<ul>
-								<li>첨부파일</li>
-								<li>첨부파일db값</li>
+								<li>${qnaVO.qna_text }</li>
 							</ul>
 						</div>
 						<div class="btn_box">
@@ -574,40 +565,38 @@
 							</ul>
 						</div>
 					</div>
+					</d:if>
+					</d:forEach>
 				</div>
 				<!--리뷰관리-->
 
 				<!--제휴문의-->
 				<div class="qna_use_view qna_position all_box">
+				<d:forEach items="${lista}" var="qnaVO"  >
+				<d:if test="${qnaVO.qna_category eq '제휴문의'}">
 					<div class="all_box_text">
 						<ul>
 							<li>제휴문의</li>
-							<li>제목db</li>
+							<li>${qnaVO.qna_title }</li>
 						</ul>
 					</div>
 					<div class="all_box_box">
 						<div class="name">
 							<ul>
 								<li>문의자명</li>
-								<li>이름db에서</li>
+								<li>${qnaVO.qna_name }</li>
 							</ul>
 						</div>
-						<div class="phone">
+						<div class="email">
 							<ul>
-								<li>연락처</li>
-								<li>연락처db값</li>
+								<li>이메일</li>
+								<li>${qnaVO.qna_email }</li>
 							</ul>
 						</div>
 						<div class="text">
 							<ul>
 								<li>문의내용</li>
-								<li>문의내용db값</li>
-							</ul>
-						</div>
-						<div class="file">
-							<ul>
-								<li>첨부파일</li>
-								<li>첨부파일db값</li>
+								<li>${qnaVO.qna_text }</li>
 							</ul>
 						</div>
 						<div class="btn_box">
@@ -617,40 +606,38 @@
 							</ul>
 						</div>
 					</div>
+					</d:if>
+					</d:forEach>
 				</div>
 				<!--이용문의-->
 
 				<!--업소정보문의-->
 				<div class="qna_ad_view qna_position all_box">
+				<d:forEach items="${lista}" var="qnaVO"  >
+				<d:if test="${qnaVO.qna_category eq '업소정보문의'}">
 					<div class="all_box_text">
 						<ul>
 							<li>업소정보문의</li>
-							<li>제목db</li>
+							<li>${qnaVO.qna_title }</li>
 						</ul>
 					</div>
 					<div class="all_box_box">
 						<div class="name">
 							<ul>
 								<li>문의자명</li>
-								<li>이름db에서</li>
+								<li>${qnaVO.qna_name }</li>
 							</ul>
 						</div>
-						<div class="phone">
+						<div class="email">
 							<ul>
-								<li>연락처</li>
-								<li>연락처db값</li>
+								<li>이메일</li>
+								<li>${qnaVO.qna_email }</li>
 							</ul>
 						</div>
 						<div class="text">
 							<ul>
 								<li>문의내용</li>
-								<li>문의내용db값</li>
-							</ul>
-						</div>
-						<div class="file">
-							<ul>
-								<li>첨부파일</li>
-								<li>첨부파일db값</li>
+								<li>${qnaVO.qna_text }</li>
 							</ul>
 						</div>
 						<div class="btn_box">
@@ -660,40 +647,38 @@
 							</ul>
 						</div>
 					</div>
+					</d:if>
+					</d:forEach>
 				</div>
 				<!--광고문의-->
 
 				<!--이벤트-->
 				<div class="qna_discontent_view qna_position all_box">
+				<d:forEach items="${lista}" var="qnaVO"  >
+				<d:if test="${qnaVO.qna_category eq '이벤트'}">
 					<div class="all_box_text">
 						<ul>
 							<li>이벤트</li>
-							<li>제목db</li>
+							<li>${qnaVO.qna_title }</li>
 						</ul>
 					</div>
 					<div class="all_box_box">
 						<div class="name">
 							<ul>
 								<li>문의자명</li>
-								<li>이름db에서</li>
+								<li>${qnaVO.qna_name }</li>
 							</ul>
 						</div>
-						<div class="phone">
+						<div class="email">
 							<ul>
-								<li>연락처</li>
-								<li>연락처db값</li>
+								<li>이메일</li>
+								<li>${qnaVO.qna_email }</li>
 							</ul>
 						</div>
 						<div class="text">
 							<ul>
 								<li>문의내용</li>
-								<li>문의내용db값</li>
-							</ul>
-						</div>
-						<div class="file">
-							<ul>
-								<li>첨부파일</li>
-								<li>첨부파일db값</li>
+								<li>${qnaVO.qna_text }</li>
 							</ul>
 						</div>
 						<div class="btn_box">
@@ -703,40 +688,38 @@
 							</ul>
 						</div>
 					</div>
+					</d:if>
+					</d:forEach>
 				</div>
 				<!--불편문의-->
 
 				<!--기타-->
 				<div class="qna_other_view qna_position all_box">
+				<d:forEach items="${lista}" var="qnaVO"  >
+				<d:if test="${qnaVO.qna_category eq '기타'}">
 					<div class="all_box_text">
 						<ul>
 							<li>기타</li>
-							<li>제목db</li>
+							<li>${qnaVO.qna_title }</li>
 						</ul>
 					</div>
 					<div class="all_box_box">
 						<div class="name">
 							<ul>
 								<li>문의자명</li>
-								<li>이름db에서</li>
+								<li>${qnaVO.qna_name }</li>
 							</ul>
 						</div>
-						<div class="phone">
+						<div class="email">
 							<ul>
-								<li>연락처</li>
-								<li>연락처db값</li>
+								<li>이메일</li>
+								<li>${qnaVO.qna_email }</li>
 							</ul>
 						</div>
 						<div class="text">
 							<ul>
 								<li>문의내용</li>
-								<li>문의내용db값</li>
-							</ul>
-						</div>
-						<div class="file">
-							<ul>
-								<li>첨부파일</li>
-								<li>첨부파일db값</li>
+								<li>${qnaVO.qna_text }</li>
 							</ul>
 						</div>
 						<div class="btn_box">
@@ -746,6 +729,8 @@
 							</ul>
 						</div>
 					</div>
+					</d:if>
+					</d:forEach>
 				</div>
 				<!--기타-->
 			</div>

@@ -23,28 +23,24 @@ html,body{
 	box-sizing:border-box;
 }
 .shop_management_text > ul > li:nth-child(1){
-	width:50px;
-}
-.shop_management_text > ul > li:nth-child(2){
 	width:300px;
 }
-.shop_management_text > ul > li:nth-child(3){
+.shop_management_text > ul > li:nth-child(2){
 	width:100px;
 }
-.shop_management_text > ul > li:nth-child(4){
+.shop_management_text > ul > li:nth-child(3){
 	width:350px;
 }
-.shop_management_text > ul > li:nth-child(5){
+.shop_management_text > ul > li:nth-child(4){
 	width:200px;
+}
+.shop_management_text > ul > li:nth-child(5){
+	width:100px;
 }
 .shop_management_text > ul > li:nth-child(6){
 	width:100px;
-}
-.shop_management_text > ul > li:nth-child(7){
-	width:100px;
 	border:0;
 }
-/*shop정보*/
 .shop_management_show{
 	width:1200px;
 	overflow:hidden;
@@ -58,9 +54,9 @@ html,body{
 	box-sizing:border-box;
 	height:100px;
 }
-.choice{
+/* .choice{
 	width:50px;
-}
+} */
 .image{
 	width:300px;
 }

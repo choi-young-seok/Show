@@ -7,6 +7,7 @@ import javax.inject.Inject;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import kr.co.show.admin.service.AdminService;
 import kr.co.show.sign.domain.MemberVO;
@@ -31,6 +32,7 @@ public class AdminController {
 		//select하고
 		//뿌려주고,
 		model.addAttribute("detail", service.detail(member_no));
+		System.out.println(service.detail(member_no).getMember_email());
 		return "/admin/admin_member_refly";
 	}
 	
@@ -43,13 +45,12 @@ public class AdminController {
 		return "/admin/test";
 	}
 	
-	@RequestMapping("/qna")
-	public String qna(){
-		return "/admin/qna";
-	}
-	@RequestMapping("/event")
-	public String event(){
-		return "/admin/event";
-	}
 	
+	
+	@RequestMapping("/delete")
+	public String delete(int member_no, RedirectAttributes attr)throws Exception{
+		service.delete(member_no);
+		attr.addFlashAttribute("msg", "SUCCESS");
+		return "redirect:/admin/member";
+	}
 }

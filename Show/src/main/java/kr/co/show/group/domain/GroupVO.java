@@ -2,7 +2,7 @@ package kr.co.show.group.domain;
 
 public class GroupVO {
 	
-	private String group_no;
+	private int group_no;
 	private int member_no;
 	private String group_name;
 	private String group_address;
@@ -16,11 +16,11 @@ public class GroupVO {
 	public GroupVO() {
 	}
 
-	public String getGroup_no() {
+	public int getGroup_no() {
 		return group_no;
 	}
 
-	public void setGroup_no(String group_no) {
+	public void setGroup_no(int group_no) {
 		this.group_no = group_no;
 	}
 

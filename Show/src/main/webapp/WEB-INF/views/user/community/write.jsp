@@ -4,7 +4,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="d"%>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
-<link href="../resources/css/style.css" rel="stylesheet" type="text/css" />
+<link href="resources/css/style.css" rel="stylesheet" type="text/css" />
 <link href="../resources/css/user/community/write.css" rel="stylesheet" type="text/css" />
 <!--JQUERY 영역-->
 
@@ -13,12 +13,35 @@
 <script type="text/javascript">
 $(document).ready(function() {
 	
-
 $(".write_btn").on("click",function(){
-	alert("문의글이 등록되었습니다.");
-	var form = $("form[role='form']");
-	form.submit();
+	var name = $('.name_box').val();
+	var email = $('.email_box').val();
+	var category = $('.qna_type_box').val();
+	var title = $('.title_box').val();
+	var text = $('.contents_box').val();
+	
+	  $.ajax({            
+          url:'/show/checkData',
+          data:{"qna_name":name,"qna_email":email,"qna_category":category,
+        	  "qna_title":title,"qna_text":text},
+          
+          success: function(data){
+        	  if (data == 'OK'){
+        		  alert("문의글이 등록되었습니다.");
+        		  check();
+        	  }
+          }
+       });
 	});
+	
+	function check(){
+		$.ajax({            
+            url:'/show/user/create',
+            success: function(data){
+               $('.write_box').html(data); 
+            }
+         });
+	}
 });
 </script>
 <TITLE> ON SHOW 문의하기 </TITLE>
@@ -26,16 +49,13 @@ $(".write_btn").on("click",function(){
 	<div id="wrap">
 	
 <form role="form" method="post">
-
+	<input type="hidden" value="${email }" class="email_box">
 		<div class="write_box">
 			<div class="name">
 				<div class="name_text">이름</div>
 				<input class="name_box" name="qna_name" type="text"/>
 			</div>
-			<div class="phone">
-				<div class="phone_text">휴대폰</div>
-				<input class="phone_box" type="text" name="qna_phone" placeholder="&nbsp;&nbsp;-를 빼고 입력해주세요."/>
-			</div>
+			
 			<div class="qna_type">
 				<div class="qna_type_text">상담분류</div>
 				<select class="qna_type_box" name="qna_category">

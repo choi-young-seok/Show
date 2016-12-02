@@ -3,6 +3,7 @@ body,html{
 	font-size:12px;
 }
 .member_refly{
+	margin-top:150px;
 	width:700px;
 }
 #show{
@@ -77,11 +78,6 @@ body,html{
 }
 .member_btn{
 	width:600px;
-	border-left:1px solid #696969;
-	border-right:1px solid #696969;
-	border-bottom:1px solid #696969;
-	background:#fff;
-	height:30px;
 	box-sizing:border-box;
 	overflow:hidden;
 }

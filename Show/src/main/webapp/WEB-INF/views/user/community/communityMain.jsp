@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link href="resources/css/style.css" rel="stylesheet" type="text/css" />
+<link href="../resources/css/style.css" rel="stylesheet" type="text/css" />
 <!--JQUERY 영역-->
 <script src="../resources/js/common/jquery-3.0.0.js"></script>
 <script type="text/javascript">	

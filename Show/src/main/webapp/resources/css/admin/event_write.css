@@ -1,0 +1,103 @@
+body,html{
+	font-weight:"gulim";
+	font-size:12px;
+}
+.write_box{
+	width:700px;
+}
+.choice{
+	width:700px;
+	border:1px solid #696969;
+	box-sizing:border-box;
+	overflow:hidden;
+	height:30px;
+	line-height:30px;
+}
+.choice_left{
+	float:left;
+}
+.choice_text{
+	width:100px;
+	text-align:center;
+}
+.select_op{
+	margin-top:4px;
+}
+.select_op > option{
+	font-size:12px;
+	background:#FFF8DC;
+}
+.event_text{
+	width:700px;
+	border-bottom:1px solid #696969;
+	border-left:1px solid #696969;
+	border-right:1px solid #696969;
+	box-sizing:border-box;
+	overflow:hidden;
+	height:30px;
+	line-height:30px;
+}
+.text_op{
+	width:400px;
+	height:25px;
+	margin-top:2px;
+}
+
+.event_call{
+	width:700px;
+	border-bottom:1px solid #696969;
+	border-left:1px solid #696969;
+	border-right:1px solid #696969;
+	box-sizing:border-box;
+	overflow:hidden;
+	height:300px;
+	line-height:30px;
+}
+.call_op{
+	width:400px;
+	height:290px;
+	margin-top:2px;
+}
+.event_file{
+	width:700px;
+	border-bottom:1px solid #696969;
+	border-left:1px solid #696969;
+	border-right:1px solid #696969;
+	box-sizing:border-box;
+	overflow:hidden;
+	height:30px;
+	line-height:30px;
+}
+.event_btn{
+	width:700px;
+	border-bottom:1px solid #696969;
+	border-left:1px solid #696969;
+	border-right:1px solid #696969;
+	box-sizing:border-box;
+	height:30px;
+	line-height:30px;
+	overflow:hidden;
+}
+.write_btn{
+	width:100px;
+	height:30px;
+	line-height:30px;
+	background:#696969;
+	color:#fff;
+	text-align:center;
+	cursor:pointer;
+	margin-left:290px;
+}
+.close_btn{
+	width:100px;
+	height:30px;
+	line-height:30px;
+	background:#696969;
+	color:#fff;
+	text-align:center;
+	cursor:pointer;
+	margin-left:10px;
+}
+.write_btn , .close_btn{
+	float:left;
+}

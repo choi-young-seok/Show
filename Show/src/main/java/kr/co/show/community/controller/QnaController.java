@@ -37,11 +37,7 @@ public class QnaController {
 	}
 	
 	
-	@RequestMapping("/list")
-	public String list(Model model) throws Exception {//공지사항 목록
-		
-		return "user/community/event_board";
-	}
+	
 	
 	@RequestMapping("/intro")
 	public String intro(){//서비스 소개
@@ -51,11 +47,6 @@ public class QnaController {
 	
 	
 	
-	@RequestMapping("/eventview") //공지사항 글 한건 조회 
-	public String eventview(){
-		
-		return "user/community/event_view/view";
-	}
 	
 	
 }

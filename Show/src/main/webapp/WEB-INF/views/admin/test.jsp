@@ -1,4 +1,3 @@
-
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
@@ -14,7 +13,7 @@
 <script type="text/javascript" src="resources/js/common/jquery-3.0.0.js"></script>
 <script type="text/javascript">
 $(document).ready(function(){
-	
+
 $('.member1').click(function() {
 	$.ajax({
 		url : '/show/member',
@@ -70,8 +69,11 @@ $('.gong').click(function() {
 	<div class="body">
 	</div>
 
+	<div class="admin_member_refly" style="display:none; position: fixed; top: 0; left: 0; width: 1600px; height: 1200px; background-color: rgba(0,0,0,0.7); z-index: 1001; margin-left : 0px">
 
-</body>
+	</div>
+
+</body>`
 <footer> <%@ include file="../admin/footer.jsp"%>
 </footer>
 </html>

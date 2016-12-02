@@ -86,7 +86,7 @@
 				type:'post',
 				//headers:{"Content-Type":"application/json"},
 				data:{"group_phone":group_phone,"group_name":group_name,"group_address":group_address,"group_category":group_category,
-						"group_start":group_start,"group_end":group_end,"group_files":image_split[2],"id":id},
+						"group_start":group_start,"group_end":group_end,"group_files":image_split[2],"member_no":id},
 				success : function(data) {
 					if(data == 'OK'){
 						alert("신청이 완료되었습니다.");
@@ -103,7 +103,11 @@
 			$.ajax({    		  
 				url:'/show/application',
 				success: function(data){
-					$('.adminMain').html(data); 
+					$('.adminMain').html(data);
+						$(".qna").css({"background":"#ffa500"});
+						$(".gong").css({"background":"#696969"});
+						$(".member").css({"background":"#696969"});
+						$(".shop").css({"background":"#696969"});
 				}
 			});
 		}

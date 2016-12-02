@@ -21,13 +21,29 @@ public class NoticeSeriveImpl implements NoticeService {
 		return dao.listAll();
 	}
 
-	@Override
-	public List<NoticeVO> listCriteria(Criteria cri) throws Exception {
-		return dao.listCriteria(cri);
-	}
 	
 	@Override
 	public int listCount() throws Exception {
 		return dao.NoticeTotalCount();
+	}
+
+
+
+	@Override
+	public NoticeVO selectNotice(int notice_no) throws Exception {
+		return dao.selectNotice(notice_no);
+	
+	}
+
+	@Override
+	public void create(NoticeVO vo) throws Exception {
+		dao.create(vo);
+	}
+
+
+	@Override
+	public List<NoticeVO> listCriteria(Criteria cri) throws Exception {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }

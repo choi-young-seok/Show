@@ -23,20 +23,20 @@ public class NoticeDAOImpl implements NoticeDAO {
 		return sqlSession.selectList("notice.listAll",null,bound);
 	}
 
-	@Override
-	public List<NoticeVO> listPage(int page) throws Exception {
-		return sqlSession.selectList("notice.listPage");
-	}
-
-	@Override
-	public List<NoticeVO> listCriteria(Criteria cri) throws Exception {
-		return sqlSession.selectList("notice.listAll", null,
-				new RowBounds(cri.getPageStart(),cri.getPerPageNum()));
-	}
 
 	@Override
 	public int NoticeTotalCount() throws Exception {
 		return sqlSession.selectOne("notice.noticeTotalCount");
+	}
+
+	@Override
+	public NoticeVO selectNotice(int notice_no) throws Exception {
+		return sqlSession.selectOne("notice.select",notice_no);
+	}
+
+	@Override
+	public void create(NoticeVO vo) throws Exception {
+		sqlSession.insert("notice.create",vo);
 	}
 
 }
