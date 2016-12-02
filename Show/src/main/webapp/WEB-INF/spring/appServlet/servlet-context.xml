@@ -25,6 +25,14 @@
 		<beans:property name="suffix" value=".jsp" />
 	</beans:bean>
 
+	
+	<beans:bean id="loginInterceptor" class="kr.co.show.sign.interceptor.LoginInterceptor"/>
+	<interceptors>
+		<interceptor>
+			<mapping path="/sign/login_AX"/>
+			<beans:ref bean="loginInterceptor"/>
+		</interceptor>
+	</interceptors>
 
 
 
