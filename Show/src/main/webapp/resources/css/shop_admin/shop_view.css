@@ -26,17 +26,13 @@ html,body{
 	width:350px;
 }
 .shop_info > ul > li:nth-child(2){
-	width:200px;
+	width:300px;
 }
 .shop_info > ul > li:nth-child(3){
 	width:400px;
 }
 .shop_info > ul > li:nth-child(4){
 	width:150px;
-}
-.shop_info > ul > li:nth-child(5){
-	width:100px;
-	border:0;
 }
 .shop_view{
 	width:1200px;
@@ -58,7 +54,7 @@ html,body{
 	width:350px;
 }
 .name_box{
-	width:200px;
+	width:300px;
 	text-align:center;
 }
 .addr_box{
@@ -246,30 +242,27 @@ html,body{
 	text-align:center;
 	border-right:1px solid #ededed;
 	box-sizing:border-box;
-}/* 
+}
 .menu_top_text > ul > li:nth-child(1){
-	width:50px;
-} */
-.menu_top_text > ul > li:nth-child(1){
-	width:280px;
+	width:200px;
 }
 .menu_top_text > ul > li:nth-child(2){
-	width:200px;
+	width:230px;
 }
 .menu_top_text > ul > li:nth-child(3){
 	width:200px;
 }
 .menu_top_text > ul > li:nth-child(4){
-	width:125px;
+	width:110px;
 }
 .menu_top_text > ul > li:nth-child(5){
-	width:125px;
+	width:110px;
 }
 .menu_top_text > ul > li:nth-child(6){
-	width:100px;
+	width:175px;
 }
 .menu_top_text > ul > li:nth-child(7){
-	width:100px;
+	width:175px;
 	border:0;
 }
 .menu_list{
@@ -290,28 +283,17 @@ html,body{
 .menu_list > div:nth-child(8){
 	border:0;
 }
-.menu_choice{
-	width:50px;
-}
-.menu_choice > input{
-	margin-top:40px;
-}
-.menu_image{
-	width:280px;
-}
-.menu_image > img{
-	width:150px;
-	height:80px;
-	margin-top:9px;
+.menu_category{
+	width:200px;
 }
 .menu_name1{
-	width:200px;
+	width:230px;
 }
 .menu_pay1{
 	width:200px;
 }
 .menu_refly_btn{
-	width:125px;
+	width:110px;
 }
 .menu_refly_btn > p{
 	width:80px;
@@ -324,7 +306,7 @@ html,body{
 	cursor:pointer;
 }
 .menu_delete_btn{
-	width:125px;
+	width:110px;
 }
 .menu_delete_btn > p{
 	width:80px;
@@ -337,7 +319,7 @@ html,body{
 	cursor:pointer;
 }
 .menu_side_btn{
-	width:100px;
+	width:175px;
 }
 .menu_side_btn > p{
 	width:80px;
@@ -350,7 +332,7 @@ html,body{
 	cursor:pointer;
 }
 .menu_side_view_btn{
-	width:100px;
+	width:175px;
 }
 .menu_side_view_btn > p{
 	width:80px;
@@ -377,17 +359,7 @@ html,body{
 	line-height:30px;
 	background:#3d3d3d;
 	color:#fff;
-	margin-left:810px;
-	cursor:pointer;
-}
-.choice_delete_btn{
-	width:100px;
-	height:30px;
-	text-align:center;
-	line-height:30px;
-	background:#3d3d3d;
-	color:#fff;
-	margin-left:20px;
+	margin-left:930px;
 	cursor:pointer;
 }
 .refly_keep_btn{
@@ -483,18 +455,4 @@ html,body{
 	cursor:pointer;
 	margin-top:40px;
 	margin-left:9px;
-}
-.review_choice_delete{
-	width:1200px;
-	margin-top:20px;
-}
-.review_choice_delete > p{
-	width:100px;
-	height:20px;
-	text-align:center;
-	line-height:20px;
-	background:#3d3d3d;
-	color:#fff;
-	cursor:pointer;
-	margin-left:1100px;
 }

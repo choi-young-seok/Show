@@ -12,6 +12,7 @@ public class GroupVO {
 	private String group_start;
 	private String group_end;
 	private String group_files;
+	private String group_delete_ch;
 	
 	public GroupVO() {
 	}
@@ -94,6 +95,14 @@ public class GroupVO {
 
 	public void setGroup_files(String group_files) {
 		this.group_files = group_files;
+	}
+
+	public String getGroup_delete_ch() {
+		return group_delete_ch;
+	}
+
+	public void setGroup_delete_ch(String group_delete_ch) {
+		this.group_delete_ch = group_delete_ch;
 	}
 	
 }

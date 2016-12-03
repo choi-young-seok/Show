@@ -72,6 +72,57 @@
 				}
 			});
 		});
+		
+		$('.enterpriseRemoveApplication').click(function(){
+			var group_no = $('#group_no').val();
+			$.ajax({
+				url:'/show/enterpriseRemoveApplication',
+				data:{"group_no":group_no},
+				success:function(result){
+					if(result=='OK'){
+						q = confirm("탈퇴를 신청하시겠습니까?");
+						if(q==true){
+							alert("신청되었습니다.");
+							enterpriseRemoveApplication();
+						}else{
+							alert("취소되었습니다.");
+						}
+					}
+				}
+			});
+		});
+		
+		$('.refly_keep_btn').click(function(){
+			enterpriseRemoveApplication();			
+		});
+
+
+		function enterpriseRemoveApplication(){
+			var member_no = $('#id').val();
+			$.ajax({
+				url:'/show/management',
+				data:{"member_no":member_no},
+				success:function(result){
+					$('.adminMain').empty();
+					$('.adminMain').append(result);
+				}
+			});
+		}
+		
+		$('.menu_side_btn').click(function(){
+			var group_no = $('#group_no').val();
+			var menu_no = $('#menu_no').val();
+			var menu_category = $(this).parent().children(":eq(1)").text();
+			$.ajax({
+				url:'/show/menu_side',
+				data:{"group_no":group_no,"menu_no":menu_no,"menu_category":menu_category},
+				success: function(result){
+					$('.menu_pop').append(result);
+					$('.menu_pop').fadeIn(0);
+				}
+			});
+		});
+		
 	});
 	
 	
@@ -80,7 +131,7 @@
 </HEAD>
 <BODY>
 	<div id="wrap">
-	
+	<input type="hidden" id="id" value="${id }">
 		<div class="shop_view_box">
 			<div class="shop_info">
 				<ul>
@@ -109,19 +160,16 @@
 				</div>
 				<div class="number_box">
 					<p>${detailView.group_no }</p>
-					<div class="refly_box3">
-						<input type="text" class="left_box" id="group_no" value="${detailView.group_no }"/>
-					</div>
+					<input type="hidden" id="group_no" value="${detailView.group_no }">
 				</div>
 			</div>
 			
 			<div class="shop_info_btn">
 					<ul>
-					<li>업소탈퇴</li>
-					<li>수정</li>
+					<li class="enterpriseRemoveApplication">업체탈퇴</li>
+					<li class="listOneUpdate">수정</li>
 					</ul>
 			</div>
-			<!-- <div class="shop_info_btn1"><p>업소탈퇴</p></div> -->
 			<div class="shop_menu_bar">
 				<div class="menu_management">메뉴관리</div>
 				<div class="review_management">리뷰관리</div>
@@ -134,13 +182,14 @@
 						<li>가격</li>
 						<li>수정</li>
 						<li>삭제</li>
+						<li>사이드 추가</li>
+						<li>사이드 보기</li>
 					</ul>
 				</div>
 				<c:forEach items="${menuList }" var="m">
-				
 				<div class="menu_list">
 				<input type="hidden" id="menu_no" value="${m.menu_no }">
-					<div class="menu_image">${m.menu_category }</div>
+					<div class="menu_category">${m.menu_category }</div>
 					<div class="menu_name1">${m.menu_name }</div>
 					<div class="menu_pay1">${m.menu_price }</div>
 					<div class="menu_refly_btn">
@@ -149,11 +198,16 @@
 					<div class="menu_delete_btn">
 						<p>삭제</p>
 					</div>
+					<div class="menu_side_btn">
+						<p>사이드추가</p>
+					</div>
+					<div class="menu_side_view_btn">
+						<p>사이드보기</p>
+					</div>
 				</div>
 				</c:forEach>
 				<div class="refly_btn">
 					<div class="menu_write_btn">메뉴추가</div>
-					<div class="choice_delete_btn">선택삭제</div>
 					<div class="refly_keep_btn">돌아가기</div>
 				</div>
 			</div>
@@ -182,9 +236,6 @@
 					</div>
 				</div>
 				</c:forEach>
-				<div class="review_choice_delete">
-					<p>선택삭제</p>
-				</div>
 			</div>
 		</div>
 	</div>
