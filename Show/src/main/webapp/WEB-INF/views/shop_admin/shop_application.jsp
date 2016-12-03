@@ -113,7 +113,7 @@
 		}
 	});
 </script>
-<TITLE>업소 신청</TITLE>
+<TITLE>업체 신청</TITLE>
 </HEAD>
 <BODY>
 	<div id="wrap">
@@ -123,7 +123,7 @@
 		<input type="hidden" value="${id }" id="id">
 		<div class="shop_application">
 			<div class="application">
-				<p class="application_text">&nbsp;&nbsp;업소 신청서</p>
+				<p class="application_text">&nbsp;&nbsp;업체 신청서</p>
 				<div class="application_name">
 					<p class="application_left name left_size">신청자명</p>
 					<input type="text" class="application_left name_input" />

@@ -49,8 +49,8 @@
 				<p class="logo_left">사장님 페이지</p>
 			</div>
 			<div class="header_box">
-				<div class="qna">업소신청</div>
-				<div class="gong">내업소관리</div>
+				<div class="qna">업체신청</div>
+				<div class="gong">내업체관리</div>
 				<div class="member">통계조회</div>
 				<div class="shop">주문확인</div>
 			</div>

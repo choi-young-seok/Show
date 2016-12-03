@@ -3,6 +3,7 @@ package kr.co.show.group.controller;
 import javax.inject.Inject;
 import javax.servlet.http.HttpSession;
 
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -42,8 +43,29 @@ public class GroupRestController {
 	}
 	
 	@RequestMapping(value="/menuUpdate", method=RequestMethod.PUT)
-	public void menuUpdatePost(MenuManageVO menu) throws Exception{
+	public String menuUpdatePost(@RequestBody MenuManageVO menu) throws Exception{
+		boolean ch = service.menuUpdatePost(menu);
+		String result;
+		if(ch==true) result="OK";
+		else result="NO";
+		return result;
+	}
+	
+	@RequestMapping("/enterpriseRemoveApplication")
+	public String enterpriseRemoveApplication(int group_no) throws Exception{
+		boolean ch = service.enterpriseRemoveApplication(group_no);
+		String result;
+		if(ch==true) result="OK";
+		else result="NO";
+		return result;
+	}
+	
+	@RequestMapping("/sideAdd")
+	public String sideAdd(MenuManageVO menu) throws Exception{
+		service.sideAdd(menu);
 		
+		String result = "OK";
+		return result;
 	}
 
 }

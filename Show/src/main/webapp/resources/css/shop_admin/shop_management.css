@@ -116,17 +116,6 @@ html,body{
 	cursor:pointer;
 	background:#3d3d3d;
 	color:#fff;
-	margin-left:990px;
-	margin-top:10px;
-}
-.shop_delete_btn{
-	width:100px;
-	height:30px;
-	text-align:center;
-	line-height:30px;
-	cursor:pointer;
-	background:#3d3d3d;
-	color:#fff;
-	margin-left:10px;
+	margin-left:1100px;
 	margin-top:10px;
 }

@@ -19,13 +19,13 @@ public class GroupDAOImpl implements GroupDAO{
 
 	@Override
 	public void insert(GroupVO group) throws Exception {
-		sqlSession.insert("group.insert", group);
+		sqlSession.insert("group.enterpriseInsert", group);
 		
 	}
 
 	@Override
 	public void update(int member_no) throws Exception {
-		sqlSession.update("group.update", member_no);
+		sqlSession.update("group.presidentUpdate", member_no);
 	}
 
 	@Override
@@ -61,6 +61,33 @@ public class GroupDAOImpl implements GroupDAO{
 	@Override
 	public MenuManageVO menuUpdateGet(int menu_no) throws Exception {
 		return sqlSession.selectOne("group.menuUpdateGet", menu_no);
+	}
+
+	@Override
+	public boolean menuUpdatePost(MenuManageVO menu) throws Exception {
+		int menuUpdate = sqlSession.update("group.menuUpdatePost", menu);
+		boolean ch;
+			if(menuUpdate==1) ch=true;
+			else ch=false;
+		return ch;
+	}
+
+	@Override
+	public boolean enterpriseRemoveApplication(int group_no) throws Exception {
+		int enterpriseUpdate = sqlSession.update("group.enterpriseRemoveApplication", group_no);
+		boolean ch;
+			if(enterpriseUpdate==1) ch=true;
+			else ch=false;
+		return ch;
+	}
+
+	@Override
+	public boolean sideAdd(MenuManageVO menu) throws Exception {
+		int sideAdd = sqlSession.insert("group.sideAdd", menu);
+		boolean ch;
+			if(sideAdd==1) ch=true;
+			else ch=false;
+		return ch;
 	}
 
 }

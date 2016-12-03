@@ -34,7 +34,7 @@ $(document).ready(function() {
 	});
 });	
 </script>
-<TITLE> 내업소 관리 </TITLE>
+<TITLE> 내업체 관리 </TITLE>
 
 	<div id="wrap">
 	<input type="hidden" value="${id }" id="id">
@@ -71,9 +71,9 @@ $(document).ready(function() {
 				<div class="management_show shop_yes">
 					<p>승인</p>
 				</div>
-					<div class="management_show shop_show">
+				<div class="management_show shop_show">
 					<input type="button" value="상세보기" class="detail_view"/>
-					</div>
+				</div>
 				</c:when>
 				<c:otherwise>
 				<div class="management_show shop_yes">
@@ -89,9 +89,6 @@ $(document).ready(function() {
 			<div class="management_btn">
 				<div class="shop_addition_btn">
 					<p>매장추가</p>
-				</div>
-				<div class="shop_delete_btn">
-					<p>선택삭제</p>
 				</div>
 			</div>
 		</div>
