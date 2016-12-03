@@ -48,23 +48,36 @@ public class JoinRestController {
 
 	@RequestMapping("/login_AX")
 	public @ResponseBody String login_AX(String email, String password, HttpSession session) throws Exception{
-		System.out.println("로그인 여긴 들어오니?");
 		MemberVO vo = service.login(email);
 		String position = vo.getMember_position();
 		String pass = vo.getMember_pass();
 		int id = vo.getMember_no();
+		
 		if(password.equals(pass)){
-			System.out.println("로그인 성공");
-			session.setAttribute("email", email);
-			session.setAttribute("id", id);
-			session.setAttribute("position", position);
 			
+			String draw = service.drawConfirm(email);
+			
+			if(draw != null){
+				if(draw.equals("T")){
+					System.out.println("실행 안됨");
+					
+					return "NO";
+				} else if(draw.equals("F")){
+					System.out.println("로그인 성공");
+					session.setAttribute("email", email);
+					session.setAttribute("id", id);
+					session.setAttribute("position", position);
+					
+					return "OK";
+				}
+			}			
 		} else{
 			System.out.println("로그인 실패");
 			return null;
 		}
-		return "OK";
+		return null;
 	}
+
 	@RequestMapping("/leave_AX")
 	public @ResponseBody String leave_AX(String member_email) throws Exception{
 		System.out.println("탈퇴신청 ajax");
@@ -89,7 +102,7 @@ public class JoinRestController {
 		return email;
 	}
 	@RequestMapping("/cancel_AX")
-	public @ResponseBody String cancel_AX(String member_email, String member_pass) throws Exception{
+	public @ResponseBody String cancel_AX(String member_email, String member_pass, HttpSession session) throws Exception{
 		System.out.println("탈퇴 취소");
 		
 		Map<String, String> map = new HashMap<String, String>();
@@ -102,6 +115,8 @@ public class JoinRestController {
 		System.out.println(pk);
 		
 		service.updateCancel(pk);
+		
+		session.invalidate();
 		
 		return "OK";
 	}
