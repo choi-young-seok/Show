@@ -1,4 +1,4 @@
-create table show_member(--지움
+create table show_member( 
 member_no number primary key,
 member_email varchar2(100),
 member_name varchar2(15) not null,
@@ -14,7 +14,7 @@ member_position VARCHAR2(100) check(member_position in('10','20','30'))
 create sequence show_member_seq   start with 1   increment by 1   nocycle   nocache;
 
 
-create table show_group(--지움
+create table show_group( 
 GROUP_NO NUMBER primary key,
 MEMBER_NO number references show_member(member_no),
 GROUP_NAME varchar2(50),
@@ -30,7 +30,7 @@ create sequence show_group_seq   start with 1   increment by 1   nocycle   nocac
 
 
 
-create table SHOW_MENU(--지움
+create table SHOW_MENU( 
 MENU_NO number primary key,
 MEMBER_NO number references  SHOW_MEMBER(MEMBER_NO),
 GROUP_NO NUMBER references  SHOW_GROUP(GROUP_NO),
@@ -42,7 +42,7 @@ MENU_CATEGORY varchar2(50)
 create sequence  show_menu_seq   start with 1   increment by 1   nocycle   nocache;
 
 
-create table  SHOW_SIDEMENU( --지움
+create table  SHOW_SIDEMENU(  
 SIDEMENU_NO number primary key,
 MENU_NO NUMBER references  SHOW_MENU(MENU_NO),
 MEMBER_NO NUMBER references  SHOW_MEMBER(MEMBER_NO),
@@ -55,7 +55,7 @@ SIDEMENU_CATEGORY VARCHAR2(50)
 create sequence  show_side_seq   start with 1   increment by 1   nocycle   nocache;
 
 
-create table  show_riview(--지움
+create table  show_riview( 
 RIVIEW_NO NUMBER primary key,
 MEMBER_NO NUMBER references  SHOW_MEMBER(MEMBER_NO),
 GROUP_NO number references  SHOW_GROUP(GROUP_NO),
@@ -68,7 +68,7 @@ REVIEW_SCORE number
 create sequence  show_riview_seq   start with 1   increment by 1   nocycle   nocache;
 
 
-create table  show_order(--지움
+create table  show_order( 
 ORDER_NO NUMBER primary key,
 MEMBER_NO NUMBER REFERENCES  SHOW_MEMBER(MEMBER_NO),
 GROUP_NO NUMBER references  SHOW_GROUP(GROUP_NO),
@@ -87,7 +87,7 @@ ORDER_REFUND VARCHAR2(10)  check(ORDER_REFUND in('T','F'))
 create sequence  show_order_seq   start with 1   increment by 1   nocycle   nocache;
 
 
-create table  show_menu_check(--지움
+create table  show_menu_check( 
 MEMBER_NO NUMBER REFERENCES  SHOW_MEMBER(MEMBER_NO),
 GROUP_NO NUMBER references  SHOW_GROUP(GROUP_NO),
 MENU_NO NUMBER REFERENCES  SHOW_MENU(MENU_NO),
@@ -98,7 +98,7 @@ MENU_PRICE NUMBER
 );
 
 
-create table  SHOW_notice(--지움
+create table  SHOW_notice( 
 NOTICE_NO NUMBER primary key,
 NOTICE_TITLE VARCHAR2(50),
 NOTICE_TEXT VARCHAR2(4000),
@@ -109,7 +109,7 @@ NOTICE_CH VARCHAR2(10) check(NOTICE_CH in('공지','이벤트'))
 create sequence  show_notice_seq   start with 1   increment by 1   nocycle   nocache;
 
 
-create table  show_faq(--지움
+create table  show_faq( 
 FAQ_NO NUMBER primary key,
 FAQ_CATEGORY VARCHAR2(30),
 FAQ_TITLE VARCHAR(50),
@@ -119,7 +119,7 @@ FAQ_TEXT VARCHAR2(4000)
 create sequence  show_faq_seq   start with 1   increment by 1   nocycle   nocache;
 
 
-create table  show_qna(--지움
+create table  show_qna( 
 QNA_NO NUMBER primary KEY,
 QNA_NAME VARCHAR2(5),
 QNA_EMAIL VARCHAR2(50),
@@ -132,7 +132,7 @@ QNA_CATEGORY VARCHAR2(30)
 create sequence  shoq_qna_seq   start with 1   increment by 1   nocycle   nocache;
 
 
-create table  shoq_area(--지움
+create table  shoq_area( 
 AREA_NO NUMBER primary key,
 AREA_UNIV VARCHAR2(50),
 AREA VARCHAR2(50)
@@ -141,7 +141,7 @@ AREA VARCHAR2(50)
 create sequence  show_area_seq   start with 1   increment by 1   nocycle   nocache;
 
 
-create table  show_withdraw(--지움
+create table  show_withdraw( 
 withdraw_no number primary key,
 member_no number references  show_member(member_no),
 withdraw_regdate date
@@ -161,7 +161,7 @@ alter table show_member modify (member_withdraw default 'F');
 alter table show_member modify (member_phone varchar2(50));
 
 alter table show_member add (MEMBER_WITHDRAW varchar2(30)  check(member_withdraw in('T','F')));
-
+alter table show_group add (GROUP_DELETE_CH varchar2(30)  check(GROUP_DELETE_CH in('T','F')));
 insert into show_member (member_no, member_email, member_name, member_nickname, member_pass, member_phone, member_birth, member_position)
 values (show_member_seq.nextval, 'asdf@naver.com', '홍길동', '길동', 'a123', '010-1234-5678', sysdate, '20');
 
@@ -175,8 +175,6 @@ alter table show_group modify (group_phone varchar2(50));
 
 
 
-select * from show_group;
-select * from show_member;
 
 ALTER TABLE 'SHOW_NOTICE' ADD CHECK ( NOTICE_CH in('공지','이벤트')) ENABLE;
  
@@ -191,13 +189,13 @@ Insert into  SHOW_MEMBER (MEMBER_NO,MEMBER_EMAIL,MEMBER_NAME,MEMBER_NICKNAME,MEM
 
 ALTER TABLE 'SHOW_MEMBER' ADD CHECK (member_allcheck in('T','F')) ENABLE;
 
---
 
 ALTER TABLE 'show_member' ADD CHECK (member_allcheck in('T','F')) ENABLE;
  
 ALTER TABLE 'show_member' ADD CHECK (member_smsck in('T','F')) ENABLE;
  
 ALTER TABLE 'show_member' ADD CHECK (member_emailck in('T','F')) ENABLE;
+ALTER TABLE 'show_group' ADD CHECK (group_delete_ch in('T','F')) ENABLE;
 
  alter table show_member add (MEMBER_STOP varchar2(20)  check(MEMBER_STOP in('T','F')));
 alter table show_member modify (MEMBER_STOP default 'F');
@@ -205,13 +203,20 @@ alter table show_member modify (MEMBER_STOP default 'F');
 alter table show_member add (MEMBER_REFUND_COU number);
 alter table show_member add (MEMBER_REFUND_LAST DATE);
 
+Insert into  SHOW_GROUP (GROUP_NO,MEMBER_NO,GROUP_NAME,GROUP_ADDRESS,GROUP_CATEGORY,GROUP_PHONE,GROUP_CH,GROUP_START,GROUP_END,GROUP_FILES,GROUP_DELETE_CH) values (23,1,'q','q','q','q',null,to_timestamp('16/11/01 03:03:00.000000000','RR/MM/DD HH24:MI:SSXFF'),to_timestamp('16/11/01 19:19:00.000000000','RR/MM/DD HH24:MI:SSXFF'),'logo.png','F');
+Insert into  SHOW_GROUP (GROUP_NO,MEMBER_NO,GROUP_NAME,GROUP_ADDRESS,GROUP_CATEGORY,GROUP_PHONE,GROUP_CH,GROUP_START,GROUP_END,GROUP_FILES,GROUP_DELETE_CH) values (1,1,'스타벅스','서울특별시','카페','010-1234-5678','T',to_timestamp('16/11/01 14:11:00.000000000','RR/MM/DD HH24:MI:SSXFF'),to_timestamp('16/11/01 19:11:00.000000000','RR/MM/DD HH24:MI:SSXFF'),'/onshow/cover_image/1_cover.jpg','F');
+Insert into  SHOW_GROUP (GROUP_NO,MEMBER_NO,GROUP_NAME,GROUP_ADDRESS,GROUP_CATEGORY,GROUP_PHONE,GROUP_CH,GROUP_START,GROUP_END,GROUP_FILES,GROUP_DELETE_CH) values (2,1,'스타벅스','서울특별시','카페','010-1234-5678','T',to_timestamp('16/11/01 14:11:00.000000000','RR/MM/DD HH24:MI:SSXFF'),to_timestamp('16/11/01 19:11:00.000000000','RR/MM/DD HH24:MI:SSXFF'),'/onshow/cover_image/1_cover.jpg','T');
+Insert into  SHOW_GROUP (GROUP_NO,MEMBER_NO,GROUP_NAME,GROUP_ADDRESS,GROUP_CATEGORY,GROUP_PHONE,GROUP_CH,GROUP_START,GROUP_END,GROUP_FILES,GROUP_DELETE_CH) values (8,1,'스타벅스','서울특별시','카페','010-1234-5678','T',to_timestamp('16/11/01 14:11:00.000000000','RR/MM/DD HH24:MI:SSXFF'),to_timestamp('16/11/01 19:11:00.000000000','RR/MM/DD HH24:MI:SSXFF'),'/onshow/cover_image/1_cover.jpg','T');
+Insert into  SHOW_GROUP (GROUP_NO,MEMBER_NO,GROUP_NAME,GROUP_ADDRESS,GROUP_CATEGORY,GROUP_PHONE,GROUP_CH,GROUP_START,GROUP_END,GROUP_FILES,GROUP_DELETE_CH) values (9,1,'스타벅스','서울특별시','카페','010-1234-5678','T',to_timestamp('16/11/01 14:11:00.000000000','RR/MM/DD HH24:MI:SSXFF'),to_timestamp('16/11/01 19:11:00.000000000','RR/MM/DD HH24:MI:SSXFF'),'/onshow/cover_image/1_cover.jpg','F');
+Insert into  SHOW_GROUP (GROUP_NO,MEMBER_NO,GROUP_NAME,GROUP_ADDRESS,GROUP_CATEGORY,GROUP_PHONE,GROUP_CH,GROUP_START,GROUP_END,GROUP_FILES,GROUP_DELETE_CH) values (10,1,'스타벅스','서울특별시','카페','010-1234-5678','T',to_timestamp('16/11/01 14:11:00.000000000','RR/MM/DD HH24:MI:SSXFF'),to_timestamp('16/11/01 19:11:00.000000000','RR/MM/DD HH24:MI:SSXFF'),'/onshow/cover_image/1_cover.jpg','F');
+Insert into  SHOW_GROUP (GROUP_NO,MEMBER_NO,GROUP_NAME,GROUP_ADDRESS,GROUP_CATEGORY,GROUP_PHONE,GROUP_CH,GROUP_START,GROUP_END,GROUP_FILES,GROUP_DELETE_CH) values (11,1,'몰라','서울','분식','010-1234-5678','T',to_timestamp('16/11/25 09:00:00.000000000','RR/MM/DD HH24:MI:SSXFF'),to_timestamp('16/11/25 20:00:00.000000000','RR/MM/DD HH24:MI:SSXFF'),'AAAAA','F');
+Insert into  SHOW_GROUP (GROUP_NO,MEMBER_NO,GROUP_NAME,GROUP_ADDRESS,GROUP_CATEGORY,GROUP_PHONE,GROUP_CH,GROUP_START,GROUP_END,GROUP_FILES,GROUP_DELETE_CH) values (19,1,'쿠크다스','가산디지털단지','음식점','010-1234-5678',null,to_timestamp('16/11/01 09:01:00.000000000','RR/MM/DD HH24:MI:SSXFF'),to_timestamp('16/11/01 21:01:00.000000000','RR/MM/DD HH24:MI:SSXFF'),'logo.png','F');
+Insert into  SHOW_GROUP (GROUP_NO,MEMBER_NO,GROUP_NAME,GROUP_ADDRESS,GROUP_CATEGORY,GROUP_PHONE,GROUP_CH,GROUP_START,GROUP_END,GROUP_FILES,GROUP_DELETE_CH) values (22,1,'가나','가산디지털단지','음식점','010-1357-2468',null,to_timestamp('16/11/01 10:00:00.000000000','RR/MM/DD HH24:MI:SSXFF'),to_timestamp('16/11/01 21:00:00.000000000','RR/MM/DD HH24:MI:SSXFF'),'give.png','F');
+Insert into  SHOW_GROUP (GROUP_NO,MEMBER_NO,GROUP_NAME,GROUP_ADDRESS,GROUP_CATEGORY,GROUP_PHONE,GROUP_CH,GROUP_START,GROUP_END,GROUP_FILES,GROUP_DELETE_CH) values (25,1,'f','f','f','f','F',to_timestamp('16/11/01 02:03:00.000000000','RR/MM/DD HH24:MI:SSXFF'),to_timestamp('16/11/01 19:20:00.000000000','RR/MM/DD HH24:MI:SSXFF'),'top_bg.jpg','F');
+Insert into  SHOW_GROUP (GROUP_NO,MEMBER_NO,GROUP_NAME,GROUP_ADDRESS,GROUP_CATEGORY,GROUP_PHONE,GROUP_CH,GROUP_START,GROUP_END,GROUP_FILES,GROUP_DELETE_CH) values (17,1,'a','a','a','a',null,to_timestamp('16/11/01 02:02:00.000000000','RR/MM/DD HH24:MI:SSXFF'),to_timestamp('16/11/01 19:18:00.000000000','RR/MM/DD HH24:MI:SSXFF'),'logo.png','F');
+Insert into  SHOW_GROUP (GROUP_NO,MEMBER_NO,GROUP_NAME,GROUP_ADDRESS,GROUP_CATEGORY,GROUP_PHONE,GROUP_CH,GROUP_START,GROUP_END,GROUP_FILES,GROUP_DELETE_CH) values (26,1,'r','r','r','r','F',to_timestamp('16/11/01 02:03:00.000000000','RR/MM/DD HH24:MI:SSXFF'),to_timestamp('16/11/01 18:19:00.000000000','RR/MM/DD HH24:MI:SSXFF'),'logo.png','F');
+Insert into  SHOW_GROUP (GROUP_NO,MEMBER_NO,GROUP_NAME,GROUP_ADDRESS,GROUP_CATEGORY,GROUP_PHONE,GROUP_CH,GROUP_START,GROUP_END,GROUP_FILES,GROUP_DELETE_CH) values (18,1,'쿠크다스','가산디지털단지','음식점','010-1234-5678',null,to_timestamp('16/11/01 09:00:00.000000000','RR/MM/DD HH24:MI:SSXFF'),to_timestamp('16/11/01 21:00:00.000000000','RR/MM/DD HH24:MI:SSXFF'),'top_bg.jpg','F');
+Insert into  SHOW_GROUP (GROUP_NO,MEMBER_NO,GROUP_NAME,GROUP_ADDRESS,GROUP_CATEGORY,GROUP_PHONE,GROUP_CH,GROUP_START,GROUP_END,GROUP_FILES,GROUP_DELETE_CH) values (20,1,'쿠크다스','가산디지털단지','음식점','010-1234-5678',null,to_timestamp('16/11/01 09:00:00.000000000','RR/MM/DD HH24:MI:SSXFF'),to_timestamp('16/11/01 21:00:00.000000000','RR/MM/DD HH24:MI:SSXFF'),'logo.png','F');
+Insert into  SHOW_GROUP (GROUP_NO,MEMBER_NO,GROUP_NAME,GROUP_ADDRESS,GROUP_CATEGORY,GROUP_PHONE,GROUP_CH,GROUP_START,GROUP_END,GROUP_FILES,GROUP_DELETE_CH) values (21,1,'요구르트','가산디지털단지','음식점','010-9876-5432',null,to_timestamp('16/11/01 09:00:00.000000000','RR/MM/DD HH24:MI:SSXFF'),to_timestamp('16/11/01 20:00:00.000000000','RR/MM/DD HH24:MI:SSXFF'),'top_bg.jpg','F');
+Insert into  SHOW_GROUP (GROUP_NO,MEMBER_NO,GROUP_NAME,GROUP_ADDRESS,GROUP_CATEGORY,GROUP_PHONE,GROUP_CH,GROUP_START,GROUP_END,GROUP_FILES,GROUP_DELETE_CH) values (24,1,'w','w','w','w',null,to_timestamp('16/11/01 02:03:00.000000000','RR/MM/DD HH24:MI:SSXFF'),to_timestamp('16/11/01 19:19:00.000000000','RR/MM/DD HH24:MI:SSXFF'),'logo.png','F');
 
-Insert into  SHOW_FAQ (FAQ_NO,FAQ_CATEGORY,FAQ_TITLE,FAQ_TEXT) values (1,'회원가입','회원가입이 안됩니다.','문의하기를 통해 성함과 핸드폰번호를 보내주세요.');
-Insert into  SHOW_FAQ (FAQ_NO,FAQ_CATEGORY,FAQ_TITLE,FAQ_TEXT) values (2,'회원가입','비밀번호를 까먹었어요.','비밀번호 찾기를 통해 찾아주세요.');
-Insert into  SHOW_FAQ (FAQ_NO,FAQ_CATEGORY,FAQ_TITLE,FAQ_TEXT) values (3,'바로결제','결제 오류가 났어요.','문의하기를 통해 카드번호와 상황을 적어서 보내주세요.');
-Insert into  SHOW_FAQ (FAQ_NO,FAQ_CATEGORY,FAQ_TITLE,FAQ_TEXT) values (4,'리뷰관리','리뷰가 안달려요.','문의하기를 통해 문의해주세요.');
-Insert into  SHOW_FAQ (FAQ_NO,FAQ_CATEGORY,FAQ_TITLE,FAQ_TEXT) values (5,'이용문의','어떻게 사용하는 것인가요??','서비스소개를 봐주시길 바랍니다.');
-Insert into  SHOW_FAQ (FAQ_NO,FAQ_CATEGORY,FAQ_TITLE,FAQ_TEXT) values (6,'이용문의','매장 검색은 어떻게 하나요??','메인화면 검색 바를 통해서 가능합니다.');
-Insert into  SHOW_FAQ (FAQ_NO,FAQ_CATEGORY,FAQ_TITLE,FAQ_TEXT) values (7,'광고문의','광고문의를 어디서 하나요??','준비중에 있습니다.');
-Insert into  SHOW_FAQ (FAQ_NO,FAQ_CATEGORY,FAQ_TITLE,FAQ_TEXT) values (8,'불편문의','가게에서 불친절합니다.','해당 가게 이름과 위치 그리고 상황을 적어서 문의해주세요.');
-Insert into  SHOW_FAQ (FAQ_NO,FAQ_CATEGORY,FAQ_TITLE,FAQ_TEXT) values (9,'기타','가게 신청은 어떻게 하나요??','준비중입니다.');

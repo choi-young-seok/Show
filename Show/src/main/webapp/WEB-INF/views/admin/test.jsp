@@ -25,6 +25,7 @@ $('.member1').click(function() {
 });
 
 $('.shop').click(function() {
+	alert("Ddd");
 	$.ajax({
 		url : '/show/shop',
 		success : function(data) {

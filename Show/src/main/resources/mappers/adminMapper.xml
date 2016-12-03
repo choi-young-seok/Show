@@ -20,5 +20,6 @@
 	<delete id="delete">
 		delete from show_member where member_no = #{member_no}
 	</delete>
+	
 
 </mapper>
