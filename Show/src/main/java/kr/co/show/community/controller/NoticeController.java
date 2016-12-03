@@ -26,17 +26,17 @@ public class NoticeController {
 	
 	//관리자 페이지 공지사항 목록
 	@RequestMapping("/event")
-	public String listNotice(Model model)throws Exception {
-		
-		model.addAttribute("listNotice", service.listNotice());
-		
+	public String listNotice(String notice_ch,Model model)throws Exception {
+		model.addAttribute("listNotice", service.listNotice(notice_ch));
+		notice_ch = "이벤트";
+		model.addAttribute("listevent",service.listNotice(notice_ch));
 		return "admin/event";
 	}
 	//community 게시판 공지사항 목록
 	@RequestMapping("/user/list")
 	public String list(Model model) throws Exception {
 		
-		model.addAttribute("listNotice2", service.listNotice());
+		//model.addAttribute("listNotice2", service.listNotice());
 
 		return "user/community/event_board";
 	}
@@ -53,9 +53,10 @@ public class NoticeController {
 	@RequestMapping("/adminEventView") 
 	public String adminEventView(int notice_no,Model model)throws Exception{
 		model.addAttribute(service.selectNotice(notice_no));
-		
+		model.addAttribute("notice_no",notice_no);
 		return "admin/event_refly";
 	}
+
 	
 	
  
