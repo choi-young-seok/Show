@@ -45,14 +45,17 @@ $('.qna').click(function() {
 });
 
 $('.gong').click(function() {
+	var notice_ch = '공지';
 	$.ajax({
 		url : '/show/event',
+		data : {"notice_ch":notice_ch},
 		success : function(data) {
 			$('.body').empty();
 			$('.body').append(data);
 		}
 	});
 });
+
 
 
 
