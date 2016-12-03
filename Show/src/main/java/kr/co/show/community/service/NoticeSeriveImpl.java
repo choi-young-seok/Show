@@ -17,8 +17,8 @@ public class NoticeSeriveImpl implements NoticeService {
 	private NoticeDAO dao;
 
 	@Override
-	public List<NoticeVO> listNotice() throws Exception {
-		return dao.listAll();
+	public List<NoticeVO> listNotice(String notice_ch) throws Exception {
+		return dao.listAll(notice_ch);
 	}
 
 	
@@ -45,5 +45,19 @@ public class NoticeSeriveImpl implements NoticeService {
 	public List<NoticeVO> listCriteria(Criteria cri) throws Exception {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+
+	@Override
+	public void updateNotice(NoticeVO vo) throws Exception {
+		dao.updateNotice(vo);
+		
+	}
+
+
+	@Override
+	public void deleteNotice(int notice_no) throws Exception {
+		dao.deleteNotice(notice_no);
+		
 	}
 }

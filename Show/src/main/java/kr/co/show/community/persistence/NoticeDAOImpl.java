@@ -18,9 +18,9 @@ public class NoticeDAOImpl implements NoticeDAO {
 	private SqlSession sqlSession;
 	
 	@Override
-	public List<NoticeVO> listAll() throws Exception {
+	public List<NoticeVO> listAll(String notice_ch) throws Exception {
 		RowBounds bound = new RowBounds(0,10);
-		return sqlSession.selectList("notice.listAll",null,bound);
+		return sqlSession.selectList("notice.listAll",notice_ch,bound);
 	}
 
 
@@ -38,5 +38,21 @@ public class NoticeDAOImpl implements NoticeDAO {
 	public void create(NoticeVO vo) throws Exception {
 		sqlSession.insert("notice.create",vo);
 	}
+
+
+	@Override
+	public void updateNotice(NoticeVO vo) throws Exception {
+		sqlSession.update("notice.updateNo", vo);
+		 
+	}
+
+
+	@Override
+	public void deleteNotice(int notice_no) throws Exception {
+		sqlSession.delete("notice.deleteNo",notice_no);
+	}
+
+
+
 
 }
