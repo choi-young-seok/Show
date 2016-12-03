@@ -4,21 +4,22 @@ member_email varchar2(100),
 member_name varchar2(15) not null,
 member_nickname varchar2(30) not null,
 member_pass varchar2(30) not null,
-member_phone number not null,
+member_phone VARCHAR2(50) not null,
 member_birth DATE not null,
 member_allcheck VARCHAR2(100) check(member_allcheck in('T','F')) ,
 member_smsck VARCHAR2(100) check(member_smsck in('T','F')),
 member_emailck VARCHAR2(100) check(member_emailck in('T','F')),
 member_position VARCHAR2(100) check(member_position in('10','20','30'))
 );
-create sequence member_seq   start with 1   increment by 1   nocycle   nocache;
+create sequence show_member_seq   start with 1   increment by 1   nocycle   nocache;
+
 
 
 create table show_group(
 GROUP_NO NUMBER primary key,
 MEMBER_NO number references show_member(member_no),
 GROUP_NAME varchar2(50),
-CITY_NAME varchar2(30),
+GROUP_ADDRESS varchar2(30),
 GROUP_CATAGORY varchar2(30),
 GROUP_PHONE VARCHAR2(10),
 GROUP_CH VARCHAR2(10) check(GROUP_CH in('T','F')),
@@ -27,6 +28,7 @@ GROUP_END DATE,
 GROUP_FILES VARCHAR2(100)
 );
 create sequence show_group_seq   start with 1   increment by 1   nocycle   nocache;
+
 
 
 create table SHOW_MENU(
@@ -155,3 +157,22 @@ alter table SHOW_ORDER modify (OWNER_CH default '신청중');
 
 alter table show_ORDER modify (ORDER_REFUND default 'F');
 
+alter table show_member modify (member_withdraw default 'F');
+
+alter table show_member modify (member_phone varchar2(50));
+
+alter table show_member add (MEMBER_WITHDRAW varchar2(30)  check(member_withdraw in('T','F')));
+
+insert into show_member (member_no, member_email, member_name, member_nickname, member_pass, member_phone, member_birth, member_position)
+values (show_member_seq.nextval, 'asdf@naver.com', '홍길동', '길동', 'a123', '010-1234-5678', sysdate, '20');
+
+update show_member set member_withdraw='F';
+
+alter table show_group rename column group_catagory to group_category;
+
+alter table show_group rename column CITY_NAME to GROUP_ADDRESS;
+
+alter table show_group modify (group_phone varchar2(50));
+
+select * from show_group;
+select * from show_member;
