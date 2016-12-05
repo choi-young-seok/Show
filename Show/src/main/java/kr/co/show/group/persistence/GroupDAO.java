@@ -16,4 +16,7 @@ public interface GroupDAO {
 	public void menuDelete(int menu_no) throws Exception;
 	public void menuAdd(MenuManageVO menu) throws Exception;
 	public MenuManageVO menuUpdateGet(int menu_no) throws Exception;
+	public boolean menuUpdatePost(MenuManageVO menu) throws Exception;
+	public boolean enterpriseRemoveApplication(int group_no) throws Exception;
+	public boolean sideAdd(MenuManageVO menu) throws Exception;
 }

@@ -20,10 +20,11 @@
 		url: '/show/checkDataDa',
 		data:{"notice_ch":ch,"notice_title":title,"notice_text":text},
 		success: function(data){
-			if (data == 'OKI'){
+			if (data === 'OKI'){
 				alert("공지사항이 등록되었습니다.");
-				window.close();
-				check();
+				check1();
+				$('.admin_member_refly').empty();
+				$('.admin_member_refly').fadeOut(500);
 			}
 		}
 	});
@@ -32,8 +33,22 @@
 		
 		//닫기 버튼 투르면 
 		$(".close_btn").click(function(){
-			close();
+			$('.admin_member_refly').empty();
+			$('.admin_member_refly').fadeOut(500);
 		});
+		
+		function check1(){
+			alert("dddd");
+			$.ajax({
+				url: '/show/event',
+				success: function(data){
+					$('.body').empty();
+					$('.body').append(data);
+					
+				}
+			});
+		} 
+		
 	});
 </script>
 <TITLE> 공지사항 작성 </TITLE>
@@ -54,7 +69,7 @@
 		</div>
 		<div class="event_call">
 			<p class="choice_left choice_text">내용</p>
-			<textarea class="text_box" name="notice_text"></textarea>
+			<textarea class="text_box" name="notice_text" style="margin: 0px;width: 592px;height: 294px;"></textarea>
 			<input type="hidden" name="notice_regdate" class='regdate_box'>
 		</div>
 		<div class="event_btn">
@@ -62,5 +77,8 @@
 			<button class="close_btn">닫기</button>
 		</div>
 	</div>
+	
+	
+		
 </BODY>
 </HTML>

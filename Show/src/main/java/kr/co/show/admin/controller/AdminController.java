@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import kr.co.show.admin.service.AdminService;
+import kr.co.show.group.domain.GroupVO;
 import kr.co.show.sign.domain.MemberVO;
 
 @Controller
@@ -33,13 +34,19 @@ public class AdminController {
 		//ª—∑¡¡÷∞Ì,
 		model.addAttribute("detail", service.detail(member_no));
 		System.out.println(service.detail(member_no).getMember_email());
+		model.addAttribute("cnt",service.memberList().size());
 		return "/admin/admin_member_refly";
 	}
 	
 	@RequestMapping("/shop")
-	public String admin_shop(){
+	public String admin_shop(Model model) throws Exception{
+		System.out.println("ddd");
+		List<GroupVO> list2 = service.groupList();
+		System.out.println("dd D"+list2.size());
+		model.addAttribute("list2",list2);
 		return"/admin/shop";
 	}
+	
 	@RequestMapping("/test")
 	public String test(){
 		return "/admin/test";

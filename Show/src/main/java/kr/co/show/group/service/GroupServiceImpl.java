@@ -58,4 +58,22 @@ public class GroupServiceImpl implements GroupService{
 	public MenuManageVO menuUpdateGet(int menu_no) throws Exception {
 		return dao.menuUpdateGet(menu_no);
 	}
+
+	@Override
+	public boolean menuUpdatePost(MenuManageVO menu) throws Exception {
+		boolean ch = dao.menuUpdatePost(menu);
+		return ch;
+	}
+
+	@Override
+	public boolean enterpriseRemoveApplication(int group_no) throws Exception {
+		boolean ch = dao.enterpriseRemoveApplication(group_no);
+		return ch;
+	}
+
+	@Override
+	public boolean sideAdd(MenuManageVO menu) throws Exception {
+		boolean ch = dao.sideAdd(menu);
+		return ch;
+	}
 }

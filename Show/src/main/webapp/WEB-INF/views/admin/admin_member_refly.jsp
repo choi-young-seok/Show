@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <HTML>
 <HEAD>
@@ -48,6 +49,7 @@ $('#btn_cancle').click(function(){
 	$('.admin_member_refly').fadeOut(0);
 });
 
+
 </script>
 <BODY>
 	<div id="wrap">
@@ -55,8 +57,14 @@ $('#btn_cancle').click(function(){
 			<!--include-->
 		</header>
 				<div class="btn_box">
+			<c:if test="${detail.member_no != 1}" >
+		
         	<a href="#" class="prev"><img src="resources/image/prev.png"></a> 
+        	</c:if>
+        	
+        	<c:if test="${detail.member_no != cnt}">
         	<a href="#" class="next"><img src="resources/image/next.png"></a>
+        	</c:if>
         </div>	
 		<div class="member_refly">
 			<div class="email">
@@ -83,8 +91,6 @@ $('#btn_cancle').click(function(){
 				
 			</div>
 			<div class="member_btn">
-				<div>수정확인</div>
-				<div>회원삭제</div>
 				<div id="btn_cancle">닫기</div>
 			</div>
 		</div>

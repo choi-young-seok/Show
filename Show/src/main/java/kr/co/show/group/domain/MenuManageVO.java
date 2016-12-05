@@ -7,6 +7,11 @@ public class MenuManageVO {
 	private String menu_name;
 	private int menu_price;
 	private String menu_category;
+	private int sidemenu_no;
+	private String sidemenu_name;
+	private int sidemenu_pay;
+	private String sidemenu_category;
+	
 	
 	public int getMenu_no() {
 		return menu_no;
@@ -54,6 +59,46 @@ public class MenuManageVO {
 	
 	public void setMenu_category(String menu_category) {
 		this.menu_category = menu_category;
+	}
+
+	public int getSidemenu_no() {
+		return sidemenu_no;
+	}
+
+	public void setSidemenu_no(int sidemenu_no) {
+		this.sidemenu_no = sidemenu_no;
+	}
+
+	public String getSidemenu_name() {
+		return sidemenu_name;
+	}
+
+	public void setSidemenu_name(String sidemenu_name) {
+		this.sidemenu_name = sidemenu_name;
+	}
+
+	public int getSidemenu_pay() {
+		return sidemenu_pay;
+	}
+
+	public void setSidemenu_pay(int sidemenu_pay) {
+		this.sidemenu_pay = sidemenu_pay;
+	}
+
+	public String getSidemenu_category() {
+		return sidemenu_category;
+	}
+
+	public void setSidemenu_category(String sidemenu_category) {
+		this.sidemenu_category = sidemenu_category;
+	}
+
+	@Override
+	public String toString() {
+		return "MenuManageVO [menu_no=" + menu_no + ", member_no=" + member_no + ", group_no=" + group_no
+				+ ", menu_name=" + menu_name + ", menu_price=" + menu_price + ", menu_category=" + menu_category
+				+ ", sidemenu_no=" + sidemenu_no + ", sidemenu_name=" + sidemenu_name + ", sidemenu_pay=" + sidemenu_pay
+				+ ", sidemenu_category=" + sidemenu_category + "]";
 	}
 
 }

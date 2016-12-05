@@ -1,7 +1,7 @@
 package kr.co.show.group.controller;
 
 
-import java.util.List;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.request;
 
 import javax.inject.Inject;
 
@@ -10,7 +10,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import kr.co.show.group.domain.MenuManageVO;
 import kr.co.show.group.service.GroupService;
 
 @Controller
@@ -56,8 +55,15 @@ public class GroupController {
 
 	@RequestMapping(value="/menu_update", method=RequestMethod.GET)
 	public String menuUpdateGet(int menu_no, Model model) throws Exception{
+		model.addAttribute("menu_no1", menu_no);
 		model.addAttribute("menu_no", service.menuUpdateGet(menu_no));
 		return "shop_admin/menu_refly";
+	}
+	
+	@RequestMapping("/menu_side")
+	public String menuSide(String menu_category, Model model){
+		model.addAttribute("menu_category", menu_category);
+		return "shop_admin/menu_side";
 	}
 	
 	@RequestMapping("/orderCheck")
