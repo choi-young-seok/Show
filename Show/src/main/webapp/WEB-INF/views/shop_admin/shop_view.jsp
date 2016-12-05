@@ -12,18 +12,30 @@
 <script src="resources/js/common/jquery-3.0.0.js"></script>
 <script>
 	$(document).ready(function(){
-		$(".review_box").hide();
 		$(".menu_management").click(function(){
 			$(".menu_management").css({"background":"#ffa500"});
 			$(".review_management").css({"background":"#696969"});
 			$(".menu_view").show();
 			$(".review_box").hide();
 		});
+
 		$(".review_management").click(function(){
 			$(".review_management").css({"background":"#ffa500"});
 			$(".menu_management").css({"background":"#696969"});
 			$(".menu_view").hide();
 			$(".review_box").show();
+		});
+		
+		$(".review_management").click(function(){
+			var group_no = $('#group_no').val();
+			$.ajax({
+				url:'/show/review_list',
+				data:{"group_no":group_no},
+				success: function(data){
+					$('.menu_review_box').empty(); 
+					$('.menu_review_box').append(data);
+				}
+			});
 		});
 		
 		$('.menu_delete_btn').click(function(){
@@ -141,40 +153,6 @@
 				}
 			});
 		});
-		
-		$('.review_delete_btn').click(function(){
-			var review_no = $(this).parent().children(":eq(0)").val();
-			var group_no = $('#group_no').val();
-			$.ajax({
-				url:'/show/reviewDelete?review_no='+review_no,
-				type:'DELETE',
-				success: function(result){
-					if(result=='OK'){
-						q = confirm("정말 삭제하시겠습니까?");
-						if(q==true){
-							alert("삭제되었습니다.");
-								reviewList();
-						}else{
-							alert("취소되었습니다.");
-						}
-					}//if
-				}//success
-			});
-		});
-		
-		function reviewList(){
-			var group_no = $('#group_no').val();
-			$.ajax({
-				url:'/show/reviewList',
-				data:{"group_no":group_no},
-				success: function(data){
-					$('.shop_view_box').empty(); 
-					$('.shop_view_box').append(data);
-					$(".review_management").css({"background":"#ffa500"});
-					$(".menu_management").css({"background":"#696969"});
-				}
-		});
-		}
 	});
 	
 </script>
@@ -214,7 +192,6 @@
 					<input type="hidden" id="group_no" value="${detailView.group_no }">
 				</div>
 			</div>
-			
 			<div class="shop_info_btn">
 					<ul>
 					<li class="enterpriseRemoveApplication">업체탈퇴</li>
@@ -225,6 +202,7 @@
 				<div class="menu_management">메뉴관리</div>
 				<div class="review_management">리뷰관리</div>
 			</div>
+			<div class="menu_review_box"></div>
 			<div class="menu_view">
 				<div class="menu_top_text">
 					<ul>
@@ -261,33 +239,6 @@
 					<div class="menu_write_btn">메뉴추가</div>
 					<div class="refly_keep_btn">돌아가기</div>
 				</div>
-			</div>
-			<div class="review_box">
-				<div class="review_top_text">
-					<ul>
-						<li>평점</li>
-						<li>닉네임</li>
-						<li>내용</li>
-						<li>삭제</li>
-					</ul>
-				</div>
-				<c:forEach items="${reviewList }" var="r">
-				<div class="review_list">
-				<input type="hidden" id="review_no" value="${r.review_no }">
-					<div class="review_score">
-						<p>${r.review_score }</p>
-					</div>
-					<div class="review_user_name">
-						<p>${r.nickname }</p>
-					</div>
-					<div class="review_text">
-						<p>${r.review_text }</p>
-					</div>
-					<div class="review_delete_btn">
-						<p>삭제</p>
-					</div>
-				</div>
-				</c:forEach>
 			</div>
 		</div>
 	</div>

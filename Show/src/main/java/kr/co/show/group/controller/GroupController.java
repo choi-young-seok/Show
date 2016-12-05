@@ -80,10 +80,11 @@ public class GroupController {
 		return "shop_admin/side_refly";
 	}
 	
-	@RequestMapping("/reviewList")
+	@RequestMapping("/review_list")
 	public String reviewList(int group_no, Model model) throws Exception{
+		model.addAttribute("group_no", group_no);
 		model.addAttribute("reviewList1",service.reviewList(group_no));
-		return "shop_admin/shop_view";
+		return "shop_admin/review_list";
 	}
 	
 	@RequestMapping("/order_check")
