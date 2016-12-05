@@ -1,90 +1,60 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link href="resources/css/shop_admin/style.css" rel="stylesheet"
-	type="text/css" />
-<link href="resources/css/shop_admin/shop_application.css"
-	rel="stylesheet" type="text/css" />
+<link href="resources/css/shop_admin/style.css" rel="stylesheet" type="text/css" />
+<link href="resources/css/shop_admin/shop_application.css" rel="stylesheet" type="text/css" />
 <!--JQUERY 영역-->
 <script src="resources/js/common/jquery-3.0.0.js"></script>
 <script>
 	$(document).ready(function() {
 		$(".qna").click(function() {
-			$(".qna").css({
-				"background" : "#ffa500"
-			});
-			$(".gong").css({
-				"background" : "#696969"
-			});
-			$(".member").css({
-				"background" : "#696969"
-			});
-			$(".shop").css({
-				"background" : "#696969"
-			});
+			$(".qna").css({"background" : "#ffa500"});
+			$(".gong").css({"background" : "#696969"});
+			$(".member").css({"background" : "#696969"});
+			$(".shop").css({"background" : "#696969"});
 		});
+		
 		$(".gong").click(function() {
-			$(".gong").css({
-				"background" : "#ffa500"
-			});
-			$(".qna").css({
-				"background" : "#696969"
-			});
-			$(".member").css({
-				"background" : "#696969"
-			});
-			$(".shop").css({
-				"background" : "#696969"
-			});
+			$(".gong").css({"background" : "#ffa500"});
+			$(".qna").css({"background" : "#696969"});
+			$(".member").css({"background" : "#696969"});
+			$(".shop").css({"background" : "#696969"});
 		});
+		
 		$(".member").click(function() {
-			$(".member").css({
-				"background" : "#ffa500"
-			});
-			$(".gong").css({
-				"background" : "#696969"
-			});
-			$(".qna").css({
-				"background" : "#696969"
-			});
-			$(".shop").css({
-				"background" : "#696969"
-			});
+			$(".member").css({"background" : "#ffa500"});
+			$(".gong").css({"background" : "#696969"});
+			$(".qna").css({"background" : "#696969"});
+			$(".shop").css({"background" : "#696969"});
 		});
+		
 		$(".shop").click(function() {
-			$(".shop").css({
-				"background" : "#ffa500"
-			});
-			$(".gong").css({
-				"background" : "#696969"
-			});
-			$(".member").css({
-				"background" : "#696969"
-			});
-			$(".qna").css({
-				"background" : "#696969"
-			});
+			$(".shop").css({"background" : "#ffa500"});
+			$(".gong").css({"background" : "#696969"});
+			$(".member").css({"background" : "#696969"});
+			$(".qna").css({"background" : "#696969"});
 		});
 
-		
-		
-		$('.application_btn').click(function() {	
+		$('.application_btn').click(function() {
 			var group_phone = $("#phone").val();
 			var group_name = $("#groupName").val();
 			var group_address = $("#groupAddr").val();
 			var group_category = $("#groupCategory").val();
+			var group_start_hour = $("select[name=start_hour]").val();
+			var group_start_minute = $("select[name=start_minute]").val();
 			var group_start = $("select[name=start_hour]").val() + $("select[name=start_minute]").val();
+			var group_end_hour = $("select[name=end_hour]").val();
+			var group_end_minute = $("select[name=end_minute").val();
 			var group_end = $("select[name=end_hour]").val() + $("select[name=end_minute").val();
 			var group_files = $("#groupFiles").val();
 			var image_split = group_files.split("\\");
 			var id = $("#id").val();
+			
 			$.ajax({
 				url : '/show/applicationInsert',
 				type:'post',
-				//headers:{"Content-Type":"application/json"},
 				data:{"group_phone":group_phone,"group_name":group_name,"group_address":group_address,"group_category":group_category,
 						"group_start":group_start,"group_end":group_end,"group_files":image_split[2],"member_no":id},
 				success : function(data) {
@@ -94,7 +64,26 @@
 					}//if
 				}//success
 				,error: function(xhr,status){
-					alert(status+":"+xhr.statusText);
+					var group_phone1 = /^\d+$/;
+					if(group_phone == ''){
+						alert('전화번호를 입력하세요');
+					}else if(group_phone1.test(group_phone) == false){
+						alert('숫자만 입력하세요.');
+					}else if(group_phone.length < 10 || group_phone.length > 13){
+						alert('전화번호를 다시 확인해주세요.');
+					}else if(group_name == ''){
+						alert('상호명을 입력하세요');
+					}else if(group_address == ''){
+						alert('주소를 입력하세요.');
+					}else if(group_category == ''){
+						alert('업종을 입력하세요.');
+					}else if(group_start_hour == '시' || group_start_minute == '분'){
+						alert('시작시간을 선택하세요.');
+					}else if(group_end_hour == '시' || group_end_minute == '분'){
+						alert('종료시간을 선택하세요.');
+					}else if(group_files == ''){
+						alert('로고를 선택해주세요.');
+					}
 				}
 			});//ajax
 		});//click
@@ -124,14 +113,9 @@
 		<div class="shop_application">
 			<div class="application">
 				<p class="application_text">&nbsp;&nbsp;업체 신청서</p>
-				<div class="application_name">
-					<p class="application_left name left_size">신청자명</p>
-					<input type="text" class="application_left name_input" />
-				</div>
 				<div class="application_phone">
 					<p class="application_left phone left_size">연락처</p>
-					<input type="text" class="application_left phone_input" id="phone"
-						placeholder="&nbsp;&nbsp;-빼고 입력하세요" />
+					<input type="text" class="application_left phone_input" id="phone" placeholder="&nbsp;&nbsp;-빼고 입력하세요" />
 				</div>
 				<div class="application_shop_name">
 					<p class="application_left shop_name left_size">상호명</p>
@@ -139,8 +123,7 @@
 				</div>
 				<div class="application_addr">
 					<p class="application_left addr left_size">업체주소</p>
-					<input type="text" class="application_left addr_input"
-						placeholder="&nbsp;&nbsp;동까지만 입력하세요" id="groupAddr"/>
+					<input type="text" class="application_left addr_input" placeholder="&nbsp;&nbsp;동까지만 입력하세요" id="groupAddr"/>
 				</div>
 				<div class="application_school">
 					<p class="application_left addr left_size">업체업종</p>

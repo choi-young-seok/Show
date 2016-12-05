@@ -20,7 +20,7 @@ public class GroupRestController {
 	@Inject
 	private GroupService service;
 	
-	@RequestMapping("/applicationInsert")
+	@RequestMapping(value="/applicationInsert", method=RequestMethod.POST)
 	public String applicationPost(GroupVO group, int member_no, HttpSession session) throws Exception{
 		service.insert(group, member_no);
 
