@@ -14,6 +14,14 @@
 $(document).ready(function() {
 	
 $(".write_btn").on("click",function(){
+	function check(){
+		$.ajax({            
+            url:'/show/user/create',
+            success: function(data){
+               $('.write_box').html(data); 
+            }
+         });
+	}
 	var name = $('.name_box').val();
 	var email = $('.email_box').val();
 	var category = $('.qna_type_box').val();
@@ -34,14 +42,7 @@ $(".write_btn").on("click",function(){
        });
 	});
 	
-	function check(){
-		$.ajax({            
-            url:'/show/user/create',
-            success: function(data){
-               $('.write_box').html(data); 
-            }
-         });
-	}
+
 });
 </script>
 <TITLE> ON SHOW 문의하기 </TITLE>
@@ -51,10 +52,9 @@ $(".write_btn").on("click",function(){
 <form role="form" method="post">
 	<input type="hidden" value="${email }" class="email_box">
 		<div class="write_box">
-			<div class="name">
-				<div class="name_text">이름</div>
-				<input class="name_box" name="qna_name" type="text"/>
-			</div>
+	
+				<input class="name_box" name="qna_name" type="hidden" value="${name }"/>
+
 			
 			<div class="qna_type">
 				<div class="qna_type_text">상담분류</div>

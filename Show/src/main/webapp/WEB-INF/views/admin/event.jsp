@@ -2,11 +2,10 @@
     pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
 <link href="resources/css/style.css" rel="stylesheet" type="text/css" />
+<link href="resources/css/admin/event.css" rel="stylesheet" type="text/css" />
 
- <link href="resources/css/admin/event.css" rel="stylesheet" type="text/css" />
-
-		
 <script src="resources/js/common/jquery-3.0.0.js"></script>
 <script>
 
@@ -105,6 +104,7 @@
 				</div> 
 				</c:if>
 				</c:forEach>
+			
 			</div>
 			
 			<button class="write_btn">글쓰기</button>

@@ -20,31 +20,38 @@ public class RestControl {
 	
 	@Inject
 	private QnaService service;
+	
 	@Inject
 	private NoticeService noService;
 	
 	@RequestMapping("/checkData")
-	public String checkData(QnaVO vo) throws Exception{
+	public String checkData(QnaVO vo) throws Exception{ //문의글 작성
 		service.create(vo);
 		return "OK";
 	}
 	
 	@RequestMapping("/checkDataDa")
-	public String createNotice(NoticeVO vo)throws Exception{
+	public String createNotice(NoticeVO vo)throws Exception{ //공지사항 작성
 		
 		noService.create(vo);
 		return "OKI";
 	}
 	@RequestMapping("/check")
-	public String editeNotice(NoticeVO vo)throws Exception{
+	public String editeNotice(NoticeVO vo)throws Exception{//공지사항 수정
 	
 		noService.updateNotice(vo);
 		return "upOKI";
 	}
 	@RequestMapping(value="/removeNotice", method=RequestMethod.POST)
-	public String removeNotice( int notice_no)throws Exception{
-		System.out.println("gff"+notice_no);
+	public String removeNotice( int notice_no)throws Exception{//공지사항 제거
+
 		noService.deleteNotice(notice_no);
 		return "deOKI";
+	}
+	@RequestMapping(value="/deQna" , method=RequestMethod.POST)
+	public String removeQna(int qna_no) throws Exception{ //qna 삭제
+		System.out.println("j"+qna_no);
+		service.deleteQna(qna_no);
+		return "deQnaOK";
 	}
 }

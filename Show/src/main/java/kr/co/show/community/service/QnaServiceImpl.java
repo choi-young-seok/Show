@@ -6,7 +6,7 @@ import javax.inject.Inject;
 
 import org.springframework.stereotype.Service;
 
-
+import kr.co.show.community.domain.Criteria;
 import kr.co.show.community.domain.QnaVO;
 import kr.co.show.community.persistence.QnaDAO;
 
@@ -24,10 +24,19 @@ public class QnaServiceImpl implements QnaService {
 	public List<QnaVO> list(String qna_ch) throws Exception {
 		return dao.list(qna_ch);
 	}
+	
+	@Override
+	public void deleteQna(int qna_no) {
+		 dao.deleteQna(qna_no);
+		
+	}
+	@Override
+	public List<QnaVO> listCriteria(Criteria cri)throws Exception {
+		return dao.listCriteria(cri);
+	}
 	@Override
 	public int listCount() throws Exception {
 		return dao.QnaTotalCount();
 	}
-	
 
 }

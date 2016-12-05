@@ -25,6 +25,15 @@ public class QnaDAOImpl implements QnaDAO {
 	}
 	
 	@Override
+	public void deleteQna(int qna_no) {
+		 sqlSession.delete("qna.delete11",qna_no);
+	}
+	@Override
+	public List<QnaVO> listCriteria(Criteria cri) {
+		return sqlSession.selectList("qna.list",null,
+				new RowBounds(cri.getPageStart(), cri.getPerPageNum()));
+	}
+	@Override
 	public int QnaTotalCount() throws Exception {
 		return sqlSession.selectOne("qna.qnaTotalCount");
 	}

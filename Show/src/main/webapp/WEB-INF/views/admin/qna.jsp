@@ -372,19 +372,70 @@
 		/*게시글*/
 		$(".all_box_box").hide();
 		$(".all_box_text").click(function() {
-			$(this).next().slideToggle();
+			$(this).next().slideToggle(); //글 한건의 내용 조회 가능 
 		});
-
-
+		function check(){
+			var qna_no = $(this).attr('id');
+			$.ajax({
+				url:'/show/qna',
+				data:{"qna_no":qna_no},
+				success:function(data){
+					$('.body').empty();
+					$('.body').append(data);
+					
+				}
+			})
+		}
+		//삭제 버튼 눌렀을 때
+		$('.btn_box').click(function(){
+			var no = $(this).attr('id');
+			alert(no);
+			
+			$.ajax({
+				url:'/show/deQna',
+				type:'post',
+				data:{"qna_no":no},
+				success:function(data){
+					if(data == 'deQnaOK'){
+						alert("문의 내역이 삭제되었습니다.");
+						$('.admin_member_refly').empty();
+						$('.admin_member_refly').fadeOut(500);
+						check();
+					}
+				}
+			});
+		});
+		
 	});
 </script>
 <TITLE>ON SHOW 게시판</TITLE>
 </HEAD>
 <BODY>
 	<div id="wrap">
-		<header> <!--include--> </header>
 		<div class="main">
 			<div class="qna_list">
+			<div class="text-center">
+						<ul class="pagination">
+
+							<c:if test="${pageMaker.prev}">
+								<li><a href="${pageMaker.startPage - 1}">&laquo;</a></li>
+							</c:if>
+
+							<c:forEach begin="${pageMaker.startPage }"
+								end="${pageMaker.endPage }" var="idx">
+								<li
+									<c:out value="${pageMaker.cri.page == idx?'class =active':''}"/>>
+									<a href="${idx}">${idx}</a>
+								</li>
+							</c:forEach>
+
+							<c:if test="${pageMaker.next && pageMaker.endPage > 0}">
+								<li><a
+									href="${pageMaker.endPage +1}">&raquo;</a></li>
+							</c:if>
+
+						</ul>
+					</div>
 				<div class="qna_menu">
 					<ul>
 						<li class="qna_all menu_list">전체보기</li>
@@ -400,6 +451,7 @@
 			</div>
 
 			<div class="qna_view">
+				
 				<div class="qna_text">
 					<ul>
 						<li>문의부분</li>
@@ -425,7 +477,7 @@
 						<div class="email">
 							<ul>
 								<li>이메일</li>
-								<li><a href="mailto:${email }"></a></li>
+								<li><a href="mailto:${email }">${email }</a></li>
 							</ul>
 						</div>
 						<div class="text">
@@ -435,7 +487,7 @@
 							</ul>
 						</div>
 					
-						<div class="btn_box">
+						<div class="btn_box" id="${qnaVO.qna_no }">
 							<ul>
 								<li>글삭제</li>
 							</ul>
@@ -443,6 +495,7 @@
 						
 					</div>
 					</d:forEach>
+			
 				</div>
 				<!--전체보기-->
 
@@ -466,7 +519,7 @@
 						<div class="email">
 							<ul>
 								<li>이메일</li>
-								<li>${qnaVO.qna_email }</li>
+								<li><a href="mailto:${email }">${email }</a></li>
 							</ul>
 						</div>
 						<div class="text">
@@ -478,7 +531,6 @@
 						
 						<div class="btn_box">
 							<ul>
-								<li>답글쓰기</li>
 								<li>글삭제</li>
 							</ul>
 						</div>
@@ -508,7 +560,7 @@
 						<div class="email">
 							<ul>
 								<li>이메일</li>
-								<li>${qnaVO.qna_email }</li>
+								<li><a href="mailto:${email }">${email }</a></li>
 							</ul>
 						</div>
 						<div class="text">
@@ -519,7 +571,6 @@
 						</div>
 						<div class="btn_box">
 							<ul>
-								<li>답글쓰기</li>
 								<li>글삭제</li>
 							</ul>
 						</div>
@@ -549,7 +600,7 @@
 						<div class="email">
 							<ul>
 								<li>이메일</li>
-								<li>${qnaVO.qna_email }</li>
+								<li><a href="mailto:${email }">${email }</a></li>
 							</ul>
 						</div>
 						<div class="text">
@@ -560,7 +611,6 @@
 						</div>
 						<div class="btn_box">
 							<ul>
-								<li>답글쓰기</li>
 								<li>글삭제</li>
 							</ul>
 						</div>
@@ -590,7 +640,7 @@
 						<div class="email">
 							<ul>
 								<li>이메일</li>
-								<li>${qnaVO.qna_email }</li>
+								<li><a href="mailto:${email }">${email }</a></li>
 							</ul>
 						</div>
 						<div class="text">
@@ -601,7 +651,6 @@
 						</div>
 						<div class="btn_box">
 							<ul>
-								<li>답글쓰기</li>
 								<li>글삭제</li>
 							</ul>
 						</div>
@@ -631,7 +680,7 @@
 						<div class="email">
 							<ul>
 								<li>이메일</li>
-								<li>${qnaVO.qna_email }</li>
+								<li><a href="mailto:${email }">${email }</a></li>
 							</ul>
 						</div>
 						<div class="text">
@@ -642,7 +691,6 @@
 						</div>
 						<div class="btn_box">
 							<ul>
-								<li>답글쓰기</li>
 								<li>글삭제</li>
 							</ul>
 						</div>
@@ -672,7 +720,7 @@
 						<div class="email">
 							<ul>
 								<li>이메일</li>
-								<li>${qnaVO.qna_email }</li>
+							<li><a href="mailto:${email }">${email }</a></li>
 							</ul>
 						</div>
 						<div class="text">
@@ -683,7 +731,6 @@
 						</div>
 						<div class="btn_box">
 							<ul>
-								<li>답글쓰기</li>
 								<li>글삭제</li>
 							</ul>
 						</div>
@@ -713,7 +760,7 @@
 						<div class="email">
 							<ul>
 								<li>이메일</li>
-								<li>${qnaVO.qna_email }</li>
+								<li><a href="mailto:${email }">${email }</a></li>
 							</ul>
 						</div>
 						<div class="text">
@@ -724,7 +771,6 @@
 						</div>
 						<div class="btn_box">
 							<ul>
-								<li>답글쓰기</li>
 								<li>글삭제</li>
 							</ul>
 						</div>
