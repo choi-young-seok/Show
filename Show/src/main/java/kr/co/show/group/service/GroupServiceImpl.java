@@ -76,4 +76,32 @@ public class GroupServiceImpl implements GroupService{
 		boolean ch = dao.sideAdd(menu);
 		return ch;
 	}
+
+	@Override
+	public List<MenuManageVO> sideList(int menu_no) throws Exception {
+		return dao.sideList(menu_no);
+	}
+
+	@Override
+	public MenuManageVO sideUpdateGet(MenuManageVO menu) throws Exception {
+		return dao.sideUpdateGet(menu);
+	}
+
+	@Override
+	public boolean sideUpdatePost(MenuManageVO menu) throws Exception {
+		boolean ch = dao.sideUpdatePost(menu);
+		return ch;
+	}
+
+	@Override
+	public int sideDelete(MenuManageVO menu) throws Exception {
+		int sideDelete = dao.sideDelete(menu);
+		return sideDelete;
+	}
+
+	@Override
+	public int reviewDelete(int review_no) throws Exception {
+		int reviewDelete = dao.reviewDelete(review_no);
+		return reviewDelete;
+	}
 }

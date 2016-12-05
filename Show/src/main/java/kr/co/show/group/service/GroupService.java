@@ -18,4 +18,9 @@ public interface GroupService {
 	public boolean menuUpdatePost(MenuManageVO menu) throws Exception;
 	public boolean enterpriseRemoveApplication(int group_no) throws Exception;
 	public boolean sideAdd(MenuManageVO menu) throws Exception;
+	public List<MenuManageVO> sideList(int menu_no) throws Exception;
+	public MenuManageVO sideUpdateGet(MenuManageVO menu) throws Exception;
+	public boolean sideUpdatePost(MenuManageVO menu) throws Exception;
+	public int sideDelete(MenuManageVO menu) throws Exception;
+	public int reviewDelete(int review_no) throws Exception;
 }

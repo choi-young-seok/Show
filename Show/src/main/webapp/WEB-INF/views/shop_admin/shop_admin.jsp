@@ -48,7 +48,7 @@
 			var id = $("#id").val();
 			$.ajax({
 				url:'/show/management',
-				data:{"member_no":1},
+				data:{"member_no":id},
 				success: function(data){
 					$('.adminMain').empty();
 					$('.adminMain').append(data);
@@ -58,7 +58,7 @@
 
 		$('.member').click(function(){
 			$.ajax({
-				url:'/show/orderCheck',
+				url:'/show/stats',
 				success: function(data){
 					$('.adminMain').empty();
 					$('.adminMain').append(data);
@@ -68,7 +68,7 @@
 
 		$('.shop').click(function(){
 			$.ajax({
-				url:'/show/stats',
+				url:'/show/order_check',
 				success: function(data){
 					$('.adminMain').empty();
 					$('.adminMain').append(data);

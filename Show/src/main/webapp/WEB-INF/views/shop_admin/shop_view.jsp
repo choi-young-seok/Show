@@ -28,23 +28,29 @@
 		
 		$('.menu_delete_btn').click(function(){
 			var menu_no = $(this).parent().children(":eq(0)").val();
+			var group_no = $('#group_no').val();
 			$.ajax({
 				url:'/show/menuDelete?menu_no='+menu_no,
 				type:'DELETE',
 				success: function(result){
-					if(result == 'OK'){
-						var group_no = $('#group_no').val();
-						alert("삭제가 완료되었습니다.");
-						$.ajax({    		  
-							url:'/show/detailView',
-							data:{"group_no":group_no},
-							success: function(data){
-								$('.shop_view_box').empty(); 
-								$('.shop_view_box').append(data);
-							}
-						});
-					}
-				}
+					if(result=='OK'){
+						q = confirm("정말 삭제하시겠습니까?");
+						if(q==true){
+							alert("삭제되었습니다.");
+							$.ajax({    		  
+								url:'/show/detailView',
+								data:{"group_no":group_no},
+								success: function(data){
+									$('.shop_view_box').empty(); 
+									$('.shop_view_box').append(data);
+								}
+							});
+						}else{
+							alert("취소되었습니다.");
+						}
+					}//if
+					
+				}//success
 			});
 		});
 		
@@ -111,10 +117,10 @@
 		
 		$('.menu_side_btn').click(function(){
 			var group_no = $('#group_no').val();
-			var menu_no = $('#menu_no').val();
+			var menu_no = $(this).parent().children(":eq(0)").val();
 			var menu_category = $(this).parent().children(":eq(1)").text();
 			$.ajax({
-				url:'/show/menu_side',
+				url:'/show/side_write',
 				data:{"group_no":group_no,"menu_no":menu_no,"menu_category":menu_category},
 				success: function(result){
 					$('.menu_pop').append(result);
@@ -123,8 +129,53 @@
 			});
 		});
 		
+		$('.menu_side_view_btn').click(function(){
+			var menu_no = $(this).parent().children(":eq(0)").val();
+			$.ajax({
+				url:'/show/side_list',
+				type : 'GET',
+				data:{"menu_no":menu_no},
+				success: function(result){
+					$('.menu_pop').append(result);
+					$('.menu_pop').fadeIn(0);
+				}
+			});
+		});
+		
+		$('.review_delete_btn').click(function(){
+			var review_no = $(this).parent().children(":eq(0)").val();
+			var group_no = $('#group_no').val();
+			$.ajax({
+				url:'/show/reviewDelete?review_no='+review_no,
+				type:'DELETE',
+				success: function(result){
+					if(result=='OK'){
+						q = confirm("정말 삭제하시겠습니까?");
+						if(q==true){
+							alert("삭제되었습니다.");
+								reviewList();
+						}else{
+							alert("취소되었습니다.");
+						}
+					}//if
+				}//success
+			});
+		});
+		
+		function reviewList(){
+			var group_no = $('#group_no').val();
+			$.ajax({
+				url:'/show/reviewList',
+				data:{"group_no":group_no},
+				success: function(data){
+					$('.shop_view_box').empty(); 
+					$('.shop_view_box').append(data);
+					$(".review_management").css({"background":"#ffa500"});
+					$(".menu_management").css({"background":"#696969"});
+				}
+		});
+		}
 	});
-	
 	
 </script>
 <TITLE> 매장 상세보기 </TITLE>
@@ -222,6 +273,7 @@
 				</div>
 				<c:forEach items="${reviewList }" var="r">
 				<div class="review_list">
+				<input type="hidden" id="review_no" value="${r.review_no }">
 					<div class="review_score">
 						<p>${r.review_score }</p>
 					</div>

@@ -1,6 +1,5 @@
 package kr.co.show.group.controller;
 
-
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.request;
 
 import javax.inject.Inject;
@@ -10,6 +9,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import kr.co.show.group.domain.MenuManageVO;
 import kr.co.show.group.service.GroupService;
 
 @Controller
@@ -60,13 +60,33 @@ public class GroupController {
 		return "shop_admin/menu_refly";
 	}
 	
-	@RequestMapping("/menu_side")
-	public String menuSide(String menu_category, Model model){
+	@RequestMapping("/side_write")
+	public String menuSide(String menu_category, int menu_no, Model model){
 		model.addAttribute("menu_category", menu_category);
-		return "shop_admin/menu_side";
+		model.addAttribute("menu_no", menu_no);
+		return "shop_admin/side_write";
 	}
 	
-	@RequestMapping("/orderCheck")
+	@RequestMapping("/side_list")
+	public String sideList(int menu_no, Model model) throws Exception{
+		model.addAttribute("menu_no1", menu_no);
+		model.addAttribute("menu_list", service.sideList(menu_no));
+		return "shop_admin/side_list";
+	}
+	
+	@RequestMapping(value="/side_update", method=RequestMethod.GET)
+	public String sideUpdateGet(MenuManageVO menu, Model model) throws Exception{
+		model.addAttribute("sidemenu_one",service.sideUpdateGet(menu));
+		return "shop_admin/side_refly";
+	}
+	
+	@RequestMapping("/reviewList")
+	public String reviewList(int group_no, Model model) throws Exception{
+		model.addAttribute("reviewList1",service.reviewList(group_no));
+		return "shop_admin/shop_view";
+	}
+	
+	@RequestMapping("/order_check")
 	public String orderCheck(){
 		return "shop_admin/shop_order_check";
 	}

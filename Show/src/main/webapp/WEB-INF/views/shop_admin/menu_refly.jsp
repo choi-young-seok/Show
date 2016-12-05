@@ -9,7 +9,6 @@
 <script type="text/javascript">
 $(document).ready(function(){
 	$('.close_btn').click(function(){
-	
 				$('.menu_pop').fadeOut(0);
 				$('.menu_pop').empty();
 		
