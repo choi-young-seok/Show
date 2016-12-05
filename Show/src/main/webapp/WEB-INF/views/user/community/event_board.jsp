@@ -11,12 +11,7 @@
 </script>
 <script type="text/javascript">
  	 $(document).ready(function(){
-		/*$(".event_view").click(function(){
-			var view = "/eventview"
-			$(location).attr('href',view);
-		});
-		$(".list_board").after("<div></div>");
-	});   */
+
 	$(".dd").click(function(){// 글 한건 조회 팝업 창
 		
 		var notice_no = $(this).prev().text();

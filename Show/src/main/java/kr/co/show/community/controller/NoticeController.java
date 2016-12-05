@@ -36,7 +36,7 @@ public class NoticeController {
 	@RequestMapping("/user/list")
 	public String list(Model model) throws Exception {
 		
-		//model.addAttribute("listNotice2", service.listNotice());
+		model.addAttribute("listNotice2", service.userListNotice());
 
 		return "user/community/event_board";
 	}

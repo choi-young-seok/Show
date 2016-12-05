@@ -41,3 +41,6 @@ select member_withdraw
 select member_no
 from show_member
 where member_email = 'bb@naver.com' and member_pass = 'asdf123';
+
+select *
+from show_menu_check;

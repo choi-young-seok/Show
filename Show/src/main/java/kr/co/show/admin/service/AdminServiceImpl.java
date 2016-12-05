@@ -7,6 +7,7 @@ import javax.inject.Inject;
 import org.springframework.stereotype.Service;
 
 import kr.co.show.admin.persistence.AdminDAO;
+import kr.co.show.group.domain.GroupVO;
 import kr.co.show.sign.domain.MemberVO;
 
 @Service
@@ -31,6 +32,11 @@ public class AdminServiceImpl implements AdminService {
 	public void delete(int member_no) throws Exception {
 		dao.delete(member_no);
 		
+	}
+
+	@Override
+	public List<GroupVO> groupList() throws Exception {
+		return dao.groupList();
 	}
 
 

@@ -4,6 +4,7 @@ public class GroupVO {
 	
 	private int group_no;
 	private int member_no;
+	private String member_name;
 	private String group_name;
 	private String group_address;
 	private String group_category;
@@ -99,6 +100,14 @@ public class GroupVO {
 
 	public String getGroup_delete_ch() {
 		return group_delete_ch;
+	}
+	
+	public String getMember_name() {
+		return member_name;
+	}
+
+	public void setMember_name(String member_name) {
+		this.member_name = member_name;
 	}
 
 	public void setGroup_delete_ch(String group_delete_ch) {

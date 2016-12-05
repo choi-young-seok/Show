@@ -14,6 +14,12 @@
       where notice_ch = #{notice_ch}
       order by notice_no desc
    </select>
+   <!--커뮤니티 전체 레코드 조회 -->
+   <select id="list" resultType="kr.co.show.community.domain.NoticeVO">
+      select notice_no,notice_title,notice_text,notice_ch,notice_regdate,notice_ch
+      from show_notice
+      order by notice_no desc
+   </select>
    
  <!-- 한 건의 레코드 조회 -->
    <select id="select" resultType="kr.co.show.community.domain.NoticeVO">

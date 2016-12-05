@@ -60,4 +60,10 @@ public class NoticeSeriveImpl implements NoticeService {
 		dao.deleteNotice(notice_no);
 		
 	}
+
+
+	@Override
+	public List<NoticeVO> userListNotice() throws Exception {//커뮤니티 - 공지사항 목록 조회
+		return dao.list();
+	}
 }

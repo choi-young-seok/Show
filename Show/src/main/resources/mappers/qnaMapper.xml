@@ -19,4 +19,11 @@
     <select id="qnaTotalCount" resultType="int">
        select count(*) qna_no
    </select>
+   
+   <delete id="delete11">
+   delete from show_qna
+   where qna_no = #{qna_no}
+   </delete>
+   
+  
 </mapper>
