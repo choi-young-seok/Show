@@ -1,5 +1,7 @@
 package kr.co.show.group.controller;
 
+import java.util.List;
+
 import javax.inject.Inject;
 import javax.servlet.http.HttpSession;
 
@@ -96,5 +98,12 @@ public class GroupRestController {
 			else result="NO";
 		return result;
 	}
+	
+	/*@RequestMapping("/order_check")
+	public String orderCheck(Model model) throws Exception{
+		List<String> name_list = service.groupName();
+		model.addAttribute("name_list", name_list);
+		return "shop_admin/shop_order_check";
+	}*/
 
 }

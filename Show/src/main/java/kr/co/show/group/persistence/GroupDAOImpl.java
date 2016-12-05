@@ -9,6 +9,8 @@ import org.springframework.stereotype.Repository;
 
 import kr.co.show.group.domain.GroupVO;
 import kr.co.show.group.domain.MenuManageVO;
+import kr.co.show.group.domain.NoVO;
+import kr.co.show.group.domain.OrderVO;
 import kr.co.show.group.domain.ReviewManageVO;
 
 @Repository
@@ -120,5 +122,15 @@ public class GroupDAOImpl implements GroupDAO{
 		int reviewDelete = sqlSession.delete("group.reviewDelete", review_no);
 		return reviewDelete;
 	}
+	
+	//====================내가 작성한 거 (Fe)======================
+	@Override
+	public List<NoVO> groupName(int member_no) throws Exception {
+		return sqlSession.selectList("group.group_name", member_no);
+	}
 
+	@Override
+	public List<OrderVO> orderList(int group_no) throws Exception {
+		return sqlSession.selectList("group.order_list", group_no);
+	}
 }

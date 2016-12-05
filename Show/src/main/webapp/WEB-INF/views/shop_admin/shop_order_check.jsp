@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -48,8 +49,10 @@
 		<div class="order_shop_choice">
 			<p class="choice_left">매장선택</p>
 			<select class="choice_left">
-				<option>매장선택</option>
-				<option>매장명</option>
+				<option>전체보기</option>
+				<c:forEach items="${name_list}" var='name'>
+					<option id="">${name.group_name} ${name.group_no} ${name.member_no}</option>
+				</c:forEach>
 			</select>
 		</div>
 		<div class="order_check_menu">
