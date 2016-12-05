@@ -36,9 +36,9 @@ function Login_AX(email, password) {
 				login_pop();
 			} else{
 				alert('아이디 또는 비밀번호를 확인해주시길 바랍니다.');				
+			}
 		}
-	}
-});
+	});
 	function login_pop(){
 		$.ajax({
 			url : '/show/sign/login_popup',

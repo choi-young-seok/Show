@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 <!DOCTYPE HTML>
 <HTML LANG="KO">
@@ -22,6 +23,14 @@
 <!--<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>-->
 <script src="resources/js/common/jquery-3.0.0.js"></script>
 <script>
+$.ajax({
+	url : 'mainList',
+	type: 'post',
+	success : function(result){
+		$('#resultView').html(result);
+	}//success
+});
+
 	$(document).ready(function(){
 		$(".detaile_search_view").hide();
 		$(".detaile_search_btn").click(function(){
@@ -31,6 +40,10 @@
 		$(".search_btn").click(function(){
 			alert("대학교 이름을 입력해 주세요");
 		});
+	});
+	
+	$(function(){
+
 	});
 </script>
 <!--스크립트 영역-->
@@ -100,6 +113,11 @@
 				<div class="info_text">
 					<p>ON SHOW 사용법</p>
 				</div>
+				<article>
+					<div class="chapter_1 img_box" id="resultView">
+						
+					</div>
+				</article>
 				<article>
 					<div class="chapter_1 img_box">
 						<img src="resources/image/school_search.png"/>

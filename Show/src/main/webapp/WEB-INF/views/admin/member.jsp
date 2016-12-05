@@ -49,7 +49,7 @@ a{
 </style>
 <script>
 $('.detail').click(function(){
-			var member_no = $(this).parent().parent().children().eq(1).text();
+			var member_no = $(this).parent().parent().children().eq(0).text();
 			alert(member_no);
 			$.ajax({
 				url:'/show/admin_member_refly',
@@ -69,7 +69,6 @@ $('.detail').click(function(){
 		<div class="	">
 			<div class="member_top">
 				<ul>
-					<li>선택</li>
 					<li>회원번호</li>
 					<li>이메일</li>
 					<li>이름</li>
@@ -82,9 +81,6 @@ $('.detail').click(function(){
 			%>
 			<c:forEach items="${list }" var="member">
 				<div class="member_choice">
-					<div>
-						<input type="checkbox" />
-					</div>
 
 					<div>${member.member_no }</div>
 					<div>${member.member_email }</div>
@@ -108,9 +104,7 @@ $('.detail').click(function(){
 			
 			
 
-			<div class="member_btn">
-				<p>선택삭제</p>
-			</div>
+
 		</div>
 	</div>
 </BODY>
