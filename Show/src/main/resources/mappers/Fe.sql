@@ -44,3 +44,34 @@ where member_email = 'bb@naver.com' and member_pass = 'asdf123';
 
 select *
 from show_menu_check;
+
+select * from show_group; //¸Þ´º Å×ÀÌºí¿¡ ¶ç¿ï°Å
+select * from show_order; //ÁÖ¹®
+select * from show_menu; //¸Þ´ºº¸±â
+
+insert into show_order (order_no, member_no, group_no, order_name, order_phone, reservation_time, order_price, order_count, order_ask, order_ask2, order_ch)
+values (show_order_seq.nextval, 5, 2, 'À±Ã¶', '010-1234-1243', to_date('17:00', 'HH24:MI'), 1500, 2, 'Â÷°¡¿î ¾Æ¸Þ¸®Ä«³ë', 'Èû³»¼¼¿ä', 'T');
+insert into show_order (order_no, member_no, group_no, order_name, order_phone, reservation_time, order_price, order_count, order_ask, order_ask2, order_ch)
+values (show_order_seq.nextval, 5, 2, 'À±Ã¶', '010-1234-1243', to_date('16:00', 'HH24:MI'), 8000, 3, 'ºÎ´ëÂî°³', 'Èû³»¼¼¿ä', 'T');
+insert into show_order (order_no, member_no, group_no, order_name, order_phone, reservation_time, order_price, order_count, order_ask, order_ask2, order_ch)
+values (show_order_seq.nextval, 5, 2, 'À±Ã¶', '010-1234-1243', to_date('15:00', 'HH24:MI'), 20000, 5, '°¨ÀÚÅÁ', 'Èû³»¼¼¿ä', 'T');
+insert into show_order (order_no, member_no, group_no, order_name, order_phone, reservation_time, order_price, order_count, order_ask, order_ask2, order_ch)
+values (show_order_seq.nextval, 5, 2, 'À±Ã¶', '010-1234-1243', to_date('14:00', 'HH24:MI'), 13000, 1, 'ÅÁ¼öÀ°', 'Èû³»¼¼¿ä', 'T');
+insert into show_order (order_no, member_no, group_no, order_name, order_phone, reservation_time, order_price, order_count, order_ask, order_ask2, order_ch)
+values (show_order_seq.nextval, 5, 2, 'À±Ã¶', '010-1234-1243', to_date('13:00', 'HH24:MI'), 19000, 2, '¾ç³ä°£ÀåÄ¡Å²', 'Èû³»¼¼¿ä', 'T');
+
+
+insert into show_menu_check (order_no, member_no, group_no, menu_no, menu_name, menu_count, menu_price)
+values (show_menu_check_seq.nextval, 5, 1, '¾Æ¸Þ¸®Ä«³ë', 2, 1500);
+insert into show_menu_check (order_no, member_no, group_no, menu_no, menu_name, menu_count, menu_price)
+values (show_menu_check_seq.nextval, 5, 1, '¾Æ¸Þ¸®Ä«³ë', 2, 1500);
+insert into show_menu_check (order_no, member_no, group_no, menu_no, menu_name, menu_count, menu_price)
+values (show_menu_check_seq.nextval, 5, 1, '¾Æ¸Þ¸®Ä«³ë', 2, 1500);
+insert into show_menu_check (order_no, member_no, group_no, menu_no, menu_name, menu_count, menu_price)
+values (show_menu_check_seq.nextval, 5, 1, '¾Æ¸Þ¸®Ä«³ë', 2, 1500);
+insert into show_menu_check (order_no, member_no, group_no, menu_no, menu_name, menu_count, menu_price)
+values (show_menu_check_seq.nextval, 5, 1, '¾Æ¸Þ¸®Ä«³ë', 2, 1500);
+
+select group_name
+from show_group
+where member_no = #{member_no}
