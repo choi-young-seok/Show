@@ -1,0 +1,483 @@
+.shop_name{
+	width:700px;
+	margin:0;
+}
+.shop_name > ul{
+	overflow:hidden;
+}
+.shop_name > ul > li{
+	float:left;
+	font-size:12px;
+	font-family:"Dotum";
+	font-weight:bold;
+	height:30px;
+	line-height:30px;
+	border-bottom:2px solid #ededed;
+	border-top:2px solid #ededed;
+	box-sizing:border-box;
+	overflow:hidden;
+}
+.shop_name > ul > li:nth-child(1){
+	width:300px;
+	height:30px;
+	border-left:2px solid #ededed;
+	border-right:2px solid #ededed;
+	box-sizing:border-box;
+}
+
+.shop_name > ul > li:nth-child(2){
+	width:400px;
+	height:30px;
+	border-right:2px solid #ededed;
+	box-sizing:border-box;
+}
+.shop_name > ul > li >p{
+	margin-left:30px;
+	float:left;
+}
+.shop_name > ul > li > p:nth-child(2){
+	margin-left:10px;
+}
+.shop_info{
+	width:700px;
+	overflow:hidden;
+}
+
+.shop_img , shop_text{
+	float:left;
+}
+.shop_img{
+	width:300px;
+	height:200px;
+	border-left:2px solid #ededed;
+	border-bottom:2px solid #ededed;
+	box-sizing:border-box;
+}
+.shop_img > img {
+	width:200px;
+	height:150px;
+	margin-left:50px;
+	margin-top:25px;
+	background:#ededed;
+}
+.shop_text{
+	width:400px;
+	height:200px;
+	border-right:2px solid #ededed;
+	border-bottom:2px solid #ededed;
+	box-sizing:border-box;
+	margin-left:300px;
+	position:relative;
+}
+.shop_text > ul {
+	position:absolute;
+}
+.shop_text > ul > li:nth-child(1){
+	margin-top:50px;
+}
+.shop_text > ul > li{
+	margin-top:20px;
+	margin-left:30px;
+	font-family:"Dotum";
+	font-size:15px;
+	font-weight:bold;
+}
+/*메뉴 영역*/
+.menu{
+	width:700px;
+	margin:0;
+}
+.total_menu_review{
+	width:700px;
+	height:30px;
+	overflow:hidden;
+}
+.total_menu{
+	width:350px;
+	height:30px;
+	background:#ffa500;
+	color:#fff;
+	text-align:center;
+	line-height:30px;
+	font-size:12px;
+	font-family:"Dotum";
+	font-weight:bold;
+	cursor:pointer;
+}
+.total_review{
+	width:350px;
+	height:30px;
+	background:#696969;
+	color:#fff;
+	text-align:center;
+	line-height:30px;
+	font-size:12px;
+	font-family:"Dotum";
+	font-weight:bold;
+	cursor:pointer;
+}
+.total_menu , .total_review{
+	float:left;
+}
+.menu_bar{
+	width:700px;
+}
+.choice_1{
+	width:700px;
+	height:40px;
+	background:#ededed;
+	font-family:"Dotum";
+	font-weight:bold;
+	font-size:15px;
+	text-align:center;
+	line-height:40px;
+	cursor:pointer;
+}
+.choice1_menu{
+	width:700px;	
+	border-bottom:2px solid #ededed;
+	border-left:2px solid #ededed;
+	border-right:2px solid #ededed;
+	box-sizing:border-box;
+}
+.choice1_menu > ul{
+	overflow:hidden;
+	cursor:pointer;
+	height:40px;
+	border-bottom:2px solid #ededed;
+	box-sizing:border-box;
+}
+.choice1_menu > ul > li{
+	float:left;
+	font-size:13px;
+	font-family:"Dotum"
+}
+.choice1_menu > ul > li:nth-child(1){
+	width:500px;
+	height:40px;
+	line-height:40px;
+	margin-left:20px;
+}
+.choice1_menu > ul > li:nth-child(2){
+	width:150px;
+	height:40px;
+	line-height:40px;
+	font-weight:bold;
+}
+
+/*menu2*/
+.choice_2{
+	width:700px;
+	height:40px;
+	background:#ededed;
+	font-family:"Dotum";
+	font-weight:bold;
+	font-size:15px;
+	text-align:center;
+	line-height:40px;
+	cursor:pointer;
+	margin-top:1px;
+}
+.choice2_menu{
+	width:700px;
+	border-bottom:2px solid #ededed;
+	border-left:2px solid #ededed;
+	border-right:2px solid #ededed;
+	box-sizing:border-box;
+}
+.choice2_menu > ul{
+	overflow:hidden;
+	cursor:pointer;
+	height:40px;
+	border-bottom:2px solid #ededed;
+	box-sizing:border-box;
+}
+.choice2_menu > ul > li{
+	float:left;
+	font-size:13px;
+	font-family:"Dotum"
+}
+.choice2_menu > ul > li:nth-child(1){
+	width:500px;
+	height:40px;
+	line-height:40px;
+	margin-left:20px;
+}
+.choice2_menu > ul > li:nth-child(2){
+	width:150px;
+	height:40px;
+	line-height:40px;
+	font-weight:bold;
+}
+/*menu3*/
+.choice_3{
+	width:700px;
+	height:40px;
+	background:#ededed;
+	font-family:"Dotum";
+	font-weight:bold;
+	font-size:15px;
+	text-align:center;
+	line-height:40px;
+	cursor:pointer;
+	margin-top:1px;
+}
+.choice3_menu{
+	width:700px;
+	border-bottom:2px solid #ededed;
+	border-left:2px solid #ededed;
+	border-right:2px solid #ededed;
+	box-sizing:border-box;
+}
+.choice3_menu > ul{
+	overflow:hidden;
+	cursor:pointer;
+	height:40px;
+	border-bottom:2px solid #ededed;
+	box-sizing:border-box;
+}
+.choice3_menu > ul > li{
+	float:left;
+	font-size:13px;
+	font-family:"Dotum"
+}
+.choice3_menu > ul > li:nth-child(1){
+	width:500px;
+	height:40px;
+	line-height:40px;
+	margin-left:20px;
+}
+.choice3_menu > ul > li:nth-child(2){
+	width:150px;
+	height:40px;
+	line-height:40px;
+	font-weight:bold;
+}
+/*menu4*/
+.choice_4{
+	width:700px;
+	height:40px;
+	background:#ededed;
+	font-family:"Dotum";
+	font-weight:bold;
+	font-size:15px;
+	text-align:center;
+	line-height:40px;
+	cursor:pointer;
+	margin-top:1px;
+}
+.choice4_menu{
+	width:700px;
+	border-bottom:2px solid #ededed;
+	border-left:2px solid #ededed;
+	border-right:2px solid #ededed;
+	box-sizing:border-box;
+}
+.choice4_menu > ul{
+	overflow:hidden;
+	cursor:pointer;
+	height:40px;
+	border-bottom:2px solid #ededed;
+	box-sizing:border-box;
+}
+.choice4_menu > ul > li{
+	float:left;
+	font-size:13px;
+	font-family:"Dotum"
+}
+.choice4_menu > ul > li:nth-child(1){
+	width:500px;
+	height:40px;
+	line-height:40px;
+	margin-left:20px;
+}
+.choice4_menu > ul > li:nth-child(2){
+	width:150px;
+	height:40px;
+	line-height:40px;
+	font-weight:bold;
+}
+/*review*/
+.review{
+	width:700px;
+}
+.review_box{
+	width:700px;
+	border:1px solid #ededed;
+	box-sizing:border-box;
+}
+.star_point{
+	width:680px;
+	margin-left:20px;
+	margin-top:5px;
+	overflow:hidden;
+}
+.star_point > p {
+	float:left;
+	font-size:12px;
+	font-family:"Dotum";
+	font-weight:bold;
+}
+.star_point > p:nth-child(2){
+	margin-left:5px;
+}
+.date_user{
+	width:680px;
+	margin-left:20px;
+	margin-top:5px;
+	color:gray;
+	overflow:hidden;
+}
+.date_user > p{
+	float:left;
+	font-size:12px;
+	font-family:"Dotum";
+}
+.date_user > p:nth-child(2){
+	margin-left:5px;
+	color:#696969;
+	font-weight:bold;
+}
+.review_text{
+	width:680px;
+	margin-top:10px;
+	margin-left:20px;
+	margin-bottom:10px;
+	font-size:12px;
+	font-family:"Dotum";
+}
+/*주문표*/
+.order_memo{
+	width:300px;
+	position:fixed;
+	margin-left:720px;
+	top:290px;
+}
+.memo_text{
+	width:300px;
+	height:50px;
+	color:#fff;
+	background:#b22222;
+	text-align:center;
+	line-height:50px;
+	font-size:1.5em;
+}
+.order_in{
+	width:300px;
+	height:200px;
+	border-left:2px solid #ededed;
+	border-right:2px solid #ededed;
+	box-sizing:border-box;
+	overflow-y:scroll;
+}
+.order_box{
+	margin-top:5px;
+	width:254px;
+	height:104px;
+	border:2px solid silver;
+	box-sizing:border-box;
+	overflow:hidden;
+}
+.order_box > div{
+	float:left;
+}
+.order_menu_name{
+	font-size:14px;
+	font-family:"Dotum";
+	font-weight:bold;
+	line-height:50px;
+	width:180px;
+}
+.order_menu_delete{
+	width:60px;
+	height:20px;
+	background:#696969;
+	color:#fff;
+	font-size:12px;
+	text-align:center;
+	line-height:20px;
+	cursor:pointer;
+	margin-top:15px;
+}
+.order_menu_pay{
+	width:150px;
+	height:50px;
+	line-height:50px;
+	overflow:hidden;
+}
+.order_menu_pay > p{
+	float:left;
+	font-size:14px;
+	font-family:"Dotum";
+	font-weight:bold;
+}
+.order_menu_pay > p:nth-child(2){
+	margin-left:5px;
+}
+.menu_count{
+	width:100px;
+	height:50px;
+	line-height:50px;
+	overflow:hidden;
+}
+.count_left{
+	float:left;
+	font-size:14px;
+	font-family:"Dotum";
+	font-weight:bold;
+}
+.count_btn{
+	width:20px;
+	height:15px;
+	margin-top:17px;
+}
+.count_text{
+	width:40px;
+	height:15px;
+	text-align:center;
+}
+.menu_count > ul > li:nth-child(1){
+	width:20px;
+	height:30px;
+	border:1px solid #ededed;
+	box-sizing:border-box;
+	margin-top:10px;
+	text-align:center;
+	line-height:30px;
+	cursor:pointer;
+	font-family:"Dotum";
+}
+.menu_count > ul > li:nth-child(2){
+	width:40px;
+	height:30px;
+	border:1px solid #ededed;
+	box-sizing:border-box;
+	margin-top:10px;
+	text-align:center;
+	line-height:30px;
+	font-family:"Dotum";
+	font-size:15px;
+	font-weight:bold;
+}
+.menu_count > ul > li:nth-child(3){
+	width:20px;
+	height:30px;
+	border:1px solid #ededed;
+	box-sizing:border-box;
+	margin-top:10px;
+	text-align:center;
+	line-height:30px;
+	cursor:pointer;
+	font-family:"Dotum";
+}
+.order_btn{
+	width:300px;
+	height:50px;
+	color:#fff;
+	background:#696969;
+	text-align:center;
+	line-height:50px;
+	font-size:1.5em;
+	font-weight:bold;
+	cursor:pointer;
+}
