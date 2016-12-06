@@ -52,6 +52,7 @@ public class JoinRestController {
 		String position = vo.getMember_position();
 		String pass = vo.getMember_pass();
 		int id = vo.getMember_no();
+		String name = vo.getMember_name();
 		
 		if(password.equals(pass)){
 			
@@ -64,6 +65,7 @@ public class JoinRestController {
 					return "NO";
 				} else if(draw.equals("F")){
 					System.out.println("로그인 성공");
+					session.setAttribute("name", name);
 					session.setAttribute("email", email);
 					session.setAttribute("id", id);
 					session.setAttribute("position", position);

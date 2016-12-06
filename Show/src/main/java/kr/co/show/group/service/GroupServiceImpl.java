@@ -1,6 +1,7 @@
 package kr.co.show.group.service;
 
 import java.util.List;
+import java.util.Map;
 
 import javax.inject.Inject;
 
@@ -114,7 +115,7 @@ public class GroupServiceImpl implements GroupService{
 	}
 
 	@Override
-	public List<OrderVO> orderList(int group_no) throws Exception {
-		return dao.orderList(group_no);
+	public List<OrderVO> orderList(Map map) throws Exception {
+		return dao.orderList(map);
 	}
 }

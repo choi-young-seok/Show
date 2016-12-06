@@ -1,6 +1,7 @@
 package kr.co.show.group.service;
 
 import java.util.List;
+import java.util.Map;
 
 import kr.co.show.group.domain.GroupVO;
 import kr.co.show.group.domain.MenuManageVO;
@@ -27,5 +28,5 @@ public interface GroupService {
 	public int reviewDelete(int review_no) throws Exception;
 	//내가 작성한 거 (Fe)
 	public List<NoVO> groupName(int member_no) throws Exception;
-	public List<OrderVO> orderList(int group_no) throws Exception;
+	public List<OrderVO> orderList(Map map) throws Exception;
 }

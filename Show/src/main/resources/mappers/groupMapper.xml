@@ -99,17 +99,21 @@
 		where review_no=#{review_no}
 	</delete>
 	
+	<select id="stats_selectList" resultType="kr.co.show.group.domain.OrderVO">
+		
+	</select>
+	
 	<!-- 내가 작성한거 (Fe) -->
 	<select id="group_name" resultType="kr.co.show.group.domain.NoVO">
 		select group_name, group_no, member_no
 		from show_group
-		where member_no = #{member_no}
+		where member_no = #{member_no} and group_ch='T'
 	</select>
 	
 	<select id="order_list" resultType="kr.co.show.group.domain.OrderVO">
 		select *
 		from show_order
-		where group_no = #{group_no}
+		where group_no = #{group_no} and member_no = #{member_no}
 	</select>
 	
 </mapper>

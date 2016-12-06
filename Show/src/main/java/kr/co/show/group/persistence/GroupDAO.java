@@ -1,9 +1,11 @@
 package kr.co.show.group.persistence;
 
 import java.util.List;
+import java.util.Map;
 
 import kr.co.show.group.domain.GroupVO;
 import kr.co.show.group.domain.MenuManageVO;
+import kr.co.show.group.domain.MenuVO;
 import kr.co.show.group.domain.NoVO;
 import kr.co.show.group.domain.OrderVO;
 import kr.co.show.group.domain.ReviewManageVO;
@@ -28,5 +30,6 @@ public interface GroupDAO {
 	public int reviewDelete(int review_no) throws Exception;
 	//내가 작성한 거 (Fe)
 	public List<NoVO> groupName(int member_no) throws Exception;
-	public List<OrderVO> orderList(int group_no) throws Exception;
+	public List<OrderVO> orderList(Map map) throws Exception;
+	public List<MenuVO> recentMenu() throws Exception;
 }
