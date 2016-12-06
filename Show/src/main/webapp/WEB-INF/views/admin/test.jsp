@@ -74,7 +74,8 @@ $('.gong').click(function() {
 	</div>
 
 	<div class="admin_member_refly" style="display:none; position: fixed; top: 0; left: 0; width: 1600px; height: 1200px; background-color: rgba(0,0,0,0.7); z-index: 1001; margin-left : 0px">
-
+	
+	
 	</div>
 
 </body>`
