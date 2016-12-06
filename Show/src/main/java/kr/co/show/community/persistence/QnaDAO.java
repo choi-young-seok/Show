@@ -12,5 +12,8 @@ public interface QnaDAO {
 	//전체조회
 	public List<QnaVO> list(String qan_ch)throws Exception;
 	//전체 레코드 수 조회
+	public void deleteQna(int qna_no);
+	//페이지
+	public List<QnaVO> listCriteria(Criteria cri)throws Exception;
 	public int QnaTotalCount() throws Exception;
 }

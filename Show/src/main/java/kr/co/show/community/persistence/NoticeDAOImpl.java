@@ -53,6 +53,13 @@ public class NoticeDAOImpl implements NoticeDAO {
 	}
 
 
+	@Override
+	public List<NoticeVO> list() throws Exception {//커뮤니티 공지사항 리스트
+		RowBounds bound = new RowBounds(0,10);
+		return sqlSession.selectList("notice.list",null,bound);
+	}
+
+
 
 
 }

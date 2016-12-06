@@ -8,20 +8,12 @@
 <script>
 $(document).ready(function(){
 	$('.close_btn').click(function(){
-		var group_no = $("#group_no").val();
-		var menu_no = $("#menu_no").val();
-		$.ajax({
-			url:'/show/menu_side',
-			data:{"group_no":group_no, "menu_no":menu_no},
-			success: function(result){
-				$('.menu_pop').fadeOut(0);
-				$('.menu_pop').empty();
-			}
-		});
+		$('.menu_pop').fadeOut(0);
+		$('.menu_pop').empty();
 	});
 	
 	 $('.menu_keep_btn').click(function(){
-		var menu_no = $("#menu_no").val();
+		var menu_no = $("#menu_no1").val();
 		var member_no = $("#id").val();
 		var group_no = $("#group_no").val();
 		var sidemenu_category = $("#cate").val();
@@ -54,10 +46,9 @@ $(document).ready(function(){
 	}
 });
 
-
-
 </script>
 <input type="hidden" id="id" value="${id }">
+<input type="hidden" id="menu_no1" value="${menu_no}">
 <input type="hidden" id="group_no" value="${group_no }">
 	<div class="menu_write_box" style="margin-top:150px;">
       <p class="big_text">&nbsp;&nbsp;사이드추가</p>

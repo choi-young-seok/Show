@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -48,7 +48,7 @@
 			var id = $("#id").val();
 			$.ajax({
 				url:'/show/management',
-				data:{"member_no":1},
+				data:{"member_no":id},
 				success: function(data){
 					$('.adminMain').empty();
 					$('.adminMain').append(data);
@@ -58,7 +58,7 @@
 
 		$('.member').click(function(){
 			$.ajax({
-				url:'/show/orderCheck',
+				url:'/show/stats',
 				success: function(data){
 					$('.adminMain').empty();
 					$('.adminMain').append(data);
@@ -66,9 +66,13 @@
 			});
 		});
 
-		$('.shop').click(function(){
+		$('.shop').click(function(){		
 			$.ajax({
-				url:'/show/stats',
+				url:'/show/order_check',
+				type: "POST",
+				data: {
+					"member_no" : <%=session.getAttribute("id") %>
+				},
 				success: function(data){
 					$('.adminMain').empty();
 					$('.adminMain').append(data);

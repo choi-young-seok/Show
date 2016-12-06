@@ -19,5 +19,8 @@ public interface NoticeService {
 		public void updateNotice(NoticeVO vo)throws Exception;
 		//글삭제
 		public void deleteNotice(int notice_no)throws Exception;
+		//커뮤니티 게시판 공지사항 목록 조회
+		public List<NoticeVO> userListNotice()throws Exception;
+
 		
 }

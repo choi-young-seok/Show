@@ -33,7 +33,7 @@
 	</select>
 	
 	<select id="reviewList" resultType="kr.co.show.group.domain.ReviewManageVO">
-		select group_no, review_score, nickname, review_text
+		select review_no, group_no, review_score, nickname, review_text
 		from show_review
 		where group_no=#{group_no}
 	</select>
@@ -70,5 +70,46 @@
 		insert into show_sidemenu (sidemenu_no,menu_no,member_no,group_no,sidemenu_name,sidemenu_pay,sidemenu_category)
 		values (show_sidemenu_seq.nextval,#{menu_no},#{member_no},#{group_no},#{sidemenu_name},#{sidemenu_pay},#{sidemenu_category})
 	</insert>
+	
+	<select id="sideList" resultType="kr.co.show.group.domain.MenuManageVO">
+		select *
+		from show_sidemenu
+		where menu_no=#{menu_no}
+	</select>
+	
+	<select id="sideUpdateGet" resultType="kr.co.show.group.domain.MenuManageVO">
+		select *
+		from show_sidemenu
+		where menu_no=#{menu_no} and sidemenu_no=#{sidemenu_no}
+	</select>
+	
+	<update id="sideUpdatePost" parameterType="kr.co.show.group.domain.MenuManageVO">
+		update show_sidemenu
+		set sidemenu_name=#{sidemenu_name}, sidemenu_pay=#{sidemenu_pay}
+		where sidemenu_no=#{sidemenu_no}
+	</update>
+	
+	<delete id="sideDelete" parameterType="kr.co.show.group.domain.MenuManageVO">
+		delete from show_sidemenu
+		where menu_no=#{menu_no} and sidemenu_no=#{sidemenu_no}
+	</delete>
+	
+	<delete id="reviewDelete">
+		delete from show_review
+		where review_no=#{review_no}
+	</delete>
+	
+	<!-- 내가 작성한거 (Fe) -->
+	<select id="group_name" resultType="kr.co.show.group.domain.NoVO">
+		select group_name, group_no, member_no
+		from show_group
+		where member_no = #{member_no}
+	</select>
+	
+	<select id="order_list" resultType="kr.co.show.group.domain.OrderVO">
+		select *
+		from show_order
+		where group_no = #{group_no}
+	</select>
 	
 </mapper>

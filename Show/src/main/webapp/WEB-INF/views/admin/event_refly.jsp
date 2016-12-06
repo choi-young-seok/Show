@@ -9,6 +9,18 @@
 <script type="text/javascript">
 $(document).ready(function(){
 	
+	function check2(){
+		var notice_ch = '공지';
+		$.ajax({
+			url: '/show/event',
+			data: {"notice_ch":notice_ch},
+			success: function(data){
+				$('.body').empty();
+				$('.body').append(data);
+				
+			}
+		});
+	} 
 
 	$(".refly_btn").on("click",function(){
 		var ch = $('#ch').val();
@@ -30,22 +42,12 @@ $(document).ready(function(){
 		}
 		});
 	});
-	function check2(){
-
-		$.ajax({
-			url: '/show/event',
-			success: function(data){
-				$('.body').empty();
-				$('.body').append(data);
-				
-			}
-		});
-	} 
+	
 	//삭제 버튼 누르면 
 	$('.delete_btn').click(function(){
 
 		var no = $('.notice_no').val();
-		alert(no);
+	
 		$.ajax({
 			url:'/show/removeNotice',
 			type: 'POST',
@@ -60,6 +62,8 @@ $(document).ready(function(){
 		
 			}
 		});
+	
+	
 	});
 	//닫기 버튼 투르면  
 	$('.close_btn').click(function(){

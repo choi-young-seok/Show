@@ -9,13 +9,26 @@
 <script type="text/javascript">
 	
 	$(document).ready(function(){
+		
+		function check1(){
+			var notice_ch = '공지';
+			$.ajax({
+				url: '/show/event',
+				data:{"notice_ch":notice_ch},
+				success: function(data){
+					$('.body').empty();
+					$('.body').append(data);
+					
+				}
+			});
+		} 
+		
 		$('.write_btn').on("click",function(){
 			
 	var ch = $('#ch').val();
 	var title = $('.title_box').val();
 	var text = $('.text_box').val();
 	
-	//alert(text+ch+title+regdate);
 	$.ajax({
 		url: '/show/checkDataDa',
 		data:{"notice_ch":ch,"notice_title":title,"notice_text":text},
@@ -37,17 +50,7 @@
 			$('.admin_member_refly').fadeOut(500);
 		});
 		
-		function check1(){
-			alert("dddd");
-			$.ajax({
-				url: '/show/event',
-				success: function(data){
-					$('.body').empty();
-					$('.body').append(data);
-					
-				}
-			});
-		} 
+		
 		
 	});
 </script>
@@ -57,6 +60,7 @@
 	<div class="write_box">
 		<div class="choice">
 			<p class="choice_left choice_text" >분류</p>
+	
 			<select id="ch" class="choice_left select_op" name="notice_ch">
 				<option>분류선택</option>
 				<option value="공지">공지사항</option>
