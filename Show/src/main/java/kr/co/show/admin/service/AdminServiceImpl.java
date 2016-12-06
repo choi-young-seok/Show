@@ -39,6 +39,11 @@ public class AdminServiceImpl implements AdminService {
 		return dao.groupList();
 	}
 
+	@Override
+	public GroupVO detail2(int group_no) throws Exception {
+		return dao.detail2(group_no);
+	}
+
 
 
 }

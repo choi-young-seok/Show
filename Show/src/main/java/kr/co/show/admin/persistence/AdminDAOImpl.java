@@ -42,6 +42,11 @@ public class AdminDAOImpl implements AdminDAO {
 		return list2;
 	}
 
+	@Override
+	public GroupVO detail2(int group_no) throws Exception {
+		return sqlsession.selectOne("group1.detail2", group_no);
+	}
+
 
 
 }

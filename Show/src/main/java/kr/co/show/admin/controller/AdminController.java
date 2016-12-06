@@ -37,6 +37,14 @@ public class AdminController {
 		model.addAttribute("cnt",service.memberList().size());
 		return "/admin/admin_member_refly";
 	}
+	@RequestMapping("/admin_group_refly")
+	public String admin_group_refly(int group_no, Model model)throws Exception{
+		model.addAttribute("detail2", service.detail2(group_no));
+		model.addAttribute("cnt",service.memberList().size());
+		return "/admin/admin_group_refly";
+	}
+	 
+
 	
 	@RequestMapping("/shop")
 	public String admin_shop(Model model) throws Exception{

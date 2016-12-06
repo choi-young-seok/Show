@@ -11,6 +11,52 @@
 <!--JQUERY 영역-->
 <script src="resources/js/common/jquery-3.0.0.js"></script>
 <TITLE>매장관리</TITLE>
+<style>
+.btn_box {
+   position: relative;
+   width: 100%;
+   height: 100%;
+   z-index: 10;
+}
+
+.btn_box a {
+   display: block;
+   position: absolute;
+   width: 35px;
+   height: 35px;
+   top: 50%;
+}
+
+.btn_box a.prev {
+   left: 0px;
+   top:230px;
+}
+
+
+.btn_box a.next {
+   right: 10px;
+	   top:230px;
+}
+
+a{
+  text-decoration: none;
+  color: #333;
+}
+</style>
+<script>
+$('.detail2').click(function(){
+			var group_no = $(this).attr("id");
+			alert(group_no);
+			$.ajax({
+				url:'/show/admin_group_refly',
+				data:{"group_no":group_no},
+				success: function(result){
+					$('.admin_member_refly').append(result);
+					$('.admin_member_refly').fadeIn(0);
+				}
+			}); 
+		});
+</script>
 </HEAD>
 <BODY>
 	<div id="wrap">
@@ -54,14 +100,14 @@
 				request.setCharacterEncoding("UTF-8");
 			%>
 			<c:forEach items="${list2 }" var="group">
-				<div class="shop_show">
+				<div class="shop_show" >
 					<ul>
 
 						<li>서울특별시</li>
 						<li>${group.group_name }</li>
 						<li>${group.member_name}</li>
 						<li>${group.group_address }</li>
-						<li>${group.group_no }</li>
+						<li id="group_no">${group.group_no }</li>
 
 						<li>
 						<c:choose>
@@ -80,7 +126,7 @@
 						</c:choose>
 						</li>
 						<li>수정</li>
-						<li>상세보기</li>
+						<li class="detail2" id="${group.group_no }">상세보기</li>
 					</ul>
 				</div>
 			</c:forEach>
