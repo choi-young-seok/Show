@@ -7,8 +7,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import kr.co.show.community.domain.Criteria;
-import kr.co.show.community.domain.PageMaker;
+
 import kr.co.show.community.service.FaqService;
 
 @Controller

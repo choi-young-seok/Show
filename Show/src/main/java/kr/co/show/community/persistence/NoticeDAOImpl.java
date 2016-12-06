@@ -8,7 +8,6 @@ import org.apache.ibatis.session.RowBounds;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
-import kr.co.show.community.domain.Criteria;
 import kr.co.show.community.domain.NoticeVO;
 
 @Repository

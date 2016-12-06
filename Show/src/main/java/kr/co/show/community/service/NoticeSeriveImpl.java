@@ -6,7 +6,6 @@ import javax.inject.Inject;
 
 import org.springframework.stereotype.Service;
 
-import kr.co.show.community.domain.Criteria;
 import kr.co.show.community.domain.NoticeVO;
 import kr.co.show.community.persistence.NoticeDAO;
 
@@ -41,11 +40,6 @@ public class NoticeSeriveImpl implements NoticeService {
 	}
 
 
-	@Override
-	public List<NoticeVO> listCriteria(Criteria cri) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
 
 	@Override

@@ -6,7 +6,6 @@ import javax.inject.Inject;
 
 import org.springframework.stereotype.Service;
 
-import kr.co.show.community.domain.Criteria;
 import kr.co.show.community.domain.FaqVO;
 import kr.co.show.community.persistence.FaqDAO;
 

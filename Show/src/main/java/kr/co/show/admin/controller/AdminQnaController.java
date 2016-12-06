@@ -18,26 +18,23 @@ public class AdminQnaController {
 	private QnaService service;
 	
 	@RequestMapping("/qna")
-	public String listQna(Model model,String qna_ch)throws Exception{ //관리자 - 문의게시판 글 목록 조회
+	public String listQna(Model model,String qna_ch,Criteria cri)throws Exception{ //관리자 - 문의게시판 글 목록 조회
 		qna_ch="처리중";
-		model.addAttribute("lista",service.list(qna_ch));
+		/*model.addAttribute("lista",service.listCriteria(cri));*/
+		model.addAttribute("lista",service.list(qna_ch,cri));
+		PageMaker maker = new PageMaker();
+ 	   maker.setCri(cri);//현재페이지와 보여질 행의수를 전달
+ 	   maker.setTotalCount(service.listCount());//전체 레코드수를 전달
+ 	
+ 	   model.addAttribute("pageMaker", maker);
 		
 		return "admin/qna";
 	}
-	 	@RequestMapping("/listCri")// 요청:listCri  뷰: listCri.jsp
+	 	
+	 @RequestMapping("/listCri")// 요청:listCri  뷰: listCri.jsp
 	    public void listAll(Criteria cri, Model model)throws Exception{
-	    	model.addAttribute("list",service.listCriteria(cri));
+	    	model.addAttribute("lista",service.listCriteria(cri));
 	    }
 	    
-	    @RequestMapping("/listPage")// 요청:listPage  뷰: listPage.jsp
-	    public void listPage(Criteria cri, Model model)throws Exception{    	
-	    	model.addAttribute("list",service.listCriteria(cri));
-	    	PageMaker maker = new PageMaker();
-	    	   maker.setCri(cri);//현재페이지와 보여질 행의수를 전달
-	    	   maker.setTotalCount(service.listCount());//전체 레코드수를 전달
-	    	   //maker.calcData();//startPage,endPage,prev,next 초기화
-	    	
-	    	model.addAttribute("pageMaker", maker);
-	    }
-
+	
 }

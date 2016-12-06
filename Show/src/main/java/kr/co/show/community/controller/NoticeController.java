@@ -6,9 +6,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import kr.co.show.community.domain.Criteria;
 import kr.co.show.community.domain.NoticeVO;
-import kr.co.show.community.domain.PageMaker;
 import kr.co.show.community.service.NoticeService;
 
 @Controller
