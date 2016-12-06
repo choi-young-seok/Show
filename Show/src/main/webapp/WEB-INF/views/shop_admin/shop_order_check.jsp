@@ -61,7 +61,7 @@
 					"member_no" : <%=session.getAttribute("id")%>
 				},
 				success : function(result){
-					$().append('${new_list}');
+					$().append();
 					$().hide();
 					$().show();
 				}
