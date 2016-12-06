@@ -1,6 +1,8 @@
 package kr.co.show.group.controller;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.inject.Inject;
 import javax.servlet.http.HttpSession;
@@ -10,10 +12,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import kr.co.show.group.domain.GroupVO;
 import kr.co.show.group.domain.MenuManageVO;
+import kr.co.show.group.domain.OrderVO;
 import kr.co.show.group.service.GroupService;
 
 @RestController
@@ -99,11 +101,16 @@ public class GroupRestController {
 		return result;
 	}
 	
-	/*@RequestMapping("/order_check")
-	public String orderCheck(Model model) throws Exception{
-		List<String> name_list = service.groupName();
-		model.addAttribute("name_list", name_list);
-		return "shop_admin/shop_order_check";
-	}*/
+	@RequestMapping("/new_order")
+	public String new_order(int group_no, int member_no, Model model) throws Exception{
+		Map map = new HashMap();
+		map.put("group_no", group_no);
+		map.put("member_no", member_no);
+		
+		List<OrderVO> new_list = service.orderList(map);
+		model.addAttribute("new_list", new_list);
+		
+		return "OK";
+	}
 
 }
