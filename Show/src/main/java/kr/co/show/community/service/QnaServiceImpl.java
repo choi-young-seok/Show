@@ -38,5 +38,9 @@ public class QnaServiceImpl implements QnaService {
 	public int listCount() throws Exception {
 		return dao.qnaTotalCount();
 	}
+	@Override
+	public int listTabCount() throws Exception {
+		return dao.TabTotalCount();
+	}
 
 }

@@ -523,7 +523,7 @@
 						<div class="name">
 							<ul>
 								<li>문의자명</li>
-								<li>${qnaVO.qna_name }</li>
+								<li>${name }</li>
 							</ul>
 						</div>
 						<div class="email">
@@ -588,7 +588,7 @@
 						<div class="name">
 							<ul>
 								<li>문의자명</li>
-								<li>${qnaVO.qna_name }</li>
+								<li>${name }</li>
 							</ul>
 						</div>
 						<div class="email">
@@ -652,7 +652,7 @@
 						<div class="name">
 							<ul>
 								<li>문의자명</li>
-								<li>${qnaVO.qna_name }</li>
+								<li>${name }</li>
 							</ul>
 						</div>
 						<div class="email">
@@ -715,7 +715,7 @@
 						<div class="name">
 							<ul>
 								<li>문의자명</li>
-								<li>${qnaVO.qna_name }</li>
+								<li>${name }</li>
 							</ul>
 						</div>
 						<div class="email">
@@ -778,7 +778,7 @@
 						<div class="name">
 							<ul>
 								<li>문의자명</li>
-								<li>${qnaVO.qna_name }</li>
+								<li>${name }</li>
 							</ul>
 						</div>
 						<div class="email">
@@ -841,7 +841,7 @@
 						<div class="name">
 							<ul>
 								<li>문의자명</li>
-								<li>${qnaVO.qna_name }</li>
+								<li>${name}</li>
 							</ul>
 						</div>
 						<div class="email">
@@ -904,7 +904,7 @@
 						<div class="name">
 							<ul>
 								<li>문의자명</li>
-								<li>${qnaVO.qna_name }</li>
+								<li>${name }</li>
 							</ul>
 						</div>
 						<div class="email">
@@ -967,7 +967,7 @@
 						<div class="name">
 							<ul>
 								<li>문의자명</li>
-								<li>${qnaVO.qna_name }</li>
+								<li>${name }</li>
 							</ul>
 						</div>
 						<div class="email">

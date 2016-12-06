@@ -35,7 +35,7 @@ $(".write_btn").on("click",function(){
           
           success: function(data){
         	  if (data == 'OK'){
-        		  alert("문의글이 등록되었습니다.");
+        		  alert("문의글이 등록되었습니다.답변은 메일로 받아 보실 수 있습니다.");
         		  check();
         	  }
           }
@@ -51,11 +51,13 @@ $(".write_btn").on("click",function(){
 	
 <form role="form" method="post">
 		<div class="write_box">
-			<input class="name_box" name="qna_name" type="hidden" value="${name }" />
-			<div>
+	
+			<div>문의자 명</div>
+			<input class="name_box" name="qna_name" type="text" value="${name }" /> 
+	
 			<div>이메일</div>
-			<input type="text" value="${email }" class="email_box"  />
-			</div>
+			<input  class="email_box"   name="qna_email" type="text" value="${email }" />
+		
 			<div class="qna_type">
 				<div class="qna_type_text">상담분류</div>
 				<select class="qna_type_box" name="qna_category">

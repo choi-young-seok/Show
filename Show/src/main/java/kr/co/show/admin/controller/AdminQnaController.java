@@ -20,21 +20,27 @@ public class AdminQnaController {
 	@RequestMapping("/qna")
 	public String listQna(Model model,String qna_ch,Criteria cri)throws Exception{ //관리자 - 문의게시판 글 목록 조회
 		qna_ch="처리중";
-		/*model.addAttribute("lista",service.listCriteria(cri));*/
-		model.addAttribute("lista",service.list(qna_ch,cri));
-		PageMaker maker = new PageMaker();
- 	   maker.setCri(cri);//현재페이지와 보여질 행의수를 전달
- 	   maker.setTotalCount(service.listCount());//전체 레코드수를 전달
- 	
- 	   model.addAttribute("pageMaker", maker);
 		
-		return "admin/qna";
+		model.addAttribute("lista",service.list(qna_ch,cri));
+				
+		PageMaker maker = new PageMaker();
+ 	  
+		maker.setCri(cri);//현재페이지와 보여질 행의수를 전달
+ 	  
+ 	   	//maker.setTotalCount(service.listCount());//전체 레코드수를 전달
+ 	   	maker.setTotalTabCount(service.listTabCount());//탭 레코드수를 전달
+ 	
+ 	  
+ 	   	model.addAttribute("pageMaker", maker);
+		
+ 	   	return "admin/qna";
 	}
 	 	
-	 @RequestMapping("/listCri")// 요청:listCri  뷰: listCri.jsp
+/*	 @RequestMapping("/listCri")
 	    public void listAll(Criteria cri, Model model)throws Exception{
+		 	
 	    	model.addAttribute("lista",service.listCriteria(cri));
 	    }
-	    
+	    */
 	
 }

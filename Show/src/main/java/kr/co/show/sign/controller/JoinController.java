@@ -30,7 +30,6 @@ public class JoinController {
 		session.setAttribute("email", null);
 		session.setAttribute("id", null);
 		session.setAttribute("position", null);
-		
 		return "redirect:/";
 	}
 	
