@@ -20,23 +20,31 @@ public class QnaDAOImpl implements QnaDAO {
 
 	}
 	@Override
-	public List<QnaVO> list(String qan_ch) throws Exception {
-		return sqlSession.selectList("qna.list",qan_ch);
+	public List<QnaVO> list(String qan_ch,Criteria cri) throws Exception {
+		return sqlSession.selectList("qna.list",qan_ch,
+		new RowBounds(cri.getPageStart(), cri.getPerPageNum()));
+		
 	}
 	
 	@Override
 	public void deleteQna(int qna_no) {
 		 sqlSession.delete("qna.delete11",qna_no);
 	}
+	
+	@Override
+	public List<QnaVO> listPage(int page) throws Exception {
+		return sqlSession.selectList("qna.listPage");
+	}
+	@Override
+	public int qnaTotalCount() throws Exception {
+		return sqlSession.selectOne("qna.qnaTotalCount");
+	}
 	@Override
 	public List<QnaVO> listCriteria(Criteria cri) {
 		return sqlSession.selectList("qna.list",null,
 				new RowBounds(cri.getPageStart(), cri.getPerPageNum()));
 	}
-	@Override
-	public int QnaTotalCount() throws Exception {
-		return sqlSession.selectOne("qna.qnaTotalCount");
-	}
+	
 	
 	
 	

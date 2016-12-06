@@ -50,12 +50,12 @@ $(".write_btn").on("click",function(){
 	<div id="wrap">
 	
 <form role="form" method="post">
-	<input type="hidden" value="${email }" class="email_box">
 		<div class="write_box">
-	
-				<input class="name_box" name="qna_name" type="hidden" value="${name }"/>
-
-			
+			<input class="name_box" name="qna_name" type="hidden" value="${name }" />
+			<div>
+			<div>이메일</div>
+			<input type="text" value="${email }" class="email_box"  />
+			</div>
 			<div class="qna_type">
 				<div class="qna_type_text">상담분류</div>
 				<select class="qna_type_box" name="qna_category">

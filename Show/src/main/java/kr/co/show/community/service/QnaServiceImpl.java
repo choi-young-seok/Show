@@ -21,8 +21,8 @@ public class QnaServiceImpl implements QnaService {
 
 	}
 	@Override
-	public List<QnaVO> list(String qna_ch) throws Exception {
-		return dao.list(qna_ch);
+	public List<QnaVO> list(String qna_ch, Criteria cri) throws Exception {
+		return dao.list(qna_ch, cri);
 	}
 	
 	@Override
@@ -31,12 +31,12 @@ public class QnaServiceImpl implements QnaService {
 		
 	}
 	@Override
-	public List<QnaVO> listCriteria(Criteria cri)throws Exception {
+	public List<QnaVO> listCriteria(Criteria cri) throws Exception {
 		return dao.listCriteria(cri);
 	}
 	@Override
 	public int listCount() throws Exception {
-		return dao.QnaTotalCount();
+		return dao.qnaTotalCount();
 	}
 
 }

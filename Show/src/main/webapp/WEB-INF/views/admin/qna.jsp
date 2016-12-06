@@ -1,26 +1,30 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib prefix="d" uri="http://java.sun.com/jstl/core_rt" %>
+<%@ taglib prefix="d" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <HTML>
 <HEAD>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <link href="resources/css/style.css" rel="stylesheet" type="text/css" />
 <link href="resources/css/admin/qna.css" rel="stylesheet" type="text/css" />
+<link href="resources/css/admin/bootstrap.css" rel="stylesheet" type="text/css" />
 <!--JQUERY 영역-->
 <script src="resources/js/common/jquery-3.0.0.js"></script>
 <script>
 	$(document).ready(function() {
-		$(".qna_all_view").show();
-		$(".qna_join_view").hide();
-		$(".qna_pay_view").hide();
-		$(".qna_rivew_view").hide();
-		$(".qna_use_view").hide();
-		$(".qna_ad_view").hide();
-		$(".qna_discontent_view").hide();
-		$(".qna_other_view").hide();
-
+		//페이징 단추
+		$("#overall").show();
+		$("#error").hide();
+		$("#memberInfo").hide();
+		$("#review").hide();
+		$("#jehu").hide();
+		$("#storeInfo").hide();
+		$("#event").hide();
+		$("#etc").hide();
+		
 		$(".qna_all").click(function() {
+		
 			$(".qna_all").css({
 				"background" : "#696969",
 				"color" : "#fff"
@@ -61,7 +65,17 @@
 			$(".qna_use_view").hide();
 			$(".qna_ad_view").hide();
 			$(".qna_discontent_view").hide();
-			$(".qna_other_view").hide();
+			$(".qna_other_view").hide(); 
+			//페이징 단추
+			$("#overall").show();
+			$("#error").hide();
+			$("#memberInfo").hide();
+			$("#review").hide();
+			$("#jehu").hide();
+			$("#storeInfo").hide();
+			$("#event").hide();
+			$("#etc").hide();
+			
 		});
 		$(".qna_join").click(function() {
 			$(".qna_join").css({
@@ -105,7 +119,15 @@
 			$(".qna_ad_view").hide();
 			$(".qna_discontent_view").hide();
 			$(".qna_other_view").hide();
-
+			//페이징 단추
+			$("#overall").hide();
+			$("#error").show();
+			$("#memberInfo").hide();
+			$("#review").hide();
+			$("#jehu").hide();
+			$("#storeInfo").hide();
+			$("#event").hide();
+			$("#etc").hide();
 
 		});
 		$(".qna_pay").click(function() {
@@ -150,7 +172,15 @@
 			$(".qna_ad_view").hide();
 			$(".qna_discontent_view").hide();
 			$(".qna_other_view").hide();
-
+			//페이징 단추
+			$("#overall").hide();
+			$("#error").hide();
+			$("#memberInfo").show();
+			$("#review").hide();
+			$("#jehu").hide();
+			$("#storeInfo").hide();
+			$("#event").hide();
+			$("#etc").hide();
 
 		});
 		$(".qna_rivew").click(function() {
@@ -195,7 +225,15 @@
 			$(".qna_ad_view").hide();
 			$(".qna_discontent_view").hide();
 			$(".qna_other_view").hide();
-
+			//페이징 단추
+			$("#overall").hide();
+			$("#error").hide();
+			$("#memberInfo").hide();
+			$("#review").show();
+			$("#jehu").hide();
+			$("#storeInfo").hide();
+			$("#event").hide();
+			$("#etc").hide();
 		});
 		$(".qna_use").click(function() {
 			$(".qna_use").css({
@@ -239,6 +277,15 @@
 			$(".qna_ad_view").hide();
 			$(".qna_discontent_view").hide();
 			$(".qna_other_view").hide();
+			//페이징 단추
+			$("#overall").hide();
+			$("#error").hide();
+			$("#memberInfo").hide();
+			$("#review").hide();
+			$("#jehu").show();
+			$("#storeInfo").hide();
+			$("#event").hide();
+			$("#etc").hide();
 		});
 		$(".qna_ad").click(function() {
 			$(".qna_ad").css({
@@ -282,6 +329,15 @@
 			$(".qna_ad_view").show();
 			$(".qna_discontent_view").hide();
 			$(".qna_other_view").hide();
+			//페이징 단추
+			$("#overall").hide();
+			$("#error").hide();
+			$("#memberInfo").hide();
+			$("#review").hide();
+			$("#jehu").hide();
+			$("#storeInfo").show();
+			$("#event").hide();
+			$("#etc").hide();
 		});
 		$(".qna_discontent").click(function() {
 			$(".qna_discontent").css({
@@ -325,6 +381,15 @@
 			$(".qna_ad_view").hide();
 			$(".qna_discontent_view").show();
 			$(".qna_other_view").hide();
+			//페이징 단추
+			$("#overall").hide();
+			$("#error").hide();
+			$("#memberInfo").hide();
+			$("#review").hide();
+			$("#jehu").hide();
+			$("#storeInfo").hide();
+			$("#event").show();
+			$("#etc").hide();
 		});
 		$(".qna_other").click(function() {
 			$(".qna_other").css({
@@ -368,9 +433,18 @@
 			$(".qna_ad_view").hide();
 			$(".qna_discontent_view").hide();
 			$(".qna_other_view").show();
+			//페이징 단추
+			$("#overall").hide();
+			$("#error").hide();
+			$("#memberInfo").hide();
+			$("#review").hide();
+			$("#jehu").hide();
+			$("#storeInfo").hide();
+			$("#event").hide();
+			$("#etc").show();
 		});
 		/*게시글*/
-		$(".all_box_box").hide();
+		//$(".all_box_box").hide();
 		$(".all_box_text").click(function() {
 			$(this).next().slideToggle(); //글 한건의 내용 조회 가능 
 		});
@@ -389,7 +463,6 @@
 		//삭제 버튼 눌렀을 때
 		$('.btn_box').click(function(){
 			var no = $(this).attr('id');
-			alert(no);
 			
 			$.ajax({
 				url:'/show/deQna',
@@ -413,29 +486,9 @@
 <BODY>
 	<div id="wrap">
 		<div class="main">
+			
 			<div class="qna_list">
-			<div class="text-center">
-						<ul class="pagination">
-
-							<c:if test="${pageMaker.prev}">
-								<li><a href="${pageMaker.startPage - 1}">&laquo;</a></li>
-							</c:if>
-
-							<c:forEach begin="${pageMaker.startPage }"
-								end="${pageMaker.endPage }" var="idx">
-								<li
-									<c:out value="${pageMaker.cri.page == idx?'class =active':''}"/>>
-									<a href="${idx}">${idx}</a>
-								</li>
-							</c:forEach>
-
-							<c:if test="${pageMaker.next && pageMaker.endPage > 0}">
-								<li><a
-									href="${pageMaker.endPage +1}">&raquo;</a></li>
-							</c:if>
-
-						</ul>
-					</div>
+			
 				<div class="qna_menu">
 					<ul>
 						<li class="qna_all menu_list">전체보기</li>
@@ -451,7 +504,6 @@
 			</div>
 
 			<div class="qna_view">
-				
 				<div class="qna_text">
 					<ul>
 						<li>문의부분</li>
@@ -467,7 +519,7 @@
 							<li>${qnaVO.qna_title }</li>
 						</ul>
 					</div>
-					<div class="all_box_box">
+					<div class="all_box_box" style="display:none">
 						<div class="name">
 							<ul>
 								<li>문의자명</li>
@@ -495,8 +547,31 @@
 						
 					</div>
 					</d:forEach>
-			
+					<div class="text-center">
+						<ul class="pagination" id="overall">
+
+							<d:if test="${pageMaker.prev}">
+								<li><a
+									href="test${pageMaker.makeQuery(pageMaker.startPage - 1) }">&laquo;</a></li>
+							</d:if>
+
+							<d:forEach begin="${pageMaker.startPage }"
+								end="${pageMaker.endPage }" var="idx">
+								<li
+									<d:out value="${pageMaker.cri.page == idx?'class =active':''}"/>>
+									<a href="qna${pageMaker.makeQuery(idx)}">${idx}</a>
+								</li>
+							</d:forEach>
+
+							<d:if test="${pageMaker.next && pageMaker.endPage > 0}">
+								<li><a
+									href="test${pageMaker.makeQuery(pageMaker.endPage +1) }">&raquo;</a></li>
+							</d:if>
+
+						</ul>
+					</div>  
 				</div>
+			
 				<!--전체보기-->
 
 				<!--오류문의-->
@@ -509,7 +584,7 @@
 							<li>${qnaVO.qna_title }</li>
 						</ul>
 					</div>
-					<div class="all_box_box">
+					<div class="all_box_box" style="display:none">
 						<div class="name">
 							<ul>
 								<li>문의자명</li>
@@ -529,7 +604,7 @@
 							</ul>
 						</div>
 						
-						<div class="btn_box">
+						<div class="btn_box" id="${qnaVO.qna_no }">
 							<ul>
 								<li>글삭제</li>
 							</ul>
@@ -537,6 +612,29 @@
 					</div>
 					</d:if>
 					</d:forEach>
+					<div class="text-center">
+						<ul class="pagination" id="error">
+
+							<d:if test="${pageMaker.prev}">
+								<li><a
+									href="test${pageMaker.makeQuery(pageMaker.startPage - 1) }">&laquo;</a></li>
+							</d:if>
+
+							<d:forEach begin="${pageMaker.startPage }"
+								end="${pageMaker.endPage }" var="idx">
+								<li
+									<d:out value="${pageMaker.cri.page == idx?'class =active':''}"/>>
+									<a href="qna${pageMaker.makeQuery(idx)}">${idx}</a>
+								</li>
+							</d:forEach>
+
+							<d:if test="${pageMaker.next && pageMaker.endPage > 0}">
+								<li><a
+									href="test${pageMaker.makeQuery(pageMaker.endPage +1) }">&raquo;</a></li>
+							</d:if>
+
+						</ul>
+					</div> 
 				</div>
 				<!--회원가입-->
 
@@ -550,7 +648,7 @@
 							<li>${qnaVO.qna_title }</li>
 						</ul>
 					</div>
-					<div class="all_box_box">
+					<div class="all_box_box" style="display:none">
 						<div class="name">
 							<ul>
 								<li>문의자명</li>
@@ -569,7 +667,7 @@
 								<li>${qnaVO.qna_text }</li>
 							</ul>
 						</div>
-						<div class="btn_box">
+						<div class="btn_box" id="${qnaVO.qna_no }">
 							<ul>
 								<li>글삭제</li>
 							</ul>
@@ -577,6 +675,29 @@
 					</div>
 					</d:if>
 					</d:forEach>
+					<div class="text-center">
+						<ul class="pagination" id="memberInfo">
+
+							<d:if test="${pageMaker.prev}">
+								<li><a
+									href="test${pageMaker.makeQuery(pageMaker.startPage - 1) }">&laquo;</a></li>
+							</d:if>
+
+							<d:forEach begin="${pageMaker.startPage }"
+								end="${pageMaker.endPage }" var="idx">
+								<li
+									<d:out value="${pageMaker.cri.page == idx?'class =active':''}"/>>
+									<a href="qna${pageMaker.makeQuery(idx)}">${idx}</a>
+								</li>
+							</d:forEach>
+
+							<d:if test="${pageMaker.next && pageMaker.endPage > 0}">
+								<li><a
+									href="test${pageMaker.makeQuery(pageMaker.endPage +1) }">&raquo;</a></li>
+							</d:if>
+
+						</ul>
+					</div> 
 				</div>
 				<!--바로결제-->
 
@@ -590,7 +711,7 @@
 							<li>${qnaVO.qna_title }</li>
 						</ul>
 					</div>
-					<div class="all_box_box">
+					<div class="all_box_box" style="display:none">
 						<div class="name">
 							<ul>
 								<li>문의자명</li>
@@ -609,7 +730,7 @@
 								<li>${qnaVO.qna_text }</li>
 							</ul>
 						</div>
-						<div class="btn_box">
+						<div class="btn_box" id="${qnaVO.qna_no }">
 							<ul>
 								<li>글삭제</li>
 							</ul>
@@ -617,6 +738,29 @@
 					</div>
 					</d:if>
 					</d:forEach>
+					<div class="text-center">
+						<ul class="pagination" id="review">
+
+							<d:if test="${pageMaker.prev}">
+								<li><a
+									href="test${pageMaker.makeQuery(pageMaker.startPage - 1) }">&laquo;</a></li>
+							</d:if>
+
+							<d:forEach begin="${pageMaker.startPage }"
+								end="${pageMaker.endPage }" var="idx">
+								<li
+									<d:out value="${pageMaker.cri.page == idx?'class =active':''}"/>>
+									<a href="qna${pageMaker.makeQuery(idx)}">${idx}</a>
+								</li>
+							</d:forEach>
+
+							<d:if test="${pageMaker.next && pageMaker.endPage > 0}">
+								<li><a
+									href="test${pageMaker.makeQuery(pageMaker.endPage +1) }">&raquo;</a></li>
+							</d:if>
+
+						</ul>
+					</div> 
 				</div>
 				<!--리뷰관리-->
 
@@ -630,7 +774,7 @@
 							<li>${qnaVO.qna_title }</li>
 						</ul>
 					</div>
-					<div class="all_box_box">
+					<div class="all_box_box" style="display:none">
 						<div class="name">
 							<ul>
 								<li>문의자명</li>
@@ -649,7 +793,7 @@
 								<li>${qnaVO.qna_text }</li>
 							</ul>
 						</div>
-						<div class="btn_box">
+						<div class="btn_box" id="${qnaVO.qna_no }">
 							<ul>
 								<li>글삭제</li>
 							</ul>
@@ -657,6 +801,29 @@
 					</div>
 					</d:if>
 					</d:forEach>
+					<div class="text-center">
+						<ul class="pagination" id="jehu">
+
+							<d:if test="${pageMaker.prev}">
+								<li><a
+									href="test${pageMaker.makeQuery(pageMaker.startPage - 1) }">&laquo;</a></li>
+							</d:if>
+
+							<d:forEach begin="${pageMaker.startPage }"
+								end="${pageMaker.endPage }" var="idx">
+								<li
+									<d:out value="${pageMaker.cri.page == idx?'class =active':''}"/>>
+									<a href="qna${pageMaker.makeQuery(idx)}">${idx}</a>
+								</li>
+							</d:forEach>
+
+							<d:if test="${pageMaker.next && pageMaker.endPage > 0}">
+								<li><a
+									href="test${pageMaker.makeQuery(pageMaker.endPage +1) }">&raquo;</a></li>
+							</d:if>
+
+						</ul>
+					</div> 
 				</div>
 				<!--이용문의-->
 
@@ -670,7 +837,7 @@
 							<li>${qnaVO.qna_title }</li>
 						</ul>
 					</div>
-					<div class="all_box_box">
+					<div class="all_box_box" style="display:none">
 						<div class="name">
 							<ul>
 								<li>문의자명</li>
@@ -689,7 +856,7 @@
 								<li>${qnaVO.qna_text }</li>
 							</ul>
 						</div>
-						<div class="btn_box">
+						<div class="btn_box" id="${qnaVO.qna_no }">
 							<ul>
 								<li>글삭제</li>
 							</ul>
@@ -697,6 +864,29 @@
 					</div>
 					</d:if>
 					</d:forEach>
+					<div class="text-center">
+						<ul class="pagination" id="storeInfo">
+
+							<d:if test="${pageMaker.prev}">
+								<li><a
+									href="test${pageMaker.makeQuery(pageMaker.startPage - 1) }">&laquo;</a></li>
+							</d:if>
+
+							<d:forEach begin="${pageMaker.startPage }"
+								end="${pageMaker.endPage }" var="idx">
+								<li
+									<d:out value="${pageMaker.cri.page == idx?'class =active':''}"/>>
+									<a href="qna${pageMaker.makeQuery(idx)}">${idx}</a>
+								</li>
+							</d:forEach>
+
+							<d:if test="${pageMaker.next && pageMaker.endPage > 0}">
+								<li><a
+									href="test${pageMaker.makeQuery(pageMaker.endPage +1) }">&raquo;</a></li>
+							</d:if>
+
+						</ul>
+					</div> 
 				</div>
 				<!--광고문의-->
 
@@ -710,7 +900,7 @@
 							<li>${qnaVO.qna_title }</li>
 						</ul>
 					</div>
-					<div class="all_box_box">
+					<div class="all_box_box" style="display:none">
 						<div class="name">
 							<ul>
 								<li>문의자명</li>
@@ -729,7 +919,7 @@
 								<li>${qnaVO.qna_text }</li>
 							</ul>
 						</div>
-						<div class="btn_box">
+						<div class="btn_box" id="${qnaVO.qna_no }">
 							<ul>
 								<li>글삭제</li>
 							</ul>
@@ -737,6 +927,29 @@
 					</div>
 					</d:if>
 					</d:forEach>
+					<div class="text-center">
+						<ul class="pagination" id="event">
+
+							<d:if test="${pageMaker.prev}">
+								<li><a
+									href="test${pageMaker.makeQuery(pageMaker.startPage - 1) }">&laquo;</a></li>
+							</d:if>
+
+							<d:forEach begin="${pageMaker.startPage }"
+								end="${pageMaker.endPage }" var="idx">
+								<li
+									<d:out value="${pageMaker.cri.page == idx?'class =active':''}"/>>
+									<a href="qna${pageMaker.makeQuery(idx)}">${idx}</a>
+								</li>
+							</d:forEach>
+
+							<d:if test="${pageMaker.next && pageMaker.endPage > 0}">
+								<li><a
+									href="test${pageMaker.makeQuery(pageMaker.endPage +1) }">&raquo;</a></li>
+							</d:if>
+
+						</ul>
+					</div> 
 				</div>
 				<!--불편문의-->
 
@@ -750,7 +963,7 @@
 							<li>${qnaVO.qna_title }</li>
 						</ul>
 					</div>
-					<div class="all_box_box">
+					<div class="all_box_box" style="display:none">
 						<div class="name">
 							<ul>
 								<li>문의자명</li>
@@ -769,7 +982,7 @@
 								<li>${qnaVO.qna_text }</li>
 							</ul>
 						</div>
-						<div class="btn_box">
+						<div class="btn_box" id="${qnaVO.qna_no }">
 							<ul>
 								<li>글삭제</li>
 							</ul>
@@ -777,12 +990,51 @@
 					</div>
 					</d:if>
 					</d:forEach>
-				</div>
-				<!--기타-->
-			</div>
-		</div>
+					<div class="text-center">
+						<ul class="pagination" id="etc">
 
-		
+							<d:if test="${pageMaker.prev}">
+								<li><a
+									href="test${pageMaker.makeQuery(pageMaker.startPage - 1) }">&laquo;</a></li>
+							</d:if>
+
+							<d:forEach begin="${pageMaker.startPage }"
+								end="${pageMaker.endPage }" var="idx">
+								<li
+									<d:out value="${pageMaker.cri.page == idx?'class =active':''}"/>>
+									<a href="qna${pageMaker.makeQuery(idx)}">${idx}</a>
+								</li>
+							</d:forEach>
+
+							<d:if test="${pageMaker.next && pageMaker.endPage > 0}">
+								<li><a
+									href="test${pageMaker.makeQuery(pageMaker.endPage +1) }">&raquo;</a></li>
+							</d:if>
+
+						</ul>
+					</div> 
+				</div>
+			</div>
 	</div>
+		</div>
+	
+	<script>
+
+	 $(".pagination li a").on("click", function(event){
+		
+		event.preventDefault(); //a태그의 href속성 ===> 화면이동 무력화
+		
+		var targetPage = $(this).attr("href");
+		
+		 $.ajax({
+			url : '/show/'+targetPage,
+			success : function(data) {
+				//$('.body').empty();
+				$('.body').html(data);
+			}
+		}); 
+	}); 
+	
+</script>
 </BODY>
 </HTML>

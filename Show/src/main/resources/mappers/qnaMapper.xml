@@ -17,8 +17,9 @@
    
   
     <select id="qnaTotalCount" resultType="int">
-       select count(*) qna_no
+       select count(*) from show_qna
    </select>
+   
    
    <delete id="delete11">
    delete from show_qna
