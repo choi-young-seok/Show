@@ -1,6 +1,7 @@
 package kr.co.show.group.persistence;
 
 import java.util.List;
+import java.util.Map;
 
 import javax.inject.Inject;
 
@@ -9,6 +10,7 @@ import org.springframework.stereotype.Repository;
 
 import kr.co.show.group.domain.GroupVO;
 import kr.co.show.group.domain.MenuManageVO;
+import kr.co.show.group.domain.MenuVO;
 import kr.co.show.group.domain.NoVO;
 import kr.co.show.group.domain.OrderVO;
 import kr.co.show.group.domain.ReviewManageVO;
@@ -130,7 +132,12 @@ public class GroupDAOImpl implements GroupDAO{
 	}
 
 	@Override
-	public List<OrderVO> orderList(int group_no) throws Exception {
-		return sqlSession.selectList("group.order_list", group_no);
+	public List<OrderVO> orderList(Map map) throws Exception {
+		return sqlSession.selectList("group.order_list", map);
+	}
+
+	@Override
+	public List<MenuVO> recentMenu() throws Exception {
+		return null;
 	}
 }

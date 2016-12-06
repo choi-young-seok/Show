@@ -37,6 +37,36 @@
 			$(".wait_order_list").hide();
 			$(".end_order_list").show();
 		});
+		$('.new_order').click(function(){
+			$.ajax({
+				url : '',
+				type: "POST",
+				data: {
+					
+				},
+				succuess:function(result){
+					
+				}
+			});
+		});
+		
+		$(".choice_left").change(function(){
+			var group_no =  $(this).val();
+
+			$.ajax({
+				url : '/show/new_order',
+				type: "POST",
+				data: {
+					"group_no" : group_no,
+					"member_no" : <%=session.getAttribute("id")%>
+				},
+				success : function(result){
+					$().append('${new_list}');
+					$().hide();
+					$().show();
+				}
+			});
+		});
 	});
 </script>
 <TITLE> 주문관리 </TITLE>
@@ -50,8 +80,8 @@
 			<p class="choice_left">매장선택</p>
 			<select class="choice_left">
 				<option>전체보기</option>
-				<c:forEach items="${name_list}" var='name'>
-					<option id="">${name.group_name} ${name.group_no} ${name.member_no}</option>
+				<c:forEach items="${name_list}" var='name' varStatus="i">
+					<option value="${name.group_no}">${name.group_name}</option>
 				</c:forEach>
 			</select>
 		</div>
