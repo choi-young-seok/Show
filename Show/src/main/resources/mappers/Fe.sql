@@ -75,3 +75,19 @@ values (show_menu_check_seq.nextval, 5, 1, '아메리카노', 2, 1500);
 select group_name
 from show_group
 where member_no = #{member_no}
+
+
+// 메뉴 조작
+drop table show_menu_check;
+create table show_menu_check(
+	member_no number not null,
+	group_no number not null,
+	menu_no number not null,
+	order_no number not null,
+	menu_name varchar2(50),
+	menu_count number,
+	menu_price number
+);
+
+select *
+from show_order;
