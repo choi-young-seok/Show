@@ -5,6 +5,7 @@ import org.springframework.web.util.UriComponentsBuilder;
 
 public class PageMaker {
    private int totalCount;//전체 레코드 수
+   private int totalTabCount;//전체 레코드 수
    private int startPage;//화면에 출력되는 시작 넘버
    private int endPage;//화면에 출력되는 끝 넘버
    //예) startPage:1 endPage:10 ====> 1 2 3 4 5 6 7 8 9 10
@@ -42,6 +43,10 @@ public class PageMaker {
    public void setTotalCount(int totalCount) {
 		this.totalCount = totalCount;
 	    calcData();//totalCount를 기준으로 페이징의 필요한 데이터를 초기화
+   }
+   public void setTotalTabCount(int totalTabCount) {
+	this.totalTabCount = totalTabCount;
+	   calcData();
    }
    
    public String makeQuery(int page){
@@ -110,8 +115,15 @@ public Criteria getCri() {
 public void setCri(Criteria cri) {
 	this.cri = cri;
 }
-   
-   
+
+
+@Override
+public String toString() {
+	return "PageMaker [totalCount=" + totalCount + ", startPage=" + startPage + ", endPage=" + endPage
+			+ ", displayPageNum=" + displayPageNum + ", prev=" + prev + ", next=" + next + ", cri=" + cri + "]";
+}
+
+
    
 }
 

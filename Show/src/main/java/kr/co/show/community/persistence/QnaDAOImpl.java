@@ -44,6 +44,10 @@ public class QnaDAOImpl implements QnaDAO {
 		return sqlSession.selectList("qna.list",null,
 				new RowBounds(cri.getPageStart(), cri.getPerPageNum()));
 	}
+	@Override
+	public int TabTotalCount() {
+		return sqlSession.selectOne("qna.TabTotalCount");
+	}
 	
 	
 	

@@ -11,15 +11,19 @@
    <select id="list" resultType="kr.co.show.community.domain.QnaVO">
        select qna_no,qna_name,qna_email,qna_title,qna_text,qna_category,qna_ch
       from show_qna
-      where qna_ch = #{qna_ch}
+      where qna_ch = #{qna_ch} 
       order by qna_no asc
    </select>
    
   
     <select id="qnaTotalCount" resultType="int">
-       select count(*) from show_qna
+       select count(*) from show_qna   
    </select>
    
+   <select id="TabTotalCount" resultType="int">
+		select count(*) from show_qna  where qna_category =#{qna_category}
+   </select> 
+    
    
    <delete id="delete11">
    delete from show_qna
