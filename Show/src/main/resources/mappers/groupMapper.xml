@@ -113,7 +113,7 @@
 	<select id="order_list" resultType="kr.co.show.group.domain.OrderVO">
 		select *
 		from show_order
-		where group_no = #{group_no}
+		where group_no = #{group_no} and member_no = #{member_no}
 	</select>
 	
 </mapper>
