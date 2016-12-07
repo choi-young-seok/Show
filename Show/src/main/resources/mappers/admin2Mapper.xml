@@ -8,5 +8,15 @@
 		from show_group a, show_member b
 		where a.member_no = b.member_no
 	</select>
-
+	
+	<select id="detail2" resultType="kr.co.show.group.domain.GroupVO">
+		select a.group_no, a.group_name,
+		a.group_category, b.member_name,
+		a.group_address, a.group_phone,
+		a.group_ch, a.group_delete_ch, a.group_files
+		from show_group a, show_member b
+		where a.group_no = #{group_no}
+			  and a.member_no = b.member_no 
+	</select>
+	
 </mapper>

@@ -86,7 +86,7 @@ $('#btn_cancle').click(function(){
 			<div class="birth">
 				<p class="birth_text text_op text_size">생년월일</p>
 				<input type="text" id="show" value="${detail.member_birth }">  
-                              
+                          
 				
 				
 			</div>
