@@ -51,8 +51,9 @@
 		});
 		
 		$(".choice_left").change(function(){
-			var group_no =  $(this).val();
-
+		if($('.new_order')){
+			alert('신규');
+			var group_no =  $(this).val();		
 			$.ajax({
 				url : '/show/new_order',
 				type: "POST",
@@ -60,18 +61,78 @@
 					"group_no" : group_no,
 					"member_no" : <%=session.getAttribute("id")%>
 				},
-				success : function(result){
-					$().append();
-					$().hide();
-					$().show();
+				success : function(new_list){
+					var a = document.getElementById("new");
+					new_list.forEach(function(vo, i) { //items와 index다.
+						
+						a.innerHTML = a.innerHTML+'<div class="new_order_list">'+
+							'<div class="order_left order_choice">'+
+								'<input type="checkbox"/>'+
+							'</div>'+
+							'<div class="order_left order_num">'+
+								'<p>'+vo.order_no+'</p>'+
+							'</div>'+
+							'<div class="order_left user_name">'+
+								'<p>'+vo.order_name+'</p>'+
+							'</div>'+
+							'<div class="order_left user_phone">'+
+								'<p>'+vo.order_phone+'</p>'+
+							'</div>'+
+							'<div class="order_left order_menu">'+
+							'</div>'+
+							'<div class="order_left order_pay">'+
+								'<p>메뉴당 금액 for</p>'+
+								'<p>이것도 마진만</p>'+
+							'</div>'+
+							'<div class="order_left order_all_pay">'+
+								'<p>총 걀제 금액 합친거</p>'+
+							'</div>'+
+							'<div class="order_left order_check">'+
+								'<div>'+
+									'<p>신청중</p>'+
+									'<select>'+
+										'<option value="신청중">신청중</option>'+
+										'<option value="대기">대기중</option>'+
+										'<option value="완료">판매완료</option>'+
+									'</select>'+
+									'<p class="check_btn">상태 변경</p>'+
+								'</div>'+
+							'</div>'+
+						'</div>';
+					});
 				}
 			});
-		});
+		}
 	});
+	$(document).on("click",".check_btn",function(){
+		var check = $(this).parent().children().eq(1).val();
+		
+		if(check === '대기'){
+			$.ajax({
+				url:'',
+				type: "POST",
+				header: {"Content-Type" : "application/json",
+					"X-HTTP-Method-Override" : "POST"
+				},
+				data : {
+					
+				},
+				success(function(result){
+					
+				});
+			});
+		}
+		if(check === '완료'){
+			alert('완료');
+		}
+		
+	});
+});
 </script>
 <TITLE> 주문관리 </TITLE>
 </HEAD>
 <BODY>
+<p onclick="change()">
 	<div id="wrap">
 		<%-- <header>
 			<%@include file="../shop_admin/header.jsp"%>
@@ -102,114 +163,18 @@
 				<li>주문상태</li>
 			</ul>
 		</div>
-		<div class="new_order_list">
-			<div class="order_left order_choice">
-				<input type="checkbox"/>
-			</div>
-			<div class="order_left order_num">
-				<p>주문번호db</p>
-			</div>
-			<div class="order_left user_name">
-				<p>주문자이름</p>
-			</div>
-			<div class="order_left user_phone">
-				<p>주문자연락처</p>
-			</div>
-			<div class="order_left order_menu">
-			</div>
-			<div class="order_left order_pay">
-				<p>메뉴당 금액 for</p>
-				<p>이것도 마진만</p>
-			</div>
-			<div class="order_left order_all_pay">
-				<p>총 걀제 금액 합친거</p>
-			</div>
-			<div class="order_left order_check">
-				<div>
-					<p>신청중</p>
-					<select>
-						<option>신청중</option>
-						<option>대기중</option>
-						<option>판매완료</option>
-					</select>
-					<p class="check_btn">상태 변경</p>
-				</div>
-			</div>
-		</div>
+<!-- 여기서부터 컬럼값 -->
 
-		<div class="wait_order_list">
-			<div class="order_left order_choice">
-				<input type="checkbox"/>
-			</div>
-			<div class="order_left order_num">
-				<p>주문번호db</p>
-			</div>
-			<div class="order_left user_name">
-				<p>주문자이름</p>
-			</div>
-			<div class="order_left user_phone">
-				<p>주문자연락처</p>
-			</div>
-			<div class="order_left order_menu">
-				<p>신청메뉴 여러개일수도 있으니까 for문</p>
-				<p>이건 마진값만 넣어놓음</p>
-			</div>
-			<div class="order_left order_pay">
-				<p>메뉴당 금액 for</p>
-				<p>이것도 마진만</p>
-			</div>
-			<div class="order_left order_all_pay">
-				<p>총 걀제 금액 합친거</p>
-			</div>
-			<div class="order_left order_check">
-				<div>
-					<p>대기중</p>
-					<select>
-						<option>신청중</option>
-						<option>대기중</option>
-						<option>판매완료</option>
-					</select>
-					<p class="check_btn">상태 변경</p>
-				</div>
-			</div>
-		</div>
+		<div id="new"></div>
+			
+<!-- 컬럼값 끝 -->
 
-		<div class="end_order_list">
-			<div class="order_left order_choice">
-				<input type="checkbox"/>
-			</div>
-			<div class="order_left order_num">
-				<p>주문번호db</p>
-			</div>
-			<div class="order_left user_name">
-				<p>주문자이름</p>
-			</div>
-			<div class="order_left user_phone">
-				<p>주문자연락처</p>
-			</div>
-			<div class="order_left order_menu">
-				<p>신청메뉴 여러개일수도 있으니까 for문</p>
-				<p>이건 마진값만 넣어놓음</p>
-			</div>
-			<div class="order_left order_pay">
-				<p>메뉴당 금액 for</p>
-				<p>이것도 마진만</p>
-			</div>
-			<div class="order_left order_all_pay">
-				<p>총 결제 금액 합친거</p>
-			</div>
-			<div class="order_left order_check">
-				<div>
-					<p>판매완료</p>
-					<select>
-						<option>신청중</option>
-						<option>대기중</option>
-						<option>판매완료</option>
-					</select>
-					<p class="check_btn">상태 변경</p>
-				</div>
-			</div>
-		</div>
+		<div id="wait"></div>
+
+<!-- 대기 컬럼 -->
+
+		<div id="end"></div>
+		
 		<%-- <footer>
 			<%@include file="../shop_admin/footer.jsp"%>
 		</footer> --%>
