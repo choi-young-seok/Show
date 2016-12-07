@@ -13,15 +13,7 @@
 <script src="resources/js/common/jquery-3.0.0.js"></script>
 <script>
 	$(document).ready(function() {
-		//페이징 단추
-		$("#overall").show();
-		$("#error").hide();
-		$("#memberInfo").hide();
-		$("#review").hide();
-		$("#jehu").hide();
-		$("#storeInfo").hide();
-		$("#event").hide();
-		$("#etc").hide();
+		
 		
 		$(".qna_all").click(function() {
 		
@@ -66,15 +58,7 @@
 			$(".qna_ad_view").hide();
 			$(".qna_discontent_view").hide();
 			$(".qna_other_view").hide(); 
-			//페이징 단추
-			$("#overall").show();
-			$("#error").hide();
-			$("#memberInfo").hide();
-			$("#review").hide();
-			$("#jehu").hide();
-			$("#storeInfo").hide();
-			$("#event").hide();
-			$("#etc").hide();
+			
 			
 		});
 		$(".qna_join").click(function() {
@@ -119,16 +103,7 @@
 			$(".qna_ad_view").hide();
 			$(".qna_discontent_view").hide();
 			$(".qna_other_view").hide();
-			//페이징 단추
-			$("#overall").hide();
-			$("#error").show();
-			$("#memberInfo").hide();
-			$("#review").hide();
-			$("#jehu").hide();
-			$("#storeInfo").hide();
-			$("#event").hide();
-			$("#etc").hide();
-
+		
 		});
 		$(".qna_pay").click(function() {
 			$(".qna_pay").css({
@@ -172,15 +147,7 @@
 			$(".qna_ad_view").hide();
 			$(".qna_discontent_view").hide();
 			$(".qna_other_view").hide();
-			//페이징 단추
-			$("#overall").hide();
-			$("#error").hide();
-			$("#memberInfo").show();
-			$("#review").hide();
-			$("#jehu").hide();
-			$("#storeInfo").hide();
-			$("#event").hide();
-			$("#etc").hide();
+			
 
 		});
 		$(".qna_rivew").click(function() {
@@ -225,15 +192,7 @@
 			$(".qna_ad_view").hide();
 			$(".qna_discontent_view").hide();
 			$(".qna_other_view").hide();
-			//페이징 단추
-			$("#overall").hide();
-			$("#error").hide();
-			$("#memberInfo").hide();
-			$("#review").show();
-			$("#jehu").hide();
-			$("#storeInfo").hide();
-			$("#event").hide();
-			$("#etc").hide();
+			
 		});
 		$(".qna_use").click(function() {
 			$(".qna_use").css({
@@ -277,15 +236,7 @@
 			$(".qna_ad_view").hide();
 			$(".qna_discontent_view").hide();
 			$(".qna_other_view").hide();
-			//페이징 단추
-			$("#overall").hide();
-			$("#error").hide();
-			$("#memberInfo").hide();
-			$("#review").hide();
-			$("#jehu").show();
-			$("#storeInfo").hide();
-			$("#event").hide();
-			$("#etc").hide();
+			
 		});
 		$(".qna_ad").click(function() {
 			$(".qna_ad").css({
@@ -329,15 +280,7 @@
 			$(".qna_ad_view").show();
 			$(".qna_discontent_view").hide();
 			$(".qna_other_view").hide();
-			//페이징 단추
-			$("#overall").hide();
-			$("#error").hide();
-			$("#memberInfo").hide();
-			$("#review").hide();
-			$("#jehu").hide();
-			$("#storeInfo").show();
-			$("#event").hide();
-			$("#etc").hide();
+			
 		});
 		$(".qna_discontent").click(function() {
 			$(".qna_discontent").css({
@@ -381,15 +324,7 @@
 			$(".qna_ad_view").hide();
 			$(".qna_discontent_view").show();
 			$(".qna_other_view").hide();
-			//페이징 단추
-			$("#overall").hide();
-			$("#error").hide();
-			$("#memberInfo").hide();
-			$("#review").hide();
-			$("#jehu").hide();
-			$("#storeInfo").hide();
-			$("#event").show();
-			$("#etc").hide();
+		
 		});
 		$(".qna_other").click(function() {
 			$(".qna_other").css({
@@ -433,15 +368,7 @@
 			$(".qna_ad_view").hide();
 			$(".qna_discontent_view").hide();
 			$(".qna_other_view").show();
-			//페이징 단추
-			$("#overall").hide();
-			$("#error").hide();
-			$("#memberInfo").hide();
-			$("#review").hide();
-			$("#jehu").hide();
-			$("#storeInfo").hide();
-			$("#event").hide();
-			$("#etc").show();
+			
 		});
 		/*게시글*/
 		//$(".all_box_box").hide();
@@ -547,30 +474,9 @@
 						
 					</div>
 					</d:forEach>
-					<div class="text-center">
-						<ul class="pagination" id="overall">
-
-							<d:if test="${pageMaker.prev}">
-								<li><a
-									href="test${pageMaker.makeQuery(pageMaker.startPage - 1) }">&laquo;</a></li>
-							</d:if>
-
-							<d:forEach begin="${pageMaker.startPage }"
-								end="${pageMaker.endPage }" var="idx">
-								<li
-									<d:out value="${pageMaker.cri.page == idx?'class =active':''}"/>>
-									<a href="qna${pageMaker.makeQuery(idx)}">${idx}</a>
-								</li>
-							</d:forEach>
-
-							<d:if test="${pageMaker.next && pageMaker.endPage > 0}">
-								<li><a
-									href="test${pageMaker.makeQuery(pageMaker.endPage +1) }">&raquo;</a></li>
-							</d:if>
-
-						</ul>
-					</div>  
+						
 				</div>
+					 
 			
 				<!--전체보기-->
 
@@ -612,29 +518,7 @@
 					</div>
 					</d:if>
 					</d:forEach>
-					<div class="text-center">
-						<ul class="pagination" id="error">
-
-							<d:if test="${pageMaker.prev}">
-								<li><a
-									href="test${pageMaker.makeQuery(pageMaker.startPage - 1) }">&laquo;</a></li>
-							</d:if>
-
-							<d:forEach begin="${pageMaker.startPage }"
-								end="${pageMaker.endPage }" var="idx">
-								<li
-									<d:out value="${pageMaker.cri.page == idx?'class =active':''}"/>>
-									<a href="qna${pageMaker.makeQuery(idx)}">${idx}</a>
-								</li>
-							</d:forEach>
-
-							<d:if test="${pageMaker.next && pageMaker.endPage > 0}">
-								<li><a
-									href="test${pageMaker.makeQuery(pageMaker.endPage +1) }">&raquo;</a></li>
-							</d:if>
-
-						</ul>
-					</div> 
+					
 				</div>
 				<!--회원가입-->
 
@@ -675,29 +559,7 @@
 					</div>
 					</d:if>
 					</d:forEach>
-					<div class="text-center">
-						<ul class="pagination" id="memberInfo">
-
-							<d:if test="${pageMaker.prev}">
-								<li><a
-									href="test${pageMaker.makeQuery(pageMaker.startPage - 1) }">&laquo;</a></li>
-							</d:if>
-
-							<d:forEach begin="${pageMaker.startPage }"
-								end="${pageMaker.endPage }" var="idx">
-								<li
-									<d:out value="${pageMaker.cri.page == idx?'class =active':''}"/>>
-									<a href="qna${pageMaker.makeQuery(idx)}">${idx}</a>
-								</li>
-							</d:forEach>
-
-							<d:if test="${pageMaker.next && pageMaker.endPage > 0}">
-								<li><a
-									href="test${pageMaker.makeQuery(pageMaker.endPage +1) }">&raquo;</a></li>
-							</d:if>
-
-						</ul>
-					</div> 
+					
 				</div>
 				<!--바로결제-->
 
@@ -738,29 +600,7 @@
 					</div>
 					</d:if>
 					</d:forEach>
-					<div class="text-center">
-						<ul class="pagination" id="review">
-
-							<d:if test="${pageMaker.prev}">
-								<li><a
-									href="test${pageMaker.makeQuery(pageMaker.startPage - 1) }">&laquo;</a></li>
-							</d:if>
-
-							<d:forEach begin="${pageMaker.startPage }"
-								end="${pageMaker.endPage }" var="idx">
-								<li
-									<d:out value="${pageMaker.cri.page == idx?'class =active':''}"/>>
-									<a href="qna${pageMaker.makeQuery(idx)}">${idx}</a>
-								</li>
-							</d:forEach>
-
-							<d:if test="${pageMaker.next && pageMaker.endPage > 0}">
-								<li><a
-									href="test${pageMaker.makeQuery(pageMaker.endPage +1) }">&raquo;</a></li>
-							</d:if>
-
-						</ul>
-					</div> 
+					
 				</div>
 				<!--리뷰관리-->
 
@@ -801,29 +641,7 @@
 					</div>
 					</d:if>
 					</d:forEach>
-					<div class="text-center">
-						<ul class="pagination" id="jehu">
-
-							<d:if test="${pageMaker.prev}">
-								<li><a
-									href="test${pageMaker.makeQuery(pageMaker.startPage - 1) }">&laquo;</a></li>
-							</d:if>
-
-							<d:forEach begin="${pageMaker.startPage }"
-								end="${pageMaker.endPage }" var="idx">
-								<li
-									<d:out value="${pageMaker.cri.page == idx?'class =active':''}"/>>
-									<a href="qna${pageMaker.makeQuery(idx)}">${idx}</a>
-								</li>
-							</d:forEach>
-
-							<d:if test="${pageMaker.next && pageMaker.endPage > 0}">
-								<li><a
-									href="test${pageMaker.makeQuery(pageMaker.endPage +1) }">&raquo;</a></li>
-							</d:if>
-
-						</ul>
-					</div> 
+					
 				</div>
 				<!--이용문의-->
 
@@ -864,29 +682,7 @@
 					</div>
 					</d:if>
 					</d:forEach>
-					<div class="text-center">
-						<ul class="pagination" id="storeInfo">
-
-							<d:if test="${pageMaker.prev}">
-								<li><a
-									href="test${pageMaker.makeQuery(pageMaker.startPage - 1) }">&laquo;</a></li>
-							</d:if>
-
-							<d:forEach begin="${pageMaker.startPage }"
-								end="${pageMaker.endPage }" var="idx">
-								<li
-									<d:out value="${pageMaker.cri.page == idx?'class =active':''}"/>>
-									<a href="qna${pageMaker.makeQuery(idx)}">${idx}</a>
-								</li>
-							</d:forEach>
-
-							<d:if test="${pageMaker.next && pageMaker.endPage > 0}">
-								<li><a
-									href="test${pageMaker.makeQuery(pageMaker.endPage +1) }">&raquo;</a></li>
-							</d:if>
-
-						</ul>
-					</div> 
+					
 				</div>
 				<!--광고문의-->
 
@@ -927,29 +723,7 @@
 					</div>
 					</d:if>
 					</d:forEach>
-					<div class="text-center">
-						<ul class="pagination" id="event">
-
-							<d:if test="${pageMaker.prev}">
-								<li><a
-									href="test${pageMaker.makeQuery(pageMaker.startPage - 1) }">&laquo;</a></li>
-							</d:if>
-
-							<d:forEach begin="${pageMaker.startPage }"
-								end="${pageMaker.endPage }" var="idx">
-								<li
-									<d:out value="${pageMaker.cri.page == idx?'class =active':''}"/>>
-									<a href="qna${pageMaker.makeQuery(idx)}">${idx}</a>
-								</li>
-							</d:forEach>
-
-							<d:if test="${pageMaker.next && pageMaker.endPage > 0}">
-								<li><a
-									href="test${pageMaker.makeQuery(pageMaker.endPage +1) }">&raquo;</a></li>
-							</d:if>
-
-						</ul>
-					</div> 
+				
 				</div>
 				<!--불편문의-->
 
@@ -990,8 +764,13 @@
 					</div>
 					</d:if>
 					</d:forEach>
-					<div class="text-center">
-						<ul class="pagination" id="etc">
+					
+				</div>
+			</div>
+	</div>
+		</div>
+				<div class="text-center">
+						<ul class="pagination" id="overall">
 
 							<d:if test="${pageMaker.prev}">
 								<li><a
@@ -1013,11 +792,6 @@
 
 						</ul>
 					</div> 
-				</div>
-			</div>
-	</div>
-		</div>
-	
 	<script>
 
 	 $(".pagination li a").on("click", function(event){
