@@ -6,7 +6,7 @@
 <link href=../resources/css/style.css rel="stylesheet" type="text/css" />
 <link href="../resources/css/user/community/menu_bar.css" rel="stylesheet" type="text/css" />
 <!--JQUERY 영역-->
-<script src="../../js/jquery-3.0.0.js"></script>
+<script src="../resources/js/common/jquery-3.0.0.js"></script>
 <script>
 
 		//hover 영역

@@ -27,8 +27,8 @@ public class AdminQnaController {
  	  
 		maker.setCri(cri);//현재페이지와 보여질 행의수를 전달
  	  
- 	   	//maker.setTotalCount(service.listCount());//전체 레코드수를 전달
- 	   	maker.setTotalTabCount(service.listTabCount());//탭 레코드수를 전달
+ 	   	maker.setTotalCount(service.listCount());//전체 레코드수를 전달
+ 	   //	maker.setTotalTabCount(service.listTabCount());//탭 레코드수를 전달
  	
  	  
  	   	model.addAttribute("pageMaker", maker);

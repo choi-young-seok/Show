@@ -12,7 +12,7 @@
        select qna_no,qna_name,qna_email,qna_title,qna_text,qna_category,qna_ch
       from show_qna
       where qna_ch = #{qna_ch} 
-      order by qna_no asc
+      order by qna_no desc
    </select>
    
   

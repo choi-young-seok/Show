@@ -29,6 +29,18 @@
 	var title = $('.title_box').val();
 	var text = $('.text_box').val();
 	
+	 if(ch == '분류선택'){
+		  alert("분류를 선택하여 주세요.")
+	      return false;
+ 	  }else if($.trim(title)==""){
+		  alert("제목을 입력하세요.");
+		  title.focus();
+		  return false;
+	  }else if($.trim(text)==""){
+		  alert("내용을 입력하세요.");
+		  text.focus();
+		  return false;
+	  }else{
 	$.ajax({
 		url: '/show/checkDataDa',
 		data:{"notice_ch":ch,"notice_title":title,"notice_text":text},
@@ -40,10 +52,11 @@
 				$('.admin_member_refly').fadeOut(500);
 			}
 		}
+	
 	});
 	
-		});
-		
+		}
+		});	
 		//닫기 버튼 투르면 
 		$(".close_btn").click(function(){
 			$('.admin_member_refly').empty();
@@ -52,6 +65,7 @@
 		
 		
 		
+
 	});
 </script>
 <TITLE> 공지사항 작성 </TITLE>
