@@ -50,7 +50,7 @@ public class RestControl {
 	}
 	@RequestMapping(value="/deQna" , method=RequestMethod.POST)
 	public String removeQna(int qna_no) throws Exception{ //qna ªË¡¶
-		System.out.println("j"+qna_no);
+	
 		service.deleteQna(qna_no);
 		return "deQnaOK";
 	}

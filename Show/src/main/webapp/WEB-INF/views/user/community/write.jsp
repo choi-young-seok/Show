@@ -4,16 +4,12 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="d"%>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
-<link href="resources/css/style.css" rel="stylesheet" type="text/css" />
 <link href="../resources/css/user/community/write.css" rel="stylesheet" type="text/css" />
 <!--JQUERY 영역-->
 
 <!DOCTYPE meta PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<script src="../resources/js/common/jquery-3.0.0.js"></script>
 <script type="text/javascript">
 $(document).ready(function() {
-	
-$(".write_btn").on("click",function(){
 	function check(){
 		$.ajax({            
             url:'/show/user/create',
@@ -22,24 +18,40 @@ $(".write_btn").on("click",function(){
             }
          });
 	}
+$(".write_btn").on("click",function(){
 	var name = $('.name_box').val();
-	var email = $('.email_box').val();
+	var email = $('.phone_box').val();
 	var category = $('.qna_type_box').val();
 	var title = $('.title_box').val();
 	var text = $('.contents_box').val();
 	
+	  if(category == '상담분류'){
+		  alert("상담분류를 선택하여 주세요.")
+	      return false;
+  	  }else if($.trim(title)==""){
+		  alert("제목을 입력하세요.");
+		  title.focus();
+		  return false;
+	  }else if($.trim(text)==""){
+		  alert("내용을 입력하세요.");
+		  text.focus();
+		  return false;
+	  }else{
+	  
 	  $.ajax({            
           url:'/show/checkData',
           data:{"qna_name":name,"qna_email":email,"qna_category":category,
         	  "qna_title":title,"qna_text":text},
           
           success: function(data){
+        	  
         	  if (data == 'OK'){
         		  alert("문의글이 등록되었습니다.답변은 메일로 받아 보실 수 있습니다.");
         		  check();
         	  }
           }
        });
+}
 	});
 	
 
@@ -51,12 +63,14 @@ $(".write_btn").on("click",function(){
 	
 <form role="form" method="post">
 		<div class="write_box">
-	
-			<div>문의자 명</div>
-			<input class="name_box" name="qna_name" type="text" value="${name }" /> 
-	
-			<div>이메일</div>
-			<input  class="email_box"   name="qna_email" type="text" value="${email }" />
+			<div class="name">
+				<div class="name_text">이름</div>
+				<input class="name_box" type="text" value="${name }"/>
+			</div>
+		<div class="phone">
+				<div class="phone_text">이메일</div>
+				<input class="phone_box" type="text" value="${email }" />
+			</div>
 		
 			<div class="qna_type">
 				<div class="qna_type_text">상담분류</div>
