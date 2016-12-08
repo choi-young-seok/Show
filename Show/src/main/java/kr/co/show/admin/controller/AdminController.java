@@ -62,11 +62,14 @@ public class AdminController {
 	
 	
 	
-	@RequestMapping("/delete")
-	public String delete(int member_no, RedirectAttributes attr)throws Exception{
-		service.delete(member_no);
-		attr.addFlashAttribute("msg", "SUCCESS");
-		return "redirect:/admin/member";
+	@RequestMapping("/admin_group_categoryList")
+	public List<GroupVO> categoryList(Model model) throws Exception{
+		List<GroupVO> list3 = service.categoryList();
+		model.addAttribute("list3",list3);
+		
+		return list3;
+	
 	}
+
 	
 }
