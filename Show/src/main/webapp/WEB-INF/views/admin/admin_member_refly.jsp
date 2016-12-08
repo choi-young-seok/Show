@@ -73,19 +73,19 @@ $('#btn_cancle').click(function(){
 			</div>
 			<div class="name">
 				<p class="name_text text_op text_size">닉네임</p>
-				<input type="text" id="show" value="&nbsp;&nbsp;${detail.member_nickName }"></div>
+				<input type="text" id="show" disabled="disabled" value="&nbsp;&nbsp;${detail.member_nickName }"></div>
 			</div>
 			<div class="password">
 				<p class="password_text text_op text_size">비밀번호</p>
-				<input type="text" id="show" value="&nbsp;&nbsp;${detail.member_pass }">
+				<input type="text" id="show" disabled="disabled" value="&nbsp;&nbsp;${detail.member_pass }">
 			</div>
 			<div class="phone">
 				<p class="phone_text text_op text_size">휴대폰</p>
-				<input type="text" id="show" value="&nbsp;&nbsp;${detail.member_phone }">
+				<input type="text" id="show" disabled="disabled" value="&nbsp;&nbsp;${detail.member_phone }">
 			</div>
 			<div class="birth">
 				<p class="birth_text text_op text_size">생년월일</p>
-				<input type="text" id="show" value="${detail.member_birth }">  
+				<input type="text" id="show" disabled="disabled" value="${detail.member_birth }">  
                           
 				
 				

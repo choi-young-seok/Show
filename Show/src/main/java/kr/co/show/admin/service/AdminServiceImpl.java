@@ -50,6 +50,12 @@ public class AdminServiceImpl implements AdminService {
 		
 	}
 
+	@Override
+	public List<GroupVO> categoryList() throws Exception {
+		return dao.categoryList();
+	
+	}
+
 
 
 }

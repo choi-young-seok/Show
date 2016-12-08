@@ -81,7 +81,20 @@ $('.detail2').click(function(){
 				}
 			}); 
 		});
+		
+		
+$('#category').click(function(){
+	var category = $(this).attr("id");
+	alert(category);
+	$.ajax({
+		url:'/show/admin_group_categoryList',
+		data:{"group_category":category},
+		success: function(result){
 
+		}
+	}); 
+	
+});
 
 </script>
 </HEAD>
@@ -90,13 +103,8 @@ $('.detail2').click(function(){
 		<header> <!--include--> </header>
 		<div class="shop_top">
 			<div class="select_shop">
-				<p class="top_left top_text">지역</p>
-				<select class="top_left">
-					<option>지역</option>
-					<option>지역db값</option>
-				</select>
 				<p class="top_left top_text">업종</p>
-				<select class="top_left">
+				<select class="top_left" id="category">
 					<option>업종</option>
 					<option>업종db값</option>
 				</select>

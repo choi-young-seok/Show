@@ -53,6 +53,13 @@ public class AdminDAOImpl implements AdminDAO {
 		
 	}
 
+	@Override
+	public List<GroupVO> categoryList() throws Exception {
+	
+		List<GroupVO> list3 = sqlsession.selectList("group1.list3",null,new RowBounds(0,10));
+		return list3;
+	}
+
 
 
 }

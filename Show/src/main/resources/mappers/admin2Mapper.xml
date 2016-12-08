@@ -23,4 +23,10 @@
 		where group_no=#{group_no}
 	</update>
 	
+	<select id ="list3" resultType="kr.co.show.group.domain.GroupVO">
+		select group_category
+		from show_group
+	</select>
+	
+	
 </mapper>
