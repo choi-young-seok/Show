@@ -18,5 +18,9 @@
 		where a.group_no = #{group_no}
 			  and a.member_no = b.member_no 
 	</select>
+	<update id="update">
+		update show_group set group_ch=#{group_ch} 
+		where group_no=#{group_no}
+	</update>
 	
 </mapper>

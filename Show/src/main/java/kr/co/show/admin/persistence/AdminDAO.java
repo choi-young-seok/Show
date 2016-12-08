@@ -12,5 +12,6 @@ public interface AdminDAO {
 	public void delete(int member_no) throws Exception;
 	public List<GroupVO> groupList() throws Exception; //업체정보출력
 	public GroupVO detail2(int group_no) throws Exception;
+	public void update(GroupVO vo) throws Exception;
 	
 }

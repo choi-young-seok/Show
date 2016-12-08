@@ -11,4 +11,5 @@ public interface AdminService {
 	public void delete(int member_no) throws Exception;
 	public List<GroupVO> groupList() throws Exception;
 	public GroupVO detail2(int group_no) throws Exception;
+	public void update(GroupVO vo) throws Exception;
 }

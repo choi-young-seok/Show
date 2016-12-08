@@ -83,10 +83,10 @@ html,body{
 	width:150px;
 }
 .order_top_text > ul > li:nth-child(5){
-	width:350px;
+	width:300px;
 }
 .order_top_text > ul > li:nth-child(6){
-	width:100px;
+	width:150px;
 }
 .order_top_text > ul > li:nth-child(7){
 	width:150px;
@@ -139,7 +139,7 @@ html,body{
 	line-height:200px;
 }
 .order_menu{
-	width:350px;
+	width:300px;
 	overflow-y:scroll;
 }
 .order_menu_show_box{
@@ -160,7 +160,7 @@ html,body{
 	line-height:30px;
 }
 .order_pay{
-	width:100px;
+	width:150px;
 	overflow-y:scroll;
 }
 .order_pay > p{

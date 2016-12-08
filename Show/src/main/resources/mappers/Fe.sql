@@ -62,15 +62,15 @@ values (show_order_seq.nextval, 5, 2, '윤철', '010-1234-1243', to_date('13:00', 
 
 
 insert into show_menu_check (order_no, member_no, group_no, menu_no, menu_name, menu_count, menu_price)
-values (show_menu_check_seq.nextval, 5, 1, '아메리카노', 2, 1500);
+values (6, 1, 2, 1, '카페라떼', 2, 2000);
 insert into show_menu_check (order_no, member_no, group_no, menu_no, menu_name, menu_count, menu_price)
-values (show_menu_check_seq.nextval, 5, 1, '아메리카노', 2, 1500);
+values (6, 1, 2, 1, '카페라떼', 3, 2000);
 insert into show_menu_check (order_no, member_no, group_no, menu_no, menu_name, menu_count, menu_price)
-values (show_menu_check_seq.nextval, 5, 1, '아메리카노', 2, 1500);
+values (7, 1, 2, 1, '카페라떼', 7, 2000);
 insert into show_menu_check (order_no, member_no, group_no, menu_no, menu_name, menu_count, menu_price)
-values (show_menu_check_seq.nextval, 5, 1, '아메리카노', 2, 1500);
+values (7, 1, 2, 1, '카페라떼', 1, 2000);
 insert into show_menu_check (order_no, member_no, group_no, menu_no, menu_name, menu_count, menu_price)
-values (show_menu_check_seq.nextval, 5, 1, '아메리카노', 2, 1500);
+values (8, 1, 2, 1, '카페라떼', 4, 2000);
 
 select group_name
 from show_group
@@ -91,3 +91,22 @@ create table show_menu_check(
 
 select *
 from show_order;
+
+select *
+from show_menu;
+
+
+select *
+from show_order
+where group_no = 2 and member_no = 5;
+
+select *
+from show_menu_check; (order = 7, 8, 9, 10, 6) (member = 1) (group = 2)
+
+insert into show_menu_check (order_no, member_no, group_no, menu_no, menu_name, menu_count, menu_price)
+values (show_menu_check_seq.nextval, 5, 1, '아메리카노', 2, 1500);
+
+
+select *
+		from show_menu_check
+		where group_no = 2 and member_no = 1 and order_no = 6;

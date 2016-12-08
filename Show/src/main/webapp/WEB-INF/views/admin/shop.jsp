@@ -44,6 +44,31 @@ a{
 }
 </style>
 <script>
+
+$('.update').click(function(){
+	var group_no = $(this).attr("id");
+	var sel = document.getElementById("select"+group_no);
+	var group_ch = sel.options[sel.selectedIndex].value;
+
+	$.ajax({
+        url:'/show/admin_group_update',//URL요청
+        type:'post', //method요청방식
+        headers:{
+           "Content-Type":"application/json" //서버에게 데이터 JSON으로 넘기겠음!!
+        },
+        dataType:'text', //생략가능(클라이언트 <--- 서버)
+        data:JSON.stringify({ //클라이언트 ---> 서버
+                           //JSON.stringify()함수 : JSON변환 함수
+			group_ch:group_ch,
+			group_no:group_no
+        }),
+        success:function(result){ //요청 성공시 콜백함수
+           if(result==='SUCCESS') //=== : 자료형 먼저 검사, 자료형 같을 때 내용비교, 다르면 false ex) if(1==='1') --> false
+                              //== : 형변화 후 내용 같을 때 검사
+        	   alert("문의 내역이 수정되었습니다.");
+        }
+     });
+});
 $('.detail2').click(function(){
 			var group_no = $(this).attr("id");
 			alert(group_no);
@@ -56,6 +81,8 @@ $('.detail2').click(function(){
 				}
 			}); 
 		});
+
+
 </script>
 </HEAD>
 <BODY>
@@ -112,20 +139,20 @@ $('.detail2').click(function(){
 						<li>
 						<c:choose>
 						<c:when test="${group.group_ch eq 'T' }">
-						<select>
-							<option selected="selected">승인</option>
-							<option>비승인</option>
+						<select id="select${group.group_no}">
+							<option value="T" selected="selected">승인</option>
+							<option value="F">비승인</option>
 						</select>
 						</c:when>
 						<c:otherwise>
-						<select>
-							<option>승인</option>
-							<option selected="selected">비승인</option>
+						<select id="select${group.group_no }">
+							<option value="T">승인</option>
+							<option value="F" selected="selected">비승인</option>
 						</select>
 						</c:otherwise>
 						</c:choose>
 						</li>
-						<li>수정</li>
+						<li class="update" id="${group.group_no }"  >수정</li>
 						<li class="detail2" id="${group.group_no }">상세보기</li>
 					</ul>
 				</div>
