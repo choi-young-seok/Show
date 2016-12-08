@@ -14,7 +14,7 @@ public class GroupVO {
 	private String group_end;
 	private String group_files;
 	private String group_delete_ch;
-	
+
 	public GroupVO() {
 	}
 

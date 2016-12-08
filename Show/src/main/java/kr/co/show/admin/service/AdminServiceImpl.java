@@ -44,6 +44,12 @@ public class AdminServiceImpl implements AdminService {
 		return dao.detail2(group_no);
 	}
 
+	@Override
+	public void update(GroupVO vo) throws Exception {
+		dao.update(vo);
+		
+	}
+
 
 
 }

@@ -48,12 +48,12 @@ public class AdminController {
 	
 	@RequestMapping("/shop")
 	public String admin_shop(Model model) throws Exception{
-		System.out.println("ddd");
+
 		List<GroupVO> list2 = service.groupList();
-		System.out.println("dd D"+list2.size());
 		model.addAttribute("list2",list2);
 		return"/admin/shop";
 	}
+
 	
 	@RequestMapping("/test")
 	public String test(){
@@ -68,4 +68,5 @@ public class AdminController {
 		attr.addFlashAttribute("msg", "SUCCESS");
 		return "redirect:/admin/member";
 	}
+	
 }
