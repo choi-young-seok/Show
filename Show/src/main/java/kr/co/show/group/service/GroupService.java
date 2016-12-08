@@ -29,7 +29,9 @@ public interface GroupService {
 	public int reviewDelete(int review_no) throws Exception;
 	public List<GroupVO> stats_selectName(int member_no) throws Exception;
 	public List<OrderMenuVO> stats_daySell(OrderMenuVO order) throws Exception;
+	public List<OrderMenuVO> stats_dayMenuSell(OrderMenuVO order) throws Exception;
 	public List<OrderMenuVO> stats_monthSell(OrderMenuVO order) throws Exception;
+	public List<OrderMenuVO> stats_monthMenuSell(OrderMenuVO order) throws Exception;
 	//내가 작성한 거 (Fe)
 	public List<NoVO> groupName(int member_no) throws Exception;
 	public List<OrderMenuVO> orderList(Map map) throws Exception;

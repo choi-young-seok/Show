@@ -86,11 +86,11 @@
 		
 		$('.show_btn1').click(function(){
 			var group_no = $('#group_name_select').val();
-			var reservation_month = $('.month').val();
+			var reservation_month = $('.month1').val();
 			if(reservation_month < 10){
 				reservation_month = "0" + reservation_month;
 			}
-			var reservation_time = $('.year').val()+ reservation_month;
+			var reservation_time = $('.year1').val()+ reservation_month;
 			$.ajax({
 				url:'/show/stats_daySell',
 				data:{"group_no":group_no, "reservation_time":reservation_time},
@@ -108,10 +108,34 @@
 			});
 		});
 		
-		/* $('.show_btn2').click(function(){
+		$('.show_btn2').click(function(){
 			var group_no = $('#group_name_select').val();
-			var reservation_year = $('.year').val();
-		}); */
+			var reservation_month = $('.month2').val();
+			var reservation_day = $('.day2').val();
+				if(reservation_month < 10){
+					reservation_month = "0" + reservation_month;
+				}
+				if(reservation_day < 10){
+					reservation_day = "0" + reservation_day;
+				}
+			var reservation_time = $('.year2').val() + reservation_month + reservation_day;
+			$.ajax({
+				url:'/show/stats_dayMenuSell',
+				data:{"group_no":group_no, "reservation_time":reservation_time},
+				success : function(data) {
+					var a = document.getElementById("dayMenuSell");
+					$('#dayMenuSell').empty();
+					data.forEach(function(vo, i) {
+						a.innerHTML = a.innerHTML + '<div class="stats_day_menu_list">'+
+					'<div class="list_score">'+i+'</div>'+
+					'<div class="list_day">'+vo.menu_name+'</div>'+
+					'<div class="all_pay">'+vo.menu_price+'</div>'+
+					'<div class="all_count">'+vo.menu_count+'</div>'
+					+'</div>';
+					});
+				}
+			});
+		});
 		
 		$('.stats_month').click(function(){
 			var group_no = $('#group_name_select').val();
@@ -134,6 +158,33 @@
 				}
 			});
 		});
+		
+		$('.show_btn3').click(function(){
+			var group_no = $('#group_name_select').val();
+			var reservation_month = $('.month3').val();
+			var reservation_day = $('.day3').val();
+				if(reservation_month < 10){
+					reservation_month = "0" + reservation_month;
+				}
+			var reservation_time = $('.year3').val() + reservation_month;
+			$.ajax({
+				url:'/show/stats_monthMenuSell',
+				data:{"group_no":group_no, "reservation_time":reservation_time},
+				success : function(data) {
+					var a = document.getElementById("monthMenuSell");
+					$('#monthMenuSell').empty();
+					data.forEach(function(vo, i) {
+						a.innerHTML = a.innerHTML + '<div class="stats_month_menu_list">'+
+					'<div class="list_score">'+i+'</div>'+
+					'<div class="list_day">'+vo.menu_name+'</div>'+
+					'<div class="all_pay">'+vo.menu_price+'</div>'+
+					'<div class="all_count">'+vo.menu_count+'</div>'
+					+'</div>';
+					});
+				}
+			});
+		});
+		
 	});
 </script>
 <TITLE> 통계 관리 </TITLE>
@@ -164,15 +215,15 @@
 		<div class="stats_menu_box">
 			<div class="day_ym">
 				<p>날짜선택</p>
-				<select class="year">
-					<option class="year_text">년도
+				<select class="year1">
+					<option class="year_text1">년도
 					</option>
 						<%for (int i=2016; i < 2100 ;i++ ){%>
 							<option value="<%=i%>"><%=i%>년</option>
 						<%} %>
 				</select>
-				<select class="month">
-					<option class="month_text">월</option>
+				<select class="month1">
+					<option class="month_text1">월</option>
 						<%for (int i=1; i < 13 ;i++ ){%>
 							<option value="<%=i%>"><%=i%>월</option>
 						<%} %>
@@ -183,21 +234,21 @@
 			<!--익일 종류별 판매량-->
 			<div class="day_choice">
 				<p>날짜선택</p>
-				<select class="year">
-					<option class="year_text">년도
+				<select class="year2">
+					<option class="year_text2">년도
 					</option>
 						<%for (int i=2016; i < 2100 ;i++ ){%>
 							<option value="<%=i%>"><%=i%>년</option>
 						<%} %>
 				</select>
-				<select class="month">
-					<option class="month_text">월</option>
+				<select class="month2">
+					<option class="month_text2">월</option>
 						<%for (int i=1; i < 13 ;i++ ){%>
 							<option value="<%=i%>"><%=i%>월</option>
 						<%} %>
 				</select>
-				<select class="day">
-					<option class="day_text">일</option>
+				<select class="day2">
+					<option class="day_text2">일</option>
 						<%for (int i=1; i < 32 ;i++ ){%>
 							<option value="<%=i%>"><%=i%>일</option>
 						<%} %>
@@ -208,15 +259,15 @@
 			<!--월별 종류별 판매량-->
 			<div class="month_choice">
 				<p>날짜선택</p>
-				<select class="year">
-					<option class="year_text">년도
+				<select class="year3">
+					<option class="year_text3">년도
 					</option>
 						<%for (int i=2016; i < 2100 ;i++ ){%>
 							<option value="<%=i%>"><%=i%>년</option>
 						<%} %>
 				</select>
-				<select class="month">
-					<option class="month_text">월</option>
+				<select class="month3">
+					<option class="month_text3">월</option>
 						<%for (int i=1; i < 13 ;i++ ){%>
 							<option value="<%=i%>"><%=i%>월</option>
 						<%} %>
@@ -246,22 +297,17 @@
 		<!--익일 판매량-->
 		<div id="daySell">
 		</div>
+		
 		<!--익일 메뉴 판매량-->
-		<div class="stats_day_menu_list">
-			<div class="list_score">순번db</div>
-			<div class="list_day">날짜 db</div>
-			<div class="all_pay">총 수입db</div>
-			<div class="all_count">총 판매수량db</div>
+		<div id="dayMenuSell">
 		</div>
+		
 		<!--월별 판매량-->
 		<div id="monthSell">
 		</div>
+		
 		<!--월별 메뉴 판매량-->
-		<div class="stats_month_menu_list">
-			<div class="list_score">순번db</div>
-			<div class="list_day">메뉴 db</div>
-			<div class="all_pay">총 수입db</div>
-			<div class="all_count">총 판매수량db</div>
+		<div id="monthMenuSell">
 		</div>
 		<%-- <footer>
 			<%@include file="../shop_admin/footer.jsp"%>
