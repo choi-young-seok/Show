@@ -28,12 +28,26 @@
 		url : 'mainList',
 		type: 'get',
 		success : function(result){
-			$('#resultView').html(result);
-			alert(result);
-			var link = "";
+			alert(result.length)
+			var list = "";
+			var i = 0;
+			$(result).each(function(){
+				i++;
+				list+="<article>"
+							+"<div class='chapter_1 img_box' style='border: 1px black solid; '>"
+							+"<img src='resources/image/school_search.png'/>"
+							+this.group_name
+							+"<p>"+this.group_name
+							+"</div>"
+
+						+"</article>";
+			});//each
+			$('#resultView').html(list);
+			/* result.forEach(function(){
+				
+			});//each */
 		}//success
 	});	
-
 
 	$(document).ready(function(){
 		$(".detaile_search_view").hide();
@@ -121,25 +135,16 @@
 				<div class="info_text">
 					<p>ON SHOW 사용법</p>
 				</div>
-				<article>
-					<div class="chapter_1 img_box" id="resultView" style="border: 1px black solid; ">
-					</div>
-
-					<div class="chapter_2 img_box" id="resultView" style="border: 1px black solid; ">
-					</div>
-
-					<div class="chapter_3 img_box" id="resultView" style="border: 1px black solid; ">
-					</div>
-				</article>
+				
 					
-				<article>
-					<div class="chapter_1 img_box" id="resultView" style="border: 1px black solid; ">
+				<article id="resultView">
+					<div class="chapter_1 img_box"  style="border: 1px black solid; ">
 					</div>
 					
-					<div class="chapter_2 img_box" id="resultView" style="border: 1px black solid; ">
+					<div class="chapter_2 img_box"  style="border: 1px black solid; ">
 					</div>
 					
-					<div class="chapter_3 img_box" id="resultView" style="border: 1px black solid; ">
+					<div class="chapter_3 img_box"  style="border: 1px black solid; ">
 					</div>
 				</article>
 				<article>

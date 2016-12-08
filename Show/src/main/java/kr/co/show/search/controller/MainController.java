@@ -1,15 +1,9 @@
 package kr.co.show.search.controller;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import javax.inject.Inject;
-import javax.servlet.http.HttpSession;
 
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -24,19 +18,11 @@ public class MainController {
 	private MainService service;
 	
 	@RequestMapping(value = "/mainList", method = RequestMethod.GET)
-	public ResponseEntity<List<GroupVO>> mainList(HttpSession session){
+	public List<GroupVO> mainList(){
 		
-		ResponseEntity<List<GroupVO>> entity = null;
-		
-		try {
 			List<GroupVO> mainList = service.mainList();
-			entity = new ResponseEntity<>(mainList, HttpStatus.OK);
 			System.out.println(mainList.toString());
-		} catch (Exception e) {
-			e.printStackTrace();
-			entity = new ResponseEntity<>(HttpStatus.BAD_REQUEST);
-		}
-		return entity;
+		return mainList;
 	}
 	
 }
