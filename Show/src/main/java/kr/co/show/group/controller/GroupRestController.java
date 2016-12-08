@@ -108,16 +108,32 @@ public class GroupRestController {
 		order.setOwner_ch("완료");
 		List<OrderMenuVO> sell_list = service.stats_daySell(order);
 		model.addAttribute("sell_list",sell_list);
+		System.out.println(sell_list.size());
 		return sell_list;
+	}
+	
+	@RequestMapping("/stats_dayMenuSell")
+	public List<OrderMenuVO> stats_dayMenuSell(OrderMenuVO order, Model model) throws Exception{
+		order.setOwner_ch("완료");
+		List<OrderMenuVO> sell_list1 = service.stats_dayMenuSell(order);
+		model.addAttribute("sell_list1",sell_list1);
+		return sell_list1;
 	}
 	
 	@RequestMapping("/stats_monthSell")
 	public List<OrderMenuVO> stats_monthSell(OrderMenuVO order, Model model) throws Exception{
-		System.out.println("dddd");
 		order.setOwner_ch("완료");
-		List<OrderMenuVO> sell_list1 = service.stats_monthSell(order);
-		model.addAttribute("sell_list1",sell_list1);
-		return sell_list1;
+		List<OrderMenuVO> sell_list2 = service.stats_monthSell(order);
+		model.addAttribute("sell_list2",sell_list2);
+		return sell_list2;
+	}
+	
+	@RequestMapping("/stats_monthMenuSell")
+	public List<OrderMenuVO> stats_monthMenuSell(OrderMenuVO order, Model model) throws Exception{
+		order.setOwner_ch("완료");
+		List<OrderMenuVO> sell_list3 = service.stats_monthMenuSell(order);
+		model.addAttribute("sell_list3",sell_list3);
+		return sell_list3;
 	}
 	
 	@RequestMapping("/new_order")

@@ -115,6 +115,14 @@
 		group by reservation_time
 	</select>
 	
+	<select id="stats_dayMenuSell" resultType="kr.co.show.group.domain.OrderMenuVO">
+		select menu_name,sum(menu_count) menu_count,sum(menu_count)*sum(menu_price) menu_price
+		from show_menu_check a, show_order b
+		where a.order_no = b. order_no and TO_char(to_date(#{reservation_time},'yyyymmdd'),'YYYYMMdd') = TO_char(reservation_time,'YYYYMMdd')
+				and b.group_no = #{group_no} and b.owner_ch=#{owner_ch} and order_ch = 'T'
+		group by menu_name
+	</select>
+	
 	<select id="stats_monthSell" resultType="kr.co.show.group.domain.OrderMenuVO">
 		select reservation_time,sum(order_price) as order_price from (select to_char(RESERVATION_TIME,'yyyy-mm') as reservation_time , ORDER_PRICE 
 		FROM SHOW_ORDER 
@@ -124,6 +132,14 @@
 		and order_ch = 'T' and owner_ch=#{owner_ch})
 		group by reservation_time
 	</select>
+	
+	<select id="stats_monthMenuSell" resultType="kr.co.show.group.domain.OrderMenuVO">
+		select menu_name,sum(menu_count) menu_count,sum(menu_count)*sum(menu_price) menu_price
+		from show_menu_check a, show_order b
+		where a.order_no = b. order_no and TO_char(to_date(#{reservation_time},'yyyymm'),'YYYYMM') = TO_char(reservation_time,'YYYYMM')
+				and b.group_no = #{group_no} and b.owner_ch=#{owner_ch} and order_ch = 'T'
+		group by menu_name
+	</select> 
 	
 	<!-- 내가 작성한거 (Fe) -->
 	<select id="group_name" resultType="kr.co.show.group.domain.NoVO">

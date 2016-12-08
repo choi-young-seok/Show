@@ -121,8 +121,18 @@ public class GroupServiceImpl implements GroupService{
 	}
 	
 	@Override
+	public List<OrderMenuVO> stats_dayMenuSell(OrderMenuVO order) throws Exception {
+		return dao.stats_dayMenuSell(order);
+	}
+	
+	@Override
 	public List<OrderMenuVO> stats_monthSell(OrderMenuVO order) throws Exception {
 		return dao.stats_monthSell(order);
+	}
+	
+	@Override
+	public List<OrderMenuVO> stats_monthMenuSell(OrderMenuVO order) throws Exception {
+		return dao.stats_monthMenuSell(order);
 	}
 
 	@Override

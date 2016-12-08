@@ -137,8 +137,18 @@ public class GroupDAOImpl implements GroupDAO{
 	}
 	
 	@Override
+	public List<OrderMenuVO> stats_dayMenuSell(OrderMenuVO order) throws Exception {
+		return sqlSession.selectList("group.stats_dayMenuSell", order);
+	}
+	
+	@Override
 	public List<OrderMenuVO> stats_monthSell(OrderMenuVO order) throws Exception {
 		return sqlSession.selectList("group.stats_monthSell", order);
+	}
+	
+	@Override
+	public List<OrderMenuVO> stats_monthMenuSell(OrderMenuVO order) throws Exception {
+		return sqlSession.selectList("group.stats_monthMenuSell", order);
 	}
 	
 	//====================내가 작성한 거 (Fe)======================
