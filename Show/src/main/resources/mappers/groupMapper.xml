@@ -116,4 +116,11 @@
 		where group_no = #{group_no} and member_no = #{member_no}
 	</select>
 	
+	<select id="menu_check" resultType="kr.co.show.group.domain.MenuCheckVO">
+		select *
+		from show_menu_check
+		where group_no = #{group_no} and member_no = #{member_no} and order_no = #{order_no}
+	</select>
+	
+	
 </mapper>

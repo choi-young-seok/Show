@@ -50,9 +50,9 @@
 			});
 		});
 		
-		$(".choice_left").change(function(){
+	$(".choice_left").change(function(){
 		if($('.new_order')){
-			alert('신규');
+			$('#new').empty();
 			var group_no =  $(this).val();		
 			$.ajax({
 				url : '/show/new_order',
@@ -61,9 +61,10 @@
 					"group_no" : group_no,
 					"member_no" : <%=session.getAttribute("id")%>
 				},
-				success : function(new_list){
+				success : function(omvo){
+					
 					var a = document.getElementById("new");
-					new_list.forEach(function(vo, i) { //items와 index다.
+					omvo.forEach(function(vo, i) { //items와 index다.
 						
 						a.innerHTML = a.innerHTML+'<div class="new_order_list">'+
 							'<div class="order_left order_choice">'+
@@ -78,14 +79,12 @@
 							'<div class="order_left user_phone">'+
 								'<p>'+vo.order_phone+'</p>'+
 							'</div>'+
-							'<div class="order_left order_menu">'+
+							'<div class="order_left order_menu" id="m_n'+vo.order_no+'">'+
 							'</div>'+
-							'<div class="order_left order_pay">'+
-								'<p>메뉴당 금액 for</p>'+
-								'<p>이것도 마진만</p>'+
+							'<div class="order_left order_pay" id="m_p'+vo.order_no+'">'+
 							'</div>'+
 							'<div class="order_left order_all_pay">'+
-								'<p>총 걀제 금액 합친거</p>'+
+							'<p>총</p>'+
 							'</div>'+
 							'<div class="order_left order_check">'+
 								'<div>'+
@@ -99,6 +98,39 @@
 								'</div>'+
 							'</div>'+
 						'</div>';
+						
+						$.ajax({
+							url : '/show/menu_name',
+							type: "POST",
+							data: {
+								"group_no" : group_no,
+								"member_no" : <%=session.getAttribute("id")%>,
+								"order_no" : vo.order_no
+							},
+							success : function(name){
+								var b = document.getElementById("m_n"+vo.order_no);
+								name.forEach(function(elt, i) {
+									b.innerHTML = b.innerHTML + '<br><p>'+elt.menu_name+'</p>';
+								})
+							}
+						});
+
+							$.ajax({
+								url : '/show/menu_name',
+								type: "POST",
+								data: {
+									"group_no" : group_no,
+									"member_no" : <%=session.getAttribute("id")%>,
+									"order_no" : vo.order_no
+								},
+								success : function(price){
+									var c = document.getElementById("m_p"+vo.order_no);
+									price.forEach(function(elt, i) {
+										c.innerHTML = c.innerHTML + '<p>'+elt.menu_count+'개</p>';
+									})
+								}
+							});
+						
 					});
 				}
 			});
@@ -108,7 +140,7 @@
 		var check = $(this).parent().children().eq(1).val();
 		
 		if(check === '대기'){
-			$.ajax({
+			/* $.ajax({
 				url:'',
 				type: "POST",
 				header: {"Content-Type" : "application/json",
@@ -120,13 +152,16 @@
 				success(function(result){
 					
 				});
-			});
+			}); */
 		}
 		if(check === '완료'){
 			alert('완료');
 		}
 		
 	});
+	function menu_list(group_no, member_no, order_no){
+		
+	}
 });
 </script>
 <TITLE> 주문관리 </TITLE>
@@ -158,7 +193,7 @@
 				<li>주문자명</li>
 				<li>주문자번호</li>
 				<li>신청메뉴</li>
-				<li>금액</li>
+				<li>수량</li>
 				<li>총 결제 금액</li>
 				<li>주문상태</li>
 			</ul>
@@ -174,6 +209,8 @@
 <!-- 대기 컬럼 -->
 
 		<div id="end"></div>
+		
+		
 		
 		<%-- <footer>
 			<%@include file="../shop_admin/footer.jsp"%>

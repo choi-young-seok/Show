@@ -1,39 +1,31 @@
 package kr.co.show.group.domain;
 
-import java.sql.Date;
 import java.util.List;
 
-public class OrderVO {
+public class OrderMenuVO {
 	private int order_no;
 	private int member_no;
 	private int group_no;
 	
 	private String order_name;
 	private String order_phone;
-	
-	private Date order_time;
-	private Date reservation_time;
-	
-	private String order_price;
-	private String order_count;
-	
-	private String order_ask;
-	private String order_ask2;
-	
-	private String order_ch;
+	private String order_time;
+	private String reservation_time;
+	private int order_price;
+	private int order_count;
+	private int order_ask;
+	private int order_ask2;
+	private int order_ch;
 	private String owner_ch;
-	
 	private String order_refund;
 	
+	//-----------------여기서부터 menu_check-------------------
+	
+	private String menu_name;
+	private int menu_count;
+	private int menu_price;
+	
 	List<MenuCheckVO> mcvo;
-
-	public List<MenuCheckVO> getMcvo() {
-		return mcvo;
-	}
-
-	public void setMcvo(List<MenuCheckVO> mcvo) {
-		this.mcvo = mcvo;
-	}
 
 	public int getOrder_no() {
 		return order_no;
@@ -75,59 +67,59 @@ public class OrderVO {
 		this.order_phone = order_phone;
 	}
 
-	public Date getOrder_time() {
+	public String getOrder_time() {
 		return order_time;
 	}
 
-	public void setOrder_time(Date order_time) {
+	public void setOrder_time(String order_time) {
 		this.order_time = order_time;
 	}
 
-	public Date getReservation_time() {
+	public String getReservation_time() {
 		return reservation_time;
 	}
 
-	public void setReservation_time(Date reservation_time) {
+	public void setReservation_time(String reservation_time) {
 		this.reservation_time = reservation_time;
 	}
 
-	public String getOrder_price() {
+	public int getOrder_price() {
 		return order_price;
 	}
 
-	public void setOrder_price(String order_price) {
+	public void setOrder_price(int order_price) {
 		this.order_price = order_price;
 	}
 
-	public String getOrder_count() {
+	public int getOrder_count() {
 		return order_count;
 	}
 
-	public void setOrder_count(String order_count) {
+	public void setOrder_count(int order_count) {
 		this.order_count = order_count;
 	}
 
-	public String getOrder_ask() {
+	public int getOrder_ask() {
 		return order_ask;
 	}
 
-	public void setOrder_ask(String order_ask) {
+	public void setOrder_ask(int order_ask) {
 		this.order_ask = order_ask;
 	}
 
-	public String getOrder_ask2() {
+	public int getOrder_ask2() {
 		return order_ask2;
 	}
 
-	public void setOrder_ask2(String order_ask2) {
+	public void setOrder_ask2(int order_ask2) {
 		this.order_ask2 = order_ask2;
 	}
 
-	public String getOrder_ch() {
+	public int getOrder_ch() {
 		return order_ch;
 	}
 
-	public void setOrder_ch(String order_ch) {
+	public void setOrder_ch(int order_ch) {
 		this.order_ch = order_ch;
 	}
 
@@ -146,4 +138,38 @@ public class OrderVO {
 	public void setOrder_refund(String order_refund) {
 		this.order_refund = order_refund;
 	}
+
+	public String getMenu_name() {
+		return menu_name;
+	}
+
+	public void setMenu_name(String menu_name) {
+		this.menu_name = menu_name;
+	}
+
+	public int getMenu_count() {
+		return menu_count;
+	}
+
+	public void setMenu_count(int menu_count) {
+		this.menu_count = menu_count;
+	}
+
+	public int getMenu_price() {
+		return menu_price;
+	}
+
+	public void setMenu_price(int menu_price) {
+		this.menu_price = menu_price;
+	}
+
+	public List<MenuCheckVO> getMcvo() {
+		return mcvo;
+	}
+
+	public void setMcvo(List<MenuCheckVO> mcvo) {
+		this.mcvo = mcvo;
+	}
+
+	
 }
