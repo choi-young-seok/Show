@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 import kr.co.show.group.domain.GroupVO;
+import kr.co.show.group.domain.MenuCheckVO;
 import kr.co.show.group.domain.MenuManageVO;
 import kr.co.show.group.domain.MenuVO;
 import kr.co.show.group.domain.NoVO;
@@ -32,4 +33,5 @@ public interface GroupDAO {
 	public List<NoVO> groupName(int member_no) throws Exception;
 	public List<OrderVO> orderList(Map map) throws Exception;
 	public List<MenuVO> recentMenu() throws Exception;
+	public List<MenuCheckVO> menuCheck(Map map) throws Exception;
 }

@@ -1,5 +1,6 @@
 package kr.co.show.group.controller;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -7,14 +8,15 @@ import java.util.Map;
 import javax.inject.Inject;
 import javax.servlet.http.HttpSession;
 
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import kr.co.show.group.domain.GroupVO;
+import kr.co.show.group.domain.MenuCheckVO;
 import kr.co.show.group.domain.MenuManageVO;
+import kr.co.show.group.domain.OrderMenuVO;
 import kr.co.show.group.domain.OrderVO;
 import kr.co.show.group.service.GroupService;
 
@@ -102,15 +104,52 @@ public class GroupRestController {
 	}
 	
 	@RequestMapping("/new_order")
-	public String new_order(int group_no, int member_no, Model model) throws Exception{
+	public List<OrderMenuVO> new_order(int group_no, int member_no) throws Exception{
 		Map map = new HashMap();
+		List<Integer> order_no = new ArrayList<Integer>();
 		map.put("group_no", group_no);
 		map.put("member_no", member_no);
 		
-		List<OrderVO> new_list = service.orderList(map);
-		model.addAttribute("new_list", new_list);
+		List<OrderVO> new_list = service.orderList(map); //여기서 주문번호를 가지고 옴
+		List<OrderMenuVO> omvo = new ArrayList<OrderMenuVO>();
 		
-		return "OK";
+		for (int i = 0; i < new_list.size(); i++) {
+			OrderVO vo = new_list.get(i);
+			int no = vo.getOrder_no();
+			map.put("order_no", no); //주문번호를 가져와 db에 넣는 게 목적
+			
+			
+			OrderMenuVO om = new OrderMenuVO();
+			
+			om.setMcvo(service.menuCheck(map));
+			om.setOrder_name(vo.getOrder_name());
+			om.setOrder_no(vo.getOrder_no());
+			om.setOrder_phone(vo.getOrder_phone());
+			om.setOwner_ch(vo.getOwner_ch());
+			
+			
+			omvo.add(i, om);
+
+		} //주문번호 다 가지고 옴.
+		
+		return omvo;
+	}
+	
+	@RequestMapping("/menu_name")
+	public List<MenuCheckVO> menu_name(Map map, int member_no, int group_no, int order_no) throws Exception{
+		List<MenuCheckVO> name = new ArrayList<MenuCheckVO>();
+		
+		System.out.println("member_no : "+member_no);
+		System.out.println("group_no : "+group_no);
+		System.out.println("order_no : "+order_no);
+		
+		map.put("member_no", member_no);
+		map.put("group_no", group_no);
+		map.put("order_no", order_no);
+		
+		name = service.menuCheck(map);
+		
+		return name;
 	}
 
 }

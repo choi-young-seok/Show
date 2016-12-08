@@ -9,6 +9,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
 import kr.co.show.group.domain.GroupVO;
+import kr.co.show.group.domain.MenuCheckVO;
 import kr.co.show.group.domain.MenuManageVO;
 import kr.co.show.group.domain.MenuVO;
 import kr.co.show.group.domain.NoVO;
@@ -139,5 +140,10 @@ public class GroupDAOImpl implements GroupDAO{
 	@Override
 	public List<MenuVO> recentMenu() throws Exception {
 		return null;
+	}
+
+	@Override
+	public List<MenuCheckVO> menuCheck(Map map) throws Exception {
+		return sqlSession.selectList("group.menu_check", map);
 	}
 }

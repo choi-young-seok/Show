@@ -1,6 +1,7 @@
 package kr.co.show.group.domain;
 
 import java.sql.Date;
+import java.util.List;
 
 public class OrderVO {
 	private int order_no;
@@ -23,6 +24,16 @@ public class OrderVO {
 	private String owner_ch;
 	
 	private String order_refund;
+	
+	List<MenuCheckVO> mcvo;
+
+	public List<MenuCheckVO> getMcvo() {
+		return mcvo;
+	}
+
+	public void setMcvo(List<MenuCheckVO> mcvo) {
+		this.mcvo = mcvo;
+	}
 
 	public int getOrder_no() {
 		return order_no;

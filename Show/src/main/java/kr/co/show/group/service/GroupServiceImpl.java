@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import kr.co.show.group.domain.GroupVO;
+import kr.co.show.group.domain.MenuCheckVO;
 import kr.co.show.group.domain.MenuManageVO;
 import kr.co.show.group.domain.NoVO;
 import kr.co.show.group.domain.OrderVO;
@@ -117,5 +118,10 @@ public class GroupServiceImpl implements GroupService{
 	@Override
 	public List<OrderVO> orderList(Map map) throws Exception {
 		return dao.orderList(map);
+	}
+
+	@Override
+	public List<MenuCheckVO> menuCheck(Map map) throws Exception {
+		return dao.menuCheck(map);
 	}
 }

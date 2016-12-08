@@ -1,6 +1,7 @@
 package kr.co.show.group.controller;
 
 import java.util.List;
+import java.util.Map;
 
 import javax.inject.Inject;
 
@@ -9,8 +10,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import kr.co.show.group.domain.GroupVO;
 import kr.co.show.group.domain.MenuManageVO;
 import kr.co.show.group.domain.NoVO;
+import kr.co.show.group.domain.OrderVO;
 import kr.co.show.group.service.GroupService;
 
 @Controller
@@ -88,19 +91,18 @@ public class GroupController {
 		return "shop_admin/review_list";
 	}
 	
+	@RequestMapping("/stats_selectName")
+	public String stats_selectName(int member_no, Model model) throws Exception{
+		List<GroupVO> name_list = service.stats_selectName(member_no);
+		model.addAttribute("name_list", name_list);
+		return "shop_admin/shop_stats";
+	}
+	
 	@RequestMapping("/order_check")
 	public String orderCheck(Model model, int member_no) throws Exception{
 		List<NoVO> name_list = service.groupName(member_no);
 		model.addAttribute("name_list", name_list);
 		return "shop_admin/shop_order_check";
-	}
-	
-	@RequestMapping("/stats")
-	public String stats(){
-		/*List<String> name_list = service.groupName();
-		model.addAttribute("name_list", name_list);
-		*/
-		return "shop_admin/shop_stats";
 	}
 	
 }
