@@ -12,7 +12,7 @@ public class OrderVO {
 	private String order_phone;
 	
 	private Date order_time;
-	private Date reservation_time;
+	private String reservation_time;
 	
 	private String order_price;
 	private String order_count;
@@ -82,12 +82,12 @@ public class OrderVO {
 	public void setOrder_time(Date order_time) {
 		this.order_time = order_time;
 	}
-
-	public Date getReservation_time() {
+	
+	public String getReservation_time() {
 		return reservation_time;
 	}
 
-	public void setReservation_time(Date reservation_time) {
+	public void setReservation_time(String reservation_time) {
 		this.reservation_time = reservation_time;
 	}
 
