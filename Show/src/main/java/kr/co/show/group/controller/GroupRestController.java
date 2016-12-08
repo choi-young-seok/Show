@@ -18,7 +18,6 @@ import kr.co.show.group.domain.GroupVO;
 import kr.co.show.group.domain.MenuCheckVO;
 import kr.co.show.group.domain.MenuManageVO;
 import kr.co.show.group.domain.OrderMenuVO;
-import kr.co.show.group.domain.OrderVO;
 import kr.co.show.group.service.GroupService;
 
 @RestController
@@ -105,18 +104,18 @@ public class GroupRestController {
 	}
 	
 	@RequestMapping("/stats_daySell")
-	public List<OrderVO> stats_daySell(OrderVO order, Model model) throws Exception{
+	public List<OrderMenuVO> stats_daySell(OrderMenuVO order, Model model) throws Exception{
 		order.setOwner_ch("완료");
-		List<OrderVO> sell_list = service.stats_daySell(order);
+		List<OrderMenuVO> sell_list = service.stats_daySell(order);
 		model.addAttribute("sell_list",sell_list);
 		return sell_list;
 	}
 	
 	@RequestMapping("/stats_monthSell")
-	public List<OrderVO> stats_monthSell(OrderVO order, Model model) throws Exception{
+	public List<OrderMenuVO> stats_monthSell(OrderMenuVO order, Model model) throws Exception{
 		System.out.println("dddd");
 		order.setOwner_ch("완료");
-		List<OrderVO> sell_list1 = service.stats_monthSell(order);
+		List<OrderMenuVO> sell_list1 = service.stats_monthSell(order);
 		model.addAttribute("sell_list1",sell_list1);
 		return sell_list1;
 	}
@@ -128,11 +127,11 @@ public class GroupRestController {
 		map.put("group_no", group_no);
 		map.put("member_no", member_no);
 		
-		List<OrderVO> new_list = service.orderList(map); //여기서 주문번호를 가지고 옴
+		List<OrderMenuVO> new_list = service.orderList(map); //여기서 주문번호를 가지고 옴
 		List<OrderMenuVO> omvo = new ArrayList<OrderMenuVO>();
 		
 		for (int i = 0; i < new_list.size(); i++) {
-			OrderVO vo = new_list.get(i);
+			OrderMenuVO vo = new_list.get(i);
 			int no = vo.getOrder_no();
 			map.put("order_no", no); //주문번호를 가져와 db에 넣는 게 목적
 			

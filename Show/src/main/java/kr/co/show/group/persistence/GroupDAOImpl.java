@@ -13,7 +13,7 @@ import kr.co.show.group.domain.MenuCheckVO;
 import kr.co.show.group.domain.MenuManageVO;
 import kr.co.show.group.domain.MenuVO;
 import kr.co.show.group.domain.NoVO;
-import kr.co.show.group.domain.OrderVO;
+import kr.co.show.group.domain.OrderMenuVO;
 import kr.co.show.group.domain.ReviewManageVO;
 
 @Repository
@@ -132,12 +132,12 @@ public class GroupDAOImpl implements GroupDAO{
 	}
 	
 	@Override
-	public List<OrderVO> stats_daySell(OrderVO order) throws Exception {
+	public List<OrderMenuVO> stats_daySell(OrderMenuVO order) throws Exception {
 		return sqlSession.selectList("group.stats_daySell", order);
 	}
 	
 	@Override
-	public List<OrderVO> stats_monthSell(OrderVO order) throws Exception {
+	public List<OrderMenuVO> stats_monthSell(OrderMenuVO order) throws Exception {
 		return sqlSession.selectList("group.stats_monthSell", order);
 	}
 	
@@ -148,7 +148,7 @@ public class GroupDAOImpl implements GroupDAO{
 	}
 
 	@Override
-	public List<OrderVO> orderList(Map map) throws Exception {
+	public List<OrderMenuVO> orderList(Map map) throws Exception {
 		return sqlSession.selectList("group.order_list", map);
 	}
 
