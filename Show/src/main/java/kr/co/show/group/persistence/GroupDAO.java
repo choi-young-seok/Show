@@ -29,6 +29,9 @@ public interface GroupDAO {
 	public boolean sideUpdatePost(MenuManageVO menu) throws Exception;
 	public int sideDelete(MenuManageVO menu) throws Exception;
 	public int reviewDelete(int review_no) throws Exception;
+	public List<GroupVO> stats_selectName(int member_no) throws Exception;
+	public List<OrderVO> stats_daySell(OrderVO order) throws Exception;
+	public List<OrderVO> stats_monthSell(OrderVO order) throws Exception;
 	//내가 작성한 거 (Fe)
 	public List<NoVO> groupName(int member_no) throws Exception;
 	public List<OrderVO> orderList(Map map) throws Exception;

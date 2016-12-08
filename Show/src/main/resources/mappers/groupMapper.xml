@@ -99,8 +99,30 @@
 		where review_no=#{review_no}
 	</delete>
 	
-	<select id="stats_selectList" resultType="kr.co.show.group.domain.OrderVO">
-		
+	<select id="stats_selectName" resultType="kr.co.show.group.domain.GroupVO">
+		select group_name, group_no, member_no, group_regdate
+		from show_group
+		where member_no = #{member_no} and group_ch='T'
+	</select>
+	
+	<select id="stats_daySell" resultType="kr.co.show.group.domain.OrderVO">
+		select reservation_time,sum(order_price) as order_price from (select to_char(RESERVATION_TIME,'yyyy-mm') as reservation_time , ORDER_PRICE 
+		FROM SHOW_ORDER 
+		WHERE GROUP_NO=#{group_no}
+		AND ORDER_REFUND='F' 
+		AND TO_char(to_date(#{reservation_time},'yyyymm'),'YYYYMM') = TO_char(reservation_time,'YYYYMM') 
+		and order_ch = 'T' and owner_ch=#{owner_ch})
+		group by reservation_time
+	</select>
+	
+	<select id="stats_monthSell" resultType="kr.co.show.group.domain.OrderVO">
+		select reservation_time,sum(order_price) as order_price from (select to_char(RESERVATION_TIME,'yyyy-mm') as reservation_time , ORDER_PRICE 
+		FROM SHOW_ORDER 
+		WHERE GROUP_NO=#{group_no}
+		AND ORDER_REFUND='F' 
+		AND TO_char(to_date(#{reservation_time},'yyyy'),'YYYY') = TO_char(reservation_time,'YYYY') 
+		and order_ch = 'T' and owner_ch=#{owner_ch})
+		group by reservation_time
 	</select>
 	
 	<!-- 내가 작성한거 (Fe) -->

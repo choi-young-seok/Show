@@ -126,6 +126,21 @@ public class GroupDAOImpl implements GroupDAO{
 		return reviewDelete;
 	}
 	
+	@Override
+	public List<GroupVO> stats_selectName(int member_no) throws Exception {
+		return sqlSession.selectList("group.stats_selectName", member_no);
+	}
+	
+	@Override
+	public List<OrderVO> stats_daySell(OrderVO order) throws Exception {
+		return sqlSession.selectList("group.stats_daySell", order);
+	}
+	
+	@Override
+	public List<OrderVO> stats_monthSell(OrderVO order) throws Exception {
+		return sqlSession.selectList("group.stats_monthSell", order);
+	}
+	
 	//====================내가 작성한 거 (Fe)======================
 	@Override
 	public List<NoVO> groupName(int member_no) throws Exception {

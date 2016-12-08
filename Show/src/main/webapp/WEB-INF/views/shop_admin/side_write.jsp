@@ -29,6 +29,16 @@ $(document).ready(function(){
 				$('.menu_pop').fadeOut(0);
 				$('.menu_pop').empty();
 				list();
+			},
+			error: function(xhr,status){
+				var sidemenu_pay1 = /^\d+$/;
+				if(sidemenu_name == ''){					
+					alert('사이드메뉴명을 입력하세요.');
+				}else if(sidemenu_pay == ''){
+					alert('가격을 입력하세요.');
+				}else if(sidemenu_pay1.test(sidemenu_pay) == false){
+					alert('숫자만 입력하세요.');
+				}
 			}
 		});
 	});

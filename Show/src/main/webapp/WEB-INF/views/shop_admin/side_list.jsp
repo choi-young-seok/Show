@@ -30,32 +30,31 @@ $(document).ready(function(){
 	$('.menu_delete_btn_a').click(function(){
 		var menu_no = $("#menu_no1").val();
 		var sidemenu_no = $(this).attr('id');
+		q = confirm("정말 삭제하시겠습니까?");
+		if(q==true){
 			$.ajax({
 				url:'/show/sideDelete',
 				headers: {"Content-Type": "application/json", "X-HTTP-Method-Override": "DELETE"},
-				type:"DELETE",
 				data:JSON.stringify({"menu_no":menu_no,"sidemenu_no":sidemenu_no}),
 				type:'DELETE',
 				success: function(result){
 					if(result=='OK'){
-						q = confirm("정말 삭제하시겠습니까?");
-						if(q==true){
-							alert("삭제되었습니다.");
+						alert("삭제되었습니다.");
 							$.ajax({
 								url:'/show/side_list',
 								data:{"menu_no":menu_no},
 								success: function(result){
 									$('.menu_pop').empty();
 									$('.menu_pop').append(result);
-								}
-							});
-						}else{
-							alert("취소되었습니다.");
-						}
+								}//success
+							});//ajax
 					}//if
 				}//success
-			});
-		});
+			});//ajax
+		}else{
+			alert("취소되었습니다.");
+		}
+	});
 });
 </script>
 <title>사이드 메뉴 보기</title>

@@ -57,8 +57,11 @@
 		});
 
 		$('.member').click(function(){
+			var id = $("#id").val();
 			$.ajax({
-				url:'/show/stats',
+				url:'/show/stats_selectName',
+				type: "POST",
+				data: {"member_no":id},
 				success: function(data){
 					$('.adminMain').empty();
 					$('.adminMain').append(data);
@@ -66,13 +69,12 @@
 			});
 		});
 
-		$('.shop').click(function(){		
+		$('.shop').click(function(){
+			var id = $("#id").val();
 			$.ajax({
 				url:'/show/order_check',
 				type: "POST",
-				data: {
-					"member_no" : <%=session.getAttribute("id") %>
-				},
+				data: {"member_no" : id},
 				success: function(data){
 					$('.adminMain').empty();
 					$('.adminMain').append(data);

@@ -109,6 +109,21 @@ public class GroupServiceImpl implements GroupService{
 		int reviewDelete = dao.reviewDelete(review_no);
 		return reviewDelete;
 	}
+	
+	@Override
+	public List<GroupVO> stats_selectName(int member_no) throws Exception {
+		return dao.stats_selectName(member_no);
+	}
+	
+	@Override
+	public List<OrderVO> stats_daySell(OrderVO order) throws Exception {
+		return dao.stats_daySell(order);
+	}
+	
+	@Override
+	public List<OrderVO> stats_monthSell(OrderVO order) throws Exception {
+		return dao.stats_monthSell(order);
+	}
 
 	@Override
 	public List<NoVO> groupName(int member_no) throws Exception {

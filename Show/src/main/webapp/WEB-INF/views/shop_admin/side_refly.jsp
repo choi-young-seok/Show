@@ -18,21 +18,32 @@ $(document).ready(function(){
 		var sidemenu_category = $("#cate").val();
 		var sidemenu_name = $("#menu_name").val();
 		var sidemenu_pay = $("#menu_price").val();
-		$.ajax({
-			url:'/show/sideUpdate',
-			headers: {"Content-Type": "application/json", "X-HTTP-Method-Override": "PUT"},
-			type:"PUT",
-			data:JSON.stringify({"menu_no":menu_no,"sidemenu_no":sidemenu_no,
-					"sidemenu_category":sidemenu_category,"sidemenu_name":sidemenu_name,"sidemenu_pay":sidemenu_pay}),
-			success: function(result){
-				if(result == 'OK'){
-					alert('사이드메뉴가 수정되었습니다.');
-					list(menu_no);
-				}else if(result == 'NO'){
-					alert('사이드메뉴가 수정되지 않았습니다.');
+		var sidemenu_pay1 = /^\d+$/;
+			if(sidemenu_category == ''){
+				alert('메뉴분류를 입력해주세요.');
+			}else if(sidemenu_name == ''){
+				alert('메뉴명을 입력해주세요.');
+			}else if(sidemenu_pay == ''){
+				alert('가격을 입력하세요.');
+			}else if(sidemenu_pay1.test(sidemenu_pay) == false){
+				alert('숫자만 입력하세요.');
+			}else{
+			$.ajax({
+				url:'/show/sideUpdate',
+				headers: {"Content-Type": "application/json", "X-HTTP-Method-Override": "PUT"},
+				type:"PUT",
+				data:JSON.stringify({"menu_no":menu_no,"sidemenu_no":sidemenu_no,
+						"sidemenu_category":sidemenu_category,"sidemenu_name":sidemenu_name,"sidemenu_pay":sidemenu_pay}),
+				success: function(result){
+					if(result == 'OK'){
+						alert('사이드메뉴가 수정되었습니다.');
+						list(menu_no);
+					}else if(result == 'NO'){
+						alert('사이드메뉴가 수정되지 않았습니다.');
+					}
 				}
-			}
-		});
+			});
+		}
 	});
 	
 	 function list(menu_no2){

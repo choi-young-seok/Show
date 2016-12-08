@@ -14,6 +14,7 @@ public class GroupVO {
 	private String group_end;
 	private String group_files;
 	private String group_delete_ch;
+	private String group_regdate;
 
 	public GroupVO() {
 	}
@@ -112,6 +113,14 @@ public class GroupVO {
 
 	public void setGroup_delete_ch(String group_delete_ch) {
 		this.group_delete_ch = group_delete_ch;
+	}
+
+	public String getGroup_regdate() {
+		return group_regdate;
+	}
+
+	public void setGroup_regdate(String group_regdate) {
+		this.group_regdate = group_regdate;
 	}
 	
 }

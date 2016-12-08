@@ -8,6 +8,7 @@ import java.util.Map;
 import javax.inject.Inject;
 import javax.servlet.http.HttpSession;
 
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -101,6 +102,23 @@ public class GroupRestController {
 			if(ch==1) result="OK";
 			else result="NO";
 		return result;
+	}
+	
+	@RequestMapping("/stats_daySell")
+	public List<OrderVO> stats_daySell(OrderVO order, Model model) throws Exception{
+		order.setOwner_ch("완료");
+		List<OrderVO> sell_list = service.stats_daySell(order);
+		model.addAttribute("sell_list",sell_list);
+		return sell_list;
+	}
+	
+	@RequestMapping("/stats_monthSell")
+	public List<OrderVO> stats_monthSell(OrderVO order, Model model) throws Exception{
+		System.out.println("dddd");
+		order.setOwner_ch("완료");
+		List<OrderVO> sell_list1 = service.stats_monthSell(order);
+		model.addAttribute("sell_list1",sell_list1);
+		return sell_list1;
 	}
 	
 	@RequestMapping("/new_order")

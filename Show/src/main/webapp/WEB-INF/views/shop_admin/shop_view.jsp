@@ -41,13 +41,13 @@
 		$('.menu_delete_btn').click(function(){
 			var menu_no = $(this).parent().children(":eq(0)").val();
 			var group_no = $('#group_no').val();
-			$.ajax({
-				url:'/show/menuDelete?menu_no='+menu_no,
-				type:'DELETE',
-				success: function(result){
-					if(result=='OK'){
-						q = confirm("정말 삭제하시겠습니까?");
-						if(q==true){
+			q = confirm("정말 삭제하시겠습니까?");
+			if(q==true){
+				$.ajax({
+					url:'/show/menuDelete?menu_no='+menu_no,
+					type:'DELETE',
+					success: function(result){
+						if(result=='OK'){
 							alert("삭제되었습니다.");
 							$.ajax({    		  
 								url:'/show/detailView',
@@ -55,15 +55,14 @@
 								success: function(data){
 									$('.shop_view_box').empty(); 
 									$('.shop_view_box').append(data);
-								}
-							});
-						}else{
-							alert("취소되었습니다.");
-						}
-					}//if
-					
-				}//success
-			});
+								}//success
+							});//ajax
+						}//if
+					}//success
+				});//ajax
+			}else{
+				alert("취소되었습니다.");
+			}
 		});
 		
 		$('.menu_write_btn').click(function(){

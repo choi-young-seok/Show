@@ -34,6 +34,18 @@ $(document).ready(function(){
 				$('.menu_pop').fadeOut(0);
 				$('.menu_pop').empty();
 				list();
+			},
+			error: function(xhr,status){
+				var menu_price1 = /^\d+$/;
+				if(menu_category == ''){
+					alert('메뉴분류를 입력하세요.');
+				}else if(menu_name == ''){					
+					alert('메뉴명을 입력하세요.');
+				}else if(menu_price == ''){
+					alert('가격을 입력하세요.');
+				}else if(menu_price1.test(menu_price) == false){
+					alert('숫자만 입력하세요.');
+				}
 			}
 		});
 	});
