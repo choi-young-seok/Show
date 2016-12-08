@@ -3,7 +3,7 @@ package kr.co.show.group.domain;
 import java.sql.Date;
 import java.util.List;
 
-public class OrderVO {
+public class OrderVO { 
 	private int order_no;
 	private int member_no;
 	private int group_no;
