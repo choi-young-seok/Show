@@ -6,6 +6,7 @@ import java.util.Map;
 import javax.inject.Inject;
 import javax.servlet.http.HttpSession;
 
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -21,7 +22,7 @@ public class JoinRestController {
 	private JoinService service;
 	
 	@RequestMapping("/sign_AX")
-	public @ResponseBody String sign_AX(MemberVO vo, boolean allCheck, boolean emailCheck, boolean smsCheck) throws Exception{
+	public @ResponseBody String sign_AX(@RequestBody MemberVO vo, boolean allCheck, boolean emailCheck, boolean smsCheck) throws Exception{
 		if(emailCheck){
 			vo.setMember_emailck("T");
 		}

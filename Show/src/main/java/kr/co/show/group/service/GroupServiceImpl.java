@@ -12,7 +12,7 @@ import kr.co.show.group.domain.GroupVO;
 import kr.co.show.group.domain.MenuCheckVO;
 import kr.co.show.group.domain.MenuManageVO;
 import kr.co.show.group.domain.NoVO;
-import kr.co.show.group.domain.OrderVO;
+import kr.co.show.group.domain.OrderMenuVO;
 import kr.co.show.group.domain.ReviewManageVO;
 import kr.co.show.group.persistence.GroupDAO;
 
@@ -116,13 +116,23 @@ public class GroupServiceImpl implements GroupService{
 	}
 	
 	@Override
-	public List<OrderVO> stats_daySell(OrderVO order) throws Exception {
+	public List<OrderMenuVO> stats_daySell(OrderMenuVO order) throws Exception {
 		return dao.stats_daySell(order);
 	}
 	
 	@Override
-	public List<OrderVO> stats_monthSell(OrderVO order) throws Exception {
+	public List<OrderMenuVO> stats_dayMenuSell(OrderMenuVO order) throws Exception {
+		return dao.stats_dayMenuSell(order);
+	}
+	
+	@Override
+	public List<OrderMenuVO> stats_monthSell(OrderMenuVO order) throws Exception {
 		return dao.stats_monthSell(order);
+	}
+	
+	@Override
+	public List<OrderMenuVO> stats_monthMenuSell(OrderMenuVO order) throws Exception {
+		return dao.stats_monthMenuSell(order);
 	}
 
 	@Override
@@ -131,7 +141,7 @@ public class GroupServiceImpl implements GroupService{
 	}
 
 	@Override
-	public List<OrderVO> orderList(Map map) throws Exception {
+	public List<OrderMenuVO> orderList(Map map) throws Exception {
 		return dao.orderList(map);
 	}
 
