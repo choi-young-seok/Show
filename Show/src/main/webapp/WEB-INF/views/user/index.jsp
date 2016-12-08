@@ -23,13 +23,17 @@
 <!--<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>-->
 <script src="resources/js/common/jquery-3.0.0.js"></script>
 <script>
-$.ajax({
-	url : 'mainList',
-	type: 'post',
-	success : function(result){
-		$('#resultView').html(result);
-	}//success
-});
+
+	$.ajax({
+		url : 'mainList',
+		type: 'get',
+		success : function(result){
+			$('#resultView').html(result);
+			alert(result);
+			var link = "";
+		}//success
+	});	
+
 
 	$(document).ready(function(){
 		$(".detaile_search_view").hide();
@@ -74,6 +78,10 @@ $.ajax({
 						<% } else if(session.getAttribute("position").equals("20")) { %>
 						<li><a href="adminMain">업체 관리페이지</a></li>
 					<% } %><% } %>
+					<c:if test="${name}">
+					<li><a href="adminMain">${name }</a></li>
+					</c:if>
+					<li><a href="adminMain">${test }</a></li>
 				</ul>
 			</nav>
 		</header>
@@ -114,8 +122,24 @@ $.ajax({
 					<p>ON SHOW 사용법</p>
 				</div>
 				<article>
-					<div class="chapter_1 img_box" id="resultView">
-						
+					<div class="chapter_1 img_box" id="resultView" style="border: 1px black solid; ">
+					</div>
+
+					<div class="chapter_2 img_box" id="resultView" style="border: 1px black solid; ">
+					</div>
+
+					<div class="chapter_3 img_box" id="resultView" style="border: 1px black solid; ">
+					</div>
+				</article>
+					
+				<article>
+					<div class="chapter_1 img_box" id="resultView" style="border: 1px black solid; ">
+					</div>
+					
+					<div class="chapter_2 img_box" id="resultView" style="border: 1px black solid; ">
+					</div>
+					
+					<div class="chapter_3 img_box" id="resultView" style="border: 1px black solid; ">
 					</div>
 				</article>
 				<article>
