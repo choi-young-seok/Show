@@ -38,7 +38,7 @@
 							+"<div class='chapter_1 img_box' style='border: 1px black solid; '>"
 							+"<img src='resources/image/school_search.png'/>"
 							+this.group_name
-							+"<p>"+this.group_name
+							+"<p>"+this.group_name+"</p>"
 							+"<button>주문하기</button>"
 							+"</div>"
 							+"</a>"
