@@ -24,9 +24,37 @@
 	</update>
 	
 	<select id ="list3" resultType="kr.co.show.group.domain.GroupVO">
-		select group_category
+		select distinct(group_category)
 		from show_group
 	</select>
 	
+	<select id="selectC" parameterType="String" resultType="kr.co.show.group.domain.GroupVO">
+		select a.group_address, a.group_name, b.member_name, a.group_no, a.group_ch
+		from show_group a, show_member b
+		where a.member_no = b.member_no and a.group_category =#{group_category}
+	</select>
 	
+	<select id="chList" parameterType="String" resultType="kr.co.show.group.domain.GroupVO">
+		select a.group_address, a.group_name, b.member_name, a.group_no, a.group_ch
+		from show_group a, show_member b
+		where a.member_no = b.member_no and a.group_ch =#{group_ch}
+	</select>
+	
+	<select id="nchList" parameterType="String" resultType="kr.co.show.group.domain.GroupVO">
+		select a.group_address, a.group_name, b.member_name, a.group_no, a.group_ch
+		from show_group a, show_member b
+		where a.member_no = b.member_no and a.group_ch =#{group_ch}
+	</select>
+	
+	<select id="dchList" parameterType="String" resultType="kr.co.show.group.domain.GroupVO">
+		select a.group_address, a.group_name, b.member_name, a.group_no, a.group_ch
+		from show_group a, show_member b
+		where a.member_no = b.member_no and a.group_delete_ch =#{group_delete_ch}
+	</select>
+	
+	<select id="searchList" parameterType="String" resultType="kr.co.show.group.domain.GroupVO">
+		select a.group_address, a.group_name, b.member_name, a.group_no
+		from show_group a, show_member b
+		where a.member_no = b.member_no and a.group_name like '%'||#{group_name}||'%'
+	</select>
 </mapper>

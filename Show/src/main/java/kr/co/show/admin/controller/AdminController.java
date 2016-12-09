@@ -50,6 +50,8 @@ public class AdminController {
 	public String admin_shop(Model model) throws Exception{
 
 		List<GroupVO> list2 = service.groupList();
+		List<GroupVO> list3 = service.categoryList();
+		model.addAttribute("list3",list3);
 		model.addAttribute("list2",list2);
 		return"/admin/shop";
 	}
@@ -61,15 +63,8 @@ public class AdminController {
 	}
 	
 	
-	
-	@RequestMapping("/admin_group_categoryList")
-	public List<GroupVO> categoryList(Model model) throws Exception{
-		List<GroupVO> list3 = service.categoryList();
-		model.addAttribute("list3",list3);
-		
-		return list3;
-	
-	}
 
+	
+	
 	
 }
