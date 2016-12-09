@@ -5,7 +5,7 @@ header{
 	box-sizing:border-box;
 	overflow:hidden;
 	line-height:80px;
-	background-image:url('../image/top_bg.jpg');
+	background-image:url('../resources/image/top_bg.jpg');
 }
 .main_logo{
 	width:300px;

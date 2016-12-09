@@ -38,7 +38,7 @@
 							+"<img src='resources/image/school_search.png'/>"
 							+this.group_name
 							+"<p>"+this.group_name+"</p>"
-							+"<button>주문하기</button>"
+							+"<button class='order_btn' onclick='order("+this.group_no+")'>주문하기</button>"
 							+"</div>"
 							+"</a>"
 
@@ -74,9 +74,22 @@
 			});
 			
 		});
+		
+		
 	});
 	
-
+	function order(group_no){
+		alert(group_no) ;
+		 $.ajax({
+			url : 'order',
+			type: 'get',
+			success : function(result){
+				$('.search').hide();
+				$('.info_img').empty();
+				$('.info_img').append(result);
+			}//success
+		});	
+	};
 	
 	
 	
