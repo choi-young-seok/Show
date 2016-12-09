@@ -43,10 +43,10 @@
 	</beans:bean>
 	
 	<!-- 파일 저장 경로 설정 -->
-	<beans:bean  id="uploadPath" class="java.lang.String">
-		<beans:constructor-arg value="E:\Kosta Project_neon\.metadata\.plugins\org.eclipse.wst.server.core\tmp2\wtpwebapps\SpringBoard\resources\img\thumnail">
+<!-- 	<beans:bean  id="uploadPath" class="java.lang.String">
+		<beans:constructor-arg value="E:\Kosta Project_neon\.metadata\.plugins\org.eclipse.wst.server.core\tmp8\wtpwebapps\Show\resources\img\thumnail">
 		</beans:constructor-arg>
-	</beans:bean>
+	</beans:bean> -->
 	
 	<beans:bean id="loginInterceptor" class="kr.co.show.sign.interceptor.LoginInterceptor"/>
 	<interceptors>

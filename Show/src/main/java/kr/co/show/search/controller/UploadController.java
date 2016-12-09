@@ -27,8 +27,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
-
-
 import kr.co.show.search.service.UploadService;
 import kr.co.show.upload.util.MediaUtils;
 import kr.co.show.upload.util.UploadFileUtils;
@@ -36,15 +34,15 @@ import kr.co.show.upload.util.UploadFileUtils;
 @Controller
 @RequestMapping("/upload2")
 public class UploadController {
- 
+
 	@Inject
 	private UploadService service;
-	
+
 	private static final Logger logger = LoggerFactory.getLogger(UploadController.class);
-	
-	//파일 저장경로 loaclserver로 지정
-	@Resource(name = "uploadPath")
-	private String uploadPath;
+
+	// 파일 저장경로 loaclserver로 지정
+	// @Resource(name = "uploadPath")
+	// private String uploadPath;
 
 	@RequestMapping(value = "/uploadForm", method = RequestMethod.GET)
 	public void uploadForm() {
@@ -82,11 +80,12 @@ public class UploadController {
 		// 중복방지처리 파일 이름
 		System.out.println("Controller UploadForm SaceName : " + savedName);
 
-		//파일 저장
-		//String uploadPath = request.getSession().getServletContext().getRealPath("");
+		// 파일 저장
+		HttpServletRequest request = null;
+		String uploadPath = request.getSession().getServletContext().getRealPath("img/thumbnail");
 		File target = new File(uploadPath, savedName);
 
-		//썸네일 이미지 생성
+		// 썸네일 이미지 생성
 		FileCopyUtils.copy(fileData, target);
 
 		return savedName;
@@ -98,6 +97,8 @@ public class UploadController {
 	public ResponseEntity<String> uploadAjax(MultipartFile file) throws Exception {
 		System.out.println("▶요청 : uploadAjax    --------------------------------");
 		System.out.println("원본 파일 이름 : " + file.getOriginalFilename());
+		HttpServletRequest request = null;
+		String uploadPath = request.getSession().getServletContext().getRealPath("img/thumbnail");
 		System.out.println("파일 저장 경로 resource : " + uploadPath);
 		System.out.println("파일 크기 : " + file.getSize());
 		System.out.println("파일 타입 : " + file.getContentType());
@@ -124,7 +125,8 @@ public class UploadController {
 			// 파일 확장자 추출 후 이미지일 경우 MIME타입 지정
 
 			HttpHeaders headers = new HttpHeaders();
-
+			HttpServletRequest request = null;
+			String uploadPath = request.getSession().getServletContext().getRealPath("img/thumbnail");
 			in = new FileInputStream(uploadPath + fileName);
 
 			if (mType != null) {
@@ -163,9 +165,12 @@ public class UploadController {
 
 			String front = fileName.substring(0, 12);
 			String end = fileName.substring(14);
+			HttpServletRequest request = null;
+			String uploadPath = request.getSession().getServletContext().getRealPath("img/thumbnail");
 			new File(uploadPath + (front + end).replace('/', File.separatorChar)).delete();
 		}
-
+		HttpServletRequest request = null;
+		String uploadPath = request.getSession().getServletContext().getRealPath("img/thumbnail");
 		new File(uploadPath + fileName.replace('/', File.separatorChar)).delete();
 
 		return new ResponseEntity<String>("deleted", HttpStatus.OK);
@@ -185,7 +190,8 @@ public class UploadController {
 			String formatName = fileName.substring(fileName.lastIndexOf(".") + 1);
 
 			MediaType mType = MediaUtils.getMediaType(formatName);
-
+			HttpServletRequest request = null;
+			String uploadPath = request.getSession().getServletContext().getRealPath("img/thumbnail");
 			if (mType != null) {
 
 				String front = fileName.substring(0, 12);
