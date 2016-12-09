@@ -15,17 +15,27 @@ import kr.co.show.group.domain.NoVO;
 import kr.co.show.group.domain.OrderMenuVO;
 import kr.co.show.group.domain.ReviewManageVO;
 import kr.co.show.group.persistence.GroupDAO;
+import kr.co.show.search.persistence.UploadDAO;
 
 @Service
 public class GroupServiceImpl implements GroupService{
 	
 	@Inject
 	private GroupDAO dao;
-
+	@Inject
+	private UploadDAO upDao;
+	
 	@Transactional
 	@Override
 	public void insert(GroupVO group, int member_no) throws Exception {
 		dao.insert(group);
+		String[] files = group.getGroup_files();
+		if(files == null){
+			return;
+		}
+		for(String fileName : files){
+			upDao.addAttach(fileName);
+		}
 		dao.update(member_no);
 	}
 
@@ -121,8 +131,18 @@ public class GroupServiceImpl implements GroupService{
 	}
 	
 	@Override
+	public List<OrderMenuVO> stats_dayMenuSell(OrderMenuVO order) throws Exception {
+		return dao.stats_dayMenuSell(order);
+	}
+	
+	@Override
 	public List<OrderMenuVO> stats_monthSell(OrderMenuVO order) throws Exception {
 		return dao.stats_monthSell(order);
+	}
+	
+	@Override
+	public List<OrderMenuVO> stats_monthMenuSell(OrderMenuVO order) throws Exception {
+		return dao.stats_monthMenuSell(order);
 	}
 
 	@Override
