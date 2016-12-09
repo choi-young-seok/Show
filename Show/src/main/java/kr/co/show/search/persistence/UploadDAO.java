@@ -4,7 +4,7 @@ import java.util.List;
 
 public interface UploadDAO {
 	// 파일 DB등록
-	public void addAttach(String fullName) throws Exception;
+	public void addAttach(String group_files) throws Exception;
 	
 	public List<String> getAttach(Integer group_no) throws Exception;
 }

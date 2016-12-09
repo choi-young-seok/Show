@@ -14,8 +14,8 @@ public class UploadDAOImpl implements UploadDAO{
 	private SqlSession sqlSession;
 
 	@Override
-	public void addAttach(String fullName) throws Exception {
-		sqlSession.insert("board.addAttach", fullName);
+	public void addAttach(String group_files) throws Exception {
+		sqlSession.insert("board.addAttach", group_files);
 	}
 
 	@Override
