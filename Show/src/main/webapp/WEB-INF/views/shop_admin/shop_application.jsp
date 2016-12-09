@@ -18,7 +18,8 @@
 <!-- Ionicons -->
 <link href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet" type="text/css" />
 <!-- x-handlebars -->
-
+<script src="resources/js/upload.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.1/handlebars.js"></script>
 
 <!--JQUERY 영역-->
 <script src="resources/js/common/jquery-3.0.0.js"></script>
@@ -124,7 +125,7 @@
   height: 100px;
   border: 1px dotted gray;
   background-color: lightslategrey;
-  margin: auto;
+  margin: auto;	
   
 }
 </style>
@@ -227,25 +228,15 @@
 				</div>
 				</div>
 				</form>
-				
-				<!-- <div class="application_shop_image">
-					<p class="application_left shop_image left_size">매장로고</p>
-					<input type="file" class="application_left shop_image_input" id="groupFiles"/>
-				</div> -->
-<!-- 				<div class="application_btn">신청하기</div> -->
+
 			</div>
-		<%-- <footer>
-			<%@include file="../shop_admin/footer.jsp"%>
-		</footer> --%>
+
 </BODY>
 </HTML>
 
-<script type="text/javascript" src="/resources/js/upload.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.1/handlebars.js"></script>
-
 <script id="template" type="text/x-handlebars-template">
 <li>
-  <span class="mailbox-attachment-icon has-img"><img src="{{imgsrc}}" alt="Attachment"></span>
+  <span class="mailbox-attachment-icon has-img"><img src="{{imgsrc}}" alt="???"></span>
   <div class="mailbox-attachment-info">
 	<a href="{{getLink}}" class="mailbox-attachment-name">{{fileName}}</a>
 	<a href="{{fullName}}" class="btn btn-default btn-xs pull-right delbtn">
@@ -256,13 +247,11 @@
 </script>    
 
 <script>
-
 var template = Handlebars.compile($("#template").html());
 
 $(".fileDrop").on("dragenter dragover", function(event){
 	event.preventDefault();
 });
-
 
 $(".fileDrop").on("drop", function(event){
 	event.preventDefault();
@@ -274,10 +263,9 @@ $(".fileDrop").on("drop", function(event){
 	var formData = new FormData();
 	
 	formData.append("file", file);	
-	
-	
+
 	$.ajax({
-		  url: '/upload2/uploadAjax',
+		  url: '/show/upload2/uploadAjax',
 		  data: formData,
 		  dataType:'text',
 		  processData: false,
@@ -293,8 +281,6 @@ $(".fileDrop").on("drop", function(event){
 		  }
 		});	
 });
-
-
 $("#registerForm").submit(function(event){
 	event.preventDefault();
 	
@@ -309,7 +295,4 @@ $("#registerForm").submit(function(event){
 
 	that.get(0).submit();
 });
-
-
-
 </script>

@@ -102,7 +102,7 @@ public class UploadController {
 		System.out.println("파일 타입 : " + file.getContentType());
 		System.out.println("-------------------------------------------------------");
 
-		
+
 		return new ResponseEntity<>(UploadFileUtils.uploadFile(uploadPath, file.getOriginalFilename(), file.getBytes()),
 				HttpStatus.CREATED);
 	}
@@ -186,7 +186,7 @@ public class UploadController {
 			String formatName = fileName.substring(fileName.lastIndexOf(".") + 1);
 
 			MediaType mType = MediaUtils.getMediaType(formatName);
-			String uploadPath = request.getSession().getServletContext().getRealPath("img/thumbnail");
+			String uploadPath = request.getSession().getServletContext().getRealPath("resources/img/thumbnail");
 			if (mType != null) {
 
 				String front = fileName.substring(0, 12);

@@ -33,19 +33,20 @@ public class UploadFileUtils {
     UUID uid = UUID.randomUUID();
     
     String savedName = uid.toString() +"_"+originalName;
-    
+    System.out.println("UploadFileUtils Darg & Drop : 파일업로드 : savedName :" + savedName);
     String savedPath = calcPath(uploadPath);
-    
+    System.out.println("UploadFileUtils Darg & Drop : 파일업로드 : savedPath :" +savedPath);
     File target = new File(uploadPath +savedPath,savedName);
     
     FileCopyUtils.copy(fileData, target);
     
     String formatName = originalName.substring(originalName.lastIndexOf(".")+1);
     
-    String uploadedFileName = null;
+    String uploadedFileName = null; 
     
     if(MediaUtils.getMediaType(formatName) != null){
       uploadedFileName = makeThumbnail(uploadPath, savedPath, savedName);
+      System.out.println("UploadFileUtils Darg & Drop  파일업로드 uploadedFiledName : "+uploadedFileName);
     }else{
       uploadedFileName = makeIcon(uploadPath, savedPath, savedName);
     }
