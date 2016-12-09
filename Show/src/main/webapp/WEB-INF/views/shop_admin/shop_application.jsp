@@ -5,6 +5,21 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link href="resources/css/shop_admin/style.css" rel="stylesheet" type="text/css" />
 <link href="resources/css/shop_admin/shop_application.css" rel="stylesheet" type="text/css" />
+
+<!-- BootStrap -->
+<link href="resources/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+<!-- Theme style -->
+<link href="resources/dist/css/AdminLTE.min.css" rel="stylesheet" type="text/css" />
+<!-- AdminLTE Skins. Choose a skin from the css/skins folder instead of downloading all of them to reduce the load. -->
+<link href="resources/dist/css/skins/_all-skins.min.css" rel="stylesheet" type="text/css" />
+    
+<!-- Font Awesome Icons -->
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+<!-- Ionicons -->
+<link href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet" type="text/css" />
+<!-- x-handlebars -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.1/handlebars.js"></script>
+
 <!--JQUERY 영역-->
 <script src="resources/js/common/jquery-3.0.0.js"></script>
 <script>
@@ -180,12 +195,28 @@
 					</select>
 				</div>
 				<form id='form' action="upload" method="post" enctype="multipart/form-data" target="zeroFrame">
-				<div class="application_shop_image">
+				<div class="form-group">
+					<label for="exampleInputEmail1">매장로고(Drap & Drop)</label>
+					<div class="fileDrop"></div>
+				</div>
+				
+				<div class="box-footer">
+					<div>
+						<hr>
+					</div>
+			
+					<ul class="mailbox-attachments clearfix uploadedList">
+					</ul>
+			
+					<button type="submit" class="btn btn-primary">신청하기</button>
+				</div>
+				
+				<!-- <div class="application_shop_image">
 					<p class="application_left shop_image left_size">매장로고</p>
 					<input type="file" class="application_left shop_image_input" id="groupFiles"/>
-				</div>
+				</div> -->
 				</form>
-				<div class="application_btn">신청하기</div>
+<!-- 				<div class="application_btn">신청하기</div> -->
 			</div>
 		</div>
 		<%-- <footer>
@@ -194,3 +225,74 @@
 	</div>
 </BODY>
 </HTML>
+
+<script id="template" type="text/x-handlebars-template">
+<li>
+  <span class="mailbox-attachment-icon has-img"><img src="{{imgsrc}}" alt="Attachment"></span>
+  <div class="mailbox-attachment-info">
+	<a href="{{getLink}}" class="mailbox-attachment-name">{{fileName}}</a>
+	<a href="{{fullName}}" class="btn btn-default btn-xs pull-right delbtn">
+		<i class="fa fa-fw fa-remove"></i></a>
+	</span>
+  </div>
+</li>                
+</script>    
+
+<script>
+
+var template = Handlebars.compile($("#template").html());
+
+$(".fileDrop").on("dragenter dragover", function(event){
+	event.preventDefault();
+});
+
+
+$(".fileDrop").on("drop", function(event){
+	event.preventDefault();
+	
+	var files = event.originalEvent.dataTransfer.files;
+	
+	var file = files[0];
+
+	var formData = new FormData();
+	
+	formData.append("file", file);	
+	
+	
+	$.ajax({
+		  url: '/upload2/uploadAjax',
+		  data: formData,
+		  dataType:'text',
+		  processData: false,
+		  contentType: false,
+		  type: 'POST',
+		  success: function(data){
+			  
+			  var fileInfo = getFileInfo(data);
+			  
+			  var html = template(fileInfo);
+			  
+			  $(".uploadedList").append(html);
+		  }
+		});	
+});
+
+
+$("#registerForm").submit(function(event){
+	event.preventDefault();
+	
+	var that = $(this);
+	
+	var str ="";
+	$(".uploadedList .delbtn").each(function(index){
+		 str += "<input type='hidden' name='files["+index+"]' value='"+$(this).attr("href") +"'> ";
+	});
+	
+	that.append(str);
+
+	that.get(0).submit();
+});
+
+
+
+</script>
