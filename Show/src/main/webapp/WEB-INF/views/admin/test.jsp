@@ -58,8 +58,6 @@ $('.gong').click(function() {
 });
 
 
-
-
 });
 
 </script>

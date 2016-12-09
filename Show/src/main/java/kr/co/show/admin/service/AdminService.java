@@ -13,4 +13,10 @@ public interface AdminService {
 	public GroupVO detail2(int group_no) throws Exception;
 	public void update(GroupVO vo) throws Exception;
 	public List<GroupVO> categoryList() throws Exception;
+	public List<GroupVO> selectC(String group_category) throws Exception;
+	public List<GroupVO> chList(String group_ch) throws Exception;
+	public List<GroupVO> nchList(String group_ch) throws Exception;
+	public List<GroupVO> dchList(String group_delete_ch) throws Exception;
+	public List<GroupVO> searchList(String group_name) throws Exception;
+
 }
