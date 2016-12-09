@@ -171,4 +171,9 @@ public class GroupDAOImpl implements GroupDAO{
 	public List<MenuCheckVO> menuCheck(Map map) throws Exception {
 		return sqlSession.selectList("group.menu_check", map);
 	}
+
+	@Override
+	public void checkUpdate(Map map) throws Exception {
+		sqlSession.update("group.checkUpdate", map);
+	}
 }
