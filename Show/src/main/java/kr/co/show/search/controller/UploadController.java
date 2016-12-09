@@ -36,12 +36,13 @@ import kr.co.show.upload.util.UploadFileUtils;
 @Controller
 @RequestMapping("/upload2")
 public class UploadController {
-
+ 
 	@Inject
 	private UploadService service;
-
+	
 	private static final Logger logger = LoggerFactory.getLogger(UploadController.class);
-
+	
+	//파일 저장경로 loaclserver로 지정
 	@Resource(name = "uploadPath")
 	private String uploadPath;
 
@@ -82,6 +83,7 @@ public class UploadController {
 		System.out.println("Controller UploadForm SaceName : " + savedName);
 
 		//파일 저장
+		//String uploadPath = request.getSession().getServletContext().getRealPath("");
 		File target = new File(uploadPath, savedName);
 
 		//썸네일 이미지 생성
