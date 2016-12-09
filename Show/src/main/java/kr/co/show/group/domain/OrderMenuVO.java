@@ -13,9 +13,9 @@ public class OrderMenuVO {
 	private String reservation_time;
 	private int order_price;
 	private int order_count;
-	private int order_ask;
-	private int order_ask2;
-	private int order_ch;
+	private String order_ask;
+	private String order_ask2;
+	private String order_ch;
 	private String owner_ch;
 	private String order_refund;
 	
@@ -99,27 +99,27 @@ public class OrderMenuVO {
 		this.order_count = order_count;
 	}
 
-	public int getOrder_ask() {
+	public String getOrder_ask() {
 		return order_ask;
 	}
 
-	public void setOrder_ask(int order_ask) {
+	public void setOrder_ask(String order_ask) {
 		this.order_ask = order_ask;
 	}
 
-	public int getOrder_ask2() {
+	public String getOrder_ask2() {
 		return order_ask2;
 	}
 
-	public void setOrder_ask2(int order_ask2) {
+	public void setOrder_ask2(String order_ask2) {
 		this.order_ask2 = order_ask2;
 	}
 
-	public int getOrder_ch() {
+	public String getOrder_ch() {
 		return order_ch;
 	}
 
-	public void setOrder_ch(int order_ch) {
+	public void setOrder_ch(String order_ch) {
 		this.order_ch = order_ch;
 	}
 

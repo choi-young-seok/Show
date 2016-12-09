@@ -36,4 +36,5 @@ public interface GroupService {
 	public List<NoVO> groupName(int member_no) throws Exception;
 	public List<OrderMenuVO> orderList(Map map) throws Exception;
 	public List<MenuCheckVO> menuCheck(Map map) throws Exception;
+	public void checkUpdate(Map map) throws Exception;
 }

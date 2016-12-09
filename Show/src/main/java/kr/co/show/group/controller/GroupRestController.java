@@ -12,6 +12,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import kr.co.show.group.domain.GroupVO;
@@ -145,7 +146,7 @@ public class GroupRestController {
 		
 		List<OrderMenuVO> new_list = service.orderList(map); //여기서 주문번호를 가지고 옴
 		List<OrderMenuVO> omvo = new ArrayList<OrderMenuVO>();
-		
+		System.out.println(new_list.size());
 		for (int i = 0; i < new_list.size(); i++) {
 			OrderMenuVO vo = new_list.get(i);
 			int no = vo.getOrder_no();
@@ -164,17 +165,14 @@ public class GroupRestController {
 			omvo.add(i, om);
 
 		} //주문번호 다 가지고 옴.
-		
+		System.out.println("뉴 오더!!");
 		return omvo;
 	}
 	
 	@RequestMapping("/menu_name")
 	public List<MenuCheckVO> menu_name(Map map, int member_no, int group_no, int order_no) throws Exception{
 		List<MenuCheckVO> name = new ArrayList<MenuCheckVO>();
-		
-		System.out.println("member_no : "+member_no);
-		System.out.println("group_no : "+group_no);
-		System.out.println("order_no : "+order_no);
+		int total = 0;
 		
 		map.put("member_no", member_no);
 		map.put("group_no", group_no);
@@ -182,7 +180,37 @@ public class GroupRestController {
 		
 		name = service.menuCheck(map);
 		
+		for (int i = 0; i < name.size(); i++) {
+			total = 0;
+			for (int j = 0; j < name.size(); j++) {
+				total = total + (name.get(j).getMenu_price() * name.get(j).getMenu_count());				
+			}
+			name.get(i).setTotal(total);
+		}
+		
 		return name;
+	}
+	@RequestMapping(value="/checkUpdate", method=RequestMethod.PUT)
+	public @ResponseBody String checkUpdate(@RequestBody OrderMenuVO vo) throws Exception{
+		Map map = new HashMap();
+		System.out.println(vo.getOwner_ch());
+		System.out.println(vo.getOrder_no());
+		map.put("owner_ch", vo.getOwner_ch());
+		map.put("order_no", vo.getOrder_no());
+		
+		if(vo.getOwner_ch().equals("신청중")){
+			service.checkUpdate(map);
+			return "SUCCESS";
+		}
+		else if(vo.getOwner_ch().equals("대기")){
+			service.checkUpdate(map);
+			return "SUCCESS";
+		}
+		else if(vo.getOwner_ch().equals("완료")){
+			service.checkUpdate(map);
+			return "SUCCESS";
+		}
+		return "FAIL";
 	}
 
 }

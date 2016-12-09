@@ -7,9 +7,17 @@ public class MenuCheckVO {
 	private int order_no;
 	
 	private String menu_name;
-	private String menu_count;
-	private String menu_price;
+	private int menu_count;
+	private int menu_price;
 	
+	private int total;
+	
+	public int getTotal() {
+		return total;
+	}
+	public void setTotal(int total) {
+		this.total = total;
+	}
 	public int getMember_no() {
 		return member_no;
 	}
@@ -40,16 +48,16 @@ public class MenuCheckVO {
 	public void setMenu_name(String menu_name) {
 		this.menu_name = menu_name;
 	}
-	public String getMenu_count() {
+	public int getMenu_count() {
 		return menu_count;
 	}
-	public void setMenu_count(String menu_count) {
+	public void setMenu_count(int menu_count) {
 		this.menu_count = menu_count;
 	}
-	public String getMenu_price() {
+	public int getMenu_price() {
 		return menu_price;
 	}
-	public void setMenu_price(String menu_price) {
+	public void setMenu_price(int menu_price) {
 		this.menu_price = menu_price;
 	}
 }
