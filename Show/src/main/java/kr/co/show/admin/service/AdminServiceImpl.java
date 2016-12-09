@@ -29,11 +29,7 @@ public class AdminServiceImpl implements AdminService {
 		return dao.detail(member_no);
 	}
 
-	@Override
-	public void delete(int member_no) throws Exception {
-		dao.delete(member_no);
-		
-	}
+	
 
 	@Override
 	public List<GroupVO> groupList() throws Exception {

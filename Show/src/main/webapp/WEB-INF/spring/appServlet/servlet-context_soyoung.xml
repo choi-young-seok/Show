@@ -34,6 +34,7 @@
 	<context:component-scan base-package="kr.co.show.sign.controller" />
 	<context:component-scan base-package="kr.co.show.community.controller" /> -->
 	<context:component-scan base-package="kr.co.show.admin.controller" />
+	<context:component-scan base-package="kr.co.show.sign.controller" />
 	
 	
 

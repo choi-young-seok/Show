@@ -8,8 +8,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import kr.co.show.community.domain.MyPageVO;
 import kr.co.show.community.domain.NoticeVO;
 import kr.co.show.community.domain.QnaVO;
+import kr.co.show.community.service.MyService;
 import kr.co.show.community.service.NoticeService;
 import kr.co.show.community.service.QnaService;
 
@@ -23,6 +25,9 @@ public class RestControl {
 	
 	@Inject
 	private NoticeService noService;
+	
+	@Inject
+	private MyService myService;
 	
 	@RequestMapping("/checkData")
 	public String checkData(QnaVO vo) throws Exception{ //문의글 작성
@@ -54,4 +59,5 @@ public class RestControl {
 		service.deleteQna(qna_no);
 		return "deQnaOK";
 	}
+
 }
