@@ -26,10 +26,10 @@ header{
 .nav_menu > li{
 	float:left;
 	font-size:12px;
-	margin-left:20px;
+	margin-left:15px;
 }
 .nav_menu > li:nth-child(1){
-	margin-left:250px;
+	margin-left:150px;
 }
 .nav_menu > li > a{
 	color:#000;

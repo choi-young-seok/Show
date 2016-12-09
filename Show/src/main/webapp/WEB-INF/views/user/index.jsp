@@ -28,7 +28,6 @@
 		url : 'mainList',
 		type: 'get',
 		success : function(result){
-			alert(result.length)
 			var list = "";
 			var i = 0;
 			$(result).each(function(){
@@ -59,13 +58,29 @@
 		});
 		//alert 창 if문으로 검색값 넣어줘
 		$(".search_btn").click(function(){
-			alert("대학교 이름을 입력해 주세요");
+			alert("업체 이름을 입력해 주세요");
 		});
 	});
 	
-	$(function(){
-
+	$(document).ready(function(){
+		
+		$(".myPage").click(function(){
+			var no = <%=session.getAttribute("id")%>;
+			
+			$.ajax({
+				url:'/show/myPage',
+				data:{"member_no":no}
+			
+			});
+			
+		});
 	});
+	
+
+	
+	
+	
+	
 </script>
 <!--스크립트 영역-->
 <TITLE> ON SHOW </TITLE>
@@ -88,6 +103,7 @@
 					<% } else { %>
 					<li><a href="sign/logout">로그아웃</a></li>
 					<li><a href="sign/modi">개인정보수정</a></li>
+					<li><a href="myPage">마이 페이지</a></li>
 					<% } %>
 					<% if(session.getAttribute("id")!=null){ %>
 						<% if(session.getAttribute("position").equals("10")) { %>
