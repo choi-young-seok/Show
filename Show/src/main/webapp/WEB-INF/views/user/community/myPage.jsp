@@ -10,52 +10,71 @@
 <!--JQUERY 영역-->
 <script src="resources/js/common/jquery-3.0.0.js"></script>
 <script>
-	$(document).ready(function(){
-		
+$(document).ready(function(){
+	var order_no ;
+	$(".wait_order_list").hide();
+	$(".end_order_list").hide();
+	$(".new_order").click(function(){
+		$(".new_order").css({"background":"#ffa500"});
+		$(".wait_order").css({"background":"#3d3d3d"});
+		$(".end_order").css({"background":"#3d3d3d"});
+		$(".new_order_list").show();
 		$(".wait_order_list").hide();
 		$(".end_order_list").hide();
-		$(".new_order").click(function(){
-			$(".new_order").css({"background":"#ffa500"});
-			$(".wait_order").css({"background":"#3d3d3d"});
-			$(".end_order").css({"background":"#3d3d3d"});
-			$(".new_order_list").show();
-			$(".wait_order_list").hide();
-			$(".end_order_list").hide();
-		});
-	
-		$(".wait_order").click(function(){
-			$(".new_order").css({"background":"#3d3d3d"});
-			$(".wait_order").css({"background":"#ffa500"});
-			$(".end_order").css({"background":"#3d3d3d"});
-			$(".new_order_list").hide();
-			$(".wait_order_list").show();
-			$(".end_order_list").hide();
-		});
+	});
+	$(".wait_order").click(function(){
+		$(".new_order").css({"background":"#3d3d3d"});
+		$(".wait_order").css({"background":"#ffa500"});
+		$(".end_order").css({"background":"#3d3d3d"});
+		$(".new_order_list").hide();
+		$(".wait_order_list").show();
+		$(".end_order_list").hide();
+	});
+	$(".end_order").click(function(){
+		$(".new_order").css({"background":"#3d3d3d"});
+		$(".wait_order").css({"background":"#3d3d3d"});
+		$(".end_order").css({"background":"#ffa500"});
+		$(".new_order_list").hide();
+		$(".wait_order_list").hide();
+		$(".end_order_list").show();
+	});
+
 		
-		$(".end_order").click(function(){
-			$(".new_order").css({"background":"#3d3d3d"});
-			$(".wait_order").css({"background":"#3d3d3d"});
-			$(".end_order").css({"background":"#ffa500"});
-			$(".new_order_list").hide();
-			$(".wait_order_list").hide();
-			$(".end_order_list").show();
-		});
-		
-		
-		
-		$('.wait_order').click(function(){
+		$('.check_btn').click(function(){//환불 버튼 누르면
+			
+			alert($(this).attr("id"))
 			$.ajax({
 				url:"",
-				data:{
-					order_no
-					member_no
-					group_no
+				type: "PUT",
+				headers:{
+					"Content-Type":"application/json",
+					"X-HTTP-Method-Override":"PUT"
 				},
+				data:JSON.stringify({
+					"order_no":order_no,
+					"member_no":member_no,
+					"group_no":group_no
+				}),
 				success:function(){
 					
 				}
 			});
 		});
+		
+		$('.wait_order_list').click(function(){//대기중인 거 나타내기
+			
+		
+			$.ajax({
+				url:"",
+			
+				data: , 
+				
+				success:function(){
+					
+				}
+			});
+		});
+		
 	});
 </script>
 <TITLE> 마이 페이지 </TITLE>
@@ -117,8 +136,8 @@
 			<div class="order_left order_check">
 				<div>
 					<p>${list.owner_ch }</p>
-					
-			<p class="check_btn">환불 신청</p>
+			<input type="hidden" ${list.order_no } >
+			<p id="${list.order_no }" class="check_btn">환불 신청</p>
 				</div>
 			</div>
 			<hr>
@@ -164,7 +183,7 @@
 				<div>
 					<p>${list.owner_ch }</p>
 					
-			 	<p class="check_btn">환불 신청</p>
+			 	<p id="${list.order_no }" class="check_btn">환불 신청</p>
 				</div>
 			</div>
 			<hr>

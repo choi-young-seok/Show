@@ -7,14 +7,14 @@
 		from show_group
 		where group_no in (select group_no
 							from show_order
-							where member_no = #{member_no} 
-							and (owner_ch ='신청중' or owner_ch='대기'))		
+							where member_no = #{member_no}
+							and (owner_ch ='신청중' or owner_ch='대기') and order_refund='F')		
 	</select>
 	
 	<select id="listOrder" resultType="kr.co.show.community.domain.MyPageVO">
 		select *
 		from show_order
-		where member_no = #{member_no} and (owner_ch ='신청중' or owner_ch='대기') 
+		where member_no = #{member_no} and (owner_ch ='신청중' or owner_ch='대기' and order_refund='F') 
 	</select>
 	
 	<select id="listMenu" resultType="kr.co.show.community.domain.MyPageVO">
@@ -23,10 +23,10 @@
 		where group_no in(select group_no
 							from show_order
 							where member_no = #{member_no} 
-							and (owner_ch ='신청중' or owner_ch='대기'))	
+							and (owner_ch ='신청중' or owner_ch='대기') and order_refund='F')	
 			and order_no in (select order_no
 							from show_order
 							where member_no = #{member_no} 
-							and (owner_ch ='신청중' or owner_ch='대기'))
+							and (owner_ch ='신청중' or owner_ch='대기') and order_refund='F')
 	</select>
 </mapper>
