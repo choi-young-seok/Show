@@ -8,7 +8,7 @@ import kr.co.show.sign.domain.MemberVO;
 public interface AdminService {
 	public List<MemberVO> memberList() throws Exception;
 	public MemberVO detail(int member_no) throws Exception;
-	public void delete(int member_no) throws Exception;
+
 	public List<GroupVO> groupList() throws Exception;
 	public GroupVO detail2(int group_no) throws Exception;
 	public void update(GroupVO vo) throws Exception;
