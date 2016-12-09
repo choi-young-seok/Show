@@ -9,8 +9,10 @@
 <link href="resources/css/shop_admin/shop_order_check.css" rel="stylesheet" type="text/css" />
 <!--JQUERY 영역-->
 <script src="resources/js/common/jquery-3.0.0.js"></script>
+<script src="resources/js/common/order_menu.js"></script>
 <script>
 	$(document).ready(function(){
+		var group_no;
 		$(".wait_order_list").hide();
 		$(".end_order_list").hide();
 		$(".new_order").click(function(){
@@ -37,23 +39,47 @@
 			$(".wait_order_list").hide();
 			$(".end_order_list").show();
 		});
-		$('.new_order').click(function(){
+		
+		function newOrder(order_no){
 			$.ajax({
-				url : '',
+				url : '/show/menu_name',
 				type: "POST",
 				data: {
-					
+					"group_no" : group_no,
+					"member_no" : <%=session.getAttribute("id")%>,
+					"order_no" : order_no
 				},
-				succuess:function(result){
-					
+				success : function(name){
+					var b = document.getElementById("m_n"+order_no);
+					var total = document.getElementById("total"+order_no);
+					name.forEach(function(elt, i) {
+						b.innerHTML = b.innerHTML + '<br><p>'+elt.menu_name+'</p>';
+					total.innerHTML = total.innerHTML + '<p>총 '+elt.total+'원</p>';
+					})
 				}
 			});
-		});
+
+			$.ajax({
+				url : '/show/menu_name',
+				type: "POST",
+				data: {
+					"group_no" : group_no,
+					"member_no" : <%=session.getAttribute("id")%>,
+					"order_no" : order_no
+				},
+				success : function(price){
+					var c = document.getElementById("m_p"+order_no);
+					price.forEach(function(elt, i) {
+						c.innerHTML = c.innerHTML + '<p>'+elt.menu_count+'개</p>';
+					})
+				}
+			});
+		}
+
 		
 	$(".choice_left").change(function(){
-		if($('.new_order')){
-			$('#new').empty();
-			var group_no =  $(this).val();		
+			$('#new').empty();	$('#wait').empty();	$('#end').empty();
+			group_no =  $(this).val();
 			$.ajax({
 				url : '/show/new_order',
 				type: "POST",
@@ -62,10 +88,9 @@
 					"member_no" : <%=session.getAttribute("id")%>
 				},
 				success : function(omvo){
-					
 					var a = document.getElementById("new");
 					omvo.forEach(function(vo, i) { //items와 index다.
-						
+						if(vo.owner_ch == '신청중'){
 						a.innerHTML = a.innerHTML+'<div class="new_order_list">'+
 							'<div class="order_left order_choice">'+
 								'<input type="checkbox"/>'+
@@ -83,85 +108,269 @@
 							'</div>'+
 							'<div class="order_left order_pay" id="m_p'+vo.order_no+'">'+
 							'</div>'+
-							'<div class="order_left order_all_pay">'+
-							'<p>총</p>'+
+							'<div class="order_left order_all_pay" id="total'+vo.order_no+'">'+
 							'</div>'+
 							'<div class="order_left order_check">'+
 								'<div>'+
-									'<p>신청중</p>'+
 									'<select>'+
-										'<option value="신청중">신청중</option>'+
+										'<option value="신청중" selected="selected">신청중</option>'+
 										'<option value="대기">대기중</option>'+
 										'<option value="완료">판매완료</option>'+
 									'</select>'+
-									'<p class="check_btn">상태 변경</p>'+
+									'<p id="'+vo.order_no+'" class="check_btn">상태 변경</p>'+
 								'</div>'+
 							'</div>'+
 						'</div>';
 						
-						$.ajax({
-							url : '/show/menu_name',
-							type: "POST",
-							data: {
-								"group_no" : group_no,
-								"member_no" : <%=session.getAttribute("id")%>,
-								"order_no" : vo.order_no
-							},
-							success : function(name){
-								var b = document.getElementById("m_n"+vo.order_no);
-								name.forEach(function(elt, i) {
-									b.innerHTML = b.innerHTML + '<br><p>'+elt.menu_name+'</p>';
-								})
-							}
-						});
-
-							$.ajax({
-								url : '/show/menu_name',
-								type: "POST",
-								data: {
-									"group_no" : group_no,
-									"member_no" : <%=session.getAttribute("id")%>,
-									"order_no" : vo.order_no
-								},
-								success : function(price){
-									var c = document.getElementById("m_p"+vo.order_no);
-									price.forEach(function(elt, i) {
-										c.innerHTML = c.innerHTML + '<p>'+elt.menu_count+'개</p>';
-									})
-								}
-							});
+						newOrder(vo.order_no);
 						
+					}
+				});
+			}
+		});
+
+	});
+		$(".new_order").click(function(){
+			$('#new').empty();	$('#wait').empty();	$('#end').empty();
+			$.ajax({
+				url : '/show/new_order',
+				type: "POST",
+				data: {
+					"group_no" : group_no,
+					"member_no" : <%=session.getAttribute("id")%>
+				},
+				success : function(omvo){
+					var a = document.getElementById("new");
+					omvo.forEach(function(vo, i) { //items와 index다.
+						if(vo.owner_ch == '신청중'){
+						a.innerHTML = a.innerHTML+'<div class="new_order_list">'+
+							'<div class="order_left order_choice">'+
+								'<input type="checkbox"/>'+
+							'</div>'+
+							'<div class="order_left order_num">'+
+								'<p>'+vo.order_no+'</p>'+
+							'</div>'+
+							'<div class="order_left user_name">'+
+								'<p>'+vo.order_name+'</p>'+
+							'</div>'+
+							'<div class="order_left user_phone">'+
+								'<p>'+vo.order_phone+'</p>'+
+							'</div>'+
+							'<div class="order_left order_menu" id="m_n'+vo.order_no+'">'+
+							'</div>'+
+							'<div class="order_left order_pay" id="m_p'+vo.order_no+'">'+
+							'</div>'+
+							'<div class="order_left order_all_pay" id="total'+vo.order_no+'">'+
+							'</div>'+
+							'<div class="order_left order_check">'+
+								'<div>'+
+									'<select>'+
+										'<option value="신청중" selected="selected">신청중</option>'+
+										'<option value="대기">대기중</option>'+
+										'<option value="완료">판매완료</option>'+
+									'</select>'+
+									'<p id="'+vo.order_no+'" class="check_btn">상태 변경</p>'+
+								'</div>'+
+							'</div>'+
+						'</div>';
+					
+						newOrder(vo.order_no);
+					}
+				});
+			}
+		});
+			playAlert = setInterval(function() {
+				$('#new').empty();	$('#wait').empty();	$('#end').empty();
+				$.ajax({
+					url : '/show/new_order',
+					type: "POST",
+					data: {
+						"group_no" : group_no,
+						"member_no" : <%=session.getAttribute("id")%>
+					},
+					success : function(omvo){
+						var a = document.getElementById("new");
+						omvo.forEach(function(vo, i) { //items와 index다.
+							if(vo.owner_ch == '신청중'){
+							a.innerHTML = a.innerHTML+'<div class="new_order_list">'+
+								'<div class="order_left order_choice">'+
+									'<input type="checkbox"/>'+
+								'</div>'+
+								'<div class="order_left order_num">'+
+									'<p>'+vo.order_no+'</p>'+
+								'</div>'+
+								'<div class="order_left user_name">'+
+									'<p>'+vo.order_name+'</p>'+
+								'</div>'+
+								'<div class="order_left user_phone">'+
+									'<p>'+vo.order_phone+'</p>'+
+								'</div>'+
+								'<div class="order_left order_menu" id="m_n'+vo.order_no+'">'+
+								'</div>'+
+								'<div class="order_left order_pay" id="m_p'+vo.order_no+'">'+
+								'</div>'+
+								'<div class="order_left order_all_pay" id="total'+vo.order_no+'">'+
+								'</div>'+
+								'<div class="order_left order_check">'+
+									'<div>'+
+										'<select>'+
+											'<option value="신청중" selected="selected">신청중</option>'+
+											'<option value="대기">대기중</option>'+
+											'<option value="완료">판매완료</option>'+
+										'</select>'+
+										'<p id="'+vo.order_no+'" class="check_btn">상태 변경</p>'+
+									'</div>'+
+								'</div>'+
+							'</div>';
+							
+							newOrder(vo.order_no);
+							
+						}
 					});
+				}
+			});	}, 50000);
+	});
+$(".wait_order").click(function(){
+	$('#new').empty();	$('#wait').empty();	$('#end').empty();
+	$.ajax({
+		url : '/show/new_order',
+		type: "POST",
+		data: {
+			"group_no" : group_no,
+			"member_no" : <%=session.getAttribute("id")%>
+		},
+		success : function(omvo){
+			var a = document.getElementById("wait");
+			omvo.forEach(function(vo, i) { //items와 index다.
+				if(vo.owner_ch == '대기'){
+				a.innerHTML = a.innerHTML+'<div class="wait_order_list">'+
+					'<div class="order_left order_choice">'+
+						'<input type="checkbox"/>'+
+					'</div>'+
+					'<div class="order_left order_num">'+
+						'<p>'+vo.order_no+'</p>'+
+					'</div>'+
+					'<div class="order_left user_name">'+
+						'<p>'+vo.order_name+'</p>'+
+					'</div>'+
+					'<div class="order_left user_phone">'+
+						'<p>'+vo.order_phone+'</p>'+
+					'</div>'+
+					'<div class="order_left order_menu" id="m_n'+vo.order_no+'">'+
+					'</div>'+
+					'<div class="order_left order_pay" id="m_p'+vo.order_no+'">'+
+					'</div>'+
+					'<div class="order_left order_all_pay" id="total'+vo.order_no+'">'+
+					'</div>'+
+					'<div class="order_left order_check">'+
+						'<div>'+
+							'<select>'+
+								'<option value="신청중">신청중</option>'+
+								'<option value="대기" selected="selected">대기중</option>'+
+								'<option value="완료">판매완료</option>'+
+							'</select>'+
+							'<p id="'+vo.order_no+'" class="check_btn">상태 변경</p>'+
+						'</div>'+
+					'</div>'+
+				'</div>';
+				
+				newOrder(vo.order_no);
 				}
 			});
 		}
 	});
-	$(document).on("click",".check_btn",function(){
-		var check = $(this).parent().children().eq(1).val();
-		
-		if(check === '대기'){
-			/* $.ajax({
-				url:'',
-				type: "POST",
-				header: {"Content-Type" : "application/json",
-					"X-HTTP-Method-Override" : "POST"
-				},
-				data : {
-					
-				},
-				success(function(result){
-					
-				});
-			}); */
+}); //$(document).on("click",".check_btn",function()
+$(".end_order").click(function(){
+	$('#new').empty();	$('#wait').empty();	$('#end').empty();	
+	$.ajax({
+		url : '/show/new_order',
+		type: "POST",
+		data: {
+			"group_no" : group_no,
+			"member_no" : <%=session.getAttribute("id")%>
+		},
+		success : function(omvo){
+			
+			var a = document.getElementById("end");
+			omvo.forEach(function(vo, i) { //items와 index다.
+				if(vo.owner_ch == '완료'){
+				a.innerHTML = a.innerHTML+'<div class="end_order_list">'+
+					'<div class="order_left order_choice">'+
+						'<input type="checkbox"/>'+
+					'</div>'+
+					'<div class="order_left order_num">'+
+						'<p>'+vo.order_no+'</p>'+
+					'</div>'+
+					'<div class="order_left user_name">'+
+						'<p>'+vo.order_name+'</p>'+
+					'</div>'+
+					'<div class="order_left user_phone">'+
+						'<p>'+vo.order_phone+'</p>'+
+					'</div>'+
+					'<div class="order_left order_menu" id="m_n'+vo.order_no+'">'+
+					'</div>'+
+					'<div class="order_left order_pay" id="m_p'+vo.order_no+'">'+
+					'</div>'+
+					'<div class="order_left order_all_pay" id="total'+vo.order_no+'">'+
+					'</div>'+
+					'<div class="order_left order_check">'+
+						'<div>'+
+							'<select>'+
+								'<option value="신청중">신청중</option>'+
+								'<option value="대기">대기중</option>'+
+								'<option value="완료" selected="selected">판매완료</option>'+
+							'</select>'+
+							'<p id="'+vo.order_no+'" class="check_btn">상태 변경</p>'+
+						'</div>'+
+					'</div>'+
+				'</div>';
+				
+				newOrder(vo.order_no);
+				}
+			});
 		}
-		if(check === '완료'){
-			alert('완료');
-		}
-		
 	});
-	function menu_list(group_no, member_no, order_no){
-		
-	}
+})
+$(document).on("click",".check_btn",function(){
+	var check = $(this).parent().children().val(); //대기나 완료 값을 불러온다.
+	var order_no = $(this).attr('id');
+	$.ajax({
+		url:'/show/checkUpdate',
+		type: "PUT",
+		headers: {
+			"Content-Type" : "application/json",
+			"X-HTTP-Method-Override" : "PUT"
+		},
+		data : JSON.stringify({
+			"owner_ch" : check,
+			"order_no" : order_no
+		}),
+		success:function(result){
+			$.ajax({
+				url:'/show/checkUpdate',
+				type: "PUT",
+				headers: {
+					"Content-Type" : "application/json",
+					"X-HTTP-Method-Override" : "PUT"
+				},
+				data : JSON.stringify({
+					"owner_ch" : check,
+					"order_no" : order_no
+				}),
+				success:function(result){
+					if(check=='완료'){
+						$(".end_order").trigger("click");
+					} else if(check=='대기'){
+						$(".wait_order").trigger("click");
+					} else if(check=='신청중'){
+						$(".new_order").trigger("click");
+					}
+					alert('변경되었습니다.');
+				}
+			})
+		}
+	})
+});
 });
 </script>
 <TITLE> 주문관리 </TITLE>
@@ -175,7 +384,7 @@
 		<div class="order_shop_choice">
 			<p class="choice_left">매장선택</p>
 			<select class="choice_left">
-				<option>전체보기</option>
+				<option>매장</option>
 				<c:forEach items="${name_list}" var='name' varStatus="i">
 					<option value="${name.group_no}">${name.group_name}</option>
 				</c:forEach>

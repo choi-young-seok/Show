@@ -12,7 +12,7 @@ public class GroupVO {
 	private String group_ch;
 	private String group_start;
 	private String group_end;
-	private String group_files;
+	private String[] group_files;
 	private String group_delete_ch;
 	private String group_regdate;
 
@@ -91,11 +91,11 @@ public class GroupVO {
 		this.group_end = group_end;
 	}
 
-	public String getGroup_files() {
+	public String[] getGroup_files() {
 		return group_files;
 	}
 
-	public void setGroup_files(String group_files) {
+	public void setGroup_files(String[] group_files) {
 		this.group_files = group_files;
 	}
 

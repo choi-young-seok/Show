@@ -23,13 +23,34 @@
 <!--<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>-->
 <script src="resources/js/common/jquery-3.0.0.js"></script>
 <script>
-$.ajax({
-	url : 'mainList',
-	type: 'post',
-	success : function(result){
-		$('#resultView').html(result);
-	}//success
-});
+
+	$.ajax({
+		url : 'mainList',
+		type: 'get',
+		success : function(result){
+			alert(result.length)
+			var list = "";
+			var i = 0;
+			$(result).each(function(){
+				i++;
+				list+="<article>"
+							+"<a href='#detail'>"
+							+"<div class='chapter_1 img_box' style='border: 1px black solid; '>"
+							+"<img src='resources/image/school_search.png'/>"
+							+this.group_name
+							+"<p>"+this.group_name+"</p>"
+							+"<button>주문하기</button>"
+							+"</div>"
+							+"</a>"
+
+						+"</article>";
+			});//each
+			$('#resultView').html(list);
+			/* result.forEach(function(){
+				
+			});//each */
+		}//success
+	});	
 
 	$(document).ready(function(){
 		$(".detaile_search_view").hide();
@@ -74,6 +95,10 @@ $.ajax({
 						<% } else if(session.getAttribute("position").equals("20")) { %>
 						<li><a href="adminMain">업체 관리페이지</a></li>
 					<% } %><% } %>
+					<c:if test="${name}">
+					<li><a href="adminMain">${name }</a></li>
+					</c:if>
+					<li><a href="adminMain">${test }</a></li>
 				</ul>
 			</nav>
 		</header>
@@ -113,9 +138,16 @@ $.ajax({
 				<div class="info_text">
 					<p>ON SHOW 사용법</p>
 				</div>
-				<article>
-					<div class="chapter_1 img_box" id="resultView">
-						
+				
+					
+				<article id="resultView">
+					<div class="chapter_1 img_box"  style="border: 1px black solid; ">
+					</div>
+					
+					<div class="chapter_2 img_box"  style="border: 1px black solid; ">
+					</div>
+					
+					<div class="chapter_3 img_box"  style="border: 1px black solid; ">
 					</div>
 				</article>
 				<article>

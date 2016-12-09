@@ -27,9 +27,7 @@ public class JoinController {
 	}
 	@RequestMapping(value = "/logout", method=RequestMethod.GET)
 	public String logout(HttpSession session){
-		session.setAttribute("email", null);
-		session.setAttribute("id", null);
-		session.setAttribute("position", null);
+		session.invalidate();
 		return "redirect:/";
 	}
 	

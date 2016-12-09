@@ -159,4 +159,9 @@ public class GroupServiceImpl implements GroupService{
 	public List<MenuCheckVO> menuCheck(Map map) throws Exception {
 		return dao.menuCheck(map);
 	}
+	
+	@Override
+	public void checkUpdate(Map map) throws Exception {
+		dao.checkUpdate(map);
+	}
 }

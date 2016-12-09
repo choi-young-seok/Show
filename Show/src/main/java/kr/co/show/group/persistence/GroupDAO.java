@@ -39,4 +39,5 @@ public interface GroupDAO {
 	public List<OrderMenuVO> orderList(Map map) throws Exception;
 	public List<MenuVO> recentMenu() throws Exception;
 	public List<MenuCheckVO> menuCheck(Map map) throws Exception;
+	public void checkUpdate(Map map) throws Exception;
 }

@@ -160,5 +160,9 @@
 		where group_no = #{group_no} and member_no = #{member_no} and order_no = #{order_no}
 	</select>
 	
-	
+	<update id="checkUpdate">
+		update show_order
+		set owner_ch=#{owner_ch}
+		where order_no=#{order_no}
+	</update>
 </mapper>

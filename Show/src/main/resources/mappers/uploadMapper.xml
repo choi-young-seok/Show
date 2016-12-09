@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="upload">
+	<select id="getAttach" resultType="String">
+		select fullname from show_group where group_no = #{group_no}
+	</select>
+</mapper>
