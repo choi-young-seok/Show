@@ -20,7 +20,7 @@
 						<img src="../resources/image/logo.png"/>
 					</div>
 					<div class="onshow_text onshow">
-						<p>대학생들을 위한 테이크아웃 예약웹,</p>
+						<p>모두를 위한 식사 예약 사이트</p>
 						<p>ON SHOW 입니다.</p>
 					</div>
 				</div>
@@ -29,7 +29,9 @@
 						<img src="../resources/image/buy_order.png"/>
 					</div>
 					<div class="shop_text shop">
-						<p>테이크 아웃할 메뉴와 시간을 선택해주세요.</p>
+						<p>예약할 메뉴와 시간을 선택해주세요.
+						요청 사항에 인원수와 원하는 자리를 적어주세요.</p>
+					
 					</div>
 				</div>
 				<div class="pay_box">
