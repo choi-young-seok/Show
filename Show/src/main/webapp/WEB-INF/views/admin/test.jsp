@@ -67,6 +67,7 @@ $(document).ready(function(){
 <body>
 	<header> <%@ include file="../admin/header.jsp"%>	</header>
 	<div class="body">
+	<%if(session.getAttribute("admin_position") == null){%>
 		<div class="login_page">
 			<div class="none_box"><!--위치값 빈박스 건들지마--></div>
 			<div class="login_big_box">
@@ -82,6 +83,7 @@ $(document).ready(function(){
 				</div>
 			</div>
 		</div>
+		<% } %>
 	</div>
 	<script type="text/javascript">
 	function Login(){
