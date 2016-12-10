@@ -119,3 +119,7 @@ values (show_menu_check_seq.nextval, 5, 1, '아메리카노', 2, 1500);
 select *
 		from show_menu_check
 		where group_no = 2 and member_no = 1 and order_no = 6;
+		
+select *
+from show_order
+where member_no = 1 and (owner_ch ='신청중' or owner_ch='대기' )and order_refund='F';

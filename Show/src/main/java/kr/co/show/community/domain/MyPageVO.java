@@ -1,9 +1,15 @@
 package kr.co.show.community.domain;
 
+import java.sql.Date;
+import java.sql.Time;
+import java.sql.Timestamp;
+
 public class MyPageVO {
 	
 	private int order_no;
 	private int  member_no;
+	private int  group_no;
+	
 	
 	private String menu_name;
 	private int menu_count;
@@ -13,6 +19,32 @@ public class MyPageVO {
 	private String group_phone;
 	
 	private String owner_ch;
+	private String order_refund;
+	private Timestamp order_time;
+
+	public int getGroup_no() {
+		return group_no;
+	}
+
+	public void setGroup_no(int group_no) {
+		this.group_no = group_no;
+	}
+	
+	public Timestamp getOrder_time() {
+		return order_time;
+	}
+
+	public void setOrder_time(Timestamp order_time) {
+		this.order_time = order_time;
+	}
+
+	public String getOrder_refund() {
+		return order_refund;
+	}
+
+	public void setOrder_refund(String order_refund) {
+		this.order_refund = order_refund;
+	}
 
 	public int getOrder_no() {
 		return order_no;
@@ -78,14 +110,18 @@ public class MyPageVO {
 		this.owner_ch = owner_ch;
 	}
 
-
-
 	@Override
 	public String toString() {
-		return "MyPageVO [order_no=" + order_no + ", member_no=" + member_no + ", menu_name=" + menu_name
-				+ ", menu_count=" + menu_count + ", menu_price=" + menu_price + ", group_name=" + group_name
-				+ ", group_phone=" + group_phone + ", owner_ch=" + owner_ch + "]";
+		return "MyPageVO [order_no=" + order_no + ", member_no=" + member_no + ", group_no=" + group_no + ", menu_name="
+				+ menu_name + ", menu_count=" + menu_count + ", menu_price=" + menu_price + ", group_name=" + group_name
+				+ ", group_phone=" + group_phone + ", owner_ch=" + owner_ch + ", order_refund=" + order_refund
+				+ ", order_time=" + order_time + "]";
 	}
+
+	
+
+
+
 
 
 	

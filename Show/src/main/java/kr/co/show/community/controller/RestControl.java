@@ -29,6 +29,8 @@ public class RestControl {
 	@Inject
 	private MyService myService;
 	
+
+	
 	@RequestMapping("/checkData")
 	public String checkData(QnaVO vo) throws Exception{ //문의글 작성
 		service.create(vo);

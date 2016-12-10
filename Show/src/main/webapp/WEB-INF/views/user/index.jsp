@@ -117,7 +117,7 @@
 					<li><a href="sign/logout">로그아웃</a></li>
 					<li><a href="sign/modi">개인정보수정</a></li>
 					<li><a href="myPage">마이 페이지</a></li>
-					<% } %>
+					<%  } %>
 					<% if(session.getAttribute("id")!=null){ %>
 						<% if(session.getAttribute("position").equals("10")) { %>
 						<li><a href="application">업체추가</a></li>
