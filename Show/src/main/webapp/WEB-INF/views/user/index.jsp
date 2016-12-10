@@ -79,10 +79,10 @@
 	});
 	
 	function order(group_no){
-		alert(group_no) ;
 		 $.ajax({
 			url : 'order',
 			type: 'get',
+			data: {"group_no":group_no},
 			success : function(result){
 				$('.search').hide();
 				$('.info_img').empty();
@@ -100,6 +100,7 @@
 </HEAD>
 <BODY>
 	<div id="wrap">
+	<%-- <input type="hidden" class="member_no" value="${id }"> --%>
 		<header>
 			<div class="main_logo">
 				<a href="/show">
