@@ -32,7 +32,22 @@
 			$(".member1").css({"background":"#696969"});
 			$(".qna").css({"background":"#696969"});
 		});
-	});
+		
+	<%if(session.getAttribute("admin_position") != null){%>
+		<% if(session.getAttribute("admin_position").equals("30")){ %>
+			$(".qna").prop("disabled", false);
+			$(".gong").prop("disabled", false);
+			$(".member1").prop("disabled", false);
+			$(".shop").prop("disabled", false);
+			$(".qna").trigger("click");
+		<% } %>
+	<%} else {%>
+		$(".qna").prop("disabled", true);
+		$(".gong").prop("disabled", true);
+		$(".member1").prop("disabled", true);
+		$(".shop").prop("disabled", true);
+	<%}%>
+});
 </script>
 </head>
 <body>

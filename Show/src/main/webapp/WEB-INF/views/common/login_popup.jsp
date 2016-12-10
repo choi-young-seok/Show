@@ -17,11 +17,15 @@ $('.cancel_btn').click(function(){
 	var password = $("#cancel_password").val();
 		$.ajax({
 			url:'/show/sign/cancel_AX',
-			type: "POST",
-			data: {
+			type: "PUT",
+			headers :{
+				"Content-Type" : "application/json",
+				"X-HTTP-Method-Override" : "PUT"
+			},
+			data: JSON.stringify({
 			"member_email" : email,
 			"member_pass" : password,
-			},
+			}),
 			success:function(result){
 				
 				if(result == "OK"){

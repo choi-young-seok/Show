@@ -7,7 +7,7 @@
 </insert>
 
 <select id="login" resultType="kr.co.show.sign.domain.MemberVO">
-	select member_no, member_pass, member_position, member_name
+	select *
 	from show_member
 	where member_email = #{email}
 </select>
