@@ -160,7 +160,7 @@ public class GroupRestController {
 			om.setOrder_no(vo.getOrder_no());
 			om.setOrder_phone(vo.getOrder_phone());
 			om.setOwner_ch(vo.getOwner_ch());
-			
+			om.setReservation_time(vo.getReservation_time());
 			
 			omvo.add(i, om);
 

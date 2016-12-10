@@ -14,7 +14,7 @@ html,body{
 }
 .order_shop_choice > p{
 	width:100px;
-	height:30px;
+	height:150px;
 	text-align:center;
 	line-height:30px;
 }
@@ -71,22 +71,22 @@ html,body{
 	height:30px;
 }
 .order_top_text > ul > li:nth-child(1){
-	width:50px;
+	width:100px;
 }
 .order_top_text > ul > li:nth-child(2){
-	width:150px;
+	width:140px;
 }
 .order_top_text > ul > li:nth-child(3){
-	width:150px;
+	width:140px;
 }
 .order_top_text > ul > li:nth-child(4){
-	width:150px;
+	width:140px;
 }
 .order_top_text > ul > li:nth-child(5){
-	width:300px;
+	width:290px;
 }
 .order_top_text > ul > li:nth-child(6){
-	width:150px;
+	width:140px;
 }
 .order_top_text > ul > li:nth-child(7){
 	width:150px;
@@ -118,28 +118,28 @@ html,body{
 	text-align:center;
 	border-right:1px solid #dddddd;
 	box-sizing:border-box;
-	height:200px;
+	height:150px;
 }
 .order_choice{
-	width:50px;
+	width:100px;
 }
 .order_choice > input{
 	margin-top:95px;
 }
 .order_num{
-	width:150px;
-	line-height:200px;
+	width:140px;
+	line-height:150px;
 }
 .user_name{
-	width:150px;
-	line-height:200px;
+	width:140px;
+	line-height:150px;
 }
 .user_phone{
-	width:150px;
-	line-height:200px;
+	width:140px;
+	line-height:150px;
 }
 .order_menu{
-	width:300px;
+	width:290px;
 	overflow-y:scroll;
 }
 .order_menu_show_box{
@@ -160,7 +160,7 @@ html,body{
 	line-height:30px;
 }
 .order_pay{
-	width:150px;
+	width:140px;
 	overflow-y:scroll;
 }
 .order_pay > p{
@@ -168,7 +168,7 @@ html,body{
 }
 .order_all_pay{
 	width:150px;
-	line-height:200px;
+	line-height:150px;
 }
 .order_check{
 	width:100px;
