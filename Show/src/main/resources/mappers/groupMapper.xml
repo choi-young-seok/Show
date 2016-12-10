@@ -149,7 +149,7 @@
 	</select>
 	
 	<select id="order_list" resultType="kr.co.show.group.domain.OrderMenuVO">
-		select order_no, member_no, group_no, order_name, order_phone, order_time, to_char(sysdate,'yyyy/mm/dd HH24:MI') AS reservation_time, order_price, order_count, order_ask, order_ask2, order_ch, owner_ch, order_refund
+		select order_no, member_no, group_no, order_name, order_phone, order_time, to_char(reservation_time,'yyyy/mm/dd HH24:MI') AS reservation_time, order_price, order_count, order_ask, order_ask2, order_ch, owner_ch, order_refund
 		from show_order
 		where group_no = #{group_no} and member_no = #{member_no}
 	</select>
