@@ -18,6 +18,7 @@
 <!-- Ionicons -->
 <link href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet" type="text/css" />
 <!-- x-handlebars -->
+<script src="resources/js/upload.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.1/handlebars.js"></script>
 
 <!--JQUERY 영역-->
@@ -84,6 +85,7 @@
 						alert('전화번호를 입력하세요');
 					}else if(group_phone1.test(group_phone) == false){
 						alert('숫자만 입력하세요.');
+						
 					}else if(group_phone.length < 10 || group_phone.length > 13){
 						alert('전화번호를 다시 확인해주세요.');
 					}else if(group_name == ''){
@@ -117,6 +119,16 @@
 		}
 	});
 </script>
+<style>
+.fileDrop {
+  width: 80%;
+  height: 100px;
+  border: 1px dotted gray;
+  background-color: lightslategrey;
+  margin: auto;	
+  
+}
+</style>
 <TITLE>업체 신청</TITLE>
 </HEAD>
 <BODY>
@@ -124,6 +136,7 @@
 		<%-- <header>
 			<%@include file="../shop_admin/header.jsp"%>
 		</header> --%>
+		<form id='registerForm' role="form" method="post">
 		<input type="hidden" value="${id }" id="id">
 		<div class="shop_application">
 			<div class="application">
@@ -194,10 +207,12 @@
 						%>
 					</select>
 				</div>
-				<form id='form' action="upload" method="post" enctype="multipart/form-data" target="zeroFrame">
-				<div class="form-group">
-					<label for="exampleInputEmail1">매장로고(Drap & Drop)</label>
-					<div class="fileDrop"></div>
+				
+				<div class="box-body">
+					<div class="form-group">
+						<label for="exampleInputEmail1">매장로고(Drap & Drop)</label>
+						<div class="fileDrop"></div>
+					</div>
 				</div>
 				
 				<div class="box-footer">
@@ -210,25 +225,18 @@
 			
 					<button type="submit" class="btn btn-primary">신청하기</button>
 				</div>
-				
-				<!-- <div class="application_shop_image">
-					<p class="application_left shop_image left_size">매장로고</p>
-					<input type="file" class="application_left shop_image_input" id="groupFiles"/>
-				</div> -->
+				</div>
+				</div>
 				</form>
-<!-- 				<div class="application_btn">신청하기</div> -->
+
 			</div>
-		</div>
-		<%-- <footer>
-			<%@include file="../shop_admin/footer.jsp"%>
-		</footer> --%>
-	</div>
+
 </BODY>
 </HTML>
 
 <script id="template" type="text/x-handlebars-template">
 <li>
-  <span class="mailbox-attachment-icon has-img"><img src="{{imgsrc}}" alt="Attachment"></span>
+  <span class="mailbox-attachment-icon has-img"><img src="{{imgsrc}}" alt="???"></span>
   <div class="mailbox-attachment-info">
 	<a href="{{getLink}}" class="mailbox-attachment-name">{{fileName}}</a>
 	<a href="{{fullName}}" class="btn btn-default btn-xs pull-right delbtn">
@@ -239,13 +247,11 @@
 </script>    
 
 <script>
-
 var template = Handlebars.compile($("#template").html());
 
 $(".fileDrop").on("dragenter dragover", function(event){
 	event.preventDefault();
 });
-
 
 $(".fileDrop").on("drop", function(event){
 	event.preventDefault();
@@ -257,10 +263,9 @@ $(".fileDrop").on("drop", function(event){
 	var formData = new FormData();
 	
 	formData.append("file", file);	
-	
-	
+
 	$.ajax({
-		  url: '/upload2/uploadAjax',
+		  url: '/show/upload2/uploadAjax',
 		  data: formData,
 		  dataType:'text',
 		  processData: false,
@@ -276,8 +281,6 @@ $(".fileDrop").on("drop", function(event){
 		  }
 		});	
 });
-
-
 $("#registerForm").submit(function(event){
 	event.preventDefault();
 	
@@ -292,7 +295,4 @@ $("#registerForm").submit(function(event){
 
 	that.get(0).submit();
 });
-
-
-
 </script>

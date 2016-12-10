@@ -50,7 +50,7 @@ public class UploadController {
 	}
 
 	@RequestMapping(value = "/uploadForm", method = RequestMethod.POST)
-	public String uploadForm(MultipartFile file, Model model) throws Exception {
+	public String uploadForm(MultipartFile file, Model model,HttpServletRequest request) throws Exception {
 
 		// Drag & Drop 파일 정보 출력
 		logger.info("originalName: " + file.getOriginalFilename());
@@ -58,7 +58,7 @@ public class UploadController {
 		logger.info("contentType: " + file.getContentType());
 
 		// db파일이름
-		String savedName = uploadFile(file.getOriginalFilename(), file.getBytes());
+		String savedName = uploadFile(file.getOriginalFilename(), file.getBytes(), request);
 
 		System.out.println("Controller UploadForm SaceName : " + savedName);
 
@@ -71,18 +71,17 @@ public class UploadController {
 	public void uploadAjax() {
 	}
 
-	private String uploadFile(String originalName, byte[] fileData) throws Exception {
+	private String uploadFile(String originalName, byte[] fileData, HttpServletRequest request) throws Exception {
 		System.out.println("업로드파일");
 		UUID uid = UUID.randomUUID();
-
+		System.out.println("파일 저장 경로 request객체 : " +request.getSession().getServletContext().getRealPath("resources/img/thumbnail"));
 		// 파일이름 중복 방지
 		String savedName = uid.toString() + "_" + originalName;
 		// 중복방지처리 파일 이름
 		System.out.println("Controller UploadForm SaceName : " + savedName);
 
 		// 파일 저장
-		HttpServletRequest request = null;
-		String uploadPath = request.getSession().getServletContext().getRealPath("img/thumbnail");
+		String uploadPath = request.getSession().getServletContext().getRealPath("resources/img/thumbnail");
 		File target = new File(uploadPath, savedName);
 
 		// 썸네일 이미지 생성
@@ -94,15 +93,15 @@ public class UploadController {
 
 	@ResponseBody
 	@RequestMapping(value = "/uploadAjax", method = RequestMethod.POST, produces = "text/plain;charset=UTF-8")
-	public ResponseEntity<String> uploadAjax(MultipartFile file) throws Exception {
+	public ResponseEntity<String> uploadAjax(MultipartFile file,HttpServletRequest request) throws Exception {
 		System.out.println("▶요청 : uploadAjax    --------------------------------");
 		System.out.println("원본 파일 이름 : " + file.getOriginalFilename());
-		HttpServletRequest request = null;
-		String uploadPath = request.getSession().getServletContext().getRealPath("img/thumbnail");
+		String uploadPath = request.getSession().getServletContext().getRealPath("resources/img/thumbnail");
 		System.out.println("파일 저장 경로 resource : " + uploadPath);
 		System.out.println("파일 크기 : " + file.getSize());
 		System.out.println("파일 타입 : " + file.getContentType());
 		System.out.println("-------------------------------------------------------");
+
 
 		return new ResponseEntity<>(UploadFileUtils.uploadFile(uploadPath, file.getOriginalFilename(), file.getBytes()),
 				HttpStatus.CREATED);
@@ -110,7 +109,7 @@ public class UploadController {
 
 	@ResponseBody
 	@RequestMapping("/displayFile")
-	public ResponseEntity<byte[]> displayFile(String fileName) throws Exception {
+	public ResponseEntity<byte[]> displayFile(String fileName,HttpServletRequest request) throws Exception {
 
 		InputStream in = null;
 		ResponseEntity<byte[]> entity = null;
@@ -125,8 +124,7 @@ public class UploadController {
 			// 파일 확장자 추출 후 이미지일 경우 MIME타입 지정
 
 			HttpHeaders headers = new HttpHeaders();
-			HttpServletRequest request = null;
-			String uploadPath = request.getSession().getServletContext().getRealPath("img/thumbnail");
+			String uploadPath = request.getSession().getServletContext().getRealPath("resources/img/thumbnail");
 			in = new FileInputStream(uploadPath + fileName);
 
 			if (mType != null) {
@@ -153,7 +151,7 @@ public class UploadController {
 
 	@ResponseBody
 	@RequestMapping(value = "/deleteFile", method = RequestMethod.POST)
-	public ResponseEntity<String> deleteFile(String fileName) {
+	public ResponseEntity<String> deleteFile(String fileName,HttpServletRequest request) {
 
 		logger.info("delete file: " + fileName);
 
@@ -165,11 +163,9 @@ public class UploadController {
 
 			String front = fileName.substring(0, 12);
 			String end = fileName.substring(14);
-			HttpServletRequest request = null;
-			String uploadPath = request.getSession().getServletContext().getRealPath("img/thumbnail");
+			String uploadPath = request.getSession().getServletContext().getRealPath("resources/img/thumbnail");
 			new File(uploadPath + (front + end).replace('/', File.separatorChar)).delete();
 		}
-		HttpServletRequest request = null;
 		String uploadPath = request.getSession().getServletContext().getRealPath("img/thumbnail");
 		new File(uploadPath + fileName.replace('/', File.separatorChar)).delete();
 
@@ -178,7 +174,7 @@ public class UploadController {
 
 	@ResponseBody
 	@RequestMapping(value = "/deleteAllFiles", method = RequestMethod.POST)
-	public ResponseEntity<String> deleteFile(@RequestParam("files[]") String[] files) {
+	public ResponseEntity<String> deleteFile(@RequestParam("files[]") String[] files, HttpServletRequest request) {
 
 		logger.info("delete all files: " + files);
 
@@ -190,8 +186,7 @@ public class UploadController {
 			String formatName = fileName.substring(fileName.lastIndexOf(".") + 1);
 
 			MediaType mType = MediaUtils.getMediaType(formatName);
-			HttpServletRequest request = null;
-			String uploadPath = request.getSession().getServletContext().getRealPath("img/thumbnail");
+			String uploadPath = request.getSession().getServletContext().getRealPath("resources/img/thumbnail");
 			if (mType != null) {
 
 				String front = fileName.substring(0, 12);
