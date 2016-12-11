@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="order">
+	
+	<select id="menu_list" resultType="kr.co.show.order.domain.OrderVO">
+		select M.MENU_NO,M.MENU_NAME,M.MENU_PRICE,M.MENU_CATEGORY
+		from show_menu m
+		where m.group_no = #{group_no}
+	</select>
+	
+	<select id="category_list" resultType="kr.co.show.order.domain.OrderVO">
+		select distinct menu_category from show_menu where group_no=#{group_no}
+	</select>
+	
+	<select id="group_info" resultType="kr.co.show.order.domain.OrderVO">
+		select GROUP_NO,GROUP_NAME,GROUP_ADDRESS,GROUP_CATEGORY,to_char(GROUP_START,'HH24:MI') AS GROUP_START,TO_CHAR(GROUP_END,'HH24:MI') AS GROUP_END,GROUP_FILES,
+		(select avg(review_score) from show_review where group_no=#{group_no}) as review_score
+		from show_group
+		where group_no = #{group_no}
+	</select>
+	
+	<select id="sidemenu" resultType="kr.co.show.order.domain.OrderVO">
+		select s.sidemenu_name,s.sidemenu_no,s.sidemenu_pay,s.sidemenu_category,s.menu_no,m.menu_price
+		from show_sidemenu s,show_menu m
+		where m.menu_no = #{menu_no}
+	</select>
+	
+	<select id="sidecount" resultType="int">
+		select count(*)
+		from show_sidemenu
+		where menu_no = #{menu_no}
+	</select>
+</mapper>

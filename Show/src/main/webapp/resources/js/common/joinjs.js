@@ -30,7 +30,7 @@ function Account() {
 	var check2 = $("#bb2").is(":checked"); //전자금융거래 동의
 	var check3 = $("#cc2").is(":checked"); //개인정보 수집 이용 동의
 	
-	/*if (!email_1 || email_2 === "선택하세요") {
+	if (!email_1 || email_2 === "선택하세요") {
 		alert("이메일을 입력해주세요.");
 		return;
 	} else if (!password) {
@@ -54,7 +54,7 @@ function Account() {
 	} else if (!email_check_vl) {
 		alert("이메일 중복 확인을 해주세요.");
 		return;
-	} else*/ if (check1 == false || check2 == false || check3 == false) {
+	} else if (check1 == false || check2 == false || check3 == false) {
 		alert("약관동의를 해주세요.");
 
 		return;
@@ -94,7 +94,7 @@ function sell_Account() {
 	var check2 = $("#bb2").is(":checked"); //전자금융거래 동의
 	var check3 = $("#cc2").is(":checked"); //개인정보 수집 이용 동의
 	
-	/*if (!email_1 || email_2 === "선택하세요") {
+	if (!email_1 || email_2 === "선택하세요") {
 		alert("이메일을 입력해주세요.");
 		return;
 	} else if (!password) {
@@ -122,7 +122,7 @@ function sell_Account() {
 		alert("약관동의를 해주세요.");
 		
 		return;
-	}*/
+	}
 	allCheck = true;
 	
 	sell_Account_AX(email, password, name, nickName, phone, birthday, allCheck);

@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -93,7 +94,7 @@
 						if(vo.owner_ch == '신청중'){
 						a.innerHTML = a.innerHTML+'<div class="new_order_list">'+
 							'<div class="order_left order_choice">'+
-								'<input type="checkbox"/>'+
+								'<p>'+vo.reservation_time+'</p>'+
 							'</div>'+
 							'<div class="order_left order_num">'+
 								'<p>'+vo.order_no+'</p>'+
@@ -145,7 +146,7 @@
 						if(vo.owner_ch == '신청중'){
 						a.innerHTML = a.innerHTML+'<div class="new_order_list">'+
 							'<div class="order_left order_choice">'+
-								'<input type="checkbox"/>'+
+								'<p>'+vo.reservation_time+'</p>'+
 							'</div>'+
 							'<div class="order_left order_num">'+
 								'<p>'+vo.order_no+'</p>'+
@@ -194,7 +195,7 @@
 							if(vo.owner_ch == '신청중'){
 							a.innerHTML = a.innerHTML+'<div class="new_order_list">'+
 								'<div class="order_left order_choice">'+
-									'<input type="checkbox"/>'+
+									'<p>'+vo.reservation_time+'</p>'+
 								'</div>'+
 								'<div class="order_left order_num">'+
 									'<p>'+vo.order_no+'</p>'+
@@ -245,7 +246,7 @@ $(".wait_order").click(function(){
 				if(vo.owner_ch == '대기'){
 				a.innerHTML = a.innerHTML+'<div class="wait_order_list">'+
 					'<div class="order_left order_choice">'+
-						'<input type="checkbox"/>'+
+						'<p>'+vo.reservation_time+'</p>'+
 					'</div>'+
 					'<div class="order_left order_num">'+
 						'<p>'+vo.order_no+'</p>'+
@@ -296,7 +297,7 @@ $(".end_order").click(function(){
 				if(vo.owner_ch == '완료'){
 				a.innerHTML = a.innerHTML+'<div class="end_order_list">'+
 					'<div class="order_left order_choice">'+
-						'<input type="checkbox"/>'+
+						'<p>'+vo.reservation_time+'</p>'+
 					'</div>'+
 					'<div class="order_left order_num">'+
 						'<p>'+vo.order_no+'</p>'+
@@ -397,7 +398,7 @@ $(document).on("click",".check_btn",function(){
 		</div>
 		<div class="order_top_text">
 			<ul>
-				<li>선택</li>
+				<li>시간</li>
 				<li>주문번호</li>
 				<li>주문자명</li>
 				<li>주문자번호</li>
@@ -418,8 +419,6 @@ $(document).on("click",".check_btn",function(){
 <!-- 대기 컬럼 -->
 
 		<div id="end"></div>
-		
-		
 		
 		<%-- <footer>
 			<%@include file="../shop_admin/footer.jsp"%>

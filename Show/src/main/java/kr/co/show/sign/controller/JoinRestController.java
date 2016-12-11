@@ -8,6 +8,7 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -104,8 +105,8 @@ public class JoinRestController {
 	
 		return email;
 	}
-	@RequestMapping("/cancel_AX")
-	public @ResponseBody String cancel_AX(String member_email, String member_pass, HttpSession session) throws Exception{
+	@RequestMapping(value="/cancel_AX", method=RequestMethod.PUT)
+	public @ResponseBody String cancel_AX(@RequestBody String member_email, String member_pass, HttpSession session) throws Exception{
 		System.out.println("탈퇴 취소");
 		
 		Map<String, String> map = new HashMap<String, String>();
@@ -122,5 +123,39 @@ public class JoinRestController {
 		session.invalidate();
 		
 		return "OK";
+	}
+	
+	@RequestMapping(value="/admin_login", method=RequestMethod.POST)
+	public @ResponseBody String admin_login(String email, String password, HttpSession session) throws Exception{
+		MemberVO vo = service.login(email);
+		String position = vo.getMember_position();
+		String pass = vo.getMember_pass();
+		int id = vo.getMember_no();
+		String name = vo.getMember_name();
+		
+		if(password.equals(pass)){
+			
+			String draw = service.drawConfirm(email);
+			
+			if(draw != null){
+				if(draw.equals("T") || position.equals("10") || position.equals("20")){
+					System.out.println("실행 안됨");
+					
+					return "NO";
+				} else if(draw.equals("F") && position.equals("30")){
+					System.out.println("로그인 성공 :"+position);
+					session.setAttribute("admin_name", name);
+					session.setAttribute("admin_email", email);
+					session.setAttribute("admin_id", id);
+					session.setAttribute("admin_position", position);
+					
+					return "OK";
+				}
+			}			
+		} else{
+			System.out.println("로그인 실패");
+			return null;
+		}
+		return null;
 	}
 }
