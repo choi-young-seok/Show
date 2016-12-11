@@ -158,4 +158,15 @@ public class JoinRestController {
 		}
 		return null;
 	}
+	
+	@RequestMapping(value="/confirm_AX", method=RequestMethod.POST)
+	public boolean confirm_AX(String email) throws Exception{
+		MemberVO vo = service.login(email);
+		
+		if(vo == null)
+			return true;
+		
+		return false;
+	}
+	
 }
