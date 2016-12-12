@@ -1,8 +1,9 @@
-function Account(email_confirm) {
+function Account() {
+
+	// var frm = document.getElementById("Account_form");
 	var email_1 = $("#id_box_1").val();
 	var email_2 = $("#id_box_2").val();
 	//이메일
-	
 	var email = email_1 + "@" + email_2;	
 	//비밀번호
 	var password = $("#pw_box1").val();
@@ -14,14 +15,6 @@ function Account(email_confirm) {
 	var phone_1 = $("#hp_box_1").val();
 	var phone_2 = $("#hp_box_2").val();
 	var phone_3 = $("#hp_box_3").val();
-	var reg_phone = /^[0-9]*$/;
-	/*if(reg_phone.test(phone_2)){
-		alert('올바르지 않은 핸드폰 번호입니다.')
-		return;
-	}else if(reg_phone.test(phone_3)){
-		alert('올바르지 않은 핸드폰 번호입니다.')
-		return;
-	}*/
 	var phone = phone_1 + "-" + phone_2 + "-" + phone_3;
 	//생년 월 일
 	var year = $(".year").val();
@@ -39,9 +32,6 @@ function Account(email_confirm) {
 	
 	if (!email_1 || email_2 === "선택하세요") {
 		alert("이메일을 입력해주세요.");
-		return;
-	} else if (!email_confirm){
-		alert('이메일 중복확인을 해주세요.')
 		return;
 	} else if (!password) {
 		alert("비밀번호를 입력해주세요.");
@@ -138,34 +128,37 @@ function sell_Account() {
 	sell_Account_AX(email, password, name, nickName, phone, birthday, allCheck);
 	
 }
-
+function idCheck(){
+	
+}
 function Account_AX(email, password, name, nickName, phone, birthday, allCheck, emailCheck, smsCheck) {
-		$.ajax({
-			url : '/show/sign/sign_AX', //주소
-			type : 'POST',
-			data : {
-				"member_email" : email,
-				"member_pass" : password,
-				"member_name" : name,
-				"member_nickName" : nickName,
-				"member_phone" : phone,
-				"member_birth" : birthday,
-				"allCheck" : allCheck,
-				"emailCheck" : emailCheck,
-				"smsCheck" : smsCheck
-			},
-			success : function(result) {
-				if (result == "OK") {
-					alert('가입되었습니다.');
-					location.href='/show';
-				} else if (result != "OK") {
-					alert(result);
-				
-					return;
-				}
 
+	$.ajax({
+		url : '/show/sign/sign_AX', //주소
+		type : 'POST',
+		data : {
+			"member_email" : email,
+			"member_pass" : password,
+			"member_name" : name,
+			"member_nickName" : nickName,
+			"member_phone" : phone,
+			"member_birth" : birthday,
+			"allCheck" : allCheck,
+			"emailCheck" : emailCheck,
+			"smsCheck" : smsCheck
+		},
+		success : function(result) {
+			if (result == "OK") {
+				alert('가입되었습니다.');
+				location.href='/show';
+			} else if (result != "OK") {
+				alert(result);
+				
+				return;
 			}
-		});
+
+		}
+	});
 }
 function sell_Account_AX(email, password, name, nickName, phone, birthday, allCheck) {
 	
@@ -248,6 +241,16 @@ function pwd_check() {
 	}
 }
 
+// 버튼 동작
+$(document).ready(function() {
+	// 아이디 중복 검사.
+	$("#email_ch").click(function() {
+		var email = $("#id_box").val();
+		Email_certification(email);
+
+	});
+});
+
 function getXMLHttpRequest() {
 	if (window.ActiveXObject) {
 		try {
@@ -264,4 +267,54 @@ function getXMLHttpRequest() {
 	} else {
 		return null;
 	}
+}
+function viewMessage() {
+	var regex = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/;// 이메일
+																									// 형식
+																									// 확인위한
+																									// 변수
+	var email_1 = $("#id_box_1").val();
+	var email_2 = $("#id_box_2").val();
+	var email = email_1+"@"+email_2;
+
+	if (httpRequest.readyState == 4) {
+
+		if (httpRequest.status == 200) {
+			console.log(httpRequest.responseText);
+			if (regex.test(email) == false) {
+				alert("이메일 형식을 확인하여 주십시오");
+				return;
+			} else if (httpRequest.responseText == "OK") {
+				alert("사용가능합니다.");
+				email_check_vl = true;
+			} else if (httpRequest.responseText == "existence") {
+				alert("중복됩니다.");
+				email_check_vl = false;
+			} else if (httpRequest.responseText != "OK") {
+				alert("관리자에게 문의하세요.");
+			}
+		}
+	}
+}
+function Email_certification_AX(email) {
+	httpRequest = getXMLHttpRequest();
+	httpRequest.onreadystatechange = viewMessage;
+	httpRequest.open("POST", "email_certification.php", true);
+	httpRequest.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+	httpRequest.send("email=" + email);
+
+}
+
+function Email_certification(email) {
+
+	var frm = document.getElementById("email_form");
+	// var email = frm.email.value;
+
+	if (!email) {
+		$("#id_box").focus();
+		alert("이메일을 적어주세요.");
+		return;
+	}
+	Email_certification_AX(email);
+
 }
