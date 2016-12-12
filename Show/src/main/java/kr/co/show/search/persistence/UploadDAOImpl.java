@@ -13,10 +13,10 @@ public class UploadDAOImpl implements UploadDAO{
 	@Inject
 	private SqlSession sqlSession;
 
-	@Override
-	public void addAttach(String group_files) throws Exception {
-		sqlSession.insert("board.addAttach", group_files);
-	}
+//	@Override
+//	public void addAttach(String group_files) throws Exception {
+//		sqlSession.insert("board.addAttach", group_files);
+//	}
 
 	@Override
 	public List<String> getAttach(Integer group_no) throws Exception {

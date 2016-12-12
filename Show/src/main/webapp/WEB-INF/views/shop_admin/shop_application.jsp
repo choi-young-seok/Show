@@ -109,7 +109,8 @@
 		
 		function application(){
 			$.ajax({    		  
-				url:'/show/application',
+				//url:'/show/application',
+				url:'/show/adminMain',
 				success: function(data){
 					$('.adminMain').html(data);
 						$(".qna").css({"background":"#ffa500"});

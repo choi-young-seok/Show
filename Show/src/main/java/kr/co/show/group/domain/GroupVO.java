@@ -14,7 +14,8 @@ public class GroupVO {
 	private String group_ch;
 	private String group_start;
 	private String group_end;
-	private String[] group_files;
+	private String[] group_thumbnail;
+	private String group_files;
 	private String group_delete_ch;
 	private String group_regdate;
 
@@ -93,11 +94,19 @@ public class GroupVO {
 		this.group_end = group_end;
 	}
 
-	public String[] getGroup_files() {
+	public String[] getGroup_thumbnail() {
+		return group_thumbnail;
+	}
+
+	public void setGroup_thumbnail(String[] group_thumbnail) {
+		this.group_thumbnail = group_thumbnail;
+	}
+
+	public String getGroup_files() {
 		return group_files;
 	}
 
-	public void setGroup_files(String[] group_files) {
+	public void setGroup_files(String group_files) {
 		this.group_files = group_files;
 	}
 
@@ -130,8 +139,11 @@ public class GroupVO {
 		return "GroupVO [group_no=" + group_no + ", member_no=" + member_no + ", member_name=" + member_name
 				+ ", group_name=" + group_name + ", group_address=" + group_address + ", group_category="
 				+ group_category + ", group_phone=" + group_phone + ", group_ch=" + group_ch + ", group_start="
-				+ group_start + ", group_end=" + group_end + ", group_files=" + Arrays.toString(group_files)
-				+ ", group_delete_ch=" + group_delete_ch + ", group_regdate=" + group_regdate + "]";
+				+ group_start + ", group_end=" + group_end + ", group_thumbnail=" + Arrays.toString(group_thumbnail)
+				+ ", group_files=" + group_files + ", group_delete_ch=" + group_delete_ch + ", group_regdate="
+				+ group_regdate + "]";
 	}
+
+
 
 }
