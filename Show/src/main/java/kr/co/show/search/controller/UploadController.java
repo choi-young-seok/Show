@@ -166,7 +166,7 @@ public class UploadController {
 			String uploadPath = request.getSession().getServletContext().getRealPath("resources/img/thumbnail");
 			new File(uploadPath + (front + end).replace('/', File.separatorChar)).delete();
 		}
-		String uploadPath = request.getSession().getServletContext().getRealPath("img/thumbnail");
+		String uploadPath = request.getSession().getServletContext().getRealPath("resources/img/thumbnail");
 		new File(uploadPath + fileName.replace('/', File.separatorChar)).delete();
 
 		return new ResponseEntity<String>("deleted", HttpStatus.OK);
