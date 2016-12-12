@@ -1,43 +1,58 @@
-select * from SHOW_QNA;
+insert into  SHOW_MENU (MENU_NO,MEMBER_NO,GROUP_NO,MENU_NAME,MENU_PRICE,MENU_CATEGORY) values (show_menu_seq.nextval,1,2,'화이트모카',3000,'커피');
+insert into  SHOW_MENU (MENU_NO,MEMBER_NO,GROUP_NO,MENU_NAME,MENU_PRICE,MENU_CATEGORY) values (show_menu_seq.nextval,1,2,'카푸치노',3500,'커피');
+insert into  SHOW_MENU (MENU_NO,MEMBER_NO,GROUP_NO,MENU_NAME,MENU_PRICE,MENU_CATEGORY) values (show_menu_seq.nextval,1,2,'카페모카',2800,'커피');
+insert into  SHOW_MENU (MENU_NO,MEMBER_NO,GROUP_NO,MENU_NAME,MENU_PRICE,MENU_CATEGORY) values (show_menu_seq.nextval,1,2,'아메리카노',2700,'커피');
+insert into  SHOW_MENU (MENU_NO,MEMBER_NO,GROUP_NO,MENU_NAME,MENU_PRICE,MENU_CATEGORY) values (show_menu_seq.nextval,1,2,'카페라떼',2000,'커피');
+insert into  SHOW_MENU (MENU_NO,MEMBER_NO,GROUP_NO,MENU_NAME,MENU_PRICE,MENU_CATEGORY) values (show_menu_seq.nextval,1,2,'에소프레소',1500,'커피');
 
-select * from SHOW_NOTICE;
 
-select * from show_qna where qna_category ='오류문의' and qna_ch is not null;
+insert into SHOW_GROUP (GROUP_NO,MEMBER_NO,GROUP_NAME,GROUP_ADDRESS,GROUP_CATEGORY,GROUP_PHONE,GROUP_CH,GROUP_START,GROUP_END,GROUP_FILES,GROUP_DELETE_CH,GROUP_REGDATE) values (show_group_seq.nextval,1,'길동커피','가산디지털','커피숍','01012345678','F',to_timestamp('16/12/01 08:00:00.000000000','RR/MM/DD HH24:MI:SSXFF'),to_timestamp('16/12/01 21:00:00.000000000','RR/MM/DD HH24:MI:SSXFF'),'logo.png','F',to_date('16/12/07','RR/MM/DD'));
+insert into SHOW_GROUP (GROUP_NO,MEMBER_NO,GROUP_NAME,GROUP_ADDRESS,GROUP_CATEGORY,GROUP_PHONE,GROUP_CH,GROUP_START,GROUP_END,GROUP_FILES,GROUP_DELETE_CH,GROUP_REGDATE) values (show_group_seq.nextval,1,'소영커피','가산디지털','커피숍','01012345678','F',to_timestamp('16/12/01 08:00:00.000000000','RR/MM/DD HH24:MI:SSXFF'),to_timestamp('16/12/01 21:00:00.000000000','RR/MM/DD HH24:MI:SSXFF'),'logo.png','F',to_date('16/12/07','RR/MM/DD'));
+insert into SHOW_GROUP (GROUP_NO,MEMBER_NO,GROUP_NAME,GROUP_ADDRESS,GROUP_CATEGORY,GROUP_PHONE,GROUP_CH,GROUP_START,GROUP_END,GROUP_FILES,GROUP_DELETE_CH,GROUP_REGDATE) values (show_group_seq.nextval,1,'길학커피','가산디지털','커피숍','01012345678','F',to_timestamp('16/12/01 08:00:00.000000000','RR/MM/DD HH24:MI:SSXFF'),to_timestamp('16/12/01 21:00:00.000000000','RR/MM/DD HH24:MI:SSXFF'),'logo.png','F',to_date('16/12/07','RR/MM/DD'));
+insert into SHOW_GROUP (GROUP_NO,MEMBER_NO,GROUP_NAME,GROUP_ADDRESS,GROUP_CATEGORY,GROUP_PHONE,GROUP_CH,GROUP_START,GROUP_END,GROUP_FILES,GROUP_DELETE_CH,GROUP_REGDATE) values (show_group_seq.nextval,1,'혜정커피','가산디지털','커피숍','01012345678','F',to_timestamp('16/12/01 08:00:00.000000000','RR/MM/DD HH24:MI:SSXFF'),to_timestamp('16/12/01 21:00:00.000000000','RR/MM/DD HH24:MI:SSXFF'),'logo.png','F',to_date('16/12/07','RR/MM/DD'));
+insert into SHOW_GROUP (GROUP_NO,MEMBER_NO,GROUP_NAME,GROUP_ADDRESS,GROUP_CATEGORY,GROUP_PHONE,GROUP_CH,GROUP_START,GROUP_END,GROUP_FILES,GROUP_DELETE_CH,GROUP_REGDATE) values (show_group_seq.nextval,1,'윤철커피','가산디지털','커피숍','01012345678','F',to_timestamp('16/12/01 08:00:00.000000000','RR/MM/DD HH24:MI:SSXFF'),to_timestamp('16/12/01 21:00:00.000000000','RR/MM/DD HH24:MI:SSXFF'),'logo.png','F',to_date('16/12/07','RR/MM/DD'));
+insert into SHOW_GROUP (GROUP_NO,MEMBER_NO,GROUP_NAME,GROUP_ADDRESS,GROUP_CATEGORY,GROUP_PHONE,GROUP_CH,GROUP_START,GROUP_END,GROUP_FILES,GROUP_DELETE_CH,GROUP_REGDATE) values (show_group_seq.nextval,1,'용석커피','가산디지털','커피숍','01012345678','F',to_timestamp('16/12/01 08:00:00.000000000','RR/MM/DD HH24:MI:SSXFF'),to_timestamp('16/12/01 21:00:00.000000000','RR/MM/DD HH24:MI:SSXFF'),'logo.png','F',to_date('16/12/07','RR/MM/DD'));
+
+create sequence show_group_seq
+start with 1
+increment by 1
+nocache
+nocycle
+
+create sequence show_menu_seq
+start with 1
+increment by 1
+nocache
+nocycle
+
+delete from show_group
 
 
-		select count(*) from show_qna where qna_category = '오류문의' where    
-		
-			select * from show_qna  
-			select * from show_qna where qna_category = '회원정보문의'   
-			select * from show_qna where qna_category = '오류문의'   
-			select * from show_qna where qna_category = '오류문의'   
-			select * from show_qna where qna_category = '오류문의'   
-			select * from show_qna where qna_category = '오류문의'   
-			select * from show_qna where qna_category = '오류문의'   
-			select * from show_qna where qna_category = '오류문의'   
-			
-			
-			select *
-		from show_order
-		where member_no = 1 and (owner_ch ='신청중' or owner_ch='대기'); 
-		
-		
-		select *
-		from show_group
-		where group_no in (select group_no
-							from show_order
-							where member_no = 1
-							and (owner_ch ='신청중' or owner_ch='대기'))
-							
-							
-							
-							select *
-		from show_menu_check
-		where group_no in(select group_no
-							from show_order
-							where member_no = 1
-							and (owner_ch ='신청중' or owner_ch='대기'))	
-			and order_no in (select order_no
-							from show_order
-							where member_no = 1
-							and (owner_ch ='신청중' or owner_ch='대기'))
+
+
+GROUP_DELETE_CH,GROUP_REGDATE
+
+alter table show_group add (group_delete_ch varchar2(10))
+alter table show_group add (group_regdate timestamp)
+
+alter table show_order add (order_time timestamp(6) default sysdate)
+
+
+insert into SHOW_ORDER (ORDER_NO,MEMBER_NO,GROUP_NO,ORDER_NAME,ORDER_PHONE,ORDER_TIME,RESERVATION_TIME,ORDER_PRICE,ORDER_COUNT,ORDER_ASK,ORDER_ASK2,ORDER_CH,OWNER_CH,ORDER_REFUND) values (11,5,2,'윤철','010-1234-1243',to_timestamp('16/12/09 12:13:46.000000000','RR/MM/DD HH24:MI:SSXFF'),to_timestamp('16/12/01 13:00:00.000000000','RR/MM/DD HH24:MI:SSXFF'),19000,2,'양념간장치킨','안짜게해주세요','T','신청중','F');
+insert into SHOW_ORDER (ORDER_NO,MEMBER_NO,GROUP_NO,ORDER_NAME,ORDER_PHONE,ORDER_TIME,RESERVATION_TIME,ORDER_PRICE,ORDER_COUNT,ORDER_ASK,ORDER_ASK2,ORDER_CH,OWNER_CH,ORDER_REFUND) values (7,1,2,'윤철','010-1234-1243',to_timestamp('16/12/05 10:21:34.000000000','RR/MM/DD HH24:MI:SSXFF'),to_timestamp('16/12/01 16:00:00.000000000','RR/MM/DD HH24:MI:SSXFF'),8000,3,'부대찌개','떡은 빼고 포장해주세요','T','신청중','F');
+insert into SHOW_ORDER (ORDER_NO,MEMBER_NO,GROUP_NO,ORDER_NAME,ORDER_PHONE,ORDER_TIME,RESERVATION_TIME,ORDER_PRICE,ORDER_COUNT,ORDER_ASK,ORDER_ASK2,ORDER_CH,OWNER_CH,ORDER_REFUND) values (8,1,2,'윤철','010-1234-1243',to_timestamp('16/12/05 10:21:35.000000000','RR/MM/DD HH24:MI:SSXFF'),to_timestamp('16/12/01 15:00:00.000000000','RR/MM/DD HH24:MI:SSXFF'),20000,5,'감자탕','감자를 많이주세요','T','완료','F');
+insert into SHOW_ORDER (ORDER_NO,MEMBER_NO,GROUP_NO,ORDER_NAME,ORDER_PHONE,ORDER_TIME,RESERVATION_TIME,ORDER_PRICE,ORDER_COUNT,ORDER_ASK,ORDER_ASK2,ORDER_CH,OWNER_CH,ORDER_REFUND) values (9,1,2,'윤철','010-1234-1243',to_timestamp('16/12/05 10:21:37.000000000','RR/MM/DD HH24:MI:SSXFF'),to_timestamp('16/12/01 14:00:00.000000000','RR/MM/DD HH24:MI:SSXFF'),13000,1,'탕수육','소스를 따로 주세요','T','대기','F');
+insert into SHOW_ORDER (ORDER_NO,MEMBER_NO,GROUP_NO,ORDER_NAME,ORDER_PHONE,ORDER_TIME,RESERVATION_TIME,ORDER_PRICE,ORDER_COUNT,ORDER_ASK,ORDER_ASK2,ORDER_CH,OWNER_CH,ORDER_REFUND) values (10,1,2,'윤철','010-1234-1243',to_timestamp('16/12/05 10:21:38.000000000','RR/MM/DD HH24:MI:SSXFF'),to_timestamp('16/12/01 13:00:00.000000000','RR/MM/DD HH24:MI:SSXFF'),19000,2,'양념간장치킨','힘내세요','T','대기','F');
+insert into SHOW_ORDER (ORDER_NO,MEMBER_NO,GROUP_NO,ORDER_NAME,ORDER_PHONE,ORDER_TIME,RESERVATION_TIME,ORDER_PRICE,ORDER_COUNT,ORDER_ASK,ORDER_ASK2,ORDER_CH,OWNER_CH,ORDER_REFUND) values (12,1,2,'윤철','010-1234-1234',to_timestamp('16/12/09 05:55:29.839000000','RR/MM/DD HH24:MI:SSXFF'),to_timestamp('16/12/09 05:55:32.070000000','RR/MM/DD HH24:MI:SSXFF'),5000,4,'피자','디핑소스 하나더주세요','T','신청중','F');
+insert into SHOW_ORDER (ORDER_NO,MEMBER_NO,GROUP_NO,ORDER_NAME,ORDER_PHONE,ORDER_TIME,RESERVATION_TIME,ORDER_PRICE,ORDER_COUNT,ORDER_ASK,ORDER_ASK2,ORDER_CH,OWNER_CH,ORDER_REFUND) values (6,1,2,'윤철','010-1234-1243',to_timestamp('16/12/05 10:18:54.000000000','RR/MM/DD HH24:MI:SSXFF'),to_timestamp('16/12/01 17:00:00.000000000','RR/MM/DD HH24:MI:SSXFF'),1500,2,'아이스 아메리카노','얼음 빼고 주세요','T','완료','F');
+
+
+insert into SHOW_MENU_CHECK (MEMBER_NO,GROUP_NO,MENU_NO,ORDER_NO,MENU_NAME,MENU_COUNT,MENU_PRICE) values (1,2,1,9,'카페라떼',3,2000);
+insert into SHOW_MENU_CHECK (MEMBER_NO,GROUP_NO,MENU_NO,ORDER_NO,MENU_NAME,MENU_COUNT,MENU_PRICE) values (1,2,6,10,'아메리카노',3,2700);
+insert into SHOW_MENU_CHECK (MEMBER_NO,GROUP_NO,MENU_NO,ORDER_NO,MENU_NAME,MENU_COUNT,MENU_PRICE) values (1,2,1,9,'카페라떼',2,2000);
+insert into SHOW_MENU_CHECK (MEMBER_NO,GROUP_NO,MENU_NO,ORDER_NO,MENU_NAME,MENU_COUNT,MENU_PRICE) values (2,2,5,5,'카푸치노',2,3500);
+insert into SHOW_MENU_CHECK (MEMBER_NO,GROUP_NO,MENU_NO,ORDER_NO,MENU_NAME,MENU_COUNT,MENU_PRICE) values (1,2,1,6,'카페라떼',2,2000);
+insert into SHOW_MENU_CHECK (MEMBER_NO,GROUP_NO,MENU_NO,ORDER_NO,MENU_NAME,MENU_COUNT,MENU_PRICE) values (1,2,6,6,'아메리카노',3,2700);
+insert into SHOW_MENU_CHECK (MEMBER_NO,GROUP_NO,MENU_NO,ORDER_NO,MENU_NAME,MENU_COUNT,MENU_PRICE) values (1,2,3,7,'화이트모카',7,3000);
+
+

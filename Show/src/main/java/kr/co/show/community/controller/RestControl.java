@@ -16,8 +16,6 @@ import kr.co.show.community.service.NoticeService;
 import kr.co.show.community.service.QnaService;
 
 @RestController
-@Controller
-
 public class RestControl {
 	
 	@Inject
@@ -59,5 +57,4 @@ public class RestControl {
 		service.deleteQna(qna_no);
 		return "deQnaOK";
 	}
-
 }
