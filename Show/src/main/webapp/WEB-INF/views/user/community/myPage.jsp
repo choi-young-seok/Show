@@ -3,6 +3,12 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 
+<jsp:useBean id="now" class="java.util.Date" />
+
+<%-- <%@page import="java.util.Date"%>
+<%
+Date CurrentDate = new Date();
+%> --%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -44,9 +50,9 @@ $(document).ready(function(){
 
 		
 		 $('.check_btn').click(function(){//환불 버튼 누르면
-			//alert(member_no)
+		//alert(member_no)
 		 var group_no = $('.group_no').attr("id");
-		 var order_no = $('#order_no').val();
+		 var order_no = $('.check_btn').attr("id");
 			//alert(order_no)
 			//alert(group_no)
 		 	$.ajax({
@@ -62,7 +68,8 @@ $(document).ready(function(){
 					"group_no":group_no
 				}),
 				success:function(){
-					//alert("성공")
+					alert("환불 신청이 되었습니다.")
+					
 				}
 			}); 
 		}); 
@@ -97,31 +104,24 @@ $(document).ready(function(){
 			<c:forEach items="${list }" var="list">
 			<c:if test="${list.owner_ch eq '신청중'}">
 			<div class="order_left order_choice">
-				
 				<p>${list.order_no}</p>	
-				
 			</div>
 			<div class="order_left order_num">
-				<fmt:formatDate value="${list.order_time }" pattern="yyyy/MM/dd hh:mm"/>
-				<fmt:formatDate value="${date }" type="date" />
-				<fmt:formatDate value="${date }" type="both" />
-				<fmt:formatDate value="${date }" type="time" />
-		
+				<fmt:formatDate value="${list.reservation_time }" pattern="yyyy/MM/dd a hh:mm" /> <!-- 잘 나옴 -->
 			</div>
 			<div class="order_left user_name">
-				<p id="${list.group_no }" class="group_no">${list.group_name }</p>
+				<p id="${list.group_no}" class="group_no">${list.group_name }</p>
 			</div>
 			<div class="order_left user_phone">
-				<p>${list.group_phone }</p>
+				<p>${list.group_phone}</p>
 			</div>
-			
 			<div class="order_left order_menu">
-			<c:forEach items="${list2 }" var="list2">
-			<c:if test="${list.order_no eq list2.order_no}">
-				<br>
-				<p>${list2.menu_name }</p>
-			</c:if>
-			</c:forEach>
+				<c:forEach items="${list2 }" var="list2">
+					<c:if test="${list.order_no eq list2.order_no}">
+					<br>
+					<p>${list2.menu_name }</p>
+					</c:if>
+				</c:forEach>
 			</div>
 			<div class="order_left order_pay">
 			<c:forEach items="${list2 }" var="list2">
@@ -130,15 +130,15 @@ $(document).ready(function(){
 			</c:if>
 			</c:forEach>	
 			</div>
-			<div class="order_left order_all_pay">
+			<div class="order_left order_all_pay"><!-- 여기가 총 금액 -->
 				<p>${list.menu_price} 원</p>
 			</div>
 			<div class="order_left order_check">
 				<div>
 					<p>${list.order_refund }</p>
 			  
-			 	<p id="${list.order_no }" class="check_btn">환불 신청 </p>
-		
+			 		<p id="${list.order_no }" class="check_btn">환불 신청 </p>
+					<fmt:formatDate value="${now}" pattern="yyyy/MM/dd a hh:mm"   />
 				</div>
 			</div>
 			<hr>
@@ -150,14 +150,14 @@ $(document).ready(function(){
 			<c:forEach items="${list }" var="list">
 			<c:if test="${list.owner_ch eq '대기'}">
 			<div class="order_left order_choice">
-								<p>${list.order_no}</p>
+				<p>${list.order_no}</p>
 			</div>
 			<div class="order_left order_num">
 
-				<fmt:formatDate value="${list.order_time }" pattern="yyyy/MM/dd hh:mm"/>
+				<fmt:formatDate value="${list.reservation_time }" pattern="yyyy/MM/dd hh:mm" />
 			</div>
 			<div class="order_left user_name">
-				<p>${list.group_name }</p>
+				<p id="${list.group_no}" class="group_no">${list.group_name}</p>
 			</div>
 			<div class="order_left user_phone">
 				<p>${list.group_phone }</p>
@@ -184,8 +184,8 @@ $(document).ready(function(){
 			<div class="order_left order_check">
 				<div>
 					<p>${list.order_refund }</p>
-					
 			 	<p id="${list.order_no }" class="check_btn">환불 신청</p>
+						<fmt:formatDate value="${now}" pattern="yyyy/MM/dd a hh:mm"  />
 				</div>
 			</div>
 			<hr>
@@ -193,6 +193,7 @@ $(document).ready(function(){
 			</c:forEach>
 		</div>
 
+	<div></div>
 		<div class="end_order_list">
 			<c:forEach items="${list3 }" var="list3">
 			<div class="order_left order_choice">
@@ -231,7 +232,7 @@ $(document).ready(function(){
 				<div>
 					<p>${list3.order_refund }</p>
 					
-			 	<p id="${list3.order_no }" class="check_btn">환불 신청   </p>
+		<%-- 	 	<p id="${list3.order_no }" class="check_btn">환불 신청   </p> --%>
 				</div>
 			</div>
 			<hr>
