@@ -18,5 +18,5 @@ public interface AdminService {
 	public List<GroupVO> nchList(String group_ch) throws Exception;
 	public List<GroupVO> dchList(String group_delete_ch) throws Exception;
 	public List<GroupVO> searchList(String group_name) throws Exception;
-
+	public List<MemberVO> searchList2(String member_name) throws Exception;
 }

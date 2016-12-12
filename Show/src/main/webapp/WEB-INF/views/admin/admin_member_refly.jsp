@@ -20,7 +20,6 @@
 <script type="text/javascript">
 $('.next').click(function(){
 	var member_no = ${detail.member_no}+1;
-	alert(member_no);
 	$.ajax({
 		url:'/show/admin_member_refly',
 		data:{"member_no":member_no},
@@ -33,7 +32,6 @@ $('.next').click(function(){
 });
 $('.prev').click(function(){
 	var member_no = ${detail.member_no}-1;
-	alert(member_no);
 	$.ajax({
 		url:'/show/admin_member_refly',
 		data:{"member_no":member_no},

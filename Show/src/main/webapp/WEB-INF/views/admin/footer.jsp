@@ -19,13 +19,13 @@
 			<div class="thanks_to">
 				<p>Thank`s to -</p>
 				<div class="thanks_text">
-					<p>Programing : Sin yoo dong , Lee gil hak</p>
-					<p>Web Disign : Jo chung hee</p>
+					<p>Admin : On Show</p>
+					<p>Phone : 02-1234-1234</p>
 				</div>
 			</div>
 		</footer>
 		<div class="copyright">
-				<p>Copyright ⓒ 2016 BRKOREA Company. All Rights Reserved.</p>
+				<p>Copyright ⓒ 2016 OnShow Company. All Rights Reserved.</p>
 		</div>
 	</div>
 </body>

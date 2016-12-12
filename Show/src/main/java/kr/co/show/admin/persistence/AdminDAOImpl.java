@@ -8,6 +8,7 @@ import org.apache.ibatis.session.RowBounds;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
+import kr.co.show.community.domain.QnaVO;
 import kr.co.show.group.domain.GroupVO;
 import kr.co.show.sign.domain.MemberVO;
  
@@ -85,6 +86,17 @@ public class AdminDAOImpl implements AdminDAO {
 	public List<GroupVO> searchList(String group_name) throws Exception {
 		List<GroupVO> list8 = sqlsession.selectList("group1.searchList", group_name);
 		return list8;
+	}
+
+	@Override
+	public List<MemberVO> searchList2(String member_name) throws Exception {
+		List<MemberVO> list9 = sqlsession.selectList("member.searchList2", member_name);
+		return list9;
+	}
+
+	@Override
+	public List<QnaVO> listPage(int page) throws Exception {
+		return sqlsession.selectList("qna.listPage");
 	}
 
 

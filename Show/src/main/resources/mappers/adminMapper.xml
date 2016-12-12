@@ -17,9 +17,18 @@
 		where member_no = #{member_no}
 	</select>
 	
-	<delete id="delete">
-		delete from show_member where member_no = #{member_no}
-	</delete>
+	<select id="searchList2" parameterType="String" resultType="kr.co.show.sign.domain.MemberVO">
+		select member_no, member_email, member_name, member_position
+		from show_member
+		where  member_name like '%'||#{member_name}||'%'
+	</select>
 	
+	<!-- 전체 레코드 조회 -->
+   <select id="list2" resultType="kr.co.show.community.domain.QnaVO">
+       select qna_no,qna_name,qna_email,qna_title,qna_text,qna_category,qna_ch
+      from show_qna
+      where qna_ch = #{qna_ch} 
+      order by qna_no desc
+   </select>
 
 </mapper>
