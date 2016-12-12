@@ -83,6 +83,12 @@ public class AdminServiceImpl implements AdminService {
 		
 		return dao.searchList(group_name);
 	}
+
+	@Override
+	public List<MemberVO> searchList2(String member_name) throws Exception {
+		
+		return dao.searchList2(member_name);
+	}
 	
 
 

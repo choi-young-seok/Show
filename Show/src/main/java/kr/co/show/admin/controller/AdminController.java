@@ -30,17 +30,14 @@ public class AdminController {
 	
 	@RequestMapping("/admin_member_refly") 
 	public String admin_member_refly(int member_no, Model model) throws Exception{
-		//select하고
-		//뿌려주고,
 		model.addAttribute("detail", service.detail(member_no));
-		System.out.println(service.detail(member_no).getMember_email());
 		model.addAttribute("cnt",service.memberList().size());
 		return "/admin/admin_member_refly";
 	}
 	@RequestMapping("/admin_group_refly")
 	public String admin_group_refly(int group_no, Model model)throws Exception{
 		model.addAttribute("detail2", service.detail2(group_no));
-		model.addAttribute("cnt",service.memberList().size());
+		model.addAttribute("cnt",service.groupList().size());
 		return "/admin/admin_group_refly";
 	}
 	 
