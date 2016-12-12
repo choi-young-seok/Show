@@ -24,6 +24,7 @@ public class GroupDAOImpl implements GroupDAO{
 
 	@Override
 	public void insert(GroupVO group) throws Exception {
+		System.out.println("GroupDAOImpl insert() : " +group.toString());
 		sqlSession.insert("group.enterpriseInsert", group);
 		
 	}

@@ -28,9 +28,12 @@ public class GroupServiceImpl implements GroupService{
 	@Transactional
 	@Override
 	public void insert(GroupVO group, int member_no) throws Exception {
-		dao.insert(group);
+		System.out.println("groupServiceImpl insert()");
+		System.out.println(" vo.getFile : " +group.getGroup_files());
 		String[] files = group.getGroup_files();
-		System.out.println(group.getGroup_files());
+		System.out.println("String files : " +files);
+		System.out.println("String files[0] : " +files[0]);
+		dao.insert(group);
 		if(files == null){
 			return;
 		}

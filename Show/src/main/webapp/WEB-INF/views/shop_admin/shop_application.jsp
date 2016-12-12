@@ -54,7 +54,7 @@
 		});
 
 		$('#application_btn').click(function() {
-			alert("11");
+			alert("파일이름: " +$('#fullName').attr("href"));
 			var group_phone = $("#phone").val();
 			var group_name = $("#groupName").val();
 			var group_address = $("#groupAddr").val();
@@ -65,7 +65,7 @@
 			var group_end_hour = $("select[name=end_hour]").val();
 			var group_end_minute = $("select[name=end_minute").val();
 			var group_end = $("select[name=end_hour]").val() + $("select[name=end_minute").val();
-			var group_files = $("#groupFiles").val();
+			var group_files =$('#fullName').attr("href");
 			//var image_split = group_files.split("\\");
 			var id = $("#id").val();
 			
@@ -73,7 +73,7 @@
 				url : '/show/applicationInsert',
 				type:'post',
 				data:{"group_phone":group_phone,"group_name":group_name,"group_address":group_address,"group_category":group_category,
-						"group_start":group_start,"group_end":group_end,"member_no":id},
+						"group_start":group_start,"group_end":group_end,"member_no":id, "group_files":group_files},
 				success : function(data) {
 					if(data == 'OK'){
 						alert("신청이 완료되었습니다.");
@@ -242,7 +242,7 @@
   <img src="{{imgsrc}}" alt="???"></span>
   <div class="mailbox-attachment-info">
 	<a href="{{getLink}}" class="mailbox-attachment-name">{{fileName}}</a>
-	<a href="{{fullName}}" class="btn btn-default btn-xs pull-right delbtn">
+	<a id="fullName" href="{{fullName}}" class="btn btn-default btn-xs pull-right delbtn">
 {{fullName}}
 		<i class="fa fa-fw fa-remove"></i></a>
 	</span>
@@ -289,11 +289,15 @@ $("#registerForm").submit(function(event){
 	event.preventDefault();
 	
 	var that = $(this);
+
 	
 	var str ="";
 	$(".uploadedList .delbtn").each(function(index){
-		 str += "<input type='hidden' name='files["+index+"]' value='"+$(this).attr("href") +"'> ";
+		 str += "<input type='hidden' name='group_files["+index+"]' value='"+$(this).attr("href") +"'> ";
 	});
+	alert("1111"+$(this).attr("href"));
+	alert("str : "+str)
+	
 	
 	that.append(str);
 
