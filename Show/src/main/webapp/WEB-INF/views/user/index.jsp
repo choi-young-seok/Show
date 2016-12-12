@@ -109,8 +109,8 @@
 			</div>
 			<nav>
 				<ul class="nav_menu">
-					<li><a href="community/communityMain">서비스안내</a></li>
-					<li><a href="community/qnalist">고객센터</a></li>
+					<li><a href="user/community">서비스안내</a></li>
+					<li><a href="user/community">고객센터</a></li>
 					<% if(session.getAttribute("id") == null && session.getAttribute("email") == null && session.getAttribute("position") == null) {%>
 					<li><a href="sign/login">로그인</a></li>
 					<li><a href="sign/up">회원가입</a></li>					

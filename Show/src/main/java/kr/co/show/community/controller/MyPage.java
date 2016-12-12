@@ -46,10 +46,10 @@ public class MyPage {
 		} //그룹 이름을 다 받는 작업
 		
 		model.addAttribute("list", order);
-		System.out.println("list.toString (Controller for MyPage) : "+order.toString());
+		//System.out.println("list.toString (Controller for MyPage) : "+order.toString());
 		
 		model.addAttribute("list2", menu);
-		System.out.println("list2.toString (Contorller for MyPage) : " +menu.toString());
+		//System.out.println("list2.toString (Contorller for MyPage) : " +menu.toString());
 		
 		
 		

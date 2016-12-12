@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -43,12 +44,12 @@ $(document).ready(function(){
 
 		
 		 $('.check_btn').click(function(){//환불 버튼 누르면
-			alert(member_no)
+			//alert(member_no)
 		 var group_no = $('.group_no').attr("id");
 		 var order_no = $('#order_no').val();
-			alert(order_no)
-			alert(group_no)
-			$.ajax({
+			//alert(order_no)
+			//alert(group_no)
+		 	$.ajax({
 				url:"/show/orderState",
 				type: "PUT",
 				headers:{
@@ -61,15 +62,13 @@ $(document).ready(function(){
 					"group_no":group_no
 				}),
 				success:function(){
-					alert("성공")
+					//alert("성공")
 				}
-			});
+			}); 
 		}); 
-		 
-		 $('.wait_order').click(function(){//대기중인 거 나타내기
-			 
-		});  
 		
+		 	 
+	
 	});
 </script>
 <TITLE> 마이페이지 </TITLE>
@@ -84,8 +83,8 @@ $(document).ready(function(){
 		</div>
 		<div class="order_top_text">
 			<ul>
-				<li>시간</li>
 				<li>주문번호</li>
+				<li>시간</li>
 				<li>업체명</li>
 				<li>업체전화번호</li>
 				<li>신청메뉴</li>
@@ -98,10 +97,16 @@ $(document).ready(function(){
 			<c:forEach items="${list }" var="list">
 			<c:if test="${list.owner_ch eq '신청중'}">
 			<div class="order_left order_choice">
-				<fmt:formatDate value="${list.order_time }" pattern="yyyy/MM/dd hh:mm"/>
+				
+				<p>${list.order_no}</p>	
+				
 			</div>
 			<div class="order_left order_num">
-				<p>${list.order_no}</p>	
+				<fmt:formatDate value="${list.order_time }" pattern="yyyy/MM/dd hh:mm"/>
+				<fmt:formatDate value="${date }" type="date" />
+				<fmt:formatDate value="${date }" type="both" />
+				<fmt:formatDate value="${date }" type="time" />
+		
 			</div>
 			<div class="order_left user_name">
 				<p id="${list.group_no }" class="group_no">${list.group_name }</p>
@@ -131,12 +136,13 @@ $(document).ready(function(){
 			<div class="order_left order_check">
 				<div>
 					<p>${list.order_refund }</p>
-					
+			  
 			 	<p id="${list.order_no }" class="check_btn">환불 신청 </p>
+		
 				</div>
 			</div>
 			<hr>
-			</c:if>
+		 </c:if>
 			</c:forEach>
 		</div>
 
@@ -144,10 +150,11 @@ $(document).ready(function(){
 			<c:forEach items="${list }" var="list">
 			<c:if test="${list.owner_ch eq '대기'}">
 			<div class="order_left order_choice">
-				<fmt:formatDate value="${list.order_time }" pattern="yyyy/MM/dd hh:mm"/>
+								<p>${list.order_no}</p>
 			</div>
 			<div class="order_left order_num">
-				<p>${list.order_no}</p>
+
+				<fmt:formatDate value="${list.order_time }" pattern="yyyy/MM/dd hh:mm"/>
 			</div>
 			<div class="order_left user_name">
 				<p>${list.group_name }</p>
@@ -189,10 +196,11 @@ $(document).ready(function(){
 		<div class="end_order_list">
 			<c:forEach items="${list3 }" var="list3">
 			<div class="order_left order_choice">
-				<fmt:formatDate value="${list3.order_time }" pattern="yyyy/MM/dd hh:mm"/>
+				<p>${list3.order_no }</p>
 			</div>
 			<div class="order_left order_num">
-				<p>${list3.order_no }</p>
+
+				<fmt:formatDate value="${list3.order_time }" pattern="yyyy/MM/dd hh:mm"/>
 			</div>
 			<div class="order_left user_name">
 				<p>${list3.group_name }</p>
