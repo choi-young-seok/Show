@@ -18,7 +18,7 @@ import kr.co.show.group.domain.GroupVO;
 public class AdminRestController {
 	@Inject
 	private AdminService service;
-
+ 
 	@RequestMapping("/admin_group_update")
 	public ResponseEntity<String> update(@RequestBody GroupVO vo) throws Exception {
 
