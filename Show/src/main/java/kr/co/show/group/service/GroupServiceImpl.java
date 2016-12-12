@@ -30,6 +30,7 @@ public class GroupServiceImpl implements GroupService{
 	public void insert(GroupVO group, int member_no) throws Exception {
 		dao.insert(group);
 		String[] files = group.getGroup_files();
+		System.out.println(group.getGroup_files());
 		if(files == null){
 			return;
 		}

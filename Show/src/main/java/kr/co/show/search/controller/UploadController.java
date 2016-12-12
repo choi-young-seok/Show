@@ -60,7 +60,7 @@ public class UploadController {
 		// db파일이름
 		String savedName = uploadFile(file.getOriginalFilename(), file.getBytes(), request);
 
-		System.out.println("Controller UploadForm SaceName : " + savedName);
+		System.out.println("Controller UploadForm SaveName : " + savedName);
 
 		model.addAttribute("savedName", savedName);
 

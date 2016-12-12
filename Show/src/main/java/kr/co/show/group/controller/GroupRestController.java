@@ -29,6 +29,9 @@ public class GroupRestController {
 	
 	@RequestMapping(value="/applicationInsert", method=RequestMethod.POST)
 	public String applicationPost(GroupVO group, int member_no, HttpSession session) throws Exception{
+		System.out.println("컨트롤러 접수 applicationInsert");
+		System.out.println("group" + group.toString());
+		System.out.println("member_no : " +member_no);
 		service.insert(group, member_no);
 
 		String result = "OK";
