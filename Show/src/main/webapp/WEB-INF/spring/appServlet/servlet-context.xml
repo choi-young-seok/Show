@@ -55,6 +55,40 @@
 			<beans:ref bean="loginInterceptor"/>
 		</interceptor>
 	</interceptors>
+	
+	<beans:bean id="SessionInterceptor" class="kr.co.show.sign.interceptor.SessionInterceptor"/>
+	<interceptors>
+		<interceptor>
+			<mapping path="/user/faqList"/>
+			<mapping path="/createNotice"/>
+			<mapping path="/user/list"/>
+			<mapping path="/user/eventview"/>
+			<mapping path="/adminEventView"/>
+			<mapping path="/user/community"/>
+			<mapping path="/user/create"/>
+			<mapping path="/user/intro"/>
+			<mapping path="/checkData"/>
+			<mapping path="/deQna"/>
+			<mapping path="/adminMain"/>
+			<beans:ref bean="SessionInterceptor"/>
+		</interceptor>
+	</interceptors>
+	
+	<!-- 관리자 완료 -->
+	<beans:bean id="AdminInterceptor" class="kr.co.show.sign.interceptor.AdminInterceptor"/>
+	<interceptors>
+		<interceptor>
+			<mapping path="/removeNotice"/>
+			<mapping path="/checkDataDa"/>
+			<mapping path="/check"/>
+			<mapping path="/event"/>
+			<mapping path="/member"/>
+			<mapping path="/admin_member_refly"/>
+			<mapping path="/admin_group_refly"/>
+			<mapping path="/shop"/>
+			<beans:ref bean="AdminInterceptor"/>
+		</interceptor>
+	</interceptors>
 
 
 
