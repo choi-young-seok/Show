@@ -14,7 +14,7 @@
 	<select id="listOrder" resultType="kr.co.show.community.domain.MyPageVO">
 		select *
 		from show_order
-		where member_no = #{member_no} and (owner_ch ='신청중' or owner_ch='대기' and order_refund='F') 
+		where member_no = #{member_no} and (owner_ch ='신청중' or owner_ch='대기') and order_refund='F'
 	</select>
 	
 	<select id="listMenu" resultType="kr.co.show.community.domain.MyPageVO">
@@ -29,4 +29,39 @@
 							where member_no = #{member_no} 
 							and (owner_ch ='신청중' or owner_ch='대기') and order_refund='F')
 	</select>
+	
+	
+	<update id="refunOrder" statementType="CALLABLE">
+		{call refund (#{member_no},#{order_no})}
+	</update>
+	
+	<select id="refundGroup" resultType="kr.co.show.community.domain.MyPageVO">
+		select *
+		from show_group
+		where group_no in (select group_no
+							from show_order
+							where member_no = #{member_no}
+							and (owner_ch ='신청중' or owner_ch='대기') and order_refund='T')		
+	</select>
+	
+	<select id= "refund" resultType="kr.co.show.community.domain.MyPageVO">
+		select *
+		from show_order
+		where member_no = #{member_no}
+		and order_refund='T'
+	</select>
+	
+	<select id="refundMenu" resultType="kr.co.show.community.domain.MyPageVO">
+		select *
+		from show_menu_check
+		where group_no in(select group_no
+							from show_order
+							where member_no = #{member_no} 
+							and (owner_ch ='신청중' or owner_ch='대기') and order_refund='T')	
+			and order_no in (select order_no
+							from show_order
+							where member_no = #{member_no} 
+							and (owner_ch ='신청중' or owner_ch='대기') and order_refund='T')
+	</select>
+	
 </mapper>
