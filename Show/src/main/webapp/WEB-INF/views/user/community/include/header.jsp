@@ -10,7 +10,7 @@
 <BODY>
 		<header>
 			<div class="main_logo">
-				<a href="../onshow/index.html">
+				<a href="/show">
 					<img src="../resources/image/logo.png"/>
 				</a>
 			</div>
@@ -21,15 +21,15 @@
 					<li><a href="sign/login">로그인</a></li>
 					<li><a href="sign/up">회원가입</a></li>					
 					<% } else { %>
-					<li><a href="sign/logout">로그아웃</a></li>
-					<li><a href="sign/modi">개인정보수정</a></li>
-					<li><a href="myPage">마이 페이지</a></li>
+					<li><a href="/show/sign/logout">로그아웃</a></li>
+					<li><a href="/show/sign/modi">개인정보수정</a></li>
+					<li><a href="/show/myPage">마이 페이지</a></li>
 					<%  } %>
 					<% if(session.getAttribute("id")!=null){ %>
 						<% if(session.getAttribute("position").equals("10")) { %>
-						<li><a href="application">업체추가</a></li>
+						<li><a href="/show/application">업체추가</a></li>
 						<% } else if(session.getAttribute("position").equals("20")) { %>
-						<li><a href="adminMain">업체 관리페이지</a></li>
+						<li><a href="/show/adminMain">업체 관리페이지</a></li>
 					<% } %><% } %>
 				</ul>
 			</nav>
