@@ -18,7 +18,7 @@ public class OrderController {
 	
 	@RequestMapping("/order")
 	public String buy_order(int group_no, Model model)throws Exception{
-		
+		model.addAttribute("review",service.review(group_no));
 		model.addAttribute("menu_list",service.menuList(group_no));
 		model.addAttribute("category",service.categoryList(group_no));
 		model.addAttribute("group_info",service.group_info(group_no));
@@ -30,6 +30,5 @@ public class OrderController {
 		model.addAttribute("sidelist",service.side_list(menu_no));
 		return "user/sidemenu_pop";
 	}
-	
 	
 }

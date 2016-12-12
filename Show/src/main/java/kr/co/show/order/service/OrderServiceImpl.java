@@ -6,6 +6,7 @@ import javax.inject.Inject;
 
 import org.springframework.stereotype.Service;
 
+import kr.co.show.group.domain.OrderMenuVO;
 import kr.co.show.order.domain.OrderVO;
 import kr.co.show.order.persistence.OrderDAO;
 
@@ -39,6 +40,26 @@ public class OrderServiceImpl implements OrderService {
 	@Override
 	public int sidecount(int menu_no) throws Exception {
 		return dao.sidecount(menu_no);
+	}
+
+	@Override
+	public int orderinsert(OrderMenuVO vo) throws Exception {
+		return dao.orderinsert(vo);
+	}
+
+	@Override
+	public int menuinsert(OrderMenuVO vo) throws Exception {
+		return dao.menu_insert(vo);
+	}
+
+	@Override
+	public int sideinsert(OrderMenuVO vo) throws Exception {
+		return dao.side_insert(vo);
+	}
+
+	@Override
+	public List<OrderVO> review(int group_no) throws Exception {
+		return dao.review(group_no);
 	}
 
 }
