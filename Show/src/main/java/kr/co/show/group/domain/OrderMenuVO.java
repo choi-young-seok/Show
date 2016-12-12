@@ -24,7 +24,24 @@ public class OrderMenuVO {
 	private String menu_name;
 	private int menu_count;
 	private int menu_price;
-	
+	private int side_no;
+	private int menu_no;
+	public int getMenu_no() {
+		return menu_no;
+	}
+
+	public void setMenu_no(int menu_no) {
+		this.menu_no = menu_no;
+	}
+
+	public int getSide_no() {
+		return side_no;
+	}
+
+	public void setSide_no(int side_no) {
+		this.side_no = side_no;
+	}
+
 	List<MenuCheckVO> mcvo;
 
 	public int getOrder_no() {

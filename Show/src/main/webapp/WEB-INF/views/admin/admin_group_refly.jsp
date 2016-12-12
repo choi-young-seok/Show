@@ -20,7 +20,6 @@
 <script type="text/javascript">
 $('.next').click(function(){
 	var group_no = ${detail2.group_no}+1;
-	alert(group_no);
 	$.ajax({
 		url:'/show/admin_group_refly',
 		data:{"group_no":group_no},
@@ -33,7 +32,6 @@ $('.next').click(function(){
 });
 $('.prev').click(function(){
 	var group_no = ${detail2.group_no}-1;
-	alert(group_no);
 	$.ajax({
 		url:'/show/admin_group_refly',
 		data:{"group_no":group_no},
@@ -77,27 +75,27 @@ $('#btn_cancle').click(function(){
 			</div>
 			<div class="category">
 				<p class="category_text text_op text_size">업종</p>
-				<input type="text" id="show" value="&nbsp;&nbsp;${detail2.group_category }"></div>
+				<input type="text" id="show" disabled="disabled" value="&nbsp;&nbsp;${detail2.group_category }"></div>
 			</div>
 			<div class="Mname">
 				<p class="Mname_text text_op text_size">업주명</p>
-				<input type="text" id="show" value="&nbsp;&nbsp;${detail2.member_name }">
+				<input type="text" id="show" disabled="disabled" value="&nbsp;&nbsp;${detail2.member_name }">
 			</div>
 			<div class="address">
 				<p class="address_text text_op text_size">주소</p>
-				<input type="text" id="show" value="&nbsp;&nbsp;${detail2.group_address }">
+				<input type="text" id="show" disabled="disabled" value="&nbsp;&nbsp;${detail2.group_address }">
 			</div>
 			<div class="phone">
 				<p class="phone_text text_op text_size">업체번호</p>
-				<input type="text" id="show" value="${detail2.group_phone }">  
+				<input type="text" id="show" disabled="disabled" value="${detail2.group_phone }">  
 			</div>
 			<div class="ch">
 				<p class="ch_text text_op text_size">승인여부</p>
-				<input type="text" id="show" value="${detail2.group_ch }">  
+				<input type="text" id="show" disabled="disabled" value="${detail2.group_ch }">  
 			</div>
 			<div class="delch">
 				<p class="delch_text text_op text_size">탈퇴여부</p>
-				<input type="text" id="show" value="${detail2.group_delete_ch }">  
+				<input type="text" id="show" disabled="disabled" value="${detail2.group_delete_ch }">  
 			</div>
 			<div class="files">
 				<p class="files_text text_op text_size">로고</p>

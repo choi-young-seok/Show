@@ -13,7 +13,7 @@ import kr.co.show.sign.domain.MemberVO;
 
 @Service
 public class AdminServiceImpl implements AdminService {
-	
+	 
 	@Inject
 	private AdminDAO dao;
 	
@@ -82,6 +82,12 @@ public class AdminServiceImpl implements AdminService {
 	public List<GroupVO> searchList(String group_name) throws Exception {
 		
 		return dao.searchList(group_name);
+	}
+
+	@Override
+	public List<MemberVO> searchList2(String member_name) throws Exception {
+		
+		return dao.searchList2(member_name);
 	}
 	
 

@@ -2,9 +2,10 @@ package kr.co.show.admin.persistence;
 
 import java.util.List;
 
+import kr.co.show.community.domain.QnaVO;
 import kr.co.show.group.domain.GroupVO;
 import kr.co.show.sign.domain.MemberVO;
-
+ 
 public interface AdminDAO {
 	
 	public List<MemberVO> memberList() throws Exception; //회원정보출력
@@ -18,5 +19,6 @@ public interface AdminDAO {
 	public List<GroupVO> nchList(String group_ch) throws Exception; //비승인업체출력
 	public List<GroupVO> dchList(String group_delete_ch) throws Exception; //탈퇴신청업체
 	public List<GroupVO> searchList(String group_name) throws Exception; //검색조회
-	
+	public List<MemberVO> searchList2(String member_name) throws Exception;
+	public List<QnaVO> listPage(int page)throws Exception;
 }

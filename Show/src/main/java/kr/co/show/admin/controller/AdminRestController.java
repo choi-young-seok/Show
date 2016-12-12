@@ -13,12 +13,13 @@ import org.springframework.web.bind.annotation.RestController;
 
 import kr.co.show.admin.service.AdminService;
 import kr.co.show.group.domain.GroupVO;
+import kr.co.show.sign.domain.MemberVO;
 
 @RestController
 public class AdminRestController {
 	@Inject
 	private AdminService service;
-
+ 
 	@RequestMapping("/admin_group_update")
 	public ResponseEntity<String> update(@RequestBody GroupVO vo) throws Exception {
 
@@ -72,5 +73,12 @@ public class AdminRestController {
 		List<GroupVO> searchList = service.searchList(group_name);
 		model.addAttribute("searchList",searchList);
 		return searchList;
+	}
+	@RequestMapping("/searchList2")
+	public List<MemberVO> searchList2(String member_name,Model model) throws Exception{
+		System.out.println(member_name);
+		List<MemberVO> searchList2 = service.searchList2(member_name);
+		model.addAttribute("searchList2",searchList2);
+		return searchList2;
 	}
 }

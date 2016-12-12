@@ -7,6 +7,7 @@ import javax.inject.Inject;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
+import kr.co.show.group.domain.OrderMenuVO;
 import kr.co.show.order.domain.OrderVO;
 
 @Repository
@@ -40,6 +41,26 @@ public class OrderDAOImpl implements OrderDAO{
 	@Override
 	public int sidecount(int menu_no) throws Exception {
 		return sqlSession.selectOne("order.sidecount",menu_no);
+	}
+
+	@Override
+	public int orderinsert(OrderMenuVO vo) throws Exception {
+		return sqlSession.insert("order.orderinsert",vo);
+	}
+
+	@Override
+	public int menu_insert(OrderMenuVO vo) throws Exception {
+		return sqlSession.insert("order.menuinsert",vo);
+	}
+
+	@Override
+	public int side_insert(OrderMenuVO vo) throws Exception {
+		return sqlSession.insert("order.sideinsert",vo);
+	}
+
+	@Override
+	public List<OrderVO> review(int group_no) throws Exception {
+		return sqlSession.selectList("order.reviewlist", group_no);
 	}
 
 }
