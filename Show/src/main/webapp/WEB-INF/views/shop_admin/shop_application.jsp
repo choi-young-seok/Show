@@ -53,7 +53,8 @@
 			$(".qna").css({"background" : "#696969"});
 		});
 
-		$('.application_btn').click(function() {
+		$('#application_btn').click(function() {
+			alert("11");
 			var group_phone = $("#phone").val();
 			var group_name = $("#groupName").val();
 			var group_address = $("#groupAddr").val();
@@ -65,14 +66,14 @@
 			var group_end_minute = $("select[name=end_minute").val();
 			var group_end = $("select[name=end_hour]").val() + $("select[name=end_minute").val();
 			var group_files = $("#groupFiles").val();
-			var image_split = group_files.split("\\");
+			//var image_split = group_files.split("\\");
 			var id = $("#id").val();
 			
 			$.ajax({
 				url : '/show/applicationInsert',
 				type:'post',
 				data:{"group_phone":group_phone,"group_name":group_name,"group_address":group_address,"group_category":group_category,
-						"group_start":group_start,"group_end":group_end,"group_files":image_split[2],"member_no":id},
+						"group_start":group_start,"group_end":group_end,"member_no":id},
 				success : function(data) {
 					if(data == 'OK'){
 						alert("신청이 완료되었습니다.");
@@ -83,6 +84,7 @@
 					var group_phone1 = /^\d+$/;
 					if(group_phone == ''){
 						alert('전화번호를 입력하세요');
+						return;
 					}else if(group_phone1.test(group_phone) == false){
 						alert('숫자만 입력하세요.');
 						
@@ -223,7 +225,7 @@
 					<ul class="mailbox-attachments clearfix uploadedList">
 					</ul>
 			
-					<button type="submit" class="btn btn-primary">신청하기</button>
+					<button type="submit" id="application_btn" class="btn btn-primary">신청하기</button>
 				</div>
 				</div>
 				</div>
@@ -236,10 +238,12 @@
 
 <script id="template" type="text/x-handlebars-template">
 <li>
-  <span class="mailbox-attachment-icon has-img"><img src="{{imgsrc}}" alt="???"></span>
+  <span class="mailbox-attachment-icon has-img">
+  <img src="{{imgsrc}}" alt="???"></span>
   <div class="mailbox-attachment-info">
 	<a href="{{getLink}}" class="mailbox-attachment-name">{{fileName}}</a>
 	<a href="{{fullName}}" class="btn btn-default btn-xs pull-right delbtn">
+{{fullName}}
 		<i class="fa fa-fw fa-remove"></i></a>
 	</span>
   </div>

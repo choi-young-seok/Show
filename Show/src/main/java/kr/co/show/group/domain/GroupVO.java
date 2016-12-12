@@ -1,7 +1,9 @@
 package kr.co.show.group.domain;
 
+import java.util.Arrays;
+
 public class GroupVO {
-	
+
 	private int group_no;
 	private int member_no;
 	private String member_name;
@@ -102,7 +104,7 @@ public class GroupVO {
 	public String getGroup_delete_ch() {
 		return group_delete_ch;
 	}
-	
+
 	public String getMember_name() {
 		return member_name;
 	}
@@ -122,5 +124,14 @@ public class GroupVO {
 	public void setGroup_regdate(String group_regdate) {
 		this.group_regdate = group_regdate;
 	}
-	
+
+	@Override
+	public String toString() {
+		return "GroupVO [group_no=" + group_no + ", member_no=" + member_no + ", member_name=" + member_name
+				+ ", group_name=" + group_name + ", group_address=" + group_address + ", group_category="
+				+ group_category + ", group_phone=" + group_phone + ", group_ch=" + group_ch + ", group_start="
+				+ group_start + ", group_end=" + group_end + ", group_files=" + Arrays.toString(group_files)
+				+ ", group_delete_ch=" + group_delete_ch + ", group_regdate=" + group_regdate + "]";
+	}
+
 }

@@ -13,7 +13,7 @@ function getFileInfo(fullName){
 	var fileLink;
 	
 	if(checkImageType(fullName)){
-		imgsrc = "/show/upload2/displayFile?fileName="+fullName;
+		imgsrc = "/show/upload2/displayFile?fileName="+ fullName;
 		fileLink = fullName.substr(14);
 		
 		var front = fullName.substr(0,12); // /2015/07/01/ 

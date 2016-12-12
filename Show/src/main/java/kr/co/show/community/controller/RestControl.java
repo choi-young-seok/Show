@@ -16,8 +16,6 @@ import kr.co.show.community.service.NoticeService;
 import kr.co.show.community.service.QnaService;
 
 @RestController
-@Controller
-
 public class RestControl {
 	
 	@Inject
@@ -28,8 +26,6 @@ public class RestControl {
 	
 	@Inject
 	private MyService myService;
-	
-
 	
 	@RequestMapping("/checkData")
 	public String checkData(QnaVO vo) throws Exception{ //문의글 작성
@@ -61,5 +57,4 @@ public class RestControl {
 		service.deleteQna(qna_no);
 		return "deQnaOK";
 	}
-
 }

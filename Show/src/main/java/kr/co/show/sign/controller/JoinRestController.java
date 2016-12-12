@@ -22,8 +22,8 @@ public class JoinRestController {
 	@Inject
 	private JoinService service;
 	
-	@RequestMapping("/sign_AX")
-	public @ResponseBody String sign_AX(@RequestBody MemberVO vo, boolean allCheck, boolean emailCheck, boolean smsCheck) throws Exception{
+	@RequestMapping(value="/sign_AX", method=RequestMethod.POST)
+	public String sign_AX(MemberVO vo, boolean allCheck, boolean emailCheck, boolean smsCheck) throws Exception{
 		if(emailCheck){
 			vo.setMember_emailck("T");
 		}
@@ -31,7 +31,7 @@ public class JoinRestController {
 			vo.setMember_smsck("T");
 		if(allCheck)
 			vo.setMember_allcheck("T");
-		System.out.println(vo.toString());
+		
 		service.create(vo);
 		return "OK";
 	}
