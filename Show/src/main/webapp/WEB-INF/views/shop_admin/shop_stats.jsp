@@ -85,6 +85,16 @@
 		});
 		
 		$('.show_btn1').click(function(){
+			if($('#group_name_select').val()=='매장선택'){
+				alert('매장을 선택해주세요')
+				return;
+			}else if($('.year1').val()=='년도'){
+				alert('년도를 선택해주세요')
+				return;
+			}else if($('.month1').val()=='월'){
+				alert('월을 선택해주세요')
+				return;
+			}
 			var group_no = $('#group_name_select').val();
 			var reservation_month = $('.month1').val();
 			if(reservation_month < 10){
@@ -109,6 +119,19 @@
 		});
 		
 		$('.show_btn2').click(function(){
+			if($('#group_name_select').val()=='매장선택'){
+				alert('매장을 선택해주세요')
+				return;
+			}else if($('.year2').val()=='년도'){
+				alert('년도를 선택해주세요')
+				return;
+			}else if($('.month2').val()=='월'){
+				alert('월을 선택해주세요')
+				return;
+			}else if($('.day2').val()=='일'){
+				alert('일을 선택해주세요')
+				return;
+			}
 			var group_no = $('#group_name_select').val();
 			var reservation_month = $('.month2').val();
 			var reservation_day = $('.day2').val();
@@ -160,6 +183,16 @@
 		});
 		
 		$('.show_btn3').click(function(){
+			if($('#group_name_select').val()=='매장선택'){
+				alert('매장을 선택해주세요')
+				return;
+			}else if($('.year3').val()=='년도'){
+				alert('년도를 선택해주세요')
+				return;
+			}else if($('.month3').val()=='월'){
+				alert('월을 선택해주세요')
+				return;
+			}
 			var group_no = $('#group_name_select').val();
 			var reservation_month = $('.month3').val();
 			var reservation_day = $('.day3').val();
