@@ -94,6 +94,11 @@ public class AdminDAOImpl implements AdminDAO {
 		return list9;
 	}
 
+	@Override
+	public int group_count() throws Exception {
+		return sqlsession.selectOne("group1.group_cou");
+	}
+
 
 
 

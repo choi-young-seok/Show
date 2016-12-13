@@ -89,6 +89,11 @@ public class AdminServiceImpl implements AdminService {
 		
 		return dao.searchList2(member_name);
 	}
+
+	@Override
+	public int group_cou() throws Exception {
+		return dao.group_count();
+	}
 	
 
 
