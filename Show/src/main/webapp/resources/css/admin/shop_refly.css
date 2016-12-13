@@ -25,7 +25,7 @@ body,html{
 	text-align:center;
 	height:30px;
 	line-height:30px;
-	border-right:100px solid #ededed;
+	border-right:1px solid #ededed;
 	box-sizing:border-box;
 }
 .text_op{
@@ -36,7 +36,7 @@ body,html{
 	height:30px;
 	line-height:30px;
 }
-.name{
+.no{
 	width:600px;
 	border-left:1px solid #696969;
 	border-right:1px solid #696969;
@@ -46,7 +46,7 @@ body,html{
 	box-sizing:border-box;
 	overflow:hidden;
 }
-.password{
+.Gname{
 	width:600px;
 	border-left:1px solid #696969;
 	border-right:1px solid #696969;
@@ -56,7 +56,7 @@ body,html{
 	box-sizing:border-box;
 	overflow:hidden;
 }
-.phone{
+.category{
 	width:600px;
 	border-left:1px solid #696969;
 	border-right:1px solid #696969;
@@ -66,7 +66,7 @@ body,html{
 	box-sizing:border-box;
 	overflow:hidden;
 }
-.birth{
+.Mname{
 	width:600px;
 	border-left:1px solid #696969;
 	border-right:1px solid #696969;
@@ -76,12 +76,62 @@ body,html{
 	box-sizing:border-box;
 	overflow:hidden;
 }
-.member_btn{
+.address{
+	width:600px;
+	border-left:1px solid #696969;
+	border-right:1px solid #696969;
+	border-bottom:1px solid #696969;
+	background:#fff;
+	height:30px;
+	box-sizing:border-box;
+	overflow:hidden;
+}
+.phone1{
+	width:600px;
+	border-left:1px solid #696969;
+	border-right:1px solid #696969;
+	border-bottom:1px solid #696969;
+	background:#fff;
+	height:30px;
+	box-sizing:border-box;
+	overflow:hidden;
+}
+.ch{
+	width:600px;
+	border-left:1px solid #696969;
+	border-right:1px solid #696969;
+	border-bottom:1px solid #696969;
+	background:#fff;
+	height:30px;
+	box-sizing:border-box;
+	overflow:hidden;
+}
+.delch{
+	width:600px;
+	border-left:1px solid #696969;
+	border-right:1px solid #696969;
+	border-bottom:1px solid #696969;
+	background:#fff;
+	height:30px;
+	box-sizing:border-box;
+	overflow:hidden;
+}
+.logo{
+	width:600px;
+	border-left:1px solid #696969;
+	border-right:1px solid #696969;
+	border-bottom:1px solid #696969;
+	background:#fff;
+	height:130px;
+	box-sizing:border-box;
+	overflow:hidden;
+}
+.group_btn{
 	width:600px;
 	box-sizing:border-box;
 	overflow:hidden;
 }
-.member_btn > div {
+.group_btn > div {
 	float:left;
 	width:100px;
 	text-align:center;
@@ -93,6 +143,6 @@ body,html{
 	cursor:pointer;
 	margin-left:10px;
 }
-.member_btn > div:nth-child(1){
+.group_btn > div:nth-child(1){
 	margin-left:250px;
 }

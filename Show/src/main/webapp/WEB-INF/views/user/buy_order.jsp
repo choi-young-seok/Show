@@ -436,7 +436,7 @@ var menu_list;
 			</ul>
 			<div class="shop_info">
 				<div class="shop_img">
-					<img src="${group_info.group_files }"/>
+					<img src="resources/img/thumbnail${group_info.group_files }"/>
 				</div>
 				<div class="shop_text">
 					<ul>
