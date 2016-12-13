@@ -46,13 +46,7 @@
 				</ul>
 			</div>
 			</c:forEach>
-			<div class="number_btn">
-				<ul>
-					<li class="back_btn">&laquo;</li>
-					<li class="number">1</li>
-					<li class="next_btn">&raquo;</li>
-				</ul>
-			</div>
+			
 		</div>
 	
 	</div>
