@@ -6,8 +6,8 @@
 <HTML>
 <HEAD>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<link href="resources/css/style.css" rel="stylesheet" type="text/css" />
-<link href="resources/css/admin/member_refly.css" rel="stylesheet" type="text/css" />
+<link href="resources/css/admin/style.css" rel="stylesheet" type="text/css" />
+<link href="resources/css/admin/shop_refly.css" rel="stylesheet" type="text/css" />
 <!--JQUERY 영역-->
 <script src="resources/js/common/jquery-3.0.0.js"></script>
 <script>

@@ -24,7 +24,6 @@ $(document).ready(function(){
 	});
 
 	$('.shop').click(function() {
-		alert("Ddd");
 		$.ajax({
 			url : '/show/shop',
 			success : function(data) {

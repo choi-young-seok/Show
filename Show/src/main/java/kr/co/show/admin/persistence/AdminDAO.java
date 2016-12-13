@@ -20,5 +20,5 @@ public interface AdminDAO {
 	public List<GroupVO> dchList(String group_delete_ch) throws Exception; //탈퇴신청업체
 	public List<GroupVO> searchList(String group_name) throws Exception; //검색조회
 	public List<MemberVO> searchList2(String member_name) throws Exception;
-	public List<QnaVO> listPage(int page)throws Exception;
+	
 }
