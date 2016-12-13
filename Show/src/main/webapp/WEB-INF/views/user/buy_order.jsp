@@ -615,6 +615,14 @@ function ord_btn(){
 						alert("주문이 완료되었습니다.");
 						$('#side_pop').empty();
 						$('#side_pop').fadeOut(500);
+						for (var int3 = 0; int3 < menu.length; int3++) {
+							if(menu[int]==('m'+menu_no)){
+								menu.splice(int3,1);
+								m_name.splice(int3,1);
+								m_price.splice(int3,1);
+								s_count.splice(int3,1);
+							}
+						}
 					
 				}else{
 					alert('주문 실패!');
