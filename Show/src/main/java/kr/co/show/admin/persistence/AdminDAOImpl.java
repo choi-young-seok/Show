@@ -20,7 +20,7 @@ public class AdminDAOImpl implements AdminDAO {
 	
 	@Override
 	public List<MemberVO> memberList() throws Exception {
-		List<MemberVO> list = sqlsession.selectList("member.list",null,new RowBounds(0,10));
+		List<MemberVO> list = sqlsession.selectList("member.list",null,new RowBounds(0,30));
 		
 		return list;
 		
@@ -35,7 +35,7 @@ public class AdminDAOImpl implements AdminDAO {
 
 	@Override
 	public List<GroupVO> groupList() throws Exception {
-		List<GroupVO> list2 = sqlsession.selectList("group1.list2",null,new RowBounds(0,10));
+		List<GroupVO> list2 = sqlsession.selectList("group1.list2",null,new RowBounds(0,30));
 		return list2;
 	}
 
@@ -94,10 +94,6 @@ public class AdminDAOImpl implements AdminDAO {
 		return list9;
 	}
 
-	@Override
-	public List<QnaVO> listPage(int page) throws Exception {
-		return sqlsession.selectList("qna.listPage");
-	}
 
 
 
