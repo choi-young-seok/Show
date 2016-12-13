@@ -171,7 +171,7 @@
 			</div>
 			<div class="shop_view">
 				<div class="img_box">
-					<img src=""/>
+					<img src="resources/img/thumbnail${detailView.group_files }"/>
 					<input type="file" value="${detailView.group_files }"/>
 				</div>
 				<div class="name_box">
