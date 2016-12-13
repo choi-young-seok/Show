@@ -103,6 +103,14 @@
 	});
 	
 	function order(group_no){
+		var name = '${name}';
+		alert(name);
+		if(name==""){
+			alert("로그인이 필요한 서비스입니다.");
+			//location.href("/show/sign/login");
+			return;
+		}
+		
 		 $.ajax({
 			url : 'order',
 			type: 'get',
