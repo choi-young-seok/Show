@@ -28,7 +28,6 @@
 			$(".gong").css({"background":"#696969"});
 			$(".qna").css({"background":"#696969"});
 			$(".shop").css({"background":"#696969"});
-			alert('매장을 먼저 선택해주세요.');
 		});
 		$(".shop").click(function(){
 			$(".shop").css({"background":"#ffa500"});
