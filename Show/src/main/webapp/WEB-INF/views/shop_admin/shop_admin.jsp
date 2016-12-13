@@ -9,6 +9,14 @@
 <script src="resources/js/common/jquery-3.0.0.js"></script>
 <script>
 	$(document).ready(function(){
+ 		$.ajax({
+			url:'/show/application',
+			success: function(data){
+				$('.adminMain').empty();
+				$('.adminMain').append(data);					
+			}
+		});
+		
 		$(".qna").click(function(){
 			$(".qna").css({"background":"#ffa500"});
 			$(".gong").css({"background":"#696969"});
