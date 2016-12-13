@@ -18,6 +18,8 @@
 <link href="resources/css/footer_media.css" rel="stylesheet" type="text/css" />
 <!-- <link href="buy/css/buy_search_test.css" rel="stylesheet" type="text/css" /> -->
 <!--css 링크 영역-->
+<link href="resources/bootstrap/css/bootstrap.min.css" rel="stylesheet"
+	type="text/css" />
 
 <!--스크립트 영역-->
 <!--<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>-->
@@ -142,11 +144,11 @@
 
 					$(result).each(function(){
 						i++;
-						list+=		"<a href='#detail'>"
+						list+=		"<a href='#detail' >"
 									+"<div class='chapter_"+i+" img_box'>"
-									+"<img src='resources/img/thumbnail"+this.group_files+"'/>"
+									+"<img src='resources/img/thumbnail"+this.group_files+"' width='800' height='600' onclick='order("+this.group_no+")'/>"
 									+"<p>"+this.group_name+"</p>"
-									+"<button class='order_btn' onclick='order("+this.group_no+")'>주문하기</button>"
+									+"<button type='button' class='btn btn-success' onclick='order("+this.group_no+")'>주문하기</button>"
 									+"</div>"
 									+"</a>";
 								if(i==3){
@@ -186,8 +188,8 @@
 					<%  } %>
 					<% if(session.getAttribute("id")!=null){ %>
 						<% if(session.getAttribute("position").equals("10")) { %>
-						<li><a href="application">업체추가</a></li>
-						<!-- <li><a href="adminMain">업체추가</a></li> -->
+					<!-- 	<li><a href="application">업체추가</a></li> -->
+					 	<li><a href="adminMain">업체추가</a></li>
 						<% } else if(session.getAttribute("position").equals("20")) { %>
 						<li><a href="adminMain">업체 관리페이지</a></li>
 					<% } %><% } %>
@@ -240,38 +242,7 @@
 				</div>
 				
 				<article id="resultView"></article>
-				<article>
-					<div class="chapter_1 img_box">
-						<img src="resources/image/school_search.png"/>
-						<p>학교 검색 하기</p>
-					</div>
-					<div class="chapter_2 img_box">
-						<img src="resources/image/buy_order.png"/>
-						<p>메뉴 선택 및 예약</p>
-					</div>
-					<div class="chapter_3 img_box">
-						<img src="resources/image/give.png"/>
-						<p>바로 받기</p>
-					</div>
-				</article>
-				<aside>
-					<div class="event_board main_board">
-						<span>&nbsp;&nbsp;공지사항</span>
-						<!--밑에 list 테크 디비로 불러와줘-->
-						<ul>
-							<li>text text text</li>
-						</ul>
-					</div>
-					<div class="onshow_info main_board">
-						<span>&nbsp;&nbsp;ON SHOW 소개</span>
-						<div class="onshow_info_img"></div>
-						<div class="onshow_info_text">
-							<ul>
-								<li>text text text</li>
-							</ul>
-						</div>
-					</div>
-				</aside>
+				
 			</div>
 		</section>
 		<footer>

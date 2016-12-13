@@ -21,7 +21,7 @@ public class MainController {
 	public List<GroupVO> mainList(){
 		
 			List<GroupVO> mainList = service.mainList();
-			System.out.println(mainList.toString());
+			System.out.println("mainController : " +mainList.toString());
 		return mainList;
 	}
 	
