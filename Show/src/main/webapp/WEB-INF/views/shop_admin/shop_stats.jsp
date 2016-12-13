@@ -91,7 +91,6 @@
 				reservation_month = "0" + reservation_month;
 			}
 			var reservation_time = $('.year1').val()+ reservation_month;
-			if("[class=year1] > option:selected".val() == '0')
 			$.ajax({
 				url:'/show/stats_daySell',
 				data:{"group_no":group_no, "reservation_time":reservation_time},
