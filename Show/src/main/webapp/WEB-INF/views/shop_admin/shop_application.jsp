@@ -54,7 +54,7 @@
 		});
 
 		$('#application_btn').click(function() {
-			alert("파일이름: " +$('#fullName').attr("href"));
+			//alert("파일이름: " +$('#fullName').attr("href"));
 			var group_phone = $("#phone").val();
 			var group_name = $("#groupName").val();
 			var group_address = $("#groupAddr").val();
@@ -260,7 +260,7 @@ $(".fileDrop").on("dragenter dragover", function(event){
 
 $(".fileDrop").on("drop", function(event){
 	event.preventDefault();
-	
+	alert("11")
 	var files = event.originalEvent.dataTransfer.files;
 	
 	var file = files[0];
@@ -296,8 +296,8 @@ $("#registerForm").submit(function(event){
 	$(".uploadedList .delbtn").each(function(index){
 		 str += "<input type='hidden' name='group_files["+index+"]' value='"+$(this).attr("href") +"'> ";
 	});
-	alert("1111"+$(this).attr("href"));
-	alert("str : "+str)
+	//alert("1111"+$(this).attr("href"));
+	//alert("str : "+str)
 	
 	
 	that.append(str);
