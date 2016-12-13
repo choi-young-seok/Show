@@ -22,7 +22,6 @@ public class SearchController {
 	@RequestMapping(value = "/searchGroup", method = RequestMethod.POST)
 	public List<GroupVO> searchGroup(SearchDTO searchDTO){
 		System.out.println(searchDTO);
-		
-		return service.searchList();
+		return service.searchList(searchDTO);
 	}
 }
