@@ -542,9 +542,13 @@ function ord_btn(){
 		    leadingZeros(d.getHours(), 2) +
 		    leadingZeros(d.getMinutes(), 2);
 
-
 		res_time = s.toString();
 		cou = 0;
+		year = '1';
+		mm='1';
+		day='1';
+		hour='1';
+		mi='1';
 	};
 	if(phone.length==0){
 		alert('핸드폰번호를 입력해 주세요.');
