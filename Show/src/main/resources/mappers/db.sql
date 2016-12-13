@@ -4,29 +4,29 @@
 --------------------------------------------------------
 --  DDL for Table SHOW_AREA
 --------------------------------------------------------
---DROP TABLE SHOW_MEMBER;
---DROP TABLE SHOW_GROUP;
---DROP TABLE SHOW_MENU;
---DROP TABLE SHOW_SIDEMENU;
---DROP TABLE SHOW_ORDER;
---DROP TABLE SHOW_MENU_CHECK;
---DROP TABLE SHOW_QNA;
---DROP TABLE SHOW_NOTICE;
---DROP TABLE SHOW_REVIEW;
---DROP TABLE SHOW_AREA;
---DROP TABLE SHOW_FAQ;
---DROP TABLE SHOW_WITHDRAW;
---drop sequence show_member_seq;
---drop sequence show_group_seq;
---drop sequence show_menu_seq;
---drop sequence show_sidemenu_seq;
---drop sequence show_order_seq;
---drop sequence show_qna_seq;
---drop sequence show_notice_seq;
---drop sequence show_review_seq;
---drop sequence show_area_seq;
---drop sequence show_faq_seq;
---drop sequence show_withdraw_seq;
+DROP TABLE SHOW_MEMBER;
+DROP TABLE SHOW_GROUP;
+DROP TABLE SHOW_MENU;
+DROP TABLE SHOW_SIDEMENU;
+DROP TABLE SHOW_ORDER;
+DROP TABLE SHOW_MENU_CHECK;
+DROP TABLE SHOW_QNA;
+DROP TABLE SHOW_NOTICE;
+DROP TABLE SHOW_REVIEW;
+DROP TABLE SHOW_AREA;
+DROP TABLE SHOW_FAQ;
+DROP TABLE SHOW_WITHDRAW;
+drop sequence show_member_seq;
+drop sequence show_group_seq;
+drop sequence show_menu_seq;
+drop sequence show_side_seq;
+drop sequence show_order_seq;
+drop sequence show_qna_seq;
+drop sequence show_notice_seq;
+drop sequence show_review_seq;
+drop sequence show_area_seq;
+drop sequence show_faq_seq;
+drop sequence show_withdraw_seq;
 create sequence show_member_seq   start with 1   increment by 1   nocycle   nocache;
 create sequence show_group_seq   start with 1   increment by 1   nocycle   nocache;
 create sequence show_menu_seq   start with 1   increment by 1   nocycle   nocache;
@@ -35,7 +35,7 @@ create sequence show_review_seq   start with 1   increment by 1   nocycle   noca
 create sequence show_notice_seq   start with 1   increment by 1   nocycle   nocache;
 create sequence show_order_seq   start with 1   increment by 1   nocycle   nocache;
 create sequence show_faq_seq   start with 1   increment by 1   nocycle   nocache;
-create sequence shoq_qna_seq   start with 1   increment by 1   nocycle   nocache;
+create sequence show_qna_seq   start with 1   increment by 1   nocycle   nocache;
 create sequence show_area_seq   start with 1   increment by 1   nocycle   nocache;
 create sequence show_withdraw_seq   start with 1   increment by 1   nocycle   nocache;
   CREATE TABLE "SHOW_AREA" 

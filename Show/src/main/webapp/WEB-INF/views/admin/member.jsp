@@ -12,6 +12,8 @@
 	type="text/css" />
 <link href="resources/css/admin/member.css" rel="stylesheet"
 	type="text/css" />
+	<link href="resources/css/admin/shop.css" rel="stylesheet"
+	type="text/css" />
 <!--JQUERY 영역-->
 <script src="resources/js/common/jquery-3.0.0.js"></script>
 <TITLE>회원관리</TITLE>
@@ -47,6 +49,18 @@ a {
 }
 </style>
 <script>
+var detail = function(member_no){
+	/* var member_no = $(this).attr('id'); */
+	alert(member_no);
+	$.ajax({
+		url:'/show/admin_member_refly',
+		data:{"member_no":member_no},
+		success: function(result){
+			$('.admin_member_refly').append(result);
+			$('.admin_member_refly').fadeIn(0);
+		}
+	}); 
+}
 
 			
 </script>
@@ -54,10 +68,14 @@ a {
 </HEAD>
 <BODY>
 
+
 	<div id="wrap">
 		<div class="memberlist" id="memberlist">
-			<input type="text" class="top_left" id="search_text" />
-			<div class="top_left search_btn" id="search_btn">검색</div>
+				<p class="top_left top_text">이름검색</p>
+				<input type="text" class="top_left" id="search_text"/>
+				<div class="top_left search_btn" id="search_btn">검색</div>
+			<!-- input type="text" class="top_left" id="search_text" />
+			<div class="top_left search_btn" id="search_btn">검색</div> -->
 			<div class="member_top" id="member_top">
 				<ul>
 					<li>회원번호</li>
@@ -87,8 +105,8 @@ a {
 						<div>관리자</div>
 					</c:if>
 
-					<div>
-						<p class="detail">상세보기</p>
+					<div class="member_btn">
+						<p class="detail" id="${member.member_no }" name="${member.member_no }" onclick="detail(${member.member_no })">상세보기</p>
 					</div>
 				</div>
 			</c:forEach>
@@ -117,26 +135,25 @@ $(document).ready(function(){
 				if(result.length == 0){
 					alert("결과값이 없습니다.")
 				}else{
+					a.innerHTML = '<input type="text" class="top_left" id="search_text" />' +
+					'<div class="top_left search_btn" id="search_btn">검색</div>' + 
+					'<div class="member_top" id="member_top">' +
+						'<ul>' +
+							'<li>회원번호</li>' +
+							'<li>이메일</li>' +	
+							'<li>이름</li>' +
+							'<li>포지션</li>' +
+							'<li>상세보기</li>' +
+						'</ul>' +
+					'</div>'
 				result.forEach(function(member, i) {
-					
 						a.innerHTML = a.innerHTML + 
-						'<input type="text" class="top_left" id="search_text" />' +
-							'<div class="top_left search_btn" id="search_btn">검색</div>' + 
-							'<div class="member_top" id="member_top">' +
-								'<ul>' +
-									'<li>회원번호</li>' +
-									'<li>이메일</li>' +
-									'<li>이름</li>' +
-									'<li>포지션</li>' +
-									'<li>상세보기</li>' +
-								'</ul>' +
-							'</div>' +
 						'<div class="member_choice">'+
 							'<div>' + member.member_no + '</div>' +
 							'<div>' + member.member_email + '</div>' +
 							'<div>' + member.member_name + '</div>' +
-							'<div class="posi"></div>' +
-							'<div>   <p class="detail">상세보기</p> </div>'+
+							'<div class="posi" name="ddd"></div>' +
+							'<div class="member_btn">   <p class="detail" name="zz" onclick="detail('+member.member_no+')">상세보기</p> </div>'+
 							'</div>';
 						 if(member.member_position == '10'){
 							$('.posi').text('사용자');
@@ -155,18 +172,12 @@ $(document).ready(function(){
 	});
 	
 	
+	
 	});
-$(document).on('click','.detail',function(){
-	var member_no = $(this).parent().parent().children(':first()').text();
-	alert(member_no);
-	$.ajax({
-		url:'/show/admin_member_refly',
-		data:{"member_no":member_no},
-		success: function(result){
-			$('.admin_member_refly').append(result);
-			$('.admin_member_refly').fadeIn(0);
-		}
-	}); 
-});
+
 </script>
+
+
+
+
 </HTML>

@@ -7,6 +7,7 @@
 		member_nickName, 
 	    member_position
 		from show_member
+		order by member_no asc
 	</select>
 	
 	<select id="detail" resultType="kr.co.show.sign.domain.MemberVO">
@@ -21,14 +22,10 @@
 		select member_no, member_email, member_name, member_position
 		from show_member
 		where  member_name like '%'||#{member_name}||'%'
+		order by member_no asc
 	</select>
 	
-	<!-- 전체 레코드 조회 -->
-   <select id="list2" resultType="kr.co.show.community.domain.QnaVO">
-       select qna_no,qna_name,qna_email,qna_title,qna_text,qna_category,qna_ch
-      from show_qna
-      where qna_ch = #{qna_ch} 
-      order by qna_no desc
-   </select>
+	
+
 
 </mapper>

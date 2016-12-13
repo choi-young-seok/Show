@@ -31,6 +31,21 @@ public class OrderVO {
 		
 	}
 	
+	
+	@Override
+	public String toString() {
+		return "OrderVO [group_no=" + group_no + ", member_no=" + member_no + ", group_name=" + group_name
+				+ ", group_address=" + group_address + ", group_category=" + group_category + ", group_phone="
+				+ group_phone + ", group_ch=" + group_ch + ", group_regdate=" + group_regdate + ", group_start="
+				+ group_start + ", group_end=" + group_end + ", group_files=" + group_files + ", menu_no=" + menu_no
+				+ ", menu_name=" + menu_name + ", menu_price=" + menu_price + ", menu_category=" + menu_category
+				+ ", sidemenu_no=" + sidemenu_no + ", sidemenu_name=" + sidemenu_name + ", sidemenu_pay=" + sidemenu_pay
+				+ ", sidemenu_category=" + sidemenu_category + ", review_no=" + review_no + ", nickname=" + nickname
+				+ ", review_regdate=" + review_regdate + ", review_text=" + review_text + ", review_score="
+				+ review_score + "]";
+	}
+
+
 	public int getGroup_no() {
 		return group_no;
 	}

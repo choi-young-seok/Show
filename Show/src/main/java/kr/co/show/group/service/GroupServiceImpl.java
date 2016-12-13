@@ -18,25 +18,19 @@ import kr.co.show.group.persistence.GroupDAO;
 import kr.co.show.search.persistence.UploadDAO;
 
 @Service
-public class GroupServiceImpl implements GroupService{
-	
+public class GroupServiceImpl implements GroupService {
+
 	@Inject
 	private GroupDAO dao;
 	@Inject
 	private UploadDAO upDao;
-	
+
 	@Transactional
 	@Override
 	public void insert(GroupVO group, int member_no) throws Exception {
-		dao.insert(group);
-		String[] files = group.getGroup_files();
+		System.out.println("groupServiceImpl insert()");
 		System.out.println(group.getGroup_files());
-		if(files == null){
-			return;
-		}
-		for(String fileName : files){
-			upDao.addAttach(fileName);
-		}
+		dao.insert(group);
 		dao.update(member_no);
 	}
 
@@ -51,12 +45,12 @@ public class GroupServiceImpl implements GroupService{
 	}
 
 	@Override
-	public List<MenuManageVO> menuList(int group_no) throws Exception{
+	public List<MenuManageVO> menuList(int group_no) throws Exception {
 		return dao.menuList(group_no);
 	}
 
 	@Override
-	public List<ReviewManageVO> reviewList(int group_no) throws Exception{
+	public List<ReviewManageVO> reviewList(int group_no) throws Exception {
 		return dao.reviewList(group_no);
 	}
 
@@ -120,27 +114,27 @@ public class GroupServiceImpl implements GroupService{
 		int reviewDelete = dao.reviewDelete(review_no);
 		return reviewDelete;
 	}
-	
+
 	@Override
 	public List<GroupVO> stats_selectName(int member_no) throws Exception {
 		return dao.stats_selectName(member_no);
 	}
-	
+
 	@Override
 	public List<OrderMenuVO> stats_daySell(OrderMenuVO order) throws Exception {
 		return dao.stats_daySell(order);
 	}
-	
+
 	@Override
 	public List<OrderMenuVO> stats_dayMenuSell(OrderMenuVO order) throws Exception {
 		return dao.stats_dayMenuSell(order);
 	}
-	
+
 	@Override
 	public List<OrderMenuVO> stats_monthSell(OrderMenuVO order) throws Exception {
 		return dao.stats_monthSell(order);
 	}
-	
+
 	@Override
 	public List<OrderMenuVO> stats_monthMenuSell(OrderMenuVO order) throws Exception {
 		return dao.stats_monthMenuSell(order);
@@ -160,7 +154,7 @@ public class GroupServiceImpl implements GroupService{
 	public List<MenuCheckVO> menuCheck(Map map) throws Exception {
 		return dao.menuCheck(map);
 	}
-	
+
 	@Override
 	public void checkUpdate(Map map) throws Exception {
 		dao.checkUpdate(map);

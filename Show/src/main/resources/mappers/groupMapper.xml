@@ -2,10 +2,13 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="group">
 <!-- group_no, member_no, group_name, group_address, group_category, group_phone, group_start, group_end, group_files -->
-	<insert id="enterpriseInsert">
-		insert into show_group (group_no,member_no,group_name,group_address,group_category,group_phone,group_start,group_end,group_files)
-		values (show_group_seq.nextval,#{member_no},#{group_name},#{group_address},#{group_category},#{group_phone},
-					to_timestamp(#{group_start},'hh24:mi'),to_timestamp(#{group_end},'hh24:mi'),#{group_files})
+	<insert id="enterpriseInsert" parameterType="kr.co.show.group.domain.GroupVO">
+		insert into show_group 
+		(group_no,member_no,group_name,group_address,group_category,group_phone,
+			group_start,group_end,group_files)
+		values 
+		(show_group_seq.nextval,#{member_no},#{group_name},#{group_address},#{group_category},#{group_phone},
+			to_timestamp(#{group_start},'hh24:mi'),to_timestamp(#{group_end},'hh24:mi'),#{group_files})
 	</insert>
 	
 	<update id="presidentUpdate">

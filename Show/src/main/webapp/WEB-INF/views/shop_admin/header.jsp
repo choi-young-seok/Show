@@ -45,7 +45,7 @@
 	<div id="wrap">
 		<header>
 			<div class="header_logo">
-				<img src="resources/image/logo.png" class="logo_left"/>
+				<a href="/show"><img src="resources/image/logo.png" class="logo_left"/></a>
 				<p class="logo_left">사장님 페이지</p>
 			</div>
 			<div class="header_box">

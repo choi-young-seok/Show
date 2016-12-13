@@ -1,25 +1,36 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link href="resources/css/shop_admin/style.css" rel="stylesheet" type="text/css" />
-<link href="resources/css/shop_admin/shop_application.css" rel="stylesheet" type="text/css" />
+<link href="resources/css/shop_admin/style.css" rel="stylesheet"
+	type="text/css" />
+<link href="resources/css/shop_admin/shop_application.css"
+	rel="stylesheet" type="text/css" />
 
 <!-- BootStrap -->
-<link href="resources/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+<link href="resources/bootstrap/css/bootstrap.min.css" rel="stylesheet"
+	type="text/css" />
 <!-- Theme style -->
-<link href="resources/dist/css/AdminLTE.min.css" rel="stylesheet" type="text/css" />
+<link href="resources/dist/css/AdminLTE.min.css" rel="stylesheet"
+	type="text/css" />
 <!-- AdminLTE Skins. Choose a skin from the css/skins folder instead of downloading all of them to reduce the load. -->
-<link href="resources/dist/css/skins/_all-skins.min.css" rel="stylesheet" type="text/css" />
-    
+<link href="resources/dist/css/skins/_all-skins.min.css"
+	rel="stylesheet" type="text/css" />
+
 <!-- Font Awesome Icons -->
-<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+<link
+	href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"
+	rel="stylesheet" type="text/css" />
 <!-- Ionicons -->
-<link href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet" type="text/css" />
+<link
+	href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css"
+	rel="stylesheet" type="text/css" />
 <!-- x-handlebars -->
 <script src="resources/js/upload.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.1/handlebars.js"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.1/handlebars.js"></script>
 
 <!--JQUERY 영역-->
 <script src="resources/js/common/jquery-3.0.0.js"></script>
@@ -54,7 +65,7 @@
 		});
 
 		$('#application_btn').click(function() {
-			alert("11");
+			//alert("파일이름: " +$('#fullName').attr("href"));
 			var group_phone = $("#phone").val();
 			var group_name = $("#groupName").val();
 			var group_address = $("#groupAddr").val();
@@ -65,7 +76,7 @@
 			var group_end_hour = $("select[name=end_hour]").val();
 			var group_end_minute = $("select[name=end_minute").val();
 			var group_end = $("select[name=end_hour]").val() + $("select[name=end_minute").val();
-			var group_files = $("#groupFiles").val();
+			var group_files =$('#fullName').attr("href");
 			//var image_split = group_files.split("\\");
 			var id = $("#id").val();
 			
@@ -73,7 +84,7 @@
 				url : '/show/applicationInsert',
 				type:'post',
 				data:{"group_phone":group_phone,"group_name":group_name,"group_address":group_address,"group_category":group_category,
-						"group_start":group_start,"group_end":group_end,"member_no":id},
+						"group_start":group_start,"group_end":group_end,"member_no":id, "group_files":group_files},
 				success : function(data) {
 					if(data == 'OK'){
 						alert("신청이 완료되었습니다.");
@@ -110,6 +121,7 @@
 		function application(){
 			$.ajax({    		  
 				url:'/show/application',
+				//url:'/show/adminMain',
 				success: function(data){
 					$('.adminMain').html(data);
 						$(".qna").css({"background":"#ffa500"});
@@ -123,12 +135,11 @@
 </script>
 <style>
 .fileDrop {
-  width: 80%;
-  height: 100px;
-  border: 1px dotted gray;
-  background-color: lightslategrey;
-  margin: auto;	
-  
+	width: 80%;
+	height: 100px;
+	border: 1px dotted gray;
+	background-color: lightslategrey;
+	margin: auto;
 }
 </style>
 <TITLE>업체 신청</TITLE>
@@ -139,99 +150,101 @@
 			<%@include file="../shop_admin/header.jsp"%>
 		</header> --%>
 		<form id='registerForm' role="form" method="post">
-		<input type="hidden" value="${id }" id="id">
-		<div class="shop_application">
-			<div class="application">
-				<p class="application_text">&nbsp;&nbsp;업체 신청서</p>
-				<div class="application_phone">
-					<p class="application_left phone left_size">연락처</p>
-					<input type="text" class="application_left phone_input" id="phone" placeholder="&nbsp;&nbsp;-빼고 입력하세요" />
-				</div>
-				<div class="application_shop_name">
-					<p class="application_left shop_name left_size">상호명</p>
-					<input type="text" class="application_left shop_name_input" id="groupName"/>
-				</div>
-				<div class="application_addr">
-					<p class="application_left addr left_size">업체주소</p>
-					<input type="text" class="application_left addr_input" placeholder="&nbsp;&nbsp;동까지만 입력하세요" id="groupAddr"/>
-				</div>
-				<div class="application_school">
-					<p class="application_left addr left_size">업체업종</p>
-					<input type="text" class="application_left school_input" id="groupCategory"/>
-				</div>
-				<div class="application_start_time">
-					<p class="application_left addr left_size">시작시간</p>
-					<select name="start_hour" id="startHour">
-						<option>시</option>
-						<%
-							for (int i = 0; i < 25; i++) {
-								if (i < 10)
-									out.println("<option value=0" + i + ">0" + i + "</option>");
-							else
-								out.println("<option value=" + i + ">" + i + "</option>");
-							}
-						%>
-					</select>
-					<select name="start_minute" id="startMinute">
-						<option>분</option>
-						<%
-							for (int i = 0; i < 61; i++) {
-								if (i < 10)
-									out.println("<option value=0" + i + ">0" + i + "</option>");
-							else
-								out.println("<option value=" + i + ">" + i + "</option>");
-							}
-						%>
-					</select>
-				</div>
-				<div class="application_end_time">
-					<p class="application_left addr left_size">종료시간</p>
-					<select name="end_hour" id="endHour">
-						<option>시</option>
-						<%
-							for (int i = 0; i < 25; i++) {
-								if (i < 10)
-									out.println("<option value=0" + i + ">0" + i + "</option>");
-							else
-								out.println("<option value=" + i + ">" + i + "</option>");
-							}
-						%>
-					</select>
-					<select name="end_minute" id="endMinute">
-						<option>분</option>
-						<%
-							for (int i = 0; i < 61; i++) {
-								if (i < 10)
-									out.println("<option value=0" + i + ">0" + i + "</option>");
-							else
-								out.println("<option value=" + i + ">" + i + "</option>");
-							}
-						%>
-					</select>
-				</div>
-				
-				<div class="box-body">
-					<div class="form-group">
-						<label for="exampleInputEmail1">매장로고(Drap & Drop)</label>
-						<div class="fileDrop"></div>
+			<input type="hidden" value="${id }" id="id">
+			<div class="shop_application">
+				<div class="application">
+					<p class="application_text">&nbsp;&nbsp;업체 신청서</p>
+					<div class="application_phone">
+						<p class="application_left phone left_size">연락처</p>
+						<input type="text" class="application_left phone_input" id="phone"
+							placeholder="&nbsp;&nbsp;-빼고 입력하세요" />
 					</div>
-				</div>
-				
-				<div class="box-footer">
-					<div>
-						<hr>
+					<div class="application_shop_name">
+						<p class="application_left shop_name left_size">상호명</p>
+						<input type="text" class="application_left shop_name_input"
+							id="groupName" />
 					</div>
-			
-					<ul class="mailbox-attachments clearfix uploadedList">
-					</ul>
-			
-					<button type="submit" id="application_btn" class="btn btn-primary">신청하기</button>
-				</div>
-				</div>
-				</div>
-				</form>
+					<div class="application_addr">
+						<p class="application_left addr left_size">업체주소</p>
+						<input type="text" class="application_left addr_input"
+							placeholder="&nbsp;&nbsp;동까지만 입력하세요" id="groupAddr" />
+					</div>
+					<div class="application_school">
+						<p class="application_left addr left_size">업체업종</p>
+						<input type="text" class="application_left school_input"
+							id="groupCategory" />
+					</div>
+					<div class="application_start_time">
+						<p class="application_left addr left_size">시작시간</p>
+						<select name="start_hour" id="startHour">
+							<option>시</option>
+							<%
+								for (int i = 0; i < 25; i++) {
+									if (i < 10)
+										out.println("<option value=0" + i + ">0" + i + "</option>");
+									else
+										out.println("<option value=" + i + ">" + i + "</option>");
+								}
+							%>
+						</select> <select name="start_minute" id="startMinute">
+							<option>분</option>
+							<%
+								for (int i = 0; i < 61; i++) {
+									if (i < 10)
+										out.println("<option value=0" + i + ">0" + i + "</option>");
+									else
+										out.println("<option value=" + i + ">" + i + "</option>");
+								}
+							%>
+						</select>
+					</div>
+					<div class="application_end_time">
+						<p class="application_left addr left_size">종료시간</p>
+						<select name="end_hour" id="endHour">
+							<option>시</option>
+							<%
+								for (int i = 0; i < 25; i++) {
+									if (i < 10)
+										out.println("<option value=0" + i + ">0" + i + "</option>");
+									else
+										out.println("<option value=" + i + ">" + i + "</option>");
+								}
+							%>
+						</select> <select name="end_minute" id="endMinute">
+							<option>분</option>
+							<%
+								for (int i = 0; i < 61; i++) {
+									if (i < 10)
+										out.println("<option value=0" + i + ">0" + i + "</option>");
+									else
+										out.println("<option value=" + i + ">" + i + "</option>");
+								}
+							%>
+						</select>
+					</div>
 
+					<div class="box-body">
+						<div class="form-group">
+							<label for="exampleInputEmail1">매장로고(Drap & Drop)</label>
+							<div class="fileDrop"></div>
+						</div>
+					</div>
+
+					<div class="box-footer">
+						<div>
+							<hr>
+						</div>
+
+						<ul class="mailbox-attachments clearfix uploadedList">
+						</ul>
+
+						<button type="submit" id="application_btn" class="btn btn-primary">신청하기</button>
+					</div>
+				</div>
 			</div>
+		</form>
+
+	</div>
 
 </BODY>
 </HTML>
@@ -242,15 +255,18 @@
   <img src="{{imgsrc}}" alt="???"></span>
   <div class="mailbox-attachment-info">
 	<a href="{{getLink}}" class="mailbox-attachment-name">{{fileName}}</a>
-	<a href="{{fullName}}" class="btn btn-default btn-xs pull-right delbtn">
+	<a id="fullName" href="{{fullName}}" class="btn btn-default btn-xs pull-right delbtn">
 {{fullName}}
 		<i class="fa fa-fw fa-remove"></i></a>
 	</span>
   </div>
 </li>                
-</script>    
+</script>
 
 <script>
+$(function(){
+	
+
 var template = Handlebars.compile($("#template").html());
 
 $(".fileDrop").on("dragenter dragover", function(event){
@@ -259,7 +275,7 @@ $(".fileDrop").on("dragenter dragover", function(event){
 
 $(".fileDrop").on("drop", function(event){
 	event.preventDefault();
-	
+	alert("11")
 	var files = event.originalEvent.dataTransfer.files;
 	
 	var file = files[0];
@@ -289,14 +305,19 @@ $("#registerForm").submit(function(event){
 	event.preventDefault();
 	
 	var that = $(this);
+
 	
 	var str ="";
 	$(".uploadedList .delbtn").each(function(index){
-		 str += "<input type='hidden' name='files["+index+"]' value='"+$(this).attr("href") +"'> ";
+		 str += "<input type='hidden' name='group_files["+index+"]' value='"+$(this).attr("href") +"'> ";
 	});
+	//alert("1111"+$(this).attr("href"));
+	//alert("str : "+str)
+	
 	
 	that.append(str);
 
 	that.get(0).submit();
+});
 });
 </script>
