@@ -23,59 +23,83 @@
 <!--<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>-->
 <script src="resources/js/common/jquery-3.0.0.js"></script>
 <script>
-
 	$.ajax({
 		url : 'mainList',
 		type: 'get',
 		success : function(result){
 			var list = "";
 			var i = 0;
+
 			$(result).each(function(){
 				i++;
-				list+="<article>"
-							+"<a href='#detail'>"
-							+"<div class='chapter_1 img_box' style='border: 1px black solid; '>"
+				list+=		"<a href='#detail'>"
+							+"<div class='chapter_"+i+" img_box'>"
 							+"<img src='resources/image/school_search.png'/>"
-							+this.group_name
 							+"<p>"+this.group_name+"</p>"
 							+"<button class='order_btn' onclick='order("+this.group_no+")'>주문하기</button>"
 							+"</div>"
-							+"</a>"
-
-						+"</article>";
+							+"</a>";
+						if(i==3){
+							i=0;
+						}
 			});//each
 			$('#resultView').html(list);
-			/* result.forEach(function(){
-				
-			});//each */
 		}//success
-	});	
+	});
 
-	$(document).ready(function(){
+ 	$(document).ready(function(){
 		$(".detaile_search_view").hide();
 		$(".detaile_search_btn").click(function(){
 			$(".detaile_search_view").fadeToggle();
 		});
-		//alert 창 if문으로 검색값 넣어줘
-		$(".search_btn").click(function(){
-			alert("업체 이름을 입력해 주세요");
-		});
-	});
+		$('#searchDetailBtn').click(function(){
+			if($('#group_area').val()=='선택'){
+				alert("지역을 선택해주세요");
+
+				return;
+			}
+			if($('#group_categroy').val()=='선택'){
+				alert("업종을 선택해주세요");
+				return;
+			}
+		})
+			/* $.ajax({
+				url:,
+				type:,
+				data:,
+				$.ajax({
+					url : 'searchGroup',
+					type : 'post',
+					data : {"searchKeyword" : searchKeyword},
+					success : function(result){
+						var list = "";
+						var i = 0;
+						$(result).each(function(){
+							i++;
+							list+=		"<a href='#detail'>"
+										+"<div class='chapter_"+i+" img_box'>"
+										+"<img src='resources/image/school_search.png'/>"
+										+"<p>"+this.group_name+"</p>"
+										+"<button class='order_btn' onclick='order("+this.group_no+")'>주문하기</button>"
+										+"</div>"
+										+"</a>";
+									if(i==3){
+										i=0;
+									}
+						});//each
+						$('#resultView').html(list);
+					}//success 
+			});//ajax*/
+	}); 
 	
 	$(document).ready(function(){
-		
 		$(".myPage").click(function(){
 			var no = <%=session.getAttribute("id")%>;
-			
 			$.ajax({
 				url:'/show/myPage',
 				data:{"member_no":no}
-			
 			});
-			
 		});
-		
-		
 	});
 	
 	function order(group_no){
@@ -88,11 +112,44 @@
 				$('.info_img').empty();
 				$('.info_img').append(result);
 			}//success
-		});	
+		});
 	};
 	
-	
-	
+	$(function(){
+		$('#searchBtn').click(function(){
+			var searchKeyword = $('#searchKeyword').val();
+			alert(searchKeyword);
+			if(searchKeyword==""){
+				alert("상호명을 입력하세요");
+				return;
+			}
+			
+			$.ajax({
+				url : 'searchGroup',
+				type : 'post',
+				data : {"searchKeyword" : searchKeyword},
+				success : function(result){
+					var list = "";
+					var i = 0;
+
+					$(result).each(function(){
+						i++;
+						list+=		"<a href='#detail'>"
+									+"<div class='chapter_"+i+" img_box'>"
+									+"<img src='resources/image/school_search.png'/>"
+									+"<p>"+this.group_name+"</p>"
+									+"<button class='order_btn' onclick='order("+this.group_no+")'>주문하기</button>"
+									+"</div>"
+									+"</a>";
+								if(i==3){
+									i=0;
+								}
+					});//each
+					$('#resultView').html(list);
+				}//success
+			});//ajax
+		});
+	});//ready
 	
 </script>
 <!--스크립트 영역-->
@@ -142,23 +199,26 @@
 			</div>
 		<!--search 영역-->
 			<div class="search">
-				<input class="search_text" type="text" name="search_text"/>
-				<span class="search_btn" name="search_btn">검색</span>
-				<span class="detaile_search_btn" name="detaile_search_btn">상세검색</span>
+				<input class="search_text" type="text" name="search_text" id="searchKeyword"/>
+				<span id="searchBtn" class="search_btn" name="search_btn">검색</span>
+				<span id="detaile_search_btn" class="detaile_search_btn" name="detaile_search_btn">상세검색</span>
 			</div>
 			<!--상세검색-->
 			<div class="detaile_search_view">
 				<p class="detaile map_text">지역&nbsp;&nbsp;</p>
-				<select name="map" class="map detaile choice">
+				<select id="group_area" name="group_area" class="map detaile choice">
 					<option>선택</option>
-					<option>서울</option><!--for문으로 지역 db값-->			
+					<option>가산디지털단지</option><!--for문으로 지역 db값-->			
 				</select>
-				<p class="detaile university_text">대학교&nbsp;&nbsp;</p>
-				<select name="university" class="university detaile choice">
+				<p class="detaile university_text">업종&nbsp;&nbsp;</p>
+				<select id="group_categroy" name="group_categroy" class="university detaile choice">
 					<option>선택</option>
-					<option>호서대</option><!--for문으로 학교 db값-->
+					<option>음식점</option><!--for문으로 학교 db값-->
+					<option>카페</option><!--for문으로 학교 db값-->
+					<option>고기집</option><!--for문으로 학교 db값-->
+					<option>주점</option><!--for문으로 학교 db값-->
 				</select>
-				<span class="detaile detaile_btn">검색</span>
+				<span id="searchDetailBtn" class="detaile detaile_btn">검색</span>
 			</div>
 			<!--상세검색-->
 		<!--search 영역-->
@@ -169,17 +229,7 @@
 					<p>ON SHOW 사용법</p>
 				</div>
 				
-					
-				<article id="resultView">
-					<div class="chapter_1 img_box"  style="border: 1px black solid; ">
-					</div>
-					
-					<div class="chapter_2 img_box"  style="border: 1px black solid; ">
-					</div>
-					
-					<div class="chapter_3 img_box"  style="border: 1px black solid; ">
-					</div>
-				</article>
+				<article id="resultView"></article>
 				<article>
 					<div class="chapter_1 img_box">
 						<img src="resources/image/school_search.png"/>

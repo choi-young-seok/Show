@@ -55,7 +55,7 @@ $(document).ready(function() {
 			<c:forEach items="${listAll}" var="i">
 			<div class="shop_management_show">
 				<div class="management_show image">
-					<img src=""/>
+					<img src="resources/img/thumbnail${i.group_files}"/>
 				</div>
 				<div class="management_show shop_name">
 					<p>${i.group_name }</p>

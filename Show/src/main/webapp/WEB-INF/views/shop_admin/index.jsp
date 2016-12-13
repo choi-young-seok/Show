@@ -67,10 +67,7 @@ if(!email){
 
 }
 function Login_AX(email,password){
-
-		
 	//var barth = year+"-"+month+"-"+day;
-
 		$.ajax({
                     url:'shop_admin_login_process.php',	
                     type:'POST',
