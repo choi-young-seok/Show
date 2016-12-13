@@ -20,7 +20,20 @@ public class MyPageVO {
 	
 	private String owner_ch;
 	private String order_refund;
-	private Timestamp order_time;
+	
+	public Timestamp getReservation_time() {
+		return reservation_time;
+	}
+
+	public void setReservation_time(Timestamp reservation_time) {
+		this.reservation_time = reservation_time;
+	}
+
+	public String getOrder_refund() {
+		return order_refund;
+	}
+
+	private Timestamp reservation_time;
 
 	public int getGroup_no() {
 		return group_no;
@@ -31,16 +44,10 @@ public class MyPageVO {
 	}
 	
 	public Timestamp getOrder_time() {
-		return order_time;
+		return reservation_time;
 	}
 
-	public void setOrder_time(Timestamp order_time) {
-		this.order_time = order_time;
-	}
 
-	public String getOrder_refund() {
-		return order_refund;
-	}
 
 	public void setOrder_refund(String order_refund) {
 		this.order_refund = order_refund;
@@ -115,8 +122,10 @@ public class MyPageVO {
 		return "MyPageVO [order_no=" + order_no + ", member_no=" + member_no + ", group_no=" + group_no + ", menu_name="
 				+ menu_name + ", menu_count=" + menu_count + ", menu_price=" + menu_price + ", group_name=" + group_name
 				+ ", group_phone=" + group_phone + ", owner_ch=" + owner_ch + ", order_refund=" + order_refund
-				+ ", order_time=" + order_time + "]";
+				+ ", reservation_time=" + reservation_time + "]";
 	}
+
+	
 
 	
 

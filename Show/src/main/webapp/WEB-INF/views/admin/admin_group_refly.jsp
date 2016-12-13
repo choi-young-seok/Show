@@ -14,39 +14,11 @@
 </script>
 <TITLE> 업체정보 </TITLE>
 </HEAD>
-<style>
 
-</style>
 <script type="text/javascript">
-$('.next').click(function(){
-	var group_no = ${detail2.group_no}+1;
-	$.ajax({
-		url:'/show/admin_group_refly',
-		data:{"group_no":group_no},
-		success: function(result){
-			$('.admin_group_refly').empty();
-			$('.admin_group_refly').append(result);
-			$('.admin_group_refly').fadeIn(0);
-		}
-	}); 
-});
-$('.prev').click(function(){
-	var group_no = ${detail2.group_no}-1;
-	$.ajax({
-		url:'/show/admin_group_refly',
-		data:{"group_no":group_no},
-		success: function(result){
-			$('.admin_group_refly').empty();
-			$('.admin_group_refly').append(result);
-			$('.admin_group_refly').fadeIn(0);
-		}
-	}); 
-});
 
-$('#btn_cancle').click(function(){
-	$('.admin_group_refly').empty();
-	$('.admin_group_refly').fadeOut(0);
-});
+
+
 
 </script>
 <BODY>
@@ -111,4 +83,35 @@ $('#btn_cancle').click(function(){
 		
 	</div>
 </BODY>
+<script type="text/javascript">
+$('.group_btn').click(function(){
+	$('.admin_member_refly').empty();
+	$('.admin_member_refly').fadeOut(0);
+});
+
+$('.next').click(function(){
+	var group_no = ${detail2.group_no}+1;
+	$.ajax({
+		url:'/show/admin_group_refly',
+		data:{"group_no":group_no},
+		success: function(result){
+			$('.admin_member_refly').empty();
+			$('.admin_member_refly').append(result);
+			$('.admin_member_refly').fadeIn(0);
+		}
+	}); 
+});
+$('.prev').click(function(){
+	var group_no = ${detail2.group_no}-1;
+	$.ajax({
+		url:'/show/admin_group_refly',
+		data:{"group_no":group_no},
+		success: function(result){
+			$('.admin_member_refly').empty();
+			$('.admin_member_refly').append(result);
+			$('.admin_member_refly').fadeIn(0);
+		}
+	}); 
+});
+</script>
 </HTML>

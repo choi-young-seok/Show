@@ -7,6 +7,7 @@
 		select a.group_address, a.group_name, b.member_name, a.group_no, a.group_ch
 		from show_group a, show_member b
 		where a.member_no = b.member_no
+		order by a.group_no asc
 	</select>
 	
 	<select id="detail2" resultType="kr.co.show.group.domain.GroupVO">
@@ -16,7 +17,8 @@
 		a.group_ch, a.group_delete_ch, a.group_files
 		from show_group a, show_member b
 		where a.group_no = #{group_no}
-			  and a.member_no = b.member_no 
+			  and a.member_no = b.member_no
+		order by a.group_no asc
 	</select>
 	<update id="update">
 		update show_group set group_ch=#{group_ch} 
@@ -32,29 +34,38 @@
 		select a.group_address, a.group_name, b.member_name, a.group_no, a.group_ch
 		from show_group a, show_member b
 		where a.member_no = b.member_no and a.group_category =#{group_category}
+		order by a.group_no asc
 	</select>
 	
 	<select id="chList" parameterType="String" resultType="kr.co.show.group.domain.GroupVO">
 		select a.group_address, a.group_name, b.member_name, a.group_no, a.group_ch
 		from show_group a, show_member b
 		where a.member_no = b.member_no and a.group_ch =#{group_ch}
+		order by a.group_no asc
 	</select>
 	
 	<select id="nchList" parameterType="String" resultType="kr.co.show.group.domain.GroupVO">
 		select a.group_address, a.group_name, b.member_name, a.group_no, a.group_ch
 		from show_group a, show_member b
 		where a.member_no = b.member_no and a.group_ch =#{group_ch}
+		order by a.group_no asc
 	</select>
 	
 	<select id="dchList" parameterType="String" resultType="kr.co.show.group.domain.GroupVO">
 		select a.group_address, a.group_name, b.member_name, a.group_no, a.group_ch
 		from show_group a, show_member b
 		where a.member_no = b.member_no and a.group_delete_ch =#{group_delete_ch}
+		order by a.group_no asc
 	</select>
 	
 	<select id="searchList" parameterType="String" resultType="kr.co.show.group.domain.GroupVO">
 		select a.group_address, a.group_name, b.member_name, a.group_no
 		from show_group a, show_member b
 		where a.member_no = b.member_no and a.group_name like '%'||#{group_name}||'%'
+		order by a.group_no asc		
+	</select>
+	
+	<select id="group_cou" resultType="int">
+		select max(group_no) from show_group
 	</select>
 </mapper>
