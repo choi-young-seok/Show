@@ -66,40 +66,40 @@ $('#btn_cancle').click(function(){
         </div>	
 		<div class="group_refly">
 			<div class="no">
-				<p class="no_text text_op text_size">업체번호</p>
+				<p class="text_size text_op no_text">업체번호</p>
 				<input type="text" id="show" disabled="disabled" value="&nbsp;&nbsp;${detail2.group_no }">
 			</div>
 			<div class="Gname">
-				<p class="Gname_text text_op text_size">업체명</p>
+				<p class="text_size text_op">업체명</p>
 				<input type="text" id="show" disabled="disabled" value="&nbsp;&nbsp;${detail2.group_name }">
 			</div>
 			<div class="category">
-				<p class="category_text text_op text_size">업종</p>
+				<p class="text_size text_op">업종</p>
 				<input type="text" id="show" disabled="disabled" value="&nbsp;&nbsp;${detail2.group_category }"></div>
 			</div>
 			<div class="Mname">
-				<p class="Mname_text text_op text_size">업주명</p>
+				<p class="text_size text_op">업주명</p>
 				<input type="text" id="show" disabled="disabled" value="&nbsp;&nbsp;${detail2.member_name }">
 			</div>
 			<div class="address">
-				<p class="address_text text_op text_size">주소</p>
+				<p class="text_size text_op">주소</p>
 				<input type="text" id="show" disabled="disabled" value="&nbsp;&nbsp;${detail2.group_address }">
 			</div>
-			<div class="phone">
-				<p class="phone_text text_op text_size">업체번호</p>
+			<div class="phone1">
+				<p class="text_size text_op">업체번호</p>
 				<input type="text" id="show" disabled="disabled" value="${detail2.group_phone }">  
 			</div>
 			<div class="ch">
-				<p class="ch_text text_op text_size">승인여부</p>
+				<p class="text_size text_op">승인여부</p>
 				<input type="text" id="show" disabled="disabled" value="${detail2.group_ch }">  
 			</div>
 			<div class="delch">
-				<p class="delch_text text_op text_size">탈퇴여부</p>
+				<p class="text_size text_op">탈퇴여부</p>
 				<input type="text" id="show" disabled="disabled" value="${detail2.group_delete_ch }">  
 			</div>
-			<div class="files">
-				<p class="files_text text_op text_size">로고</p>
-				<input type="text" id="show" value="${detail2.group_files }">  
+			<div class="logo">
+				<p class="text_size text_op">로고</p>
+				<img alt="zzz" src="resources/img/thumbnail${detail2.group_files }">
 			</div>
 			
 			
