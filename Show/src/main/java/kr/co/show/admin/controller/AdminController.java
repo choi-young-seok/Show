@@ -37,7 +37,7 @@ public class AdminController {
 	@RequestMapping("/admin_group_refly")
 	public String admin_group_refly(int group_no, Model model)throws Exception{
 		model.addAttribute("detail2", service.detail2(group_no));
-		model.addAttribute("cnt",service.groupList().size());
+		model.addAttribute("cnt",service.group_cou());
 		return "/admin/admin_group_refly";
 	}
 	 
