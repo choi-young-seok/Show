@@ -549,12 +549,12 @@ function ord_btn(){
 		day='1';
 		hour='1';
 		mi='1';
-	};
+	}
 	if(phone.length==0){
 		alert('핸드폰번호를 입력해 주세요.');
 	}else if(!reg_phone.test(phone)){
 		alert('핸드폰 유형에 맞지 않습니다.');
-	}else if(ask2 = "undefined"){
+	}else if(!$(':input[name=order_ch]:radio:checked').val()){
 		alert('주문 유형을 선택하여 주십시오');
 	}else if(cou.length==0){
 		alert('인원수를 입력해주세요')
@@ -622,19 +622,18 @@ function ord_btn(){
 				
 			}//success
 		});	
-	 
-	 function leadingZeros(n, digits) {
-		  var zero = '';
-		  n = n.toString();
-
-		  if (n.length < digits) {
-		    for (i = 0; i < digits - n.length; i++)
-		      zero += '0';
-		  }
-		  return zero + n;
-		}
 	}
-
 }
+
+function leadingZeros(n, digits) {
+	  var zero = '';
+	  n = n.toString();
+
+	  if (n.length < digits) {
+	    for (i = 0; i < digits - n.length; i++)
+	      zero += '0';
+	  }
+	  return zero + n;
+	}
 </script>
 </HTML>
