@@ -23,18 +23,18 @@ public class ListTest {
 		System.out.println(dao.mainList());
 	}
 	
-	@Test
+	//@Test
 	public void searchList(){
 		SearchDTO searchDTO = new SearchDTO();
 		searchDTO.setSearchKeyword("길동커피");
-		sdao.searchList(searchDTO);
+		System.out.println(sdao.searchList(searchDTO));
 	}
 	
-	//@Test
+	@Test
 	public void searchDetialList(){
 		SearchDTO searchDTO = new SearchDTO();
 		searchDTO.setSearchKeyword("스타벅스1");
 		searchDTO.setSearchKind("커피숍");
-		sdao.searchDetailList(searchDTO);
+		System.out.println(sdao.searchDetailList(searchDTO));
 	}
 }

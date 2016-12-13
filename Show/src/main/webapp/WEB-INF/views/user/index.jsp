@@ -34,7 +34,7 @@
 				i++;
 				list+=		"<a href='#detail'>"
 							+"<div class='chapter_"+i+" img_box'>"
-							+"<img src='resources/image/school_search.png'/>"
+							+"<img src='resources/img/thumbnail"+this.group_files+"'/>"
 							+"<p>"+this.group_name+"</p>"
 							+"<button class='order_btn' onclick='order("+this.group_no+")'>주문하기</button>"
 							+"</div>"
@@ -144,7 +144,7 @@
 						i++;
 						list+=		"<a href='#detail'>"
 									+"<div class='chapter_"+i+" img_box'>"
-									+"<img src='resources/image/school_search.png'/>"
+									+"<img src='resources/img/thumbnail"+this.group_files+"'/>"
 									+"<p>"+this.group_name+"</p>"
 									+"<button class='order_btn' onclick='order("+this.group_no+")'>주문하기</button>"
 									+"</div>"

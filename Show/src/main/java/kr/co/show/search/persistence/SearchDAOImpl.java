@@ -19,13 +19,13 @@ public class SearchDAOImpl implements SearchDAO {
 	
 	@Override
 	public List<GroupVO> searchList(SearchDTO searchDTO) {
-		// TODO Auto-generated method stub
+		System.out.println(sqlsession.selectList("search.searchList",searchDTO));
 		return sqlsession.selectList("search.searchList",searchDTO );
 	}
 
 	@Override
 	public List<GroupVO> searchDetailList(SearchDTO searchDTO) {
-		// TODO Auto-generated method stub
+		System.out.println(sqlsession.selectList("search.searchDetailList",searchDTO));
 		return sqlsession.selectList("search.searchDetailList",searchDTO);
 	}
 
